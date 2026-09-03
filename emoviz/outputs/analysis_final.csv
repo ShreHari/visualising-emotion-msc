@@ -1,0 +1,1013 @@
+id,text,prompt_emotion,image_emotion,emotional,face
+14,very excited to be here,joy,joy,1,1
+15,very excited to be here,joy,joy,1,1
+16,I am feeling excited today because I am a biomedical engineer working on an artificial heart project which I am very passionate about. I am in space working at a desk with a view of mars with a chai latte and a Pinterest worthy outfit on with my loving ragdoll cat named whiskers.,joy,joy,1,1
+17,I am volunteer at a gallery and I am talking to tons of guests about science and I am feeling really confident,joy,joy,1,1
+18,I am feeling emotional about working at the pet rescue centre,sadness,joy,1,1
+19,My fingers tingle with the excitement of all the potential possibilities of creation through the medium of the keyboard,joy,anger,1,1
+20,I am visiting [name] and having a wonderful time,joy,joy,1,1
+21,che bello essere qui! ma fa freddo,neutral,joy,0,0
+22,ok ENJOYING THE fESTIVAL OF THE mIND,joy,sadness,1,1
+23,fairly chilled enjoying the art but what is this ai thing i am a bit worried about ai doing everything and feelings are surely human rather than computer stuff??,joy,neutral,1,1
+24,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",neutral,joy,0,1
+25,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",neutral,joy,0,1
+26,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",neutral,joy,0,0
+27,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",neutral,joy,0,1
+28,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",neutral,joy,0,1
+29,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",neutral,joy,0,1
+30,I'm a little bit worried but very optimistic,fear,anger,1,1
+31,optimistic happy,joy,joy,1,1
+32,a little relieved but optimistic about the many changes of life style,joy,neutral,1,0
+33,happy about singing songs with my friends and dressing up as princess,joy,joy,1,1
+34,can you draw the look at this photograph meme that was viral a couple of years ago,surprise,neutral,1,0
+35,disney characters,neutral,joy,0,1
+36,mickey mouse,neutral,neutral,0,0
+37,moana,neutral,sadness,0,1
+38,feeling at peace living in a cottage baking bread with my pet dog sleeping by the fire place. Looking at a view of a river in spring time.,joy,joy,1,1
+39,"feeling at peace as a women, sitting by the fire place reading a novel with my pet cat on my lap while listening to jazz on my speaker and a candle on the coffee table",joy,sadness,1,1
+40,"having a pumpkin spice latte while watching a scary movie, fluffy blankets and its raining in autumn, in a cozy cabin with my cat and dog",joy,joy,1,1
+41,"chestnuts roasting on an open fire, jack frost snipping at your nose - by justin bieber",neutral,joy,0,0
+42,Noah Kahan,neutral,surprise,0,1
+43,ariana grande,neutral,neutral,0,1
+44,sam and cat nickelodeon,neutral,joy,0,1
+45,absolutely fantastic,joy,neutral,1,0
+46,my eyes were burning in the shower today|!!!!!!!,sadness,anger,1,0
+47,"Christmas market, pretty lights, snowing, magical, beanie, scarf, santa, reindeers, gloves, trees, hot chocolate, marshmallows",joy,joy,1,1
+48,Happy to be back in sheffield and out of the desert.,joy,joy,1,1
+49,Happy to be reunited with my partner in the UK,joy,joy,1,1
+50,inspired and overwhelmed in equal measure,joy,anger,1,0
+51,open to seeing culture,neutral,joy,0,1
+52,happy,joy,joy,1,1
+53,happy,joy,joy,1,1
+54,feeling good after an interesting lunch after meeting an old friend,joy,joy,1,1
+55,Had a very nice portoin of honey cake with krysia,joy,joy,1,1
+56,Exhausted after a long journey for work. Not looking forward to the increase in travel without my spouse.,sadness,sadness,1,1
+57,Joy and pride at the headteacher agreeing to delay my daughters admission into primary school,joy,joy,1,1
+58,How are you feeling?,surprise,joy,1,1
+59,"happy, creative, emotional",joy,joy,1,1
+60,"Somewhat under pressure, lots on, lots to do. Feeling strong, positive elements of risk. Looking forward ...",joy,fear,1,1
+61,happy now there is sun,joy,neutral,1,0
+62,I need to buy a new rose for the garden,joy,joy,1,1
+63,super tired,sadness,sadness,1,1
+64,intrigued optomistic tired hazy,joy,joy,1,1
+65,hopeful   slightly anxious    resigned     detached      appreciating the positives      persevering,joy,anger,1,1
+66,"hopeful, slightly anxious, resigned, detached, appreciating the positives, persevering, calmness,",joy,sadness,1,1
+67,i am a bit worried about the coming weather,fear,neutral,1,0
+68,how can a circle be squared,surprise,neutral,1,0
+69,square a circle with a pair of compasses and a straight edge,neutral,surprise,0,0
+70,feeling excited with the travel around the beautiful Yorkshire Dale and industrious city of Sheffield,joy,neutral,1,0
+71,feeling excited with the travel around the beautiful Yorkshire Dale and industrious city of Sheffield,joy,joy,1,1
+72,curious,surprise,joy,1,0
+73,I don't know,surprise,neutral,1,0
+74,very happy,joy,joy,1,1
+75,I am excited by the Festival of Light,joy,joy,1,1
+76,i am feeling great i had a really tasty pie last night,joy,neutral,1,0
+77,3 year old girl happy with crabs and she's good,joy,joy,1,1
+78,Manifesting the house we all belong in,neutral,neutral,0,0
+79,sunny day with friends,joy,joy,1,1
+80,joyful fridays,joy,surprise,1,1
+81,jester juggling eggs,neutral,neutral,0,0
+82,bus,neutral,surprise,0,0
+83,bus,neutral,surprise,0,0
+84,bus,neutral,joy,0,0
+85,i am pissed off as it is raining,anger,anger,1,1
+86,i want to be free,joy,surprise,1,0
+87,grateful,joy,neutral,1,0
+88,compassionate,joy,anger,1,1
+89,grateful,joy,neutral,1,1
+90,hungover,neutral,sadness,0,1
+91,mixed emotions. Sad my daughter just got made redundant. Happy to be here,joy,joy,1,1
+92,Ominous,neutral,surprise,0,0
+93,celebratory anguish,sadness,anger,1,1
+94,Contemplative positivity,neutral,joy,0,1
+95,Collectively conscious,neutral,joy,0,1
+96,happy,joy,neutral,1,0
+97,Angry sad depressed trapped in a room and cant escape and my tormentors are watching my every step and time is running out,sadness,sadness,1,1
+98,moonshine,neutral,surprise,0,0
+99,i ;,neutral,neutral,0,0
+100,i like football,joy,neutral,1,1
+101,i like football,joy,neutral,1,1
+102,stressed tired,sadness,sadness,1,0
+103,slightly damp,neutral,neutral,0,0
+104,happy man playing football about to score the winner,joy,joy,1,1
+105,happy and good because the week is over,joy,joy,1,1
+106,joyous times,joy,joy,1,1
+107,Free from the stress of a bad situation and hopeful for the future.,joy,neutral,1,1
+108,happy and ginger,joy,neutral,1,0
+109,"neutral, relaxed, exploring stuff ,curious, peaceful",surprise,joy,1,0
+110,human not limitless,neutral,anger,0,1
+111,i am in a lost mood of joy  and  thoughtfull,sadness,joy,1,1
+112,show me with Jesus in a happy mood,joy,surprise,1,1
+113,how did Mohammad looks like,surprise,sadness,1,1
+114,today ive been to a park and it's a bit chilly... but its very relaxing experience,joy,joy,1,1
+115,I am a man with no hair,neutral,sadness,0,1
+116,wacky image,joy,neutral,1,0
+117,calm,neutral,joy,0,0
+118,i am feeling excited for the future but sometimes dwell on the past,joy,joy,1,1
+119,a woman who is curious and excited,surprise,joy,1,1
+120,Ok,joy,surprise,1,0
+121,Ok,joy,joy,1,1
+122,"my boyfriend and i are feeling refreshed from our adventurous, restful and cultural trip to Morocco, filled with memories of camels, sea, mountains, tagine and mint tea",joy,joy,1,1
+123,I'm excited to see my friend's work.,joy,neutral,1,0
+124,hungry,neutral,joy,0,1
+125,confused,surprise,surprise,1,1
+126,i am deep in thought.,neutral,sadness,0,1
+127,conflicted,surprise,neutral,1,0
+128,robotic,neutral,surprise,0,0
+129,chilled out,neutral,joy,0,1
+130,my knees crack when i walk upstairs,sadness,sadness,1,1
+131,indecisive,anger,neutral,1,1
+132,I feel bored,sadness,neutral,1,0
+133,excited to find out more about crystals,joy,joy,1,0
+134,hogwarts is cool,joy,joy,1,0
+135,scared,fear,surprise,1,1
+136,like dancing,joy,joy,1,1
+137,i am excited,joy,anger,1,0
+138,"happy, hopeful, joyful",joy,joy,1,1
+139,sheffield,neutral,surprise,0,0
+140,Happy,joy,joy,1,0
+141,"tired, hungry",neutral,surprise,0,0
+142,warm and sunny,neutral,neutral,0,0
+143,exhausted and stressed,sadness,sadness,1,1
+144,jovial,neutral,joy,0,1
+145,hungry,neutral,neutral,0,0
+146,I am happy because manchester united is winning,joy,joy,1,1
+147,im happy because im PLAYING FOOTBALL TOMORROW AT MY HOME GROUNDD,joy,joy,1,1
+148,London,neutral,neutral,0,0
+149,carnival,neutral,joy,0,1
+150,scorpion and frog,neutral,surprise,0,0
+151,machinery robots weapons,neutral,joy,0,0
+152,content,neutral,neutral,0,0
+153,peaceful,joy,joy,1,0
+154,crabby,neutral,anger,0,0
+155,Greedy,neutral,joy,0,1
+156,tired,sadness,anger,1,1
+157,motive,neutral,anger,0,0
+158,bored,sadness,sadness,1,1
+159,joyful,joy,joy,1,1
+160,like an oragami flower that has been unfolded,neutral,surprise,0,0
+161,feeling lost,sadness,joy,1,1
+162,feeling excited about my new life,joy,surprise,1,0
+163,Angry,anger,joy,1,0
+164,ecstatic,neutral,surprise,0,0
+165,bemused intrigued,neutral,neutral,0,0
+166,"creatively satisfied, quite tired, but with the energy of anticipation, sustaining me",joy,sadness,1,1
+167,delighted but tired,neutral,joy,0,1
+168,Excited,joy,joy,1,1
+169,"hungry, interested",neutral,surprise,0,0
+170,unhungry,neutral,joy,0,1
+171,sad happy hungry,sadness,joy,1,1
+172,anticipation,neutral,anger,0,1
+173,happy,joy,joy,1,0
+174,Morose,neutral,sadness,0,1
+175,happy,joy,joy,1,1
+176,inspired,neutral,joy,0,1
+177,Happy,joy,neutral,1,0
+178,whimsical,neutral,joy,0,1
+179,hungover,neutral,sadness,0,1
+180,"curious, sleepy",surprise,surprise,1,0
+181,over-caffeinated,neutral,surprise,0,1
+182,hungover,neutral,joy,0,1
+183,not bad,neutral,neutral,0,0
+184,optimistic tired and achy,sadness,joy,1,1
+185,beautiful girl from derby,joy,sadness,1,1
+186,beautiful girl from derby,joy,joy,1,1
+187,calm,neutral,neutral,0,0
+188,adventurous,neutral,sadness,0,1
+189,"exhausted, conflicted",surprise,neutral,1,1
+190,interested happy,joy,joy,1,1
+191,ok,neutral,joy,0,1
+192,happy and tired,joy,anger,1,1
+193,tired and i want to go home,joy,sadness,1,1
+194,fine,neutral,joy,0,0
+195,anxious,fear,sadness,1,1
+196,bonkers,neutral,joy,0,0
+197,amazed,surprise,neutral,1,1
+198,amazed,surprise,surprise,1,1
+199,curious,surprise,joy,1,1
+200,life is good with anything in it,joy,joy,1,1
+201,tired but happy,joy,joy,1,1
+202,my tummy hurts,sadness,anger,1,1
+203,Curious,surprise,anger,1,0
+204,fantastic,joy,neutral,1,0
+205,like a small Mexican Chihuahua on acid,neutral,joy,0,0
+206,Happy but missing deap friendship,joy,neutral,1,1
+207,sono preoccupato ma fiducioso,neutral,neutral,0,0
+208,sono ansiosa,neutral,neutral,0,1
+209,sono piacevolmente colpito da questo sistema,neutral,joy,0,1
+210,Nourished and Scottish,neutral,joy,0,0
+211,I am a happy 7 year old girl with a spiderman crazy 3 year old sister,joy,joy,1,1
+212,hopeful,joy,joy,1,1
+213,hungry,neutral,neutral,0,0
+214,happy tired sleepy hungry craving caffein,joy,anger,1,1
+215,motherhood,neutral,neutral,0,1
+216,I am in pain everyday and since childhood and I've had enough of it,sadness,anger,1,1
+217,I am in pain everyday and since childhood and I've had enough of it,sadness,sadness,1,1
+218,"I'm a sweetie lovely, chocoholic that loves spiderman and power rangers",joy,joy,1,1
+219,"glitter, princess unicorn girl that loves butterflies",joy,joy,1,1
+220,"call of duty dad team,",neutral,anger,0,1
+221,"festival of the mind in Sheffield, UK",neutral,joy,0,1
+222,free from daily responsibilities,neutral,surprise,0,1
+223,confused,surprise,sadness,1,1
+224,confused,surprise,joy,1,1
+225,happy,joy,neutral,1,0
+226,fishtastic,joy,joy,1,0
+227,neugierig,neutral,neutral,0,0
+228,I feel a bit tired but am very happy that I have settled in a new city.,joy,joy,1,1
+229,like a damp sock wondering if I'll be dry enough to be worn next weekend.,surprise,sadness,1,0
+230,i have a happy heart,joy,neutral,1,0
+231,i have a happy heart,joy,neutral,1,0
+232,i have a happy heart,joy,neutral,1,0
+233,being deeply lost in the woods but not particularly fussed about it,neutral,sadness,0,1
+234,"grateful, hungover and cute",joy,joy,1,1
+235,tired,sadness,sadness,1,0
+236,flower,neutral,neutral,0,0
+237,I'm mostly quite relaxed but anticipating another busy week ahead and not sure there's ever enough weekend.,joy,joy,1,0
+238,sad,sadness,sadness,1,1
+239,fine,neutral,joy,0,0
+240,girl dinosaur,neutral,neutral,0,0
+241,bonnie,neutral,sadness,0,1
+242,love,joy,sadness,1,0
+243,Cheated,neutral,joy,0,1
+244,Spiritually awakened,neutral,neutral,0,1
+245,a large assortment of microbial species having a bacchanalian tryst of hieronymous bosch proportions,neutral,joy,0,1
+246,grumpy old man,neutral,anger,0,1
+247,empty,neutral,sadness,0,1
+248,hungry,neutral,surprise,0,0
+249,good,joy,neutral,1,0
+250,curious,surprise,neutral,1,0
+251,elated,neutral,joy,0,1
+252,good,joy,joy,1,0
+253,joyous,joy,joy,1,1
+254,joyous,joy,joy,1,1
+255,happy but nervous,joy,joy,1,1
+256,hopeful,joy,joy,1,1
+257,disappointed,sadness,sadness,1,1
+258,pigs,neutral,joy,0,0
+259,pigs,neutral,surprise,0,0
+260,pigs,neutral,surprise,0,0
+261,pigs,neutral,anger,0,0
+262,pigs,neutral,anger,0,0
+263,pigs,neutral,surprise,0,0
+264,pigs,neutral,joy,0,0
+265,pigs,neutral,joy,0,0
+266,Happy and full of good food from cambridge collective,joy,joy,1,1
+267,happy and full of good food from cambridge collective,joy,joy,1,0
+268,"excited, a bit ill and dull; and anxious about the future moving to a new city",joy,sadness,1,1
+269,good but a bit anxious following the final exam.,fear,sadness,1,1
+270,i am happy because we are going to get gregs after this,joy,joy,1,1
+271,tired hungry angry,anger,anger,1,1
+272,"very excited and ready to move house, feeling slightly tired, yet calm after having a cup of warm green tea and a panini in the tropical garden, my mind feels ready to explore a wealth of visual arts and scientific works in the gallery, a rainy day that i am making the most of, i feel grateful, sublime content",joy,joy,1,1
+273,"I am tried, but excited to spend the afternoon looking at exhibitions, and hopefully get to have some coffee and cake after this",joy,sadness,1,1
+274,i am feeling quite  tired but i had lots of good fun playing with a robot dog and am looking forward to playing some pokemon later,joy,joy,1,1
+275,nostalgic over a reality you never got to experience,neutral,neutral,0,0
+276,nostalgic over a reality you never got to experience,neutral,joy,0,1
+277,homesick,neutral,sadness,0,1
+278,Whirlwind of emotions in greenery  .  On a wet sunny day. Stuck in a world of love and war. Following a broken crying melting heart with many temptations.,joy,neutral,1,0
+279,with eyes closed let flow the ancient rhythms of time feel the pulse see the pattern the reason and rhyme when all of our senses tune into the frequency of existence,neutral,sadness,0,1
+280,avengers in the milky way fighting king of everything,neutral,anger,0,1
+281,football chocolate and lollies,neutral,joy,0,0
+282,godzilla and king kong playing football between time and space,neutral,anger,0,1
+283,unicorn on a rainbow,neutral,neutral,0,0
+284,air bender bending air,neutral,neutral,0,1
+285,dragons vs unicons,neutral,anger,0,0
+286,sonic and tails flying to the mountains,neutral,surprise,0,0
+287,happy mixed emotions,joy,sadness,1,0
+288,CRAZY,neutral,neutral,0,0
+289,CRAZY,neutral,anger,0,1
+290,crazy happy sad,joy,surprise,1,0
+291,what is the future of AI?,surprise,joy,1,1
+292,WHAT IS THE fUTURE OF ai,surprise,neutral,1,1
+293,ai are the dominant intelligent life form on earth,joy,sadness,1,1
+294,"I am tired but curious, sad but keen",surprise,surprise,1,1
+295,surprisingly energetic grateful and happy,joy,anger,1,1
+296,inquisitive and alwasy inspired a bit home sick,neutral,sadness,0,1
+297,I am full of cold but soldiering on,neutral,anger,0,1
+298,dreaming of a mountain view,joy,neutral,1,0
+299,millenium gallery on an island on a lake,neutral,neutral,0,0
+300,missing my son. 30 long years,sadness,sadness,1,1
+301,i love autumn colours the smells and the peace,joy,joy,1,0
+302,"Parkinson's stops me getting my sleep at night, but I fall asleep during the daytime every time I SIT DOWN.",neutral,sadness,0,1
+303,PARKINSON'S,neutral,surprise,0,0
+304,ISN'T IT AMAZING HOW MUCH PARKINSON'S THERAPY HAS IMPROVED OVER THE YEARS,joy,joy,1,1
+305,birds eye view of sheffield from space,neutral,joy,0,0
+306,birds eye view of sheffield from space,neutral,joy,0,0
+307,birds eye view of sheffield from space,neutral,surprise,0,0
+308,birds eye view of sheffield from space,neutral,surprise,0,0
+309,geometric map of sheffield,neutral,neutral,0,0
+310,the feeling of walking through a city,neutral,joy,0,1
+311,sonder,neutral,joy,0,1
+312,sonder city,neutral,neutral,0,0
+313,happy and special,joy,joy,1,1
+314,younger generation not living in the real world,neutral,joy,0,1
+315,do you think area 51 is real?,surprise,joy,1,0
+316,happy because travel to here,joy,joy,1,1
+317,thrillled to be in Sheffield today,neutral,neutral,0,0
+318,"what's it like to live in guildford, surrey",surprise,joy,1,1
+319,is retirement good,joy,joy,1,1
+320,is retirement good,joy,joy,1,1
+321,how's dr who feeling today?,surprise,sadness,1,1
+322,excited about seeing Ryan Adams tonight,joy,joy,1,1
+323,relaxed but with menopausal hot flashes,neutral,joy,0,1
+324,relaxed but with menopausal hot flashes,neutral,joy,0,1
+325,relaxed but with menopausal hot flashes,neutral,sadness,0,1
+326,relaxed but with menopausal hot flashes,neutral,sadness,0,1
+327,city building,neutral,neutral,0,0
+328,city building,neutral,neutral,0,0
+329,city building,neutral,neutral,0,0
+330,city building,neutral,joy,0,0
+331,city building,neutral,joy,0,0
+332,city building,neutral,neutral,0,0
+333,the value of ai in ultrasound for medicine,neutral,surprise,0,0
+334,the value of ai in ultrasound for medicine,neutral,joy,0,1
+335,Do you think AI will help medical?,surprise,joy,1,1
+336,I am a doctor. I want to use MRI in surgical,joy,joy,1,1
+337,invigorated,joy,surprise,1,1
+338,i feel invigorated today with all the sunshine and I've found some interesting family history research,joy,joy,1,0
+339,"today feels like the best day of my uni time, at the start of day , it was not so organized and i lost my way but after 2 hours of walk and back to my own area which is relatively a new area for me , being an immigrant and a student in a whole new place. there are a number of things that are quite overwhelming and jubilent at the same time. gathering all my thoughts in a sentence, i waould say, it the best decision of my life so fat :)",joy,joy,1,1
+340,enjoying playing dominoes with children's faces expressing different emotions in a museum in Oslo,joy,joy,1,1
+341,children playing dominoes some happy some sad or concerned,joy,joy,1,1
+342,"Today I am feeling curious. I want to look carefully at things and find out more in an art gallery. Some of the sculptures make me feel afraid, some of the paintings make me smile.",surprise,sadness,1,1
+343,worried wasting time busy distracted,sadness,joy,1,1
+344,rewired spring dream river sky,neutral,joy,0,0
+345,the complexities of understanding our inner feelings in relation to experiencing situations beyond our interpretation but apparent to others that we are yet to understand,neutral,neutral,0,0
+346,"curious, pained, frustrated, happy,",surprise,anger,1,1
+347,"curious, rushed, excited, anxious",joy,surprise,1,1
+348,"happy, excited, blessed, funny",joy,joy,1,1
+349,"curious, excited, frustrated, happy, agitator",joy,anger,1,1
+350,a pair of pigeons wearing wedding clothes getting married,neutral,anger,0,0
+351,"happy research scientist, sceptic, atheist, non material, socially altruistic, male",joy,joy,1,1
+352,sexy organic food eating vegan rambler,joy,joy,1,1
+353,not tax different meeting people,neutral,joy,0,1
+354,happy excited nervous,joy,joy,1,1
+355,feeling tired after 5 days of festival of the mind,sadness,sadness,1,1
+356,Thirsty,neutral,joy,0,1
+357,Intrigued,surprise,surprise,1,0
+358,"happy, relaxed, open minded",joy,joy,1,1
+359,"happy, relaxed, open minded",joy,neutral,1,0
+360,"happy, relaxed, open minded",joy,joy,1,1
+361,"happy, relaxed, open minded",joy,joy,1,1
+362,"happy, relaxed, open minded",joy,joy,1,1
+363,"happy, relaxed, open minded, refreshed",joy,surprise,1,0
+364,very happy about the wu tang series,joy,joy,1,1
+365,mad,neutral,anger,0,1
+366,happy,joy,joy,1,0
+367,telecaster,neutral,neutral,0,0
+368,"Assuming that by 'feeling' you mean, acquiring sensory input? Then I am feeling via a complex interplay of biological transducers and neuronal signal processing.",neutral,joy,0,0
+369,cheerful,joy,surprise,1,0
+370,Adventurous,neutral,neutral,0,1
+371,hungry henry,neutral,joy,0,0
+372,colourful,neutral,sadness,0,1
+373,cold happy,joy,neutral,1,0
+374,content,neutral,neutral,0,0
+375,picnic,neutral,joy,0,0
+376,"Hungry, tired, my body aches but i am feeling accepting of that. i am feeling open and curious",surprise,sadness,1,1
+377,"JESUS AND I HAVING TEA  WITH JACKETS ON, ISDE A PUB",neutral,sadness,0,1
+378,JESUS STANDING WITH ME IN  A BOAT,neutral,joy,0,1
+379,Hopeful,neutral,surprise,0,0
+380,Jealous,neutral,sadness,0,0
+381,impatient as I am waiting for an employer to confirm my new contract,neutral,sadness,0,1
+382,more understanding and insightful for those that I would not think I connect with having just watched 'A Star is Born' last night and realising we can all go through similar emotions and experiences...great film and again gives me hope about finding love in your life,joy,joy,1,1
+383,curios,neutral,neutral,0,1
+384,curios,neutral,neutral,0,0
+385,curious,surprise,neutral,1,0
+386,curious,surprise,joy,1,0
+387,i am feeling bit under the weather,sadness,sadness,1,1
+388,its raining cats and dogs,neutral,anger,0,0
+389,life is like a box of choclates,neutral,joy,0,0
+390,bland,neutral,joy,0,0
+391,bland,neutral,joy,0,0
+392,bland,neutral,neutral,0,0
+393,bland,neutral,neutral,0,0
+394,bland,neutral,neutral,0,0
+395,in ;ove,neutral,sadness,0,0
+396,full of despair,sadness,joy,1,0
+397,hopeful,joy,joy,1,1
+398,stuffed full with pancakes but content,neutral,neutral,0,0
+399,a very happy border collie,joy,joy,1,0
+400,a very happy border collie,joy,surprise,1,0
+401,a very happy border collie,joy,surprise,1,0
+402,a very happy border collie,joy,surprise,1,0
+403,I am fine but I could make it with more sunshine. How are you? Is the weather fine in Sheffield?,joy,neutral,1,0
+404,happy young children in woodland garden,joy,joy,1,1
+405,"nostalgic, inspired and a bit hungry",neutral,joy,0,1
+406,"a little jittery, hints of anxiety but overall calm and prepared",joy,sadness,1,1
+407,"isolation, void, questions, expectations, high alert, unsettled, curiosity, determination,",surprise,joy,1,1
+408,ocean,neutral,neutral,0,0
+409,biophillic design,neutral,neutral,0,0
+410,"unconditional love, fate, communication, openness, travel, future, caring, grounded, support, guidance, partner for life",neutral,joy,0,1
+411,"happiness, beauty, fun, lively, love, young, minimalism, rainforest",joy,joy,1,1
+412,"holiday, italy, france, love, couple, sunshine, happiness, together",joy,joy,1,1
+413,a goddess lost in a forest,neutral,neutral,0,1
+414,mellow,neutral,neutral,0,1
+415,a goddess lost in a forest,neutral,neutral,0,1
+416,a teenage girl cheerleading at an ice hockey match,neutral,joy,0,1
+417,4 pints of milk spilled at lidl,neutral,joy,0,0
+418,"nihilistic London, like 1984 Orwell",neutral,joy,0,1
+419,happy and positive,joy,joy,1,1
+420,walking pilgrimage woman,neutral,joy,0,1
+421,intrigued,surprise,joy,1,0
+422,a fine line mountain range,neutral,neutral,0,0
+423,mountain scene with lake and forest,neutral,neutral,0,0
+424,dog playing by lake,neutral,neutral,0,0
+425,scared pumpkin fearful of being carved,fear,anger,1,0
+426,anticipation,neutral,sadness,0,1
+427,anticipation,neutral,joy,0,1
+428,horse committing a crime,neutral,neutral,0,0
+429,amazement,neutral,joy,0,1
+430,angry,anger,anger,1,0
+431,mindful,neutral,neutral,0,1
+432,guinea pig knitting a jumper,neutral,surprise,0,0
+433,a possum wearing a new pair of boots,neutral,neutral,0,0
+434,a possum wearing a new pair of boots,neutral,anger,0,0
+435,a possum wearing a new pair of boots,neutral,surprise,0,0
+436,an impressed baby in a bearsuit,joy,surprise,1,0
+437,the weight of the world,neutral,surprise,0,0
+438,hopeful of a lottery win,joy,joy,1,1
+439,spider penguin,neutral,anger,0,0
+440,sad abraham lincoln riding a camel through the woods,sadness,anger,1,1
+441,happy jesus riding a camel through the woods,joy,joy,1,1
+442,gym beer,neutral,neutral,0,0
+443,paddleboard girl wine,neutral,neutral,0,1
+444,campervan festival cowboy boots,neutral,joy,0,1
+445,excited for a gregg's,joy,joy,1,1
+446,tired but sense of achievement for goodmornings work,sadness,joy,1,1
+447,Happy to visit Sheffield and get my new phone today,joy,neutral,1,0
+448,Don't want to work tomorrow,anger,surprise,1,0
+449,i miss japan,sadness,surprise,1,0
+450,futuristic,neutral,joy,0,0
+451,futuristic,neutral,neutral,0,0
+452,futuristic,neutral,neutral,0,0
+453,a person called [name],neutral,sadness,0,1
+454,a sad pumpkin,sadness,sadness,1,0
+455,"expansive, thankful, wistful, tired, longing, inspired, hopeful",joy,neutral,1,1
+456,happy,joy,joy,1,1
+457,exhausted,sadness,joy,1,1
+458,tired and my body is achey,sadness,anger,1,1
+459,"happy,content,tired",joy,joy,1,1
+460,sick and tired,sadness,anger,1,1
+461,gnarly,neutral,neutral,0,0
+462,nonchalant,neutral,joy,0,1
+463,woolley mammoth with a cheetah's head,neutral,anger,0,0
+464,untouchable keyboard,neutral,sadness,0,1
+465,a mirror with something in the reflection,neutral,neutral,0,0
+466,Nissan GTR Skyline R33,neutral,neutral,0,0
+467,Lamborghini Essenza SCV 12,neutral,neutral,0,0
+468,nissan cube,neutral,neutral,0,0
+469,vector,neutral,joy,0,1
+470,koenigsegg One1,neutral,neutral,0,0
+471,a diagram of an inline six 2jz engine,neutral,joy,0,0
+472,david walliams,neutral,joy,0,1
+473,a machine that uses ai to make an image and draw it with a machine with pen on the end,neutral,sadness,0,1
+474,paper,neutral,surprise,0,0
+475,what does god look like,neutral,neutral,0,1
+476,skibidi toilet shooting cameraman,neutral,joy,0,1
+477,ambivalent,neutral,anger,0,1
+478,ambivalent,neutral,sadness,0,0
+479,vaguely blowing,neutral,surprise,0,0
+480,vaguely blowing,neutral,anger,0,0
+481,Happy,joy,joy,1,0
+482,Disgruntled,sadness,anger,1,1
+483,Disgruntled,sadness,anger,1,1
+484,Disgruntled,sadness,anger,1,0
+485,Curious,surprise,neutral,1,0
+486,Curious,surprise,neutral,1,0
+487,Curious,surprise,neutral,1,0
+488,Curious,surprise,surprise,1,0
+489,ecited,neutral,sadness,0,1
+490,I don't know!,surprise,joy,1,1
+491,alone,neutral,joy,0,0
+492,anxious,fear,sadness,1,0
+493,raining golg man,neutral,neutral,0,0
+494,raining golf man,neutral,joy,0,1
+495,raining golf man,neutral,joy,0,1
+496,loved,joy,surprise,1,0
+497,content,neutral,neutral,0,0
+498,chippy chips,neutral,joy,0,0
+499,time machine,neutral,neutral,0,0
+500,aprehensive about medical results,joy,sadness,1,1
+501,excited about a camping weekend,joy,joy,1,0
+502,Emotional about my baby grandchildren,sadness,joy,1,1
+503,fascinated by the exhibition in the melinium galiry,joy,joy,1,0
+504,"grateful for the day, happy",joy,surprise,1,0
+505,tired annoyed resentfull frustrated gratful alive overwhelmed clumsy at peace,anger,anger,1,0
+506,discombobulation inspired,neutral,anger,0,0
+507,rushed,neutral,joy,0,0
+508,modern country music,neutral,joy,0,1
+509,nashville,neutral,neutral,0,0
+510,nashville,neutral,neutral,0,0
+511,nashville,neutral,neutral,0,0
+512,nashville,neutral,joy,0,0
+513,nashville,neutral,joy,0,1
+514,nashville,neutral,neutral,0,0
+515,country music,neutral,neutral,0,0
+516,modern country music,neutral,joy,0,0
+517,Happy,joy,neutral,1,0
+518,Happy,joy,joy,1,0
+519,Happy,joy,joy,1,1
+520,Happy,joy,joy,1,1
+521,lively,neutral,joy,0,0
+522,really upset about the terrible weather,sadness,anger,1,0
+523,morning sunshine happy place camping,joy,joy,1,0
+524,hungry homeless stressed,sadness,sadness,1,1
+525,injured nervous,neutral,sadness,0,1
+526,"curious, disappointed, not sure, why this, trees and nature , hate shopping, worried about the car and need to feed my cat.",surprise,joy,1,1
+527,grandchildren happy birthday sheffield cake presents,joy,joy,1,1
+528,sheffield museum gallery train tea day out rainy happy day off,joy,joy,1,1
+529,sheffield museum gallery train tea day out rainy happy day off,joy,joy,1,1
+530,sheffield museum gallery train tea day out rainy happy day off,joy,joy,1,1
+531,sheffield museum gallery train tea day out rainy happy day off,joy,joy,1,1
+532,how is it bestto look after someone with Alzheimer#s as they descend into oblivion and how do you support thosse who are caring?,surprise,joy,1,1
+533,"thwarted, unable to pursue activities I love",sadness,anger,1,1
+534,"Going through a period of grief and then bad health. But now feeling freeer and happier as I am able to start a new chapter in life and pursue the activities I love such as walking, scrambling and outdoor wild swimming.",joy,joy,1,1
+535,"I am feeling happy today - I have met up with my mum who i haven't seen for a few weeks, i have a rubbish cold at the moment and i was worried i wouldn't be well enough to meet her, but i am so pleased i have seen her.  i am feeling positive about work tomorrow and have a nice weekend planned with my family, it is my daughters birthday and i am looking forward to her having a good time.  there have been challneges with work recently and the future is uncertain, but i have been able to shoose to remain positive about the unknown.",joy,joy,1,1
+536,the mind is exploding with wonderful research ideas,joy,neutral,1,1
+537,Messi winning the world cup,neutral,joy,0,1
+538,"in the bottom of the pit, in the darkest moments, you need to look up at the sky and reach for the light, grab and not let it go",joy,joy,1,1
+539,I'm at a time of endings and new beginnings. I have finished my degree and m starting a new job. I feel excited but nervous for the future. I am looking forward to what my life will be.,joy,joy,1,1
+540,i feel like i am going into a field where i am not needed anymore. The lost of the human soul can be seen in the work based off capitalist need and want for progress.,sadness,sadness,1,1
+541,I am aging and need to think of transition into a a new life style where I feel fulfilled and useful to society.I am scared of illness and loosing independence,fear,sadness,1,1
+542,Could be better but ive had worse days,sadness,surprise,1,0
+543,slightly anxious,fear,sadness,1,1
+544,excited,joy,neutral,1,0
+545,sad,sadness,sadness,1,1
+546,i want to see the sea,joy,neutral,1,1
+547,confused,surprise,anger,1,1
+548,i feel like ateddy bear,neutral,surprise,0,0
+549,i am an anarchist,neutral,neutral,0,0
+550,pretty tired but generally pretty groovy,joy,joy,1,1
+551,feel happy to be exploring,joy,joy,1,1
+552,very happy,joy,joy,1,0
+553,I am feeling very thankful for the birth of my !st grandchild,joy,joy,1,1
+554,excited but a little nervous,joy,neutral,1,0
+555,I feel intrigued by the prospect of how the computer will interpret a request for emotion based on running in the rain,surprise,joy,1,1
+556,I'm feeling a little bit peckish and looking forward to having a meal this evening,joy,surprise,1,0
+557,I'm feeling a bit peckish,neutral,surprise,0,0
+558,I'm feeling a bit peckish,neutral,joy,0,1
+559,I'm feeling confused,surprise,neutral,1,0
+560,moody,neutral,joy,0,0
+561,caffinated,neutral,surprise,0,0
+562,slight pain on my way,sadness,neutral,1,0
+563,Happy that my gran is feeling better and was happy to see us,joy,joy,1,1
+564,content and relief from constant routine,neutral,joy,0,1
+565,sad for my grandson who refuses to go to school,sadness,sadness,1,1
+566,it's a sin,anger,neutral,1,0
+567,bohemian rhapsody,neutral,joy,0,0
+568,"Really busy, not enough time to do everything and feeling stressed",sadness,joy,1,1
+569,"I'm a very busy women stressed, running a hectic life with no time to relax or enjoy the things I love to do.",joy,surprise,1,1
+570,torn between homesick and reaching forward for new possibilities,sadness,joy,1,1
+571,torn between homesick and reaching forward for new possibilities,sadness,sadness,1,1
+572,torn between homesick and reaching forward for new possibilities,sadness,anger,1,0
+573,torn between homesick and reaching forward for new possibilities,sadness,neutral,1,0
+574,torn between homesick and reaching forward for new possibilities,sadness,joy,1,1
+575,torn between homesick and reaching forward for new possibilities,sadness,neutral,1,0
+576,torn between homesick and reaching forward for new possibilities,sadness,joy,1,1
+577,I am a woman torn between homesickness for the familiar and reaching for new possibilities and experiences,sadness,joy,1,1
+578,"curious, achy, tired, enjoying",joy,joy,1,1
+579,"optimistic, hungry, excited",joy,joy,1,1
+580,slightly tired,neutral,neutral,0,0
+581,intrigued,surprise,joy,1,1
+582,too much to do and lacking the energy to do it.,sadness,joy,1,1
+583,The house needs tidying the allotment needs tending. I go for a walk in the woods instead,neutral,sadness,0,1
+584,I am doubting my choices,surprise,surprise,1,0
+585,my emotions are fluctuating between excited and doubtful through much fuzzy indecision,joy,joy,1,0
+586,my emotions are fluctuating by the minute,neutral,joy,0,0
+587,I am a woman who is uncertain about the future,neutral,sadness,0,1
+588,Curious about life in general,surprise,surprise,1,0
+589,Inspired by academic brilliance,joy,neutral,1,0
+590,Child-like but not childish,neutral,joy,0,1
+591,full of nice food,joy,joy,1,0
+592,full of nice food,joy,joy,1,0
+593,romantic but damp.,neutral,neutral,0,1
+594,excited and happy,joy,surprise,1,1
+595,"tired, hungry and curious",surprise,surprise,1,1
+596,dead,neutral,neutral,0,1
+597,wellness,joy,neutral,1,1
+598,happy,joy,joy,1,0
+599,happy,joy,surprise,1,0
+600,enjoying,joy,joy,1,1
+601,enjoying,joy,joy,1,0
+602,I feel peaceful,joy,joy,1,0
+603,inspired by collaboration and comforted by all of the wonderful work being done by these curious minds. Hopeful for a better and more nurturing world for all. Mushroom Manifesto.,joy,joy,1,1
+604,why am I looking and listening to all the woke crap at The Festival of the Mind 2024?,surprise,joy,1,1
+605,Happy,joy,joy,1,0
+606,Happy,joy,joy,1,0
+607,"Very happy, I'm working at a new venue today so it's very exciting",joy,joy,1,1
+608,excited,joy,surprise,1,1
+609,excited,joy,joy,1,1
+610,optimistic,neutral,neutral,0,0
+611,tired over loaded lacking focus,sadness,sadness,1,1
+612,tired over loaded lacking focus,sadness,surprise,1,0
+613,tired over loaded lacking focus,sadness,joy,1,1
+614,Happy,joy,joy,1,1
+615,Happy,joy,joy,1,1
+616,Happy,joy,joy,1,1
+617,Happy,joy,joy,1,1
+618,Happy,joy,neutral,1,0
+619,Happy,joy,joy,1,1
+620,Happy,joy,joy,1,0
+621,Happy,joy,joy,1,0
+622,Happy,joy,neutral,1,0
+623,Happy,joy,joy,1,0
+624,Happy,joy,joy,1,0
+625,tired of work I want to drink beer and play golf,joy,joy,1,1
+626,i am confused,surprise,neutral,1,0
+627,I am confused,surprise,joy,1,0
+628,playing golf with cola,neutral,joy,0,1
+629,good,joy,surprise,1,0
+630,mountain map walking rain flowers lichen,neutral,joy,0,1
+631,golf fairway cola,neutral,neutral,0,0
+632,happy,joy,joy,1,1
+633,happy tardis star trek excited,joy,joy,1,1
+634,joyful optimistic intrigued hopeful curious particular,surprise,surprise,1,0
+635,"anxious, uncertain but hopeful and growth oriented.",joy,joy,1,0
+636,i feel hungry but at peace with what ive accomplished so far,joy,neutral,1,1
+637,bored,sadness,neutral,1,0
+638,happy with grandchildren,joy,joy,1,1
+639,overwhelmed and tired but generally happy.,joy,neutral,1,0
+640,tired and happy but excited,joy,anger,1,0
+641,inspired intrigued confused enlightened joyful,surprise,neutral,1,0
+642,i feel like sandra botticelli,neutral,anger,0,1
+643,i feel like sandro botticelli,neutral,sadness,0,1
+644,i feel like sandro botticelli,neutral,neutral,0,1
+645,full open interested light calm,neutral,neutral,0,1
+646,happy curious overloaded with admin,surprise,joy,1,1
+647,stressed out but perfect now I'm in here and I'm an artist,joy,sadness,1,1
+648,tired elated hopeful and excited for Monday,joy,anger,1,1
+649,tired elated happy,joy,joy,1,1
+650,"happy, enthusiastic, interested, curious",surprise,joy,1,1
+651,open curious adventurous,surprise,joy,1,1
+652,happy sad excited tired bouncy hungry warm tired calm interested happy restless,joy,joy,1,1
+653,"slightly low, a little lacking in energy but not so bad as other days",sadness,sadness,1,1
+654,amazing and satisified,joy,joy,1,0
+655,amazing and satisified,joy,joy,1,0
+656,amazing and satisified,joy,joy,1,1
+657,amazing and satisified,joy,joy,1,0
+658,Relieved and proud and also worried about the future,joy,sadness,1,1
+659,i want a takeaway,joy,neutral,1,0
+660,hungry and wants a takeaway,neutral,sadness,0,1
+661,happy to be back in a place i call home,joy,joy,1,0
+662,good positive productive excited and very very lucky,joy,joy,1,0
+663,i am feeling sleepy,neutral,anger,0,1
+664,shamita,neutral,joy,0,1
+665,vinu,neutral,surprise,0,1
+666,inspired relaxed fun friendly,joy,neutral,1,0
+667,inspired relaxed fun friendly man,joy,joy,1,1
+668,inspired relaxed fun friendly,joy,neutral,1,0
+669,trapped and sexually frustrated,sadness,sadness,1,1
+670,trapped and sexually frustrated,sadness,fear,1,1
+671,a little bit wobbly due to various worries in my life. But also optimistic about our country with a new government. happy to be going to a film and a meal with my husband,joy,joy,1,1
+672,complicated disapointment curiosity sociability success,sadness,joy,1,1
+673,happy proud concerned grateful,joy,joy,1,1
+674,happy proud concerned grateful,joy,joy,1,0
+675,curious expecting stressed despondent hopeful,surprise,joy,1,1
+676,not able to figure out were my life is taking me,surprise,joy,1,0
+677,"I am feeling ecstatic about my new tattoo. I love rodents and used to keep multiple mice when I was younger. This tattoo is for terry nibbles, a rat who joined me in my wonderful house last year and helped make the house a home!",joy,surprise,1,0
+678,curious,surprise,joy,1,1
+679,full,neutral,joy,0,1
+680,"sleep deprived, autumnal, cultured, steel",sadness,joy,1,1
+681,yippee woohoo,neutral,neutral,0,0
+682,horrified ghoulish spooky scary skeletal shivering my spine,fear,neutral,1,0
+683,cheery wonderful happy energetic eager ecstatic,joy,joy,1,1
+684,trippy hallucinating sparked drugged,neutral,joy,0,0
+685,contours outdoorsy hiking wild green blue,neutral,neutral,0,0
+686,meme funny hilarious sonic lemon,joy,joy,1,0
+687,tired,sadness,neutral,1,0
+688,excited,joy,joy,1,1
+689,trapped sexually frustrated and in need of a man,sadness,sadness,1,1
+690,irritated frustrated annoyed,anger,anger,1,1
+691,hungry sleepy horny,neutral,joy,0,1
+692,calm but tired. Happy that it is the weekend,joy,neutral,1,1
+693,excited to see my grandchildren and daughter.,joy,joy,1,1
+694,a woman in need of some loving,joy,sadness,1,1
+695,looking forward to love in paris,joy,joy,1,1
+696,grateful to see sunshine,joy,neutral,1,0
+697,"cool, calm and collected",joy,joy,1,0
+698,i need all the coffee,neutral,joy,0,0
+699,a scottish old lady,joy,sadness,1,1
+700,taking my collie for a walk in the countryside,neutral,sadness,0,1
+701,sunny sheffield,joy,joy,1,0
+702,autumn is coming,neutral,surprise,0,0
+703,an autumnal day,neutral,joy,0,0
+704,fresh coffee,neutral,neutral,0,0
+705,"Looking forward to a very special birthday with family and friends, especially the ladies.",joy,joy,1,1
+706,Tired but enjoying working at the festival. Not looking forward to the analysis and reporting I'm going to have to do.,joy,joy,1,1
+707,wondering about biases in AI images and why most people seem to be white and male,surprise,joy,1,1
+708,A bit hungover. I've got a headache and my left knee aches but it's sunny and I'm having a lovely weekend away so overall not too bad.,joy,sadness,1,1
+709,sitting on a stool in an art gallery not sure what the art means,surprise,sadness,1,1
+710,happy,joy,joy,1,0
+711,cat and dog,neutral,neutral,0,0
+712,alien dog,neutral,neutral,0,0
+713,minion,neutral,anger,0,0
+714,kitchen,neutral,neutral,0,0
+715,Happy blue sky familly,joy,joy,1,1
+716,good and happy,joy,joy,1,1
+717,water colour painting alien landscape,neutral,joy,0,0
+718,"legs are sore, cycling big hills",sadness,sadness,1,1
+719,tired and sleepy from girls night,sadness,sadness,1,1
+720,boredom,anger,sadness,1,1
+721,curious,surprise,surprise,1,0
+722,spider penguin,neutral,anger,0,0
+723,crocodile dragon,neutral,anger,0,0
+724,shit,neutral,neutral,0,0
+725,compressed,neutral,neutral,0,0
+726,good,joy,neutral,1,0
+727,interesting delicious amazing,joy,neutral,1,0
+728,interesting,joy,neutral,1,1
+729,excited to discover new things,joy,surprise,1,1
+730,calm,neutral,joy,0,1
+731,calm,neutral,neutral,0,0
+732,violent,neutral,neutral,0,0
+733,I feel the power of the sunset in a mountain and sea scape,joy,surprise,1,0
+734,detailed description of a sunset landscape by the sea,neutral,neutral,0,0
+735,can you give colour to a very detailed sunset seascape?,surprise,joy,1,0
+736,festival of words book litruture,neutral,joy,0,0
+737,Magical,neutral,joy,0,1
+738,Magical happiness pleasure,joy,joy,1,0
+739,feeling good looking forward to see [name] play water polo,joy,anger,1,1
+740,relaxed,neutral,joy,0,1
+741,"Still feeling full of my breakfast, tired but happy with the weather",joy,joy,1,1
+742,fuzzy,neutral,sadness,0,1
+743,flubby,neutral,joy,0,0
+744,flat,neutral,surprise,0,0
+745,ok,neutral,neutral,0,1
+746,ok,neutral,neutral,0,0
+747,ok,neutral,neutral,0,0
+748,ok,neutral,joy,0,0
+749,I feel like how a plant would feel if it had lemon juice instead of water,neutral,joy,0,0
+750,[name],neutral,sadness,0,1
+751,[name],neutral,sadness,0,1
+752,tired but happy,joy,joy,1,1
+753,tired. sleepy.  Chilled.  Slightly worried about new tyres for car.  Enjoying being back in sheffield.  Hungry,joy,surprise,1,1
+754,"thinking of getting a van gogh tattoo, I'm very tired as well",joy,anger,1,1
+755,content and excited,joy,joy,1,1
+756,confused and suprised,surprise,surprise,1,1
+757,feeling happy and loved,joy,joy,1,1
+758,normal,neutral,joy,0,1
+759,nice curiouse,joy,joy,1,1
+760,nice curious,surprise,joy,1,1
+761,magical happy,joy,joy,1,1
+762,magical curious and excited,joy,joy,1,1
+763,excited,joy,joy,1,0
+764,excited to explore a new city,joy,joy,1,1
+765,"alive, sad excited calm happy, comfortable",joy,joy,1,0
+766,feeling fortunate for what i have,joy,neutral,1,0
+767,new,neutral,anger,0,0
+768,optimistic,neutral,neutral,0,0
+769,good,joy,neutral,1,0
+770,I feel amazing. And happy.,joy,joy,1,1
+771,excited to draw with the printer,joy,anger,1,1
+772,i am feeling slightly hungover but curious about science and excited about learning,surprise,surprise,1,1
+773,"excited, interested, robotics, mind, existence",joy,surprise,1,1
+774,"happy, tired, loved",joy,neutral,1,0
+775,friends family mountains music,neutral,joy,0,1
+776,having  fun with my children at the weekend,joy,joy,1,1
+777,I've got a bit of a cold,neutral,joy,0,0
+778,\\i feel very stimulated and excited with so many things at the same time.,joy,neutral,1,0
+779,"Peaceful, and a reunion of friends and family",joy,joy,1,1
+780,Excited for the cold and Christmas,joy,joy,1,1
+781,Excited for the cold and Christmas,joy,joy,1,1
+782,Excited for the cold and Christmas,joy,joy,1,1
+783,Excited for the cold and Christmas,joy,neutral,1,0
+784,Excited for the cold and Christmas,joy,joy,1,1
+785,Excited for the cold and Christmas,joy,joy,1,1
+786,Excited for the cold and Christmas,joy,joy,1,1
+787,Excited for the cold and Christmas,joy,joy,1,1
+788,happy,joy,joy,1,0
+789,Excited for a cold and colourful Christmas.,joy,joy,1,1
+790,largely happy,joy,joy,1,0
+791,unsure and I have a feeling of woe,sadness,sadness,1,1
+792,angry and comfused,neutral,sadness,0,0
+793,demure and mindful,neutral,sadness,0,1
+794,calm and tired,neutral,joy,0,1
+795,sensitive,neutral,neutral,0,0
+796,sensitive,neutral,joy,0,1
+797,relaxed,neutral,neutral,0,0
+798,anxious,fear,surprise,1,0
+799,anxious,fear,anger,1,1
+800,expectant,neutral,sadness,0,1
+801,Drowning feeling of tiredness and worries that comes from the fear,fear,surprise,1,1
+802,confused and joy,surprise,sadness,1,1
+803,happy,joy,joy,1,1
+804,tired,sadness,anger,1,1
+805,creative peaceful,neutral,neutral,0,0
+806,I feel calm and happy and enjoying the time with my daughter,joy,joy,1,1
+807,golden retriever playful,neutral,joy,0,0
+808,content and relaxed,joy,neutral,1,0
+809,excited but apprehensive,fear,neutral,1,0
+810,pensive and enthusiastic,joy,joy,1,1
+811,excited but apprehensivw,joy,joy,1,0
+812,sad looking outside a window missing a dearly person,sadness,anger,1,1
+813,highly intrigued,surprise,neutral,1,0
+814,very happy to be with my family today,joy,joy,1,1
+815,happy being with my grandson,joy,joy,1,1
+816,i'm feeling lucky kind of,joy,surprise,1,0
+817,i am 9 years old and i am standing outside feeling nothing in particular,neutral,sadness,0,1
+818,I am a middle aged woman who is missing her Mum,sadness,sadness,1,1
+819,i am a nine year old boy scoring a goal in football and being happy,joy,neutral,1,1
+820,overcharged excitement,joy,surprise,1,1
+821,Excited after 2 hours of cuban salsa dancing,joy,joy,1,1
+822,calm labrador excited playing with a ball another dog,joy,joy,1,0
+823,a footballer in mancity,neutral,surprise,0,1
+824,"Happy, but with a niggling fear in the bag of mind",joy,joy,1,1
+825,happy with a full belly,joy,joy,1,1
+826,a bored nine year old boy in school writing,neutral,sadness,0,1
+827,a ugly frog+,disgust,surprise,1,0
+828,a nine year old boy missing his dead grandma,sadness,joy,1,1
+829,good wierd,joy,sadness,1,0
+830,content inquisative,neutral,neutral,0,0
+831,happy,joy,joy,1,1
+832,very happy,joy,joy,1,1
+833,inquisitive,neutral,sadness,0,0
+834,make the most out of it,neutral,neutral,0,0
+835,excited to see new things like the star vr,joy,neutral,1,0
+836,stressed to buggery,neutral,anger,0,1
+837,chipper,neutral,surprise,0,0
+838,tuneful,neutral,joy,0,0
+839,"positive, productive,sleepy",joy,neutral,1,0
+840,hypnotised,neutral,surprise,0,1
+841,"cold, battered and tired.",sadness,sadness,1,1
+842,"content, happy, jolly",joy,neutral,1,1
+843,autumnal active calm,neutral,surprise,0,0
+844,apprehensive,neutral,sadness,0,1
+845,good,joy,joy,1,0
+846,ok,neutral,neutral,0,0
+847,festival of the mind,neutral,joy,0,1
+848,eh i just did something exciting and now i'm quite happy,joy,joy,1,1
+849,i am a nine year old boy riding on an elephant and being happy,joy,joy,1,1
+850,Im feeling like me preppy A 10 year old girl,neutral,neutral,0,1
+851,A girl is sittintg in the ground in a void,neutral,joy,0,1
+852,A colourful butterfly swims in the sea.,neutral,neutral,0,0
+853,under the weather,neutral,joy,0,1
+854,"happy, contentful",joy,joy,1,1
+855,"happy, nice sunny day",joy,joy,1,1
+856,i am in a city center with lots of buildings and lights,neutral,joy,0,0
+857,"I feel hopeful and confused at the same time. I'm tired but my mind is full of energy. I am looking forward to a film later on, but not to the rain on Monday.",joy,anger,1,1
+858,I am desparate and alone and in need of love,sadness,sadness,1,1
+859,very pleased this week I helped hundreds of people,joy,joy,1,1
+860,im a nine year old boy in a big lego city,neutral,joy,0,1
+861,I am a child playing by the river with large rocks and a few trees jumping into the water fprm the biggest rock,neutral,joy,0,1
+862,tired but happy,joy,joy,1,1
+863,i am a male on top of the burg kalifa in the night,neutral,anger,0,1
+864,I am feeling sad but happy with my nine year old son,sadness,sadness,1,1
+865,"pain in jaw and neck and back, feeling like I have been left in a washing mashine",sadness,sadness,1,1
+866,okay,joy,anger,1,1
+867,happy,joy,joy,1,1
+868,chucky in colours,neutral,anger,0,0
+869,horny,neutral,anger,0,0
+870,stung,neutral,neutral,0,0
+871,tired and a little achey,sadness,joy,1,1
+872,Tired but happy,joy,joy,1,1
+873,wanted to see the robot,neutral,joy,0,0
+874,"i feel tired, like a crumpled piece of paper",sadness,sadness,1,0
+875,curious of the artworks,surprise,neutral,1,0
+876,tired and a bit warm,neutral,neutral,0,0
+877,"inspired, contemplative, nostalgic, curious, fearful",surprise,joy,1,1
+878,tired but invigorated,neutral,sadness,0,1
+879,carbon footprint reduction,neutral,joy,0,1
+880,Happy,joy,joy,1,0
+881,interested and stressed,sadness,surprise,1,1
+882,Happy and calm,joy,surprise,1,0
+883,excited,joy,joy,1,1
+884,Excited and happy,joy,joy,1,1
+885,overwhelmed,sadness,joy,1,1
+886,tired,sadness,sadness,1,0
+887,bemused,sadness,joy,1,0
+888,bemused,sadness,joy,1,1
+889,bemused,sadness,joy,1,1
+890,bemused,sadness,surprise,1,1
+891,overwhelmed byv exixtential angst,sadness,sadness,1,1
+892,seen and whached every minite,neutral,joy,0,1
+893,relaxed curious happy ready to boogy tired,surprise,joy,1,1
+894,being three and jumping high up in the air and seeing [name] with pizza and [name] bbec a,neutral,joy,0,1
+895,bored and happy,sadness,sadness,1,0
+896,human eating food while getting eaten by a megladon,neutral,fear,0,1
+897,gaming on someones but,neutral,joy,0,1
+898,gaming on someone's butt,neutral,neutral,0,0
+899,gaming on someone's butt,neutral,sadness,0,1
+900,gaming on someone's butt,neutral,joy,0,1
+901,gaming on someone's butt,neutral,neutral,0,0
+902,gaming on someone's butt,neutral,sadness,0,1
+903,gaming on someone's butt,neutral,sadness,0,1
+904,gaming on someone's house while having a stroke,neutral,sadness,0,1
+905,food fight of the dead,neutral,joy,0,1
+906,being inside the music is my safe space,joy,joy,1,1
+907,happy,joy,joy,1,1
+908,nice,joy,joy,1,1
+909,terrified,fear,neutral,1,0
+910,like my head is full of wool wire,neutral,sadness,0,1
+911,"i am feeling inspired, like i could sail further if i could build a better boat",joy,joy,1,0
+912,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",joy,joy,1,0
+913,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",joy,sadness,1,1
+914,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",joy,sadness,1,0
+915,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",joy,sadness,1,1
+916,knee pain,sadness,anger,1,0
+917,hungry,neutral,neutral,0,0
+918,mixed emotions,neutral,sadness,0,1
+919,composed,neutral,joy,0,1
+920,composed,neutral,surprise,0,0
+921,happy,joy,joy,1,1
+922,excited and happy,joy,joy,1,1
+923,hangry,anger,sadness,1,0
+924,hungry,neutral,anger,0,1
+925,groovy,neutral,surprise,0,0
+926,okay,joy,joy,1,0
+927,warm caffeinated contented hopeful,neutral,neutral,0,0
+928,happy joyful cheerful,joy,joy,1,1
+929,happy joyful cheerful,joy,joy,1,1
+930,sore louche contented,neutral,joy,0,1
+931,hangover sleepy chill,neutral,joy,0,1
+932,"confused, my back hurts",sadness,anger,1,1
+933,content,neutral,neutral,0,0
+934,reflective,neutral,anger,0,1
+935,reflective,neutral,surprise,0,0
+936,good,joy,anger,1,1
+937,happy,joy,neutral,1,0
+938,uncertain,surprise,joy,1,0
+939,a fish out of water,neutral,anger,0,0
+940,grateful and unperturbed,joy,neutral,1,0
+941,balanced excited content,joy,surprise,1,0
+942,content calm meditative,neutral,neutral,0,1
+943,confused and aroused,surprise,neutral,1,0
+944,betrayed,neutral,sadness,0,1
+945,excited,joy,joy,1,1
+946,scared and worried,fear,sadness,1,1
+947,hesitant,neutral,anger,0,1
+948,kareoke singing book,neutral,neutral,0,0
+949,drained overrked sleepy,neutral,neutral,0,1
+950,happy pug with an ice cream,joy,joy,1,0
+951,proud to complete the first 10 K race,joy,joy,1,1
+952,kareoke queen,neutral,surprise,0,1
+953,working with a greeat team,neutral,joy,0,1
+954,cosmic,neutral,joy,0,0
+955,evil smily face,neutral,neutral,0,0
+956,zombie eating ice cream,neutral,anger,0,0
+957,feel calm and having a good time with my girlfriend. we don't agree on everything and have differences but she is a good person,joy,joy,1,1
+958,"tired,, pensive, engaged, interested, quite calm, thinking about the future, thinking about possibilities, reflecting on the past",neutral,sadness,0,1
+959,apprehensive and a bit sad,sadness,sadness,1,1
+960,Hopeful state of mind anticipating exciting opportunities,joy,joy,1,1
+961,tired but happy.  creative and inspired.  excited for the future and keen to try new projects based on what I'm seeing today,joy,joy,1,1
+962,excited for me science degree and enjoying being around so many inspired people. a bit too hot in my coat and looking forward to a coffee,joy,joy,1,1
+963,happy,joy,joy,1,1
+964,inspired happy green alive stressed,joy,neutral,1,1
+965,skeleton,neutral,sadness,0,1
+966,happy,joy,joy,1,1
+967,tired and full of food,sadness,joy,1,1
+968,cosmic,neutral,joy,0,0
+969,quite happy,joy,joy,1,0
+970,hope and care,joy,sadness,1,0
+971,sadmy friends have gone but happy from the weekend,sadness,joy,1,0
+972,amazed,surprise,surprise,1,0
+973,amazed by ai,surprise,sadness,1,0
+974,calm,neutral,joy,0,0
+975,annoyed radical,anger,anger,1,1
+976,nice radical good funny,joy,joy,1,1
+977,proud tired,joy,surprise,1,0
+978,exhausted,sadness,sadness,1,1
+979,"old, grumpy, unsettled",neutral,anger,0,1
+980,"Great, happy, enjoying life, enjoying walking through the countryside",joy,sadness,1,1
+981,poisoned by a mushroom,neutral,sadness,0,1
+982,emotional as pet is dying,sadness,sadness,1,1
+983,emotional as cat is dying both female,sadness,anger,1,1
+984,"pretty good, with friends and partner, been for a good walk this morning despite a bad knee, will be seeing grandchildren tomorrow",joy,joy,1,1
+985,i am verry happy with my friend [name],joy,joy,1,1
+986,i m feeling happy as the club i support won 1-0 (go Panionios!!),joy,joy,1,1
+987,I am feeling happy to spend the day with my boyfriend,joy,joy,1,1
+988,tired proud happy,joy,anger,1,1
+989,i am the keybreaker,neutral,surprise,0,0
+990,i am the keybreaker,neutral,surprise,0,1
+991,i am the keybreaker,neutral,sadness,0,1
+992,i am the keybreaker,neutral,sadness,0,1
+993,i am the keybreaker,neutral,fear,0,1
+994,i am the keybreaker,neutral,surprise,0,1
+995,i am the keybreaker,neutral,sadness,0,1
+996,i am the key breaker,neutral,joy,0,1
+997,relaxed tired content happy,joy,joy,1,1
+998,aroused stimulated tired confused,surprise,surprise,1,1
+999,tired proud and very happy woman,joy,joy,1,1
+1000,very tired from the festival but very proud and happy of my team,joy,joy,1,1
+1001,tired happy proud,joy,joy,1,1
+1002,tired happy proud,joy,sadness,1,0
+1003,tired happy proud,joy,neutral,1,1
+1004,tired happy proud,joy,joy,1,1
+1005,tired happy proud,joy,sadness,1,1
+1006,tired happy proud,joy,joy,1,1
+1007,tired proud happy,joy,joy,1,1
+1008,tired happy and proud,joy,joy,1,1
+1009,gay drunk mess,neutral,surprise,0,1
+1010,"exited for my birthday on halloween, happy, tired, full from food",joy,joy,1,1
+1011,proud happy tired,joy,surprise,1,1
+1012,"happy, excited, motivated",joy,joy,1,1
+1013,hungry hangry,neutral,anger,0,0
+1014,I am feeling unhappy because I'm not getting my go on the virtual reality machine,sadness,sadness,1,1
+1015,I am feeling unhappy because I'm not getting my go on the virtual reality machine,sadness,anger,1,1
+1016,happy little girl on her daddies shoulders,joy,joy,1,1
+1017,boring,neutral,neutral,0,0
+1018,boring,neutral,joy,0,0
+1019,boering,neutral,surprise,0,0
+1020,professor [name],neutral,sadness,0,1
+1021,excited about next week,joy,joy,1,0
+1022,Cautiously optimistic,joy,joy,1,1
+1023,boring,neutral,surprise,0,0
+1024,tired relieved hungry excited for my sunday dinner and my holiday with patrick bergin,joy,joy,1,1
+1025,A factory of the future where human and robots work together.,neutral,joy,0,1

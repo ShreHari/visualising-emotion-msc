@@ -1,0 +1,534 @@
+[
+ {
+  "id": 144,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00144.PNG",
+  "text": "jovial",
+  "pred": "happiness",
+  "margin": 0.112,
+  "portrait_prob": 0.529,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.273,
+   "sadness": 0.076,
+   "anger": 0.134,
+   "fear": 0.136,
+   "surprise": 0.161,
+   "disgust": 0.155,
+   "neutral": 0.065
+  },
+  "idx": 0
+ },
+ {
+  "id": 527,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_527.PNG",
+  "text": "grandchildren happy birthday sheffield cake presents",
+  "pred": "happiness",
+  "margin": 0.196,
+  "portrait_prob": 0.104,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.365,
+   "sadness": 0.057,
+   "anger": 0.054,
+   "fear": 0.107,
+   "surprise": 0.138,
+   "disgust": 0.11,
+   "neutral": 0.169
+  },
+  "idx": 1
+ },
+ {
+  "id": 614,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_614.PNG",
+  "text": "Happy",
+  "pred": "happiness",
+  "margin": 0.159,
+  "portrait_prob": 0.794,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.324,
+   "sadness": 0.125,
+   "anger": 0.068,
+   "fear": 0.136,
+   "surprise": 0.165,
+   "disgust": 0.089,
+   "neutral": 0.094
+  },
+  "idx": 2
+ },
+ {
+  "id": 762,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_762.PNG",
+  "text": "magical curious and excited",
+  "pred": "happiness",
+  "margin": 0.008,
+  "portrait_prob": 0.159,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.211,
+   "sadness": 0.088,
+   "anger": 0.055,
+   "fear": 0.204,
+   "surprise": 0.128,
+   "disgust": 0.156,
+   "neutral": 0.158
+  },
+  "idx": 3
+ },
+ {
+  "id": 161,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00161.PNG",
+  "text": "feeling lost",
+  "pred": "sadness",
+  "margin": 0.028,
+  "portrait_prob": 0.321,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.018,
+   "sadness": 0.346,
+   "anger": 0.051,
+   "fear": 0.127,
+   "surprise": 0.061,
+   "disgust": 0.079,
+   "neutral": 0.319
+  },
+  "idx": 4
+ },
+ {
+  "id": 613,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_613.PNG",
+  "text": "tired over loaded lacking focus",
+  "pred": "sadness",
+  "margin": 0.029,
+  "portrait_prob": 0.154,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.033,
+   "sadness": 0.236,
+   "anger": 0.085,
+   "fear": 0.193,
+   "surprise": 0.061,
+   "disgust": 0.186,
+   "neutral": 0.207
+  },
+  "idx": 5
+ },
+ {
+  "id": 818,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_818.PNG",
+  "text": "I am a middle aged woman who is missing her Mum",
+  "pred": "sadness",
+  "margin": 0.067,
+  "portrait_prob": 0.099,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.018,
+   "sadness": 0.334,
+   "anger": 0.042,
+   "fear": 0.154,
+   "surprise": 0.038,
+   "disgust": 0.147,
+   "neutral": 0.267
+  },
+  "idx": 6
+ },
+ {
+  "id": 383,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_383.PNG",
+  "text": "curios",
+  "pred": "sadness",
+  "margin": 0.016,
+  "portrait_prob": 0.258,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.047,
+   "sadness": 0.211,
+   "anger": 0.059,
+   "fear": 0.178,
+   "surprise": 0.13,
+   "disgust": 0.194,
+   "neutral": 0.181
+  },
+  "idx": 7
+ },
+ {
+  "id": 248,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_248.PNG",
+  "text": "hungry",
+  "pred": "anger",
+  "margin": 0.044,
+  "portrait_prob": 0.591,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.064,
+   "sadness": 0.074,
+   "anger": 0.221,
+   "fear": 0.145,
+   "surprise": 0.173,
+   "disgust": 0.145,
+   "neutral": 0.177
+  },
+  "idx": 8
+ },
+ {
+  "id": 690,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_690.PNG",
+  "text": "irritated frustrated annoyed",
+  "pred": "anger",
+  "margin": 0.134,
+  "portrait_prob": 0.898,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.008,
+   "sadness": 0.129,
+   "anger": 0.32,
+   "fear": 0.187,
+   "surprise": 0.142,
+   "disgust": 0.159,
+   "neutral": 0.054
+  },
+  "idx": 9
+ },
+ {
+  "id": 682,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_682.PNG",
+  "text": "horrified ghoulish spooky scary skeletal shivering my spine",
+  "pred": "anger",
+  "margin": 0.011,
+  "portrait_prob": 0.734,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.037,
+   "sadness": 0.056,
+   "anger": 0.225,
+   "fear": 0.214,
+   "surprise": 0.215,
+   "disgust": 0.192,
+   "neutral": 0.061
+  },
+  "idx": 10
+ },
+ {
+  "id": 874,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_874.PNG",
+  "text": "i feel tired, like a crumpled piece of paper",
+  "pred": "anger",
+  "margin": 0.037,
+  "portrait_prob": 0.501,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.016,
+   "sadness": 0.207,
+   "anger": 0.244,
+   "fear": 0.125,
+   "surprise": 0.096,
+   "disgust": 0.16,
+   "neutral": 0.153
+  },
+  "idx": 11
+ },
+ {
+  "id": 456,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_456.PNG",
+  "text": "happy",
+  "pred": "fear",
+  "margin": 0.019,
+  "portrait_prob": 0.582,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.118,
+   "sadness": 0.149,
+   "anger": 0.093,
+   "fear": 0.18,
+   "surprise": 0.142,
+   "disgust": 0.158,
+   "neutral": 0.161
+  },
+  "idx": 12
+ },
+ {
+  "id": 522,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_522.PNG",
+  "text": "really upset about the terrible weather",
+  "pred": "fear",
+  "margin": 0.002,
+  "portrait_prob": 0.683,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.005,
+   "sadness": 0.198,
+   "anger": 0.215,
+   "fear": 0.217,
+   "surprise": 0.131,
+   "disgust": 0.14,
+   "neutral": 0.093
+  },
+  "idx": 13
+ },
+ {
+  "id": 395,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_395.PNG",
+  "text": "in ;ove",
+  "pred": "fear",
+  "margin": 0.045,
+  "portrait_prob": 0.348,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.062,
+   "sadness": 0.123,
+   "anger": 0.086,
+   "fear": 0.235,
+   "surprise": 0.141,
+   "disgust": 0.161,
+   "neutral": 0.191
+  },
+  "idx": 14
+ },
+ {
+  "id": 767,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_767.PNG",
+  "text": "new",
+  "pred": "fear",
+  "margin": 0.032,
+  "portrait_prob": 0.225,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.033,
+   "sadness": 0.126,
+   "anger": 0.113,
+   "fear": 0.221,
+   "surprise": 0.133,
+   "disgust": 0.186,
+   "neutral": 0.189
+  },
+  "idx": 15
+ },
+ {
+  "id": 463,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_463.PNG",
+  "text": "woolley mammoth with a cheetah's head",
+  "pred": "surprise",
+  "margin": 0.09,
+  "portrait_prob": 0.571,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.042,
+   "sadness": 0.132,
+   "anger": 0.109,
+   "fear": 0.178,
+   "surprise": 0.268,
+   "disgust": 0.152,
+   "neutral": 0.118
+  },
+  "idx": 16
+ },
+ {
+  "id": 711,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_711.PNG",
+  "text": "cat and dog",
+  "pred": "surprise",
+  "margin": 0.089,
+  "portrait_prob": 0.31,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.063,
+   "sadness": 0.093,
+   "anger": 0.049,
+   "fear": 0.203,
+   "surprise": 0.292,
+   "disgust": 0.148,
+   "neutral": 0.153
+  },
+  "idx": 17
+ },
+ {
+  "id": 399,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_399.PNG",
+  "text": "a very happy border collie",
+  "pred": "surprise",
+  "margin": 0.129,
+  "portrait_prob": 0.639,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.093,
+   "sadness": 0.072,
+   "anger": 0.112,
+   "fear": 0.139,
+   "surprise": 0.298,
+   "disgust": 0.169,
+   "neutral": 0.117
+  },
+  "idx": 18
+ },
+ {
+  "id": 240,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_240.PNG",
+  "text": "girl dinosaur",
+  "pred": "surprise",
+  "margin": 0.017,
+  "portrait_prob": 0.569,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.093,
+   "sadness": 0.091,
+   "anger": 0.09,
+   "fear": 0.23,
+   "surprise": 0.247,
+   "disgust": 0.17,
+   "neutral": 0.078
+  },
+  "idx": 19
+ },
+ {
+  "id": 417,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_417.PNG",
+  "text": "4 pints of milk spilled at lidl",
+  "pred": "disgust",
+  "margin": 0.11,
+  "portrait_prob": 0.216,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.022,
+   "sadness": 0.182,
+   "anger": 0.11,
+   "fear": 0.149,
+   "surprise": 0.079,
+   "disgust": 0.292,
+   "neutral": 0.167
+  },
+  "idx": 20
+ },
+ {
+  "id": 883,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_883.PNG",
+  "text": "excited",
+  "pred": "disgust",
+  "margin": 0.022,
+  "portrait_prob": 0.491,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.044,
+   "sadness": 0.164,
+   "anger": 0.103,
+   "fear": 0.175,
+   "surprise": 0.147,
+   "disgust": 0.197,
+   "neutral": 0.171
+  },
+  "idx": 21
+ },
+ {
+  "id": 70,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00070.PNG",
+  "text": "feeling excited with the travel around the beautiful Yorkshire Dale and industrious city of Sheffield ",
+  "pred": "disgust",
+  "margin": 0.19,
+  "portrait_prob": 0.088,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.08,
+   "sadness": 0.125,
+   "anger": 0.082,
+   "fear": 0.119,
+   "surprise": 0.14,
+   "disgust": 0.33,
+   "neutral": 0.123
+  },
+  "idx": 22
+ },
+ {
+  "id": 115,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00115.PNG",
+  "text": "I am a man with no hair",
+  "pred": "disgust",
+  "margin": 0.006,
+  "portrait_prob": 0.812,
+  "has_face": true,
+  "scores": {
+   "happiness": 0.019,
+   "sadness": 0.141,
+   "anger": 0.144,
+   "fear": 0.111,
+   "surprise": 0.16,
+   "disgust": 0.216,
+   "neutral": 0.209
+  },
+  "idx": 23
+ },
+ {
+  "id": 912,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_912.PNG",
+  "text": "I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",
+  "pred": "neutral",
+  "margin": 0.009,
+  "portrait_prob": 0.081,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.022,
+   "sadness": 0.188,
+   "anger": 0.053,
+   "fear": 0.233,
+   "surprise": 0.091,
+   "disgust": 0.171,
+   "neutral": 0.242
+  },
+  "idx": 24
+ },
+ {
+  "id": 204,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_204.PNG",
+  "text": "fantastic",
+  "pred": "neutral",
+  "margin": 0.054,
+  "portrait_prob": 0.161,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.126,
+   "sadness": 0.108,
+   "anger": 0.059,
+   "fear": 0.151,
+   "surprise": 0.083,
+   "disgust": 0.21,
+   "neutral": 0.264
+  },
+  "idx": 25
+ },
+ {
+  "id": 835,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_835.PNG",
+  "text": "excited to see new things like the star vr",
+  "pred": "neutral",
+  "margin": 0.116,
+  "portrait_prob": 0.045,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.042,
+   "sadness": 0.197,
+   "anger": 0.053,
+   "fear": 0.164,
+   "surprise": 0.116,
+   "disgust": 0.115,
+   "neutral": 0.313
+  },
+  "idx": 26
+ },
+ {
+  "id": 552,
+  "path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_552.PNG",
+  "text": "very happy",
+  "pred": "neutral",
+  "margin": 0.068,
+  "portrait_prob": 0.37,
+  "has_face": false,
+  "scores": {
+   "happiness": 0.076,
+   "sadness": 0.142,
+   "anger": 0.089,
+   "fear": 0.166,
+   "surprise": 0.157,
+   "disgust": 0.134,
+   "neutral": 0.235
+  },
+  "idx": 27
+ }
+]

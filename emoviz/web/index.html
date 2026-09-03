@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EmoViz — how close is the drawing's feeling to the words'?</title>
+<meta name="description" content="A research instrument: compare the emotion in a written feeling with the emotion two language models read out of an AI-generated drawing — scored against chance.">
+<style>
+/* ============================================================
+   TOKENS — one accent for chrome; emotion hues appear in data only
+   ============================================================ */
+:root{
+  color-scheme:light dark;   /* so UA widgets (spinners, scrollbars, placeholders) follow the theme */
+  --paper:#faf9f7; --surface:#ffffff; --sunken:#f1f0ec;
+  --ink:#14161a; --muted:#4f545b; --subtle:#63686f;
+  --rule:#e4e2dd; --rule-strong:#d3d0c9;
+  /* --rule/--rule-strong are decorative hairlines and are BELOW 3:1 by design. Anything that
+     delimits an interactive control must use --border-control, which clears 3:1 (SC 1.4.11). */
+  --border-control:#87837b; --zone-fill:#efebe2;
+  --accent:#0d5c63; --accent-hover:#0a4a50; --accent-ink:#ffffff; --accent-wash:#eaf1f1;
+  /* data-only emotion hues (marks) + AA-passing text variants.
+     --joy is darkened from the text-friendly #d99026: as a 13px mark it must clear 3:1 on paper. */
+  --joy:#b87614; --sadness:#2f6fd0; --anger:#c93a3a; --fear:#8b5cd6;
+  --surprise:#cf3d84; --disgust:#12876a; --neutral:#7d8894;
+  --joy-t:#8a5510; --sadness-t:#1c4f9c; --anger-t:#a02c2c; --fear-t:#6338a8;
+  --surprise-t:#9c2a63; --disgust-t:#0a6350; --neutral-t:#4d545c;
+  --pos:#0a6350; --warn:#8a5510; --below:#a02c2c;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px;
+  --s12:48px; --s16:64px; --s24:96px;
+  --t-xs:12px; --t-sm:14px; --t-md:16px; --t-lg:18px;
+  --t-xl:24px; --t-2xl:32px; --t-3xl:44px; --t-4xl:60px;
+  --r-sm:6px; --r:10px; --r-lg:14px;
+  --ease:cubic-bezier(.2,.6,.35,1);
+  --fast:140ms; --mid:200ms; --slow:240ms;
+  --shadow:0 1px 2px rgba(20,22,26,.05), 0 8px 24px rgba(20,22,26,.05);
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#101215; --surface:#171a1e; --sunken:#1c2025;
+  --ink:#ecedee; --muted:#a8adb4; --subtle:#949aa1;
+  --rule:#262a30; --rule-strong:#333941;
+  --border-control:#767d88; --zone-fill:#2b3038;
+  --accent:#57bdaf; --accent-hover:#6fcbbe; --accent-ink:#08211f; --accent-wash:#13292a;
+  --joy:#e0a453; --sadness:#7ba9ee; --anger:#ef8484; --fear:#b394ea;
+  --surprise:#ee87b8; --disgust:#5cc9a8; --neutral:#a2aab3;
+  --joy-t:#e0a453; --sadness-t:#7ba9ee; --anger-t:#ef8484; --fear-t:#b394ea;
+  --surprise-t:#ee87b8; --disgust-t:#5cc9a8; --neutral-t:#a2aab3;
+  --pos:#5cc9a8; --warn:#e0a453; --below:#ef8484;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:var(--t-md);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--s6)}
+@media(max-width:640px){.wrap{padding:0 var(--s4)}}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-sm)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{
+  animation-duration:.001ms!important;animation-iteration-count:1!important;
+  transition-duration:.001ms!important}}
+
+/* ============================================================ topbar */
+.topbar{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:40}
+.topbar .wrap{display:flex;align-items:center;gap:var(--s4);height:60px}
+.mark{font-weight:700;font-size:var(--t-md);letter-spacing:-.02em}
+.mark b{color:var(--accent);font-weight:700}
+.mark-sub{font-size:var(--t-xs);color:var(--subtle);letter-spacing:.02em;
+  padding-left:var(--s3);border-left:1px solid var(--rule)}
+.status-pill{margin-left:auto;display:inline-flex;align-items:center;gap:var(--s2);
+  font-size:var(--t-xs);font-weight:600;color:var(--muted)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--warn);flex:none}
+.dot.ready{background:var(--pos)}
+.dot.warm{animation:blink 1.6s var(--ease) infinite}
+@keyframes blink{50%{opacity:.55}}
+@media(max-width:720px){.mark-sub{display:none}}
+
+/* ============================================================ hero — asymmetric 7/5 */
+.hero{display:grid;grid-template-columns:1fr;gap:var(--s8);
+  padding:var(--s16) 0 var(--s12);border-bottom:1px solid var(--rule)}
+@media(min-width:900px){.hero{grid-template-columns:7fr 5fr;gap:var(--s16);align-items:start}}
+.eyebrow{font-size:var(--t-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 var(--s4)}
+.hero h1{font-family:var(--serif);font-weight:600;margin:0;
+  font-size:clamp(34px,5.4vw,var(--t-4xl));line-height:1.04;letter-spacing:-.025em;max-width:15ch}
+.hero .lede{margin:var(--s6) 0 0;color:var(--muted);font-size:var(--t-lg);max-width:52ch}
+.hero .lede strong{color:var(--ink);font-weight:600}
+.rail{margin-top:var(--s8);border-top:1px solid var(--rule);padding-top:var(--s4)}
+.rail ol{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+@media(min-width:600px){.rail ol{grid-template-columns:repeat(3,1fr);gap:var(--s6)}}
+.rail li{display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:start}
+.rail .n{font:600 var(--t-xs)/1 var(--mono);color:var(--accent);
+  border:1px solid var(--rule-strong);border-radius:50%;width:22px;height:22px;
+  display:inline-flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
+.rail b{display:block;font-size:var(--t-sm);font-weight:650;letter-spacing:-.01em}
+.rail span{display:block;font-size:var(--t-sm);color:var(--subtle);line-height:1.45}
+
+/* specimen — desktop anchor only; mobile goes straight to the tray */
+.specimen{border:1px solid var(--rule);border-radius:var(--r-lg);background:var(--surface);
+  overflow:hidden;box-shadow:var(--shadow)}
+.specimen figure{margin:0}
+.specimen img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:var(--sunken)}
+.specimen figcaption{padding:var(--s4);border-top:1px solid var(--rule)}
+.specimen .k{font:600 var(--t-xs)/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);display:block;margin-bottom:var(--s2)}
+.specimen q{font-family:var(--serif);font-size:var(--t-lg);font-style:italic;line-height:1.35;display:block}
+.specimen .skel{aspect-ratio:1;background:var(--sunken)}
+@media(max-width:899px){.specimen{display:none}}
+
+/* ============================================================ section heads */
+.head{display:flex;align-items:baseline;gap:var(--s3);flex-wrap:wrap;margin:0 0 var(--s1)}
+.head h2{font-size:var(--t-lg);font-weight:650;letter-spacing:-.015em;margin:0;
+  display:flex;align-items:baseline;gap:var(--s2)}
+.head h2 i{font:600 var(--t-xs)/1 var(--mono);color:var(--accent);font-style:normal}
+.hint{margin:0 0 var(--s4);color:var(--subtle);font-size:var(--t-sm)}
+
+/* ============================================================ specimen tray — the chooser */
+.tray-sec{padding:var(--s12) 0 0}
+.tray{display:grid;gap:var(--s3);grid-auto-flow:column;grid-auto-columns:minmax(170px,1fr);
+  overflow-x:auto;padding-bottom:var(--s3);scroll-snap-type:x mandatory}
+@media(min-width:900px){.tray{grid-auto-flow:row;grid-template-columns:repeat(6,1fr);overflow:visible}}
+.card{scroll-snap-align:start;display:flex;flex-direction:column;text-align:left;padding:0;
+  border:1px solid var(--border-control);border-radius:var(--r);background:var(--surface);overflow:hidden;
+  transition:border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease),
+             transform var(--fast) var(--ease)}
+.card:hover{border-color:var(--accent);box-shadow:var(--shadow)}
+.card:active{transform:translateY(1px)}
+.card[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;background:var(--sunken)}
+.card .q{font-family:var(--serif);font-style:italic;font-size:var(--t-sm);line-height:1.35;
+  padding:var(--s3) var(--s3) var(--s1);color:var(--ink);flex:1}
+.card .k{font-size:var(--t-xs);font-weight:600;color:var(--subtle);padding:0 var(--s3) var(--s3)}
+.card[aria-pressed="true"] .k{color:var(--accent)}
+
+.controls{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center;margin-top:var(--s4)}
+.btn{min-height:44px;padding:0 var(--s4);border-radius:var(--r);border:1px solid var(--border-control);
+  background:var(--surface);color:var(--ink);font-size:var(--t-sm);font-weight:600;
+  display:inline-flex;align-items:center;gap:var(--s2);
+  transition:border-color var(--fast) var(--ease), background var(--fast) var(--ease),
+             color var(--fast) var(--ease)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn:active{background:var(--sunken)}
+input[type=number]{font:inherit;font-size:var(--t-sm);width:206px;min-height:44px;
+  padding:0 var(--s3);border-radius:var(--r);border:1px solid var(--border-control);
+  background:var(--surface);color:var(--ink);transition:border-color var(--fast) var(--ease)}
+input[type=number]:focus{border-color:var(--accent);outline-offset:1px}
+input[type=file]{display:none}
+::placeholder{color:var(--muted);opacity:1}
+
+/* ============================================================ workspace 7/5 */
+.work{display:grid;grid-template-columns:1fr;gap:var(--s6);padding:var(--s12) 0 0}
+@media(min-width:900px){.work{grid-template-columns:7fr 5fr;gap:var(--s8)}}
+.canvas{margin-top:var(--s1);border:1px solid var(--rule);border-radius:var(--r-lg);
+  background:var(--sunken);min-height:280px;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative}
+.canvas img{display:block;width:100%;height:auto}
+.canvas .empty{color:var(--subtle);font-size:var(--t-sm);padding:var(--s8);text-align:center;max-width:34ch}
+.canvas .ref{position:absolute;top:var(--s2);right:var(--s2);font:600 var(--t-xs)/1 var(--mono);
+  background:var(--ink);color:var(--paper);padding:5px var(--s2);border-radius:var(--r-sm);opacity:.9}
+label.field{display:block;font-size:var(--t-xs);font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--subtle);margin-bottom:var(--s2)}
+label.sr,.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+textarea{font:inherit;width:100%;min-height:120px;resize:vertical;padding:var(--s3);
+  border-radius:var(--r);border:1px solid var(--border-control);background:var(--surface);color:var(--ink);
+  line-height:1.5;transition:border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease)}
+textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-wash)}
+.presets{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)}
+.preset{min-height:44px;padding:0 var(--s3);border-radius:var(--r-sm);font-size:var(--t-sm);font-weight:500;
+  border:1px solid var(--border-control);background:transparent;color:var(--muted);
+  transition:border-color var(--fast) var(--ease), color var(--fast) var(--ease)}
+.preset:hover{border-color:var(--accent);color:var(--accent)}
+.preset:active{background:var(--accent-wash)}
+
+/* ============================================================ action */
+.action{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;
+  margin-top:var(--s8);padding-top:var(--s6);border-top:1px solid var(--rule)}
+.cta{min-height:48px;padding:0 var(--s8);border-radius:var(--r);border:1px solid var(--accent);
+  background:var(--accent);color:var(--accent-ink);font-size:var(--t-md);font-weight:650;
+  letter-spacing:-.01em;transition:background var(--fast) var(--ease), border-color var(--fast) var(--ease)}
+.cta:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.cta:active{transform:translateY(1px)}
+.cta:disabled{opacity:.75;cursor:progress}
+.msg{font-size:var(--t-sm);color:var(--muted);min-height:20px}
+.msg.err{color:var(--anger-t)}
+.spin{display:inline-block;width:12px;height:12px;margin-right:var(--s2);vertical-align:-1px;
+  border:2px solid var(--border-control);border-top-color:var(--accent);border-radius:50%;
+  animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:899px){
+  .action{position:sticky;bottom:0;z-index:30;background:var(--paper);
+    padding:var(--s3) 0 var(--s4);border-top:1px solid var(--rule-strong)}
+  .cta{flex:1;min-height:52px}
+}
+
+/* ============================================================ results */
+.results{display:none;padding-top:var(--s12)}
+.results.on{display:block}
+.results.on>*{animation:fade var(--slow) var(--ease) backwards}
+.results.on>*:nth-child(2){animation-delay:60ms}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sec-label{font-size:var(--t-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--subtle);margin:0 0 var(--s4);padding-bottom:var(--s2);border-bottom:1px solid var(--rule)}
+.rgrid{display:grid;grid-template-columns:1fr;gap:var(--s8)}
+@media(min-width:900px){.rgrid{grid-template-columns:4fr 8fr;gap:var(--s12)}}
+.obs{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
+.obs th,.obs td{text-align:left;padding:var(--s2) 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.obs th{font:600 var(--t-xs)/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);width:44%}
+.obs td{font-weight:550}
+.quote{margin:var(--s4) 0 0;padding-left:var(--s4);border-left:2px solid var(--accent);
+  font-family:var(--serif);font-style:italic;font-size:var(--t-sm);color:var(--muted);line-height:1.5}
+
+/* ------------------------------------------------ PAIRED READING (the core visual) */
+.legend{display:flex;gap:var(--s4);flex-wrap:wrap;align-items:center;
+  font-size:var(--t-xs);color:var(--muted);margin:0 0 var(--s6)}
+.legend span{display:inline-flex;align-items:center;gap:var(--s2)}
+.legend em{font-style:normal;color:var(--subtle);font-size:11px}
+.key{width:12px;height:12px;border-radius:50%;flex:none}
+.key.filled{background:var(--ink)}
+.key.ring{border:2.5px solid var(--ink)}
+.key.gapbar{width:22px;height:5px;border-radius:3px;background:var(--muted)}
+
+.pairs{display:grid;gap:var(--s1)}
+.prow{display:grid;grid-template-columns:84px 1fr;gap:var(--s3);align-items:center;
+  padding:var(--s2) 0;border-bottom:1px solid var(--rule)}
+@media(max-width:520px){.prow{grid-template-columns:70px 1fr;gap:var(--s2)}}
+.prow .name{font-size:var(--t-sm);font-weight:650;color:var(--et);text-transform:capitalize;
+  letter-spacing:-.01em}
+.lane{position:relative;height:34px}
+.lane .axis{position:absolute;left:7px;right:7px;top:16px;height:1px;background:var(--rule-strong)}
+.lane .gap{position:absolute;top:14px;height:5px;border-radius:3px;background:var(--ec);
+  transform-origin:left;transform:scaleX(0);transition:transform var(--slow) var(--ease)}
+.lane .mk{position:absolute;top:10px;width:13px;height:13px;border-radius:50%;
+  transform:translateX(-50%) scale(0);transition:transform var(--mid) var(--ease);
+  transition-delay:120ms}
+.lane .mk.words{background:var(--ec);box-shadow:0 0 0 2px var(--paper)}
+.lane .mk.draw{border:2.5px solid var(--ec);background:var(--paper)}
+.lane.shown .gap{transform:scaleX(1)}
+.lane.shown .mk{transform:translateX(-50%) scale(1)}
+.vals{display:flex;gap:var(--s3);font:600 var(--t-xs) var(--mono);color:var(--muted);
+  margin-top:var(--s1);padding-left:1px}
+.vals b{color:var(--et);font-weight:700}
+.pairs-note{font-size:var(--t-xs);color:var(--subtle);margin:var(--s3) 0 0;max-width:60ch}
+
+/* ------------------------------------------------ verdict */
+.verdict{margin-top:var(--s12);padding-top:var(--s6);border-top:2px solid var(--ink)}
+.vsay{font-family:var(--serif);font-size:clamp(22px,3.2vw,var(--t-2xl));line-height:1.3;
+  letter-spacing:-.02em;margin:0;max-width:30ch}
+.vgrid{display:grid;grid-template-columns:1fr;gap:var(--s8);margin-top:var(--s6)}
+@media(min-width:820px){.vgrid{grid-template-columns:1fr 1fr;gap:var(--s12)}}
+.ev{display:grid;gap:var(--s3)}
+.evrow{display:grid;grid-template-columns:auto 1fr auto;gap:var(--s3);align-items:baseline;
+  padding-bottom:var(--s3);border-bottom:1px solid var(--rule)}
+/* deliberately NOT pass/fail coloured — a similarity is not a score to pass. Presence is carried
+   by the glyph and by weight, never by a green/red judgement. */
+.evrow .tick{font-weight:700;font-size:var(--t-md);line-height:1.2;color:var(--subtle)}
+.evrow.y .tick{color:var(--ink)}
+.evrow .what{font-size:var(--t-sm);font-weight:600}
+.evrow .base{font:600 var(--t-xs) var(--mono);color:var(--subtle);text-align:right;white-space:nowrap}
+
+/* similarity ruler with an explicit chance line */
+.ruler-cap{font-size:var(--t-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);margin:0 0 var(--s3)}
+.readnum{display:flex;align-items:baseline;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s3)}
+.readnum .num{font-family:var(--serif);font-size:var(--t-3xl);line-height:1;letter-spacing:-.03em}
+.delta{font-size:var(--t-sm);font-weight:650;padding:var(--s1) var(--s2);border-radius:var(--r-sm);
+  border:1px solid currentColor}
+.delta.up{color:var(--pos)} .delta.down{color:var(--below)}
+.ruler{position:relative;height:34px;margin-top:var(--s2)}
+.ruler .bar{position:absolute;left:0;right:0;top:11px;height:12px;border-radius:6px;
+  background:var(--sunken);border:1px solid var(--border-control);overflow:hidden}
+.ruler .zone{position:absolute;left:0;top:0;bottom:0;background:var(--zone-fill);
+  border-left:2px solid var(--border-control);border-right:2px solid var(--border-control)}
+.ruler .chance{position:absolute;top:3px;bottom:7px;width:0;border-left:2px dashed var(--ink);
+  box-shadow:0 0 0 1px var(--paper)}
+.ruler .pin{position:absolute;top:5px;width:16px;height:22px;transform:translateX(-50%) scaleY(0);
+  transform-origin:bottom;transition:transform var(--slow) var(--ease)}
+.ruler.shown .pin{transform:translateX(-50%) scaleY(1)}
+.ruler .pin i{display:block;width:3px;height:24px;margin:0 auto;background:var(--accent);border-radius:2px;
+  box-shadow:0 0 0 1px var(--paper)}
+.ticks{position:relative;display:flex;justify-content:space-between;font:600 var(--t-xs) var(--mono);
+  color:var(--subtle);margin-top:var(--s1)}
+.chance-lab{position:absolute;transform:translateX(-50%);white-space:nowrap;color:var(--ink)}
+.pctile{margin:0 0 var(--s3);font-size:var(--t-md);font-weight:600;max-width:40ch}
+.chance-cap{font-size:var(--t-xs);color:var(--muted);margin:var(--s3) 0 0;max-width:46ch}
+.chance-cap b{color:var(--ink)}
+
+details.geo{margin-top:var(--s8);border-top:1px solid var(--rule);padding-top:var(--s4)}
+details.geo summary{cursor:pointer;font-size:var(--t-sm);font-weight:650;color:var(--accent);
+  list-style:none;display:inline-flex;align-items:center;gap:var(--s2);min-height:44px}
+details.geo summary::-webkit-details-marker{display:none}
+details.geo summary::before{content:"▸";transition:transform var(--fast) var(--ease);display:inline-block}
+details.geo[open] summary::before{transform:rotate(90deg)}
+.geo-body{display:grid;grid-template-columns:1fr;gap:var(--s6);padding-top:var(--s3)}
+@media(min-width:760px){.geo-body{grid-template-columns:auto 1fr;gap:var(--s8);align-items:start}}
+.geo-body p{margin:0 0 var(--s3);font-size:var(--t-sm);color:var(--muted);max-width:56ch}
+.field-svg{width:100%;max-width:330px;height:auto}
+.field-svg .grid{stroke:var(--rule-strong);stroke-width:1}
+.field-svg .anchor{fill:var(--subtle);font:500 9px var(--sans)}
+.field-svg .anchor-dot{fill:var(--subtle)}
+.field-svg .axlab{fill:var(--subtle);font:600 9px var(--sans);letter-spacing:.04em}
+.field-svg .link{stroke:var(--accent);stroke-width:2;stroke-dasharray:3 3}
+.field-svg .pw{fill:var(--accent)}
+.field-svg .pd{fill:var(--paper);stroke:var(--accent);stroke-width:2.5}
+
+/* ============================================================ notes */
+.notes{margin-top:var(--s24);border-top:1px solid var(--rule);padding-top:var(--s8)}
+.notes h2{font-family:var(--serif);font-size:var(--t-xl);letter-spacing:-.02em;margin:0 0 var(--s6)}
+.note{display:grid;grid-template-columns:1fr;gap:var(--s2);padding:var(--s6) 0;
+  border-bottom:1px solid var(--rule)}
+@media(min-width:760px){.note{grid-template-columns:22ch 1fr;gap:var(--s8)}}
+.note h3{font-size:var(--t-md);font-weight:650;letter-spacing:-.01em;margin:0}
+.note p{margin:0 0 var(--s3);color:var(--muted);font-size:var(--t-sm);max-width:62ch}
+.note p:last-child{margin-bottom:0}
+footer{padding:var(--s8) 0 var(--s16);color:var(--subtle);font-size:var(--t-xs)}
+footer code{font-family:var(--mono)}
+</style>
+</head>
+<body>
+
+<header class="topbar"><div class="wrap">
+  <span class="mark">Emo<b>Viz</b></span>
+  <span class="mark-sub">University of Sheffield · MSc research instrument</span>
+  <span class="status-pill"><span class="dot warm" id="dot"></span><span id="dotTxt">starting</span></span>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ---------------- hero ---------------- -->
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Text-to-image · emotional similarity</p>
+      <h1>How close is the drawing's feeling to the words'?</h1>
+      <p class="lede">At a science festival, people typed a few words and an AI drew each one.
+        This instrument runs the research pipeline live — it <strong>describes</strong> a drawing,
+        <strong>reads the feeling</strong> from that description, then measures
+        <strong>how close</strong> the two are. There is no correct answer to find.</p>
+      <div class="rail">
+        <ol>
+          <li><span class="n">1</span><span><b>Describe</b><span>Five plain questions — expression, action, posture, people, scene. Never “what emotion is this?”</span></span></li>
+          <li><span class="n">2</span><span><b>Read</b><span>One model infers a feeling from those answers; a different one reads your words.</span></span></li>
+          <li><span class="n">3</span><span><b>Compare</b><span>Measured against random pairings — how close, not right or wrong.</span></span></li>
+        </ol>
+      </div>
+    </div>
+    <aside class="specimen" id="specimen">
+      <figure><div class="skel"></div>
+        <figcaption><span class="k">Specimen · from the dataset</span><q>Loading…</q></figcaption>
+      </figure>
+    </aside>
+  </section>
+
+  <!-- ---------------- chooser: full-width specimen tray ---------------- -->
+  <section class="tray-sec">
+    <div class="head"><h2><i>01</i> Choose a drawing</h2></div>
+    <p class="hint">Real entries from the festival — the words underneath are what that person actually typed.</p>
+    <div class="tray" id="tray" role="group" aria-label="Example drawings from the dataset"></div>
+    <div class="controls">
+      <button class="btn" id="btnRandom">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/>
+          <circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/>
+          <circle cx="15.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.3" fill="currentColor"/></svg>
+        Random</button>
+      <label class="sr" for="recId">Drawing number</label>
+      <input type="number" id="recId" placeholder="No. 14–1025" min="14" max="1025">
+      <button class="btn" id="btnLoad">Load</button>
+      <label><input type="file" id="file" accept="image/*"><button class="btn" id="btnUpload">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>Upload</button></label>
+    </div>
+  </section>
+
+  <!-- ---------------- workspace ---------------- -->
+  <section class="work">
+    <div>
+      <div class="head"><h2><i>02</i> The drawing</h2></div>
+      <p class="hint">Your selection.</p>
+      <div class="canvas" id="canvas"><p class="empty">Pick one above, or upload an image, to begin.</p></div>
+    </div>
+    <div>
+      <div class="head"><h2><i>03</i> The words</h2></div>
+      <p class="hint">What the person typed — or write your own.</p>
+      <label class="field" for="text">The feeling, in words</label>
+      <textarea id="text" maxlength="500" placeholder="e.g. tired but happy"></textarea>
+      <div class="presets" id="presets">
+        <button class="preset">tired but happy</button>
+        <button class="preset">so excited to be here</button>
+        <button class="preset">feeling a bit lost today</button>
+        <button class="preset">calm and peaceful</button>
+        <button class="preset">absolutely furious</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="action">
+    <button class="cta" id="btnRun">Compare the feelings</button>
+    <span class="msg" id="msg" role="status" aria-live="polite"></span>
+  </div>
+
+  <!-- ---------------- results ---------------- -->
+  <section class="results" id="results">
+    <div class="rgrid">
+      <div>
+        <p class="sec-label">What the image model answered</p>
+        <table class="obs"><tbody id="obs"></tbody></table>
+        <p class="quote" id="desc"></p>
+        <p class="pairs-note">These are the model's answers, not ground truth. Note that the
+          expression answer is often already a feeling word — so this stage and the next are not
+          fully independent, a caveat the dissertation reports.<span id="descNote"></span></p>
+      </div>
+      <div>
+        <p class="sec-label">The two readings, side by side</p>
+        <div class="legend">
+          <span><i class="key filled"></i> the words <em>(GoEmotions)</em></span>
+          <span><i class="key ring"></i> the drawing <em>(zero-shot NLI)</em></span>
+          <span><i class="key gapbar"></i> the distance between them <em>(in each row\u2019s colour)</em></span>
+        </div>
+        <div class="pairs" id="pairs"></div>
+        <p class="pairs-note" id="pairsNote"></p>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <p class="vsay" id="say"></p>
+      <div class="vgrid">
+        <div class="ev" id="ev"></div>
+        <div>
+          <p class="ruler-cap">Feeling similarity</p>
+          <div class="readnum"><span class="num" id="scoreNum">–</span></div>
+          <p class="pctile" id="pctile"></p>
+          <div class="ruler" id="ruler">
+            <div class="bar"><span class="zone" id="zone"></span></div>
+            <span class="chance" id="chanceLine"></span>
+            <span class="pin" id="pin"><i></i></span>
+          </div>
+          <div class="ticks"><span id="tickLo">41</span>
+            <span class="chance-lab" id="chanceLab"></span><span id="tickHi">100</span></div>
+          <p class="chance-cap" id="chanceCap"></p>
+        </div>
+      </div>
+
+      <details class="geo">
+        <summary>Show the measurement geometry</summary>
+        <div class="geo-body">
+          <svg class="field-svg" id="field" viewBox="0 0 330 250" role="img"
+               aria-label="A map of feelings by pleasantness and energy, with both readings plotted"></svg>
+          <div>
+            <p>The similarity number is a <strong>distance</strong>. Each reading is placed on a map of
+              feelings — left to right is unpleasant to pleasant, bottom to top is calm to excited — and
+              the score is how close the two placements land.</p>
+            <p id="geoNote"></p>
+            <p>This is the weakest of the four measures used in the research: it cannot tell a face
+              apart from a scene. The two checks on the left are the ones that carry the finding.</p>
+          </div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- ---------------- notes ---------------- -->
+  <section class="notes" id="notes">
+    <h2>Method and limits</h2>
+    <div class="note">
+      <h3>Describe, don't ask</h3>
+      <div><p>Forcing an image model to output an emotion label directly performs poorly on line art:
+        the CLIP baseline this project measured reached 25% emotion-family agreement, against 49% for
+        the pipeline used here. So instead one model answers plain descriptive questions, and a
+        separate model infers a feeling from those answers.</p>
+        <p>The two sides are read by <em>different</em> models — GoEmotions for your words, zero-shot
+        NLI for the drawing's description — because each suits its input. Their scores are put on the
+        same seven-family scale before they are compared.</p></div>
+    </div>
+    <div class="note">
+      <h3>Why chance isn't zero</h3>
+      <div><p>These measures do not start at nought. Take a drawing and a sentence <em>at random</em>
+        from the dataset and they already score about <b id="whyChance">76</b>% on feeling similarity,
+        because most feelings sit near one another on the map. Worse, random pairs are spread right
+        across the scale — so on any single comparison the similarity number is weak evidence, and the
+        two yes/no checks matter more.</p>
+        <p>Every chance figure shown here is measured from this project's own data by shuffling the
+        pairings 300 times — the same procedure used in the dissertation.</p></div>
+    </div>
+    <div class="note">
+      <h3>Similarity, not accuracy</h3>
+      <div><p>Emotion labels overlap, so this measures closeness rather than exact match: “happy” and
+        “excited” belong to the same family and count as similar. There is no pass mark and no correct
+        answer.</p>
+        <p>How well any of this matches <em>human</em> judgement is the next study — no human ratings
+        have been collected yet.</p></div>
+    </div>
+    <div class="note">
+      <h3>Faces read far better than scenes</h3>
+      <div><p>Where the drawing contains a readable face, the two readings agree on the direction of
+        mood 74% of the time. Where it is a scene with no person, that falls to 43%. <strong>If you
+        upload a picture with no one in it, treat the result as weak</strong> — the pipeline has much
+        less to go on than the confident-looking output suggests.</p></div>
+    </div>
+    <div class="note">
+      <h3>The generator is inconsistent too</h3>
+      <div><p>87 prompts in the dataset were drawn more than once. Given the identical words, the AI
+        produced drawings that convey the same emotion only about 69% of the time — so a single
+        drawing is one sample of the model's behaviour, not a fixed answer.</p></div>
+    </div>
+    <div class="note">
+      <h3>Known limits</h3>
+      <div><p>The drawing-reader is biased towards happiness: it reports a happy or smiling
+        expression for <b>57%</b> of the drawings whose face it can read (66% of the dataset as a
+        whole), which inflates positive results. Fear, disgust and surprise are poorly captured by
+        <em>both</em> readers —
+        the one reading the drawing and the one reading your words. A low score can therefore mean the
+        drawing conveys something different, or simply that the reader missed it.</p>
+        <p><strong>Your words and any image you upload are processed in memory and never written to
+        disk, and this server keeps no record of visitors.</strong> Names of private individuals in the
+        festival entries have been replaced with a placeholder; every drawing is shown.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    EmoViz — “Visualising Emotion”, MSc dissertation, University of Sheffield ·
+    <code>blip-vqa-base</code> · <code>bart-large-mnli</code> · <code>roberta-go_emotions</code>
+  </footer>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+const HUE = e => `var(--${e||'neutral'})`, TXT = e => `var(--${e||'neutral'}-t)`;
+const pc  = v => Math.round(v*100);
+let current = {record_id:null, image_b64:null}, timer = null, BASE = null;
+
+/* ---------- model status ---------- */
+async function poll(){
+  try{ const s = await (await fetch("/api/status")).json();
+    $("dot").className = s.ready ? "dot ready" : "dot warm";
+    $("dotTxt").textContent = s.ready ? "ready" : (s.warming ? "warming" : "idle");
+    return s.ready;
+  }catch(e){ $("dotTxt").textContent = "offline"; return false; }
+}
+(async()=>{ if(!await poll()){ fetch("/api/warmup",{method:"POST"});
+  const iv=setInterval(async()=>{ if(await poll()) clearInterval(iv); },3000);} })();
+
+/* ---------- chance baselines (measured server-side, never hard-coded here) ---------- */
+(async()=>{
+  try{
+    const b = await (await fetch("/api/baselines")).json();
+    if(b && b.available){ BASE = b; $("whyChance").textContent = pc(b.all.null.va); }
+  }catch(e){}
+})();
+/* Pick the reference set the DISSERTATION would use for this case. It splits on the prompt's top
+   family (emotional = top-1 != neutral), NOT on valence sign: sign() collapses surprise to "0"
+   alongside neutral, so routing on valence would score every surprise-led prompt against the wrong
+   baseline. Counts come from the server so the labels cannot go stale. */
+function refFor(sim){
+  if(!BASE) return null;
+  const neutral = sim.prompt_top === "neutral";
+  const b = neutral ? BASE.non_emotional : BASE.emotional;
+  if(!b) return null;
+  return {...b, name: `the ${b.n.toLocaleString()} records whose words carry `
+                      + (neutral ? "no feeling" : "a feeling")};
+}
+
+/* ---------- examples + hero specimen ---------- */
+(async()=>{
+  try{
+    const fx = await (await fetch("/api/featured")).json();
+    $("tray").innerHTML = fx.map(f=>`<button class="card" data-id="${f.id}" aria-pressed="false">
+      <img src="${f.thumb}" alt="" loading="lazy"><span class="q">“${esc(f.text)}”</span>
+      <span class="k">${esc(f.label)} · no. ${f.id}</span></button>`).join("");
+    document.querySelectorAll(".card").forEach(b=> b.onclick=()=>{
+      document.querySelectorAll(".card").forEach(x=>x.setAttribute("aria-pressed","false"));
+      b.setAttribute("aria-pressed","true"); load("/api/record/"+b.dataset.id); });
+    if(fx[0]){ const r = await (await fetch("/api/record/"+fx[0].id)).json();
+      $("specimen").innerHTML = `<figure><img src="${r.image}" alt="An example drawing from the dataset">
+        <figcaption><span class="k">Specimen · no. ${r.id}</span><q>${esc(r.text)}</q></figcaption></figure>`; }
+  }catch(e){}
+})();
+
+/* ---------- helpers ---------- */
+function esc(s){ return String(s==null?"":s).replace(/[&<>"']/g,
+  c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function setMsg(t, busy=false, err=false){
+  $("msg").innerHTML = (busy?'<span class="spin"></span>':'') + esc(t||"");
+  $("msg").className = "msg" + (err?" err":"");
+}
+function paint(src,id){
+  $("canvas").innerHTML = `<img src="${src}" alt="The selected drawing">` +
+    (id?`<span class="ref">No. ${id}</span>`:"");
+}
+async function load(url){
+  setMsg("Loading drawing", true); $("results").classList.remove("on");
+  try{
+    const res = await fetch(url), d = await res.json();
+    if(!res.ok){ setMsg(d.error||"Record unavailable", false, true);
+      current = {record_id:null, image_b64:null};
+      $("canvas").innerHTML = '<p class="empty">Pick one above, or upload an image, to begin.</p>';
+      return; }
+    current = {record_id:d.id, image_b64:null};
+    paint(d.image, d.id); $("text").value = d.text; $("recId").value = d.id; setMsg("");
+  }catch(e){ setMsg("Could not reach the server", false, true); }
+}
+$("btnRandom").onclick = () => { document.querySelectorAll(".card").forEach(x=>x.setAttribute("aria-pressed","false"));
+  load("/api/random"); };
+$("btnLoad").onclick = () => { const v = $("recId").value.trim();
+  if(!v) return setMsg("Type a drawing number first", false, true);
+  if(!/^\d+$/.test(v)) return setMsg("Use a whole number between 14 and 1025", false, true);
+  load("/api/record/"+v); };
+$("btnUpload").onclick = () => $("file").click();
+$("file").onchange = e => { const f=e.target.files[0]; if(!f) return;
+  /* base64 inflates by 4/3, and the server caps the BODY at 8 MB — so the file limit must be ~5.5 */
+  if(f.size > 5.5*1024*1024){ setMsg("Image too large — try one under 5 MB", false, true); return; }
+  const rd = new FileReader();
+  rd.onload = ev => { current = {record_id:null, image_b64:ev.target.result};
+    document.querySelectorAll(".card").forEach(x=>x.setAttribute("aria-pressed","false"));
+    paint(ev.target.result, null); $("results").classList.remove("on");
+    setMsg("Image ready — add words, then compare"); };
+  rd.readAsDataURL(f); };
+document.querySelectorAll(".preset").forEach(p => p.onclick = () => { $("text").value = p.textContent.trim(); });
+
+/* ---------- the paired reading ---------- */
+function pairedReading(pe, ie){
+  const W = Object.fromEntries(pe), D = Object.fromEntries(ie);
+  const names = [...new Set([...pe, ...ie].map(([l])=>l))]
+    .sort((a,b)=> Math.max(D[b]??0, W[b]??0) - Math.max(D[a]??0, W[a]??0));
+  let anyAbsent = false;
+  $("pairs").innerHTML = names.map(l=>{
+    const w = W[l], d = D[l], both = w !== undefined && d !== undefined;
+    if(!both) anyAbsent = true;
+    const val = v => `calc(7px + ${v} * (100% - 14px))`;
+    /* An unranked feeling has NO value — it is unknown, bounded above by that reader's third
+       choice. Substituting 0 and drawing a bar to it would render a distance nobody measured, so
+       an absent reading gets no mark and no bar; the "—" in the values row carries the truth. */
+    const gapEl = both
+      ? `<span class="gap" style="left:${val(Math.min(w,d))};width:calc(${Math.abs(w-d)} * (100% - 14px))"></span>`
+      : "";
+    const mkW = w !== undefined ? `<span class="mk words" style="left:${val(w)}"></span>` : "";
+    const mkD = d !== undefined ? `<span class="mk draw" style="left:${val(d)}"></span>` : "";
+    return `<div class="prow" style="--ec:${HUE(l)};--et:${TXT(l)}">
+      <span class="name">${esc(l)}</span>
+      <div>
+        <div class="lane" role="img" aria-label="${esc(l)} — words ${w===undefined?'not in top three':pc(w)+' percent'}, drawing ${d===undefined?'not in top three':pc(d)+' percent'}">
+          <span class="axis"></span>${gapEl}${mkW}${mkD}
+        </div>
+        <div class="vals"><span>words <b>${w===undefined?'—':pc(w)+'%'}</b></span>
+          <span>drawing <b>${d===undefined?'—':pc(d)+'%'}</b></span></div>
+      </div></div>`;
+  }).join("");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>
+    document.querySelectorAll(".lane").forEach(l=>l.classList.add("shown"))));
+  $("pairsNote").innerHTML = (anyAbsent
+    ? "Each reader reports only its top three feelings; “—” means that reader did not rank this one. "
+    : "Both readers rank the same three feelings — the gaps show how far apart they place each one. ")
+    + "The two readers produce their numbers differently, so read the <em>ordering</em> and the large "
+    + "gaps, not small differences.";
+}
+
+/* ---------- the verdict sentence: keyed to the diagnostic measures, then to chance ---------- */
+function sentence(s, beat){
+  if(s.prompt_top === "neutral" && s.image_top === "neutral")
+    return "Neither the words nor the drawing reads as a clear feeling — they agree only on the "
+         + "<b>absence</b> of one.";
+  if(s.prompt_top === "neutral")
+    return "These words don't name a feeling, so there is little here for the drawing to match.";
+  if(s.family_match)  return "Both readings land on the <b>same feeling</b>.";
+  if(s.valence_match) return "The same <b>direction of mood</b> — but a different feeling within it.";
+  /* keyed to the percentile, not to the mean: the null is left-skewed, so beating the mean is not
+     the same as beating most random pairings, and the two would contradict each other on screen. */
+  if(beat == null) return "The two readings name <b>different feelings</b>.";
+  if(beat > 50)
+    return "Only <b>loosely related</b> — closer than most random pairings, but the feelings differ.";
+  return "<b>No more alike</b> than a drawing and a sentence picked at random.";
+}
+
+/* ---------- the valence–arousal field (what the number actually measures) ---------- */
+function drawField(s){
+  if(!BASE || !BASE.centroids) return;
+  const C = BASE.centroids, PL = 54, PR = 30, PT = 30, W = 330, H = 250;
+  const w = W-PL-PR, h = H-PT-48, P = PT;
+  const X = v => PL + ((v+1)/2)*w, Y = a => PT + (1-a)*h;
+  const anchors = Object.entries(C).map(([l,[v,a]])=>
+    `<circle class="anchor-dot" cx="${X(v).toFixed(1)}" cy="${Y(a).toFixed(1)}" r="3"/>
+     <text class="anchor" x="${(X(v)+6).toFixed(1)}" y="${(Y(a)+3).toFixed(1)}">${l}</text>`).join("");
+  const [pv,pa] = s.p_point, [iv,ia] = s.i_point;
+  $("field").innerHTML = `
+    <rect x="${PL}" y="${PT}" width="${w}" height="${h}" fill="none" class="grid"/>
+    <line class="grid" x1="${PL+w/2}" y1="${PT}" x2="${PL+w/2}" y2="${PT+h}"/>
+    <text class="axlab" x="${PL}" y="${H-18}">← unpleasant</text>
+    <text class="axlab" x="${PL+w}" y="${H-18}" text-anchor="end">pleasant →</text>
+    <text class="axlab" x="8" y="${PT+8}">excited</text>
+    <text class="axlab" x="8" y="${PT+h}">calm</text>
+    ${anchors}
+    <line class="link" x1="${X(pv).toFixed(1)}" y1="${Y(pa).toFixed(1)}"
+          x2="${X(iv).toFixed(1)}" y2="${Y(ia).toFixed(1)}"/>
+    <circle class="pw" cx="${X(pv).toFixed(1)}" cy="${Y(pa).toFixed(1)}" r="6"/>
+    <circle class="pd" cx="${X(iv).toFixed(1)}" cy="${Y(ia).toFixed(1)}" r="6"/>`;
+  const f = v => (Math.abs(v) < 0.005 ? 0 : v).toFixed(2);   // avoid printing "-0.00"
+  $("geoNote").innerHTML = `Here the words sit at <b>${f(pv)}</b> pleasantness / `
+    + `<b>${f(pa)}</b> energy, the drawing at <b>${f(iv)}</b> / <b>${f(ia)}</b>.`;
+}
+
+/* ---------- run ---------- */
+$("btnRun").onclick = async () => {
+  const text = $("text").value.trim();
+  if(!current.record_id && !current.image_b64) return setMsg("Choose a drawing first", false, true);
+  if(!text) return setMsg("Add some words first", false, true);
+  $("btnRun").disabled = true;
+  $("results").classList.remove("on");     // never leave a stale verdict beside a new error
+  let st = {ready:false}; try{ st = await (await fetch("/api/status")).json(); }catch(e){}
+  /* The server sends nothing until it returns, so report only what is actually known: that it is
+     running, and for how long. Naming pipeline stages here would be invented progress. */
+  const cold = !st.ready, t0 = Date.now();
+  const tick = () => setMsg((cold ? "Loading the models, then running — the first run takes a minute"
+                                  : "Running the pipeline") + ` · ${Math.round((Date.now()-t0)/1000)}s`, true);
+  tick(); timer = setInterval(tick, 1000);
+  try{
+    const res = await fetch("/api/analyse",{method:"POST",headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({text, record_id: current.record_id, image_b64: current.image_b64})});
+    if(!res.ok){                            // a 413 returns HTML, so never call res.json() blindly
+      clearInterval(timer);
+      setMsg(res.status === 413 ? "That image is too large — try one under 5 MB."
+                                : `The server couldn't process that (error ${res.status}).`, false, true);
+      $("btnRun").disabled = false; return;
+    }
+    const d = await res.json(); clearInterval(timer);
+    if(d.error || d.warning){ setMsg(d.error || d.warning, false, true); $("btnRun").disabled=false; return; }
+    if(!d.similarity){ setMsg("Need both a drawing and some words to compare", false, true);
+      $("btnRun").disabled=false; return; }
+
+    if(d.vqa){
+      $("obs").innerHTML = Object.entries(d.vqa)
+        .map(([k,v])=>`<tr><th>${esc(k)}</th><td>${esc(v)}</td></tr>`).join("");
+      $("desc").textContent = "“" + d.description + "”";
+      /* the description template always says "The person is ..." — including on the 41% of the
+         dataset where the model itself answered that nobody is present. Changing the template
+         would break parity with the analysis, so name the artefact instead of hiding it. */
+      const ppl = String((d.vqa||{}).people||"").trim().toLowerCase();
+      $("descNote").innerHTML = /^(0|none|no ?one|nobody|zero)$/.test(ppl)
+        ? " Here the model reported <b>no people</b>, yet the sentence still says “the person”: "
+          + "the wording is a fixed template, not an observation."
+        : "";
+    }
+    pairedReading(d.prompt_emotions, d.image_emotions);
+
+    const s = d.similarity, ref = refFor(s), val = pc(s.va);
+    /* strict "<" so a value tied with the sample maximum is not reported as beating 100% of it */
+    let beat = null;
+    if(ref && ref.pair_pct){ beat = 0;
+      for(let q=0;q<=100;q++){ if(ref.pair_pct.va[q] < s.va) beat = q; }
+      beat = Math.min(beat, 99);
+    }
+    $("scoreNum").textContent = val;
+    $("say").innerHTML = sentence(s, beat);
+
+    /* evidence rows — each check shown beside how often chance alone achieves it */
+    /* A null with zero spread is an identity, not a baseline (e.g. every prompt in the subset
+       shares one label) — the server flags those and they must not be shown as "chance". */
+    const bl = ref ? ref.null : null, deg = (ref && ref.degenerate) || [];
+    const chance = k => (bl && bl[k] != null && deg.indexOf(k) < 0) ? bl[k] : null;
+    /* valence_match is false BY CONSTRUCTION when the words carry no direction (neutral, and also
+       surprise). Showing that as a failed check with a chance rate would be a measurement artefact
+       dressed up as a result. */
+    const noDir = s.prompt_valence === "0";
+    $("ev").innerHTML =
+      (noDir ? row(null, "Same direction of mood", null, "no direction in these words")
+             : row(s.valence_match, "Same direction of mood", chance("vsign"))) +
+      row(s.family_match, "Same emotion family", chance("family")) +
+      row(null, "Shared weight across both readings", null,
+          pc(s.overlap) + "%" + (chance("overlap") != null ? ` · chance ${pc(chance("overlap"))}%` : ""));
+
+    /* ruler: axis starts at the metric's real floor (it cannot reach 0), chance band from the
+       measured spread of individual random pairings — not from the mean of subset means. */
+    const LO = Math.floor((BASE && BASE.va_floor ? BASE.va_floor : .41)*100), HI = 100;
+    const at = v => ((Math.min(HI,Math.max(LO,v))-LO)/(HI-LO)*100)+"%";
+    $("tickLo").textContent = LO;
+    if(ref && ref.pair_pct){
+      const P = ref.pair_pct.va;
+      /* beat was computed above */
+      /* the line is the MEAN — the same statistic the dissertation publishes as the null, so the
+         figure here and the figure in the write-up are the same number. The band is p25-p75,
+         which carries what a mean alone hides: random pairs are spread all over this axis. */
+      const ch = pc(ref.null.va), lo = pc(P[25]), hi = pc(P[75]);
+      $("zone").style.left   = at(lo);
+      $("zone").style.width  = `calc(${at(hi)} - ${at(lo)})`;
+      $("chanceLine").style.display = "";
+      $("chanceLine").style.left = at(ch);
+      $("chanceLab").style.left  = at(ch);
+      $("chanceLab").textContent = "chance " + ch;
+      $("pin").style.left    = at(val);
+      $("pctile").textContent = `Closer than ${beat}% of random pairings.`;
+      $("chanceCap").innerHTML = `Bracketed is the middle half of <b>random</b> pairings drawn from `
+        + `${esc(ref.name)}: they score ${lo}–${hi}, averaging ${ch}. Random pairs cover most of this `
+        + `axis, which is why a single similarity number is weak on its own — the two checks on the `
+        + `left carry more. The measure cannot fall below ${LO}, so the axis starts there.`;
+    }else{
+      $("pctile").textContent = "";
+      $("pin").style.left = at(val); $("zone").style.width = "0";
+      $("chanceLine").style.display = "none"; $("chanceLab").textContent = "";
+      $("chanceCap").textContent = "Chance line unavailable — the analysis outputs weren't found.";
+    }
+    requestAnimationFrame(()=>requestAnimationFrame(()=>$("ruler").classList.add("shown")));
+    drawField(s);
+
+    $("results").classList.add("on"); setMsg("");
+    if(d.truncated) $("pairsNote").innerHTML =
+      `<b>Only the first 500 of ${d.truncated} characters were read.</b> ` + $("pairsNote").innerHTML;
+    $("results").scrollIntoView({behavior:"smooth", block:"start"});
+  }catch(e){ clearInterval(timer); setMsg("Something went wrong — is the server running?", false, true); }
+  $("btnRun").disabled = false;
+};
+function row(ok, what, base, plain){
+  const cls = ok===null ? "" : (ok ? " y" : " n");
+  const tick = ok===null ? "·" : (ok ? "✓" : "✕");
+  const right = plain !== undefined ? plain
+              : (base!=null ? `chance ${pc(base)}%` : "");
+  return `<div class="evrow${cls}"><span class="tick" aria-hidden="true">${tick}</span>
+    <span class="what">${esc(what)}${ok===null?"":`<span class="sr-only"> — ${ok?"yes":"no"}</span>`}</span>
+    <span class="base">${esc(right)}</span></div>`;
+}
+</script>
+</body>
+</html>

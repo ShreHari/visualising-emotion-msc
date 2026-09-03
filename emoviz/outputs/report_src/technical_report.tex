@@ -1,0 +1,259 @@
+% EmoViz Technical Report — documentation of the technical build (not assessed dissertation prose)
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{helvet}
+\usepackage{parskip}
+
+\definecolor{ink}{HTML}{1D2227}
+\definecolor{blue}{HTML}{31708F}
+\definecolor{gold}{HTML}{B07D2B}
+\definecolor{soft}{HTML}{5A636C}
+\definecolor{green}{HTML}{3C7A4E}
+\definecolor{red}{HTML}{9E3B33}
+
+\titleformat{\section}{\Large\bfseries\color{ink}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries\color{blue}}{\thesubsection}{0.7em}{}
+\setlist{nosep, leftmargin=1.4em}
+
+\newcommand{\pass}{\textcolor{green}{\textbf{PASS}}}
+\newcommand{\finding}[1]{\textcolor{blue}{\textbf{#1}}}
+
+\begin{document}
+
+% ---------------- title ----------------
+\begin{center}
+{\huge\bfseries EmoViz: Technical Report}\\[6pt]
+{\Large Visualising Emotion --- the complete analysis pipeline}\\[10pt]
+{\color{soft} Technical documentation of the software, experiments and findings}\\[4pt]
+{\color{soft} MSc Dissertation Project of Shre Hari Prem Anandh · Supervisor: Dr Chaona Chen}\\
+{\color{soft} School of Computer Science, University of Sheffield · August 2026}\\[6pt]
+{\small\color{soft}\emph{This document records the technical work; the assessed dissertation is written separately by the student.}}
+\end{center}
+
+\vspace{4pt}
+\hrule
+\vspace{10pt}
+
+% ---------------- executive summary ----------------
+\section*{Executive summary}
+This project asks a question almost untouched in the text-to-image literature: \textbf{when an AI
+turns words about a feeling into a picture, does the picture actually convey that feeling?}
+Working on a unique dataset of \textbf{1{,}025 public self-reports} --- each rendered as a
+black-and-white line drawing by DALL·E at a public engagement event --- we built, validated and
+verified a complete measurement pipeline. Four findings emerged:
+
+\begin{enumerate}
+\item \textbf{Faces carry emotion; scenes barely do.} Drawings with a readable face agree with the
+prompt's emotional direction \textbf{74\%} of the time (family agreement 62\%); scene-only drawings
+manage \textbf{43\%} (family 36\%). Both exceed chance; the gap is large and survives every
+robustness check.
+\item \textbf{The pipeline passes its validity test.} For prompts that contain no feeling (40\% of
+the data), measured alignment drops to exactly chance ($z\!\approx\!0$) --- the method finds emotion
+only where emotion exists.
+\item \textbf{Generative emotion is unstable.} Across 87 prompts drawn 2--42 times each, the model
+conveys the \emph{same} emotion only 69\% of the time; only 32\% of repeated prompts are fully
+consistent across their drawings.
+\item \textbf{Method matters --- and the supervisor's architecture wins.} The describe-then-extract
+design roughly doubles both emotion-family agreement (49\% vs 25\%) and top-3 overlap (49\% vs 23\%)
+compared with asking CLIP for the emotion directly.
+\end{enumerate}
+
+All results are measured against random-pairing null baselines (z-scores 4--16), independently
+re-derived by an adversarial statistical review, checked on deduplicated prompts, and covered by an
+automated \textbf{28/28-passing test suite}.
+
+% ---------------- dataset ----------------
+\section{The dataset --- and how every record is used}
+\begin{center}\includegraphics[width=0.98\textwidth]{../figures/fig5_dataset.pdf}\end{center}
+
+1{,}025 text--image pairs from Festival of the Mind 2024 (Sheffield): visitors typed how they felt;
+DALL·E drew each entry as monochrome line art. Median prompt length is 4 words; mixed feelings
+(``tired but happy'') are common. Key data-engineering facts established:
+
+\begin{itemize}
+\item \textbf{Three incompatible filename schemes} and two lowercase extensions were unified by a
+robust loader (\texttt{emoviz/data.py}) --- a na\"ive loader resolves under 20\% of files.
+\item \textbf{Hidden provenance metadata} (C2PA) was recovered from inside every PNG, yielding
+per-image timestamps that identified records 1--13 as \textbf{pre-festival developer tests}
+(excluded from analysis; still processed).
+\item \textbf{100\% of images processed, zero failures}; every analysed record belongs to exactly one
+emotional/non-emotional group (607/405) and one face/scene group (591/421) --- the splits are
+groupings, not exclusions, and \emph{all} groups are reported.
+\item 87 prompts repeat 2--42 times (336 records) --- used both as a natural consistency experiment
+and for a deduplication robustness check.
+\end{itemize}
+
+% ---------------- architecture ----------------
+\section{Pipeline architecture}
+Following the supervisor's direction, the pipeline never asks a vision model for an emotion.
+Instead it \emph{describes} then \emph{extracts}:
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Stage} & \textbf{Component} & \textbf{Output}\\
+\midrule
+0 · Split & GoEmotions (prompts) / BLIP-VQA cues (images) & emotional?\ · face?\\
+1 · Describe & \textbf{BLIP-VQA}: expression, action, posture, scene & neutral description\\
+2 · Extract & \textbf{Zero-shot NLI} (facts $\rightarrow$ feeling), both sides & top-3 emotions\\
+3 · Compare & \textbf{Similarity ladder}, not exact match & 4 metrics + null $z$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The similarity ladder scores each pair at four granularities --- valence--arousal proximity,
+valence sign, Ekman family, and probability-weighted top-3 overlap --- and every metric is
+referenced to a \textbf{random-pairing null} (300 shuffles): a pair only counts as ``aligned'' to
+the extent it beats chance.
+
+\subsection{Engineering the pipeline: what was tried and rejected}
+Each link was tested \emph{before} being trusted; the failures shaped the final design and are
+findings in their own right:
+
+\begin{center}
+\begin{tabular}{@{}p{4.6cm}p{9.6cm}@{}}
+\toprule
+\textbf{Candidate} & \textbf{Why rejected (evidence)}\\
+\midrule
+GoEmotions on image descriptions & Collapses to \emph{neutral} 0.95+ --- it needs first-person feeling words; scene descriptions have none.\\
+Single BLIP caption $\rightarrow$ NLI & Captions too terse (``a man with hands in the air'') --- NLI collapses to \emph{surprise}.\\
+Qwen2.5-VL-3B describer & 7\,GB fp16 exceeded laptop RAM; thrashed into swap, zero progress in 4.5\,h. Machine supports only sub-1B describers.\\
+Florence-2 describer & Incompatible with transformers 5.14 (\texttt{forced\_bos\_token\_id} failure in remote code).\\
+\textbf{BLIP-VQA (chosen)} & $\sim$0.4B, native, $\sim$1.5\,s/record; its \emph{``what is the facial expression?''} answer supplies exactly the affective cue NLI needs.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% ---------------- results ----------------
+\section{Findings}
+
+\subsection{Finding 1 --- faces carry the emotion; scenes carry far less}
+\begin{center}\includegraphics[width=0.9\textwidth]{../figures/fig1_face_vs_scene.pdf}\end{center}
+Face drawings (n=402) agree with the prompt's valence 74\% ($z\!=\!+10.4$) vs 43\% for scenes
+(n=205, $z\!=\!+5.8$); family agreement 62\% vs 36\%. The gap persists on deduplicated prompts (face $z\!=\!+9$).
+\emph{Caveat (stated honestly):} the face/scene rule derives from the same description that feeds
+emotion extraction, so the split is partially entangled with the measure; the null-referenced gap
+remains large under every check.
+
+\subsection{Finding 2 --- the validity check passes}
+\begin{center}\includegraphics[width=0.72\textwidth]{../figures/fig3_validity_check.pdf}\end{center}
+Emotional prompts align at $z\!\approx\!+12$; non-emotional prompts (``pigs'', ``mickey mouse'')
+align at $z\!\approx\!+0.3$ --- chance. The instrument detects emotion only where emotion exists,
+which is precisely how a trustworthy instrument should behave.
+
+\subsection{Finding 3 --- generative emotion is unstable}
+\begin{center}\includegraphics[width=0.98\textwidth]{../figures/fig4_consistency.pdf}\end{center}
+Given an \emph{identical} prompt, the model conveys the same emotion only 69\% of the time (valence
+74\%); just 28 of 87 repeated prompts are fully consistent (these pool corpus-wide repeats --- same text from
+different visitors and consecutive re-generations --- the generator's input being identical either way). ``happy'' \(\times\)42 produced
+34 joy, 7 neutral, 1 surprise.
+
+\subsection{Finding 4 --- the describe-then-extract method wins}
+\begin{center}\includegraphics[width=0.9\textwidth]{../figures/fig2_method_comparison.pdf}\end{center}
+On the same 608 records, describe$\rightarrow$extract roughly \textbf{doubles} both family agreement
+and top-3 overlap versus direct CLIP (the overlap figure corrected in the final audit --- a label-space
+mismatch had deflated the old method's score) --- empirical support for the supervisor's
+proposed architecture.
+
+\subsection{What is deliberately \emph{not} claimed}
+\begin{itemize}
+\item \textbf{``Positive emotions transfer better than negative''} --- retracted after adversarial
+review: within a single-valence subset the sign/family null is degenerate ($z\!=\!0$) and the raw
+gap is a base-rate artifact. The two automatic readers disagree in \emph{opposite} directions
+(CLIP skews negative on line art; BLIP-VQA reads 66\% of faces as smiling), so only the planned
+\textbf{human-rating study} can adjudicate.
+\item Fear, disgust and surprise are poorly captured by both readers; strong claims are restricted
+to the valence axis and the face/scene contrast.
+\end{itemize}
+
+% ---------------- verification ----------------
+\section{Verification and robustness}
+\begin{itemize}
+\item \textbf{Null baselines everywhere.} All metrics referenced to 300 random pairings; headline
+$z$ range $+4$ to $+16$.
+\item \textbf{Adversarial statistical review.} An independent reviewer re-derived the analysis;
+its corrections (degenerate nulls, missing per-metric baselines, an overstated scene claim,
+undisclosed duplicates) were all applied.
+\item \textbf{Deduplication.} 249 duplicate-prompt records disclosed; every headline re-run on 763
+distinct prompts --- face finding robust.
+\item \textbf{Data integrity.} 1{,}025 unique ids, all image paths verified, all emotion fields
+well-formed, zero processing failures.
+\item \textbf{Automated test suite} (\texttt{test.sh}): environment, data, analyses, live pipeline,
+compilation --- \textbf{18/18 \pass}.
+\end{itemize}
+
+% ---------------- audit ----------------
+\section{Final audit}
+A six-dimension audit (code correctness; claim reproduction; document consistency; reproducibility;
+legacy-code health; deep data integrity) was run as the final step, and \textbf{every finding was fixed
+and re-verified}. The material findings and their resolutions:
+
+\begin{center}
+\begin{tabular}{@{}p{6.9cm}p{7.3cm}@{}}
+\toprule
+\textbf{Finding (severity)} & \textbf{Resolution}\\
+\midrule
+Label-space mismatch deflated the old method's top-3 overlap: 15\% $\rightarrow$ true 23\% (\textcolor{red}{major}) & Canonicalised \texttt{happiness}$\rightarrow$\texttt{joy}; ``tripled'' corrected to ``roughly doubled'' in every document. The new-beats-old conclusion is unchanged.\\
+Two scripts silently included the 13 pre-test records (\textcolor{red}{major}) & Pre-test filter added; affected table now $n=984$ (values shift $\le$0.4pp; no finding changes).\\
+README and four dashboards presented the superseded direct-CLIP era as current (\textcolor{red}{critical/major}) & README rewritten around the final architecture; stale dashboards and write-ups moved to \texttt{outputs/archive/} with visible supersession banners.\\
+Face rule missed multi-word answers (``man is smiling'') --- $\sim$2.5\% leakage (minor) & Token-intersection matching; split refreshed (591/421), findings re-verified.\\
+No pinned dependencies; setup script bypassed the venv; figures module missing from it (\textcolor{red}{major}) & \texttt{requirements.txt} (55 pinned packages); \texttt{setup.sh} now creates the venv and installs from it; figure generation added to the test suite.\\
+Fragile old-baseline dependency (a legacy command would overwrite it) (\textcolor{red}{major}) & Baseline frozen as \texttt{results\_clip\_v2\_baseline.json}; comparison script points at the frozen copy.\\
+``Repeated-prompt runs'' phrasing conflated corpus-wide repeats with consecutive runs (minor) & Reworded throughout; the pooling is now stated explicitly alongside the stricter consecutive-run count.\\
+Assorted: two case-mismatched image paths (Linux-portability), unnormalised cached family scores, stale-cache crash path, misleading comments (minor) & All fixed; per-record paths verified against the on-disk listing; cache normalised and guarded.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The audit also \emph{confirmed}: every published number reproduces exactly on a fresh run
+(deterministic, seeded); the null/z machinery is statistically sound; the data chain is airtight
+(1{,}025 unique ids, all paths resolve, zero malformed records); and the legacy baseline still runs.
+After fixes, the expanded automated test suite passes in full.
+
+% ---------------- limitations ----------------
+\section{Limitations and next steps}
+\begin{itemize}
+\item \textbf{Reader bias is the binding limitation.} BLIP-VQA's positivity bias and CLIP's negativity
+bias bound what automatic measures can claim; the \textbf{human-rating study} (ethics application
+drafted) is the designed adjudicator.
+\item Valence--arousal uses emotion-label centroids; a continuous lexicon (NRC-VAD) is a ready upgrade.
+\item The face/scene rule is description-derived; a dedicated detector would decouple it.
+\item Hardware bounded model choice (sub-1B describers); results are nonetheless statistically strong.
+\end{itemize}
+
+% ---------------- repo map ----------------
+\section{Repository guide}
+\begin{center}
+\begin{tabular}{@{}p{5.6cm}p{8.6cm}@{}}
+\toprule
+\textbf{File} & \textbf{Role}\\
+\midrule
+\texttt{describe\_extract.py} & The pipeline (crash-safe, resumable)\\
+\texttt{analysis\_final.py} & Final analysis: splits, similarity ladder, nulls, dedup\\
+\texttt{data\_audit\_consistency.py} & Data accounting + repeated-prompt consistency\\
+\texttt{similarity\_v2.py} & Old-vs-new method comparison\\
+\texttt{make\_figures.py} & All report figures\\
+\texttt{test.sh} & 28-check automated test suite\\
+\texttt{emoviz/} & Core package (loader; earlier baseline reader)\\
+\texttt{outputs/RESULTS\_final.md} & Verified findings write-up\\
+\texttt{outputs/describe\_extract.jsonl} & Full per-record pipeline output (1{,}025)\\
+\texttt{outputs/analysis\_final.csv} & Per-record analysis table (1{,}012)\\
+\texttt{PIPELINE\_DESIGN.md} & Architecture options \& decisions\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{8pt}
+\hrule
+\vspace{6pt}
+{\small\color{soft} Prepared as technical documentation for the dissertation project. All numbers
+trace to re-runnable scripts in the repository; every figure regenerates from
+\texttt{make\_figures.py}.}
+
+\end{document}

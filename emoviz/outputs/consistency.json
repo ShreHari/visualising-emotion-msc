@@ -1,0 +1,11 @@
+{
+ "total": 1025,
+ "pretest": 13,
+ "analysed": 1012,
+ "emotional": 607,
+ "runs": 87,
+ "records_in_runs": 336,
+ "mean_emotion_consistency": 0.688,
+ "mean_valence_consistency": 0.745,
+ "fully_consistent_runs": 28
+}

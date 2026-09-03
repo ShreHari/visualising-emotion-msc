@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EmoViz — does the drawing feel what the words felt?</title>
+<meta name="description" content="A research instrument: compare the emotion in a written feeling with the emotion an AI-generated drawing conveys.">
+<style>
+/* ============================================================
+   TOKENS — one accent for chrome; emotion hues only in data
+   ============================================================ */
+:root{
+  /* surfaces + text (AA verified) */
+  --paper:#faf9f7; --surface:#ffffff; --sunken:#f1f0ec;
+  --ink:#14161a; --muted:#4f545b; --subtle:#63686f;
+  --rule:#e4e2dd; --rule-strong:#d3d0c9;
+  /* single accent */
+  --accent:#0d5c63; --accent-hover:#0a4a50; --accent-ink:#ffffff;
+  --accent-wash:#eaf1f1;
+  /* data-only emotion hues (fills) + AA text variants */
+  --joy:#d99026; --sadness:#2f6fd0; --anger:#c93a3a; --fear:#8b5cd6;
+  --surprise:#cf3d84; --disgust:#12876a; --neutral:#7d8894;
+  --joy-t:#8a5510; --sadness-t:#1c4f9c; --anger-t:#a02c2c; --fear-t:#6338a8;
+  --surprise-t:#9c2a63; --disgust-t:#0a6350; --neutral-t:#4d545c;
+  --pos:#0a6350; --warn:#8a5510;
+  /* spacing — strict 4px grid */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s6:24px; --s8:32px;
+  --s12:48px; --s16:64px; --s24:96px;
+  /* type scale */
+  --t-xs:12px; --t-sm:14px; --t-md:16px; --t-lg:18px;
+  --t-xl:24px; --t-2xl:32px; --t-3xl:44px; --t-4xl:60px;
+  /* shape + motion */
+  --r-sm:6px; --r:10px; --r-lg:14px;
+  --ease:cubic-bezier(.2,.6,.35,1);
+  --fast:140ms; --mid:200ms; --slow:240ms;
+  --shadow:0 1px 2px rgba(20,22,26,.05), 0 8px 24px rgba(20,22,26,.05);
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#101215; --surface:#171a1e; --sunken:#1c2025;
+  --ink:#ecedee; --muted:#a8adb4; --subtle:#949aa1;
+  --rule:#262a30; --rule-strong:#333941;
+  --accent:#57bdaf; --accent-hover:#6fcbbe; --accent-ink:#08211f; --accent-wash:#13292a;
+  --joy-t:#e0a453; --sadness-t:#7ba9ee; --anger-t:#ef8484; --fear-t:#b394ea;
+  --surprise-t:#ee87b8; --disgust-t:#5cc9a8; --neutral-t:#a2aab3;
+  --pos:#5cc9a8; --warn:#e0a453;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.35);
+}}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:var(--t-md);line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 var(--s6)}
+@media(max-width:640px){.wrap{padding:0 var(--s4)}}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:var(--r-sm)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{
+  animation-duration:.001ms!important;transition-duration:.001ms!important}}
+
+/* ============================================================ topbar */
+.topbar{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:40}
+.topbar .wrap{display:flex;align-items:center;gap:var(--s4);height:60px}
+.mark{font-weight:700;font-size:var(--t-md);letter-spacing:-.02em}
+.mark b{color:var(--accent);font-weight:700}
+.mark-sub{font-size:var(--t-xs);color:var(--subtle);letter-spacing:.02em;
+  padding-left:var(--s3);border-left:1px solid var(--rule)}
+.status-pill{margin-left:auto;display:inline-flex;align-items:center;gap:var(--s2);
+  font-size:var(--t-xs);font-weight:600;color:var(--muted);letter-spacing:.01em}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--warn);flex:none}
+.dot.ready{background:var(--pos)}
+.dot.warm{animation:blink 1.6s var(--ease) infinite}
+@keyframes blink{50%{opacity:.25}}
+@media(max-width:720px){.mark-sub{display:none}}
+
+/* ============================================================ hero — asymmetric 7/5 */
+.hero{display:grid;grid-template-columns:1fr;gap:var(--s8);
+  padding:var(--s16) 0 var(--s12);border-bottom:1px solid var(--rule)}
+@media(min-width:900px){.hero{grid-template-columns:7fr 5fr;gap:var(--s16);align-items:start}}
+.eyebrow{font-size:var(--t-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 var(--s4)}
+.hero h1{font-family:var(--serif);font-weight:600;margin:0;
+  font-size:clamp(34px,5.4vw,var(--t-4xl));line-height:1.04;letter-spacing:-.025em;max-width:15ch}
+.hero .lede{margin:var(--s6) 0 0;color:var(--muted);font-size:var(--t-lg);max-width:52ch}
+.hero .lede strong{color:var(--ink);font-weight:600}
+
+/* process rail — replaces the three-card row */
+.rail{margin-top:var(--s8);border-top:1px solid var(--rule);padding-top:var(--s4)}
+.rail ol{list-style:none;margin:0;padding:0;display:grid;gap:var(--s3)}
+@media(min-width:600px){.rail ol{grid-template-columns:repeat(3,1fr);gap:var(--s6)}}
+.rail li{display:grid;grid-template-columns:auto 1fr;gap:var(--s3);align-items:start}
+.rail .n{font:600 var(--t-xs)/1 var(--mono);color:var(--accent);
+  border:1px solid var(--rule-strong);border-radius:50%;width:22px;height:22px;
+  display:inline-flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
+.rail b{display:block;font-size:var(--t-sm);font-weight:650;letter-spacing:-.01em}
+.rail span{display:block;font-size:var(--t-sm);color:var(--subtle);line-height:1.45}
+
+/* specimen — real dataset example as the visual anchor */
+.specimen{border:1px solid var(--rule);border-radius:var(--r-lg);background:var(--surface);
+  overflow:hidden;box-shadow:var(--shadow)}
+.specimen figure{margin:0}
+.specimen img{display:block;width:100%;aspect-ratio:1;object-fit:cover;background:var(--sunken)}
+.specimen figcaption{padding:var(--s4);border-top:1px solid var(--rule)}
+.specimen .k{font:600 var(--t-xs)/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);display:block;margin-bottom:var(--s2)}
+.specimen q{font-family:var(--serif);font-size:var(--t-lg);font-style:italic;line-height:1.35;display:block}
+.specimen .skel{aspect-ratio:1;background:var(--sunken)}
+
+/* ============================================================ workspace — asymmetric 7/5 */
+.work{display:grid;grid-template-columns:1fr;gap:var(--s6);padding:var(--s12) 0 0}
+@media(min-width:900px){.work{grid-template-columns:7fr 5fr;gap:var(--s8)}}
+.block>h2{font-size:var(--t-lg);font-weight:650;letter-spacing:-.015em;margin:0 0 var(--s1);
+  display:flex;align-items:baseline;gap:var(--s2)}
+.block>h2 i{font:600 var(--t-xs)/1 var(--mono);color:var(--accent);font-style:normal}
+.block>p.hint{margin:0 0 var(--s4);color:var(--subtle);font-size:var(--t-sm)}
+
+.thumbs{display:flex;gap:var(--s2);overflow-x:auto;padding-bottom:var(--s2);margin-bottom:var(--s3)}
+.thumb{flex:none;width:96px;border:1px solid var(--rule);border-radius:var(--r);overflow:hidden;
+  background:var(--surface);padding:0;text-align:left;
+  transition:border-color var(--fast) var(--ease), background var(--fast) var(--ease)}
+.thumb:hover{border-color:var(--accent)}
+.thumb[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-wash)}
+.thumb img{display:block;width:100%;height:68px;object-fit:cover;background:var(--sunken)}
+.thumb span{display:block;font-size:var(--t-xs);font-weight:600;color:var(--muted);
+  padding:var(--s2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.thumb[aria-pressed="true"] span{color:var(--accent)}
+
+.controls{display:flex;gap:var(--s2);flex-wrap:wrap;align-items:center}
+.btn{min-height:44px;padding:0 var(--s4);border-radius:var(--r);border:1px solid var(--rule-strong);
+  background:var(--surface);color:var(--ink);font-size:var(--t-sm);font-weight:600;
+  display:inline-flex;align-items:center;gap:var(--s2);
+  transition:border-color var(--fast) var(--ease), background var(--fast) var(--ease),
+             color var(--fast) var(--ease)}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+.btn:active{background:var(--sunken)}
+input[type=number]{font:inherit;font-size:var(--t-sm);width:120px;min-height:44px;
+  padding:0 var(--s3);border-radius:var(--r);border:1px solid var(--rule-strong);
+  background:var(--surface);color:var(--ink);transition:border-color var(--fast) var(--ease)}
+input[type=number]:hover{border-color:var(--rule-strong)}
+input[type=number]:focus{border-color:var(--accent);outline-offset:1px}
+input[type=file]{display:none}
+
+.canvas{margin-top:var(--s3);border:1px solid var(--rule);border-radius:var(--r-lg);
+  background:var(--sunken);min-height:280px;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;position:relative}
+.canvas img{display:block;width:100%;height:auto}
+.canvas .empty{color:var(--subtle);font-size:var(--t-sm);padding:var(--s8);text-align:center;max-width:34ch}
+.canvas .ref{position:absolute;top:var(--s2);right:var(--s2);font:600 var(--t-xs)/1 var(--mono);
+  background:var(--ink);color:var(--paper);padding:5px var(--s2);border-radius:var(--r-sm);opacity:.9}
+
+label.field{display:block;font-size:var(--t-xs);font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--subtle);margin-bottom:var(--s2)}
+label.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+textarea{font:inherit;width:100%;min-height:120px;resize:vertical;padding:var(--s3);
+  border-radius:var(--r);border:1px solid var(--rule-strong);background:var(--surface);color:var(--ink);
+  line-height:1.5;transition:border-color var(--fast) var(--ease), box-shadow var(--fast) var(--ease)}
+textarea:hover{border-color:var(--rule-strong)}
+textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-wash);outline:none}
+.presets{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s3)}
+.preset{min-height:36px;padding:0 var(--s3);border-radius:var(--r-sm);font-size:var(--t-sm);font-weight:500;
+  border:1px solid var(--rule);background:transparent;color:var(--muted);
+  transition:border-color var(--fast) var(--ease), color var(--fast) var(--ease)}
+.preset:hover{border-color:var(--accent);color:var(--accent)}
+.preset:active{background:var(--accent-wash)}
+@media(max-width:640px){.preset{min-height:44px}}
+
+/* ============================================================ action */
+.action{display:flex;align-items:center;gap:var(--s4);flex-wrap:wrap;
+  margin-top:var(--s8);padding-top:var(--s6);border-top:1px solid var(--rule)}
+.cta{min-height:48px;padding:0 var(--s8);border-radius:var(--r);border:1px solid var(--accent);
+  background:var(--accent);color:var(--accent-ink);font-size:var(--t-md);font-weight:650;
+  letter-spacing:-.01em;transition:background var(--fast) var(--ease), border-color var(--fast) var(--ease)}
+.cta:hover{background:var(--accent-hover);border-color:var(--accent-hover)}
+.cta:active{transform:translateY(1px)}
+.cta:disabled{opacity:.55;cursor:progress}
+.msg{font-size:var(--t-sm);color:var(--muted);min-height:20px}
+.msg.err{color:var(--anger-t)}
+.spin{display:inline-block;width:12px;height:12px;margin-right:var(--s2);vertical-align:-1px;
+  border:2px solid var(--rule-strong);border-top-color:var(--accent);border-radius:50%;
+  animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* mobile: sticky action bar */
+@media(max-width:899px){
+  .action{position:sticky;bottom:0;z-index:30;background:var(--paper);margin-top:var(--s8);
+    padding:var(--s3) 0 var(--s4);border-top:1px solid var(--rule-strong)}
+  .cta{flex:1;min-height:52px}
+}
+
+/* ============================================================ results */
+.results{display:none;padding-top:var(--s12)}
+.results.on{display:block}
+.results.on>*{animation:fade var(--slow) var(--ease) backwards}
+.results.on>*:nth-child(2){animation-delay:60ms}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.sec-label{font-size:var(--t-xs);font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--subtle);margin:0 0 var(--s4);padding-bottom:var(--s2);border-bottom:1px solid var(--rule)}
+.rgrid{display:grid;grid-template-columns:1fr;gap:var(--s8)}
+@media(min-width:900px){.rgrid{grid-template-columns:5fr 7fr;gap:var(--s12)}}
+
+/* observation table */
+.obs{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
+.obs th,.obs td{text-align:left;padding:var(--s2) 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.obs th{font:600 var(--t-xs)/1.5 var(--mono);letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);width:40%;font-weight:600}
+.obs td{font-weight:550}
+.quote{margin:var(--s4) 0 0;padding-left:var(--s4);border-left:2px solid var(--accent);
+  font-family:var(--serif);font-style:italic;font-size:var(--t-sm);color:var(--muted);line-height:1.5}
+
+/* emotion readout — the only place colour appears */
+.readout{display:grid;gap:var(--s6)}
+@media(min-width:560px){.readout{grid-template-columns:1fr 1fr;gap:var(--s8)}}
+.readout h3{font-size:var(--t-xs);font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);margin:0 0 var(--s3)}
+.bar{display:grid;grid-template-columns:1fr auto;gap:var(--s2) var(--s3);align-items:center;
+  margin-bottom:var(--s3)}
+.bar .lbl{font-size:var(--t-sm);font-weight:600;color:var(--et);text-transform:capitalize}
+.bar .pct{font:600 var(--t-xs) var(--mono);color:var(--muted);text-align:right}
+.bar .track{grid-column:1/-1;height:6px;background:var(--sunken);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;width:100%;background:var(--ec);border-radius:3px;transform-origin:left;
+  transform:scaleX(0);transition:transform var(--slow) var(--ease)}
+
+/* verdict */
+.verdict{margin-top:var(--s12);padding-top:var(--s6);border-top:2px solid var(--ink);
+  display:grid;grid-template-columns:1fr;gap:var(--s6);align-items:start}
+@media(min-width:760px){.verdict{grid-template-columns:auto 1fr;gap:var(--s12)}}
+.score{display:flex;align-items:baseline;gap:var(--s2)}
+.score .num{font-family:var(--serif);font-size:var(--t-3xl);line-height:1;letter-spacing:-.03em}
+.score .unit{font-size:var(--t-md);color:var(--subtle)}
+.score-cap{font-size:var(--t-xs);font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--subtle);margin-top:var(--s2)}
+.meter{margin-top:var(--s3);width:180px;height:4px;background:var(--sunken);border-radius:2px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--accent);width:0;
+  transition:width var(--slow) var(--ease)}
+.vsay{font-family:var(--serif);font-size:var(--t-xl);line-height:1.32;letter-spacing:-.015em;margin:0;
+  max-width:34ch}
+.facts{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4)}
+.fact{font-size:var(--t-xs);font-weight:600;padding:var(--s2) var(--s3);border-radius:var(--r-sm);
+  border:1px solid var(--rule);color:var(--muted);background:var(--surface)}
+.fact b{color:var(--ink)}
+.fact.y{border-color:var(--pos);color:var(--pos)} .fact.y b{color:var(--pos)}
+.fact.n{border-color:var(--rule-strong);color:var(--warn)} .fact.n b{color:var(--warn)}
+
+/* ============================================================ notes — stacked rows, not cards */
+.notes{margin-top:var(--s24);border-top:1px solid var(--rule);padding-top:var(--s8)}
+.notes h2{font-family:var(--serif);font-size:var(--t-xl);letter-spacing:-.02em;margin:0 0 var(--s6)}
+.note{display:grid;grid-template-columns:1fr;gap:var(--s2);padding:var(--s6) 0;
+  border-bottom:1px solid var(--rule)}
+@media(min-width:760px){.note{grid-template-columns:22ch 1fr;gap:var(--s8)}}
+.note h3{font-size:var(--t-md);font-weight:650;letter-spacing:-.01em;margin:0}
+.note p{margin:0 0 var(--s3);color:var(--muted);font-size:var(--t-sm);max-width:62ch}
+.note p:last-child{margin-bottom:0}
+footer{padding:var(--s8) 0 var(--s16);color:var(--subtle);font-size:var(--t-xs)}
+footer code{font-family:var(--mono)}
+</style>
+</head>
+<body>
+
+<header class="topbar"><div class="wrap">
+  <span class="mark">Emo<b>Viz</b></span>
+  <span class="mark-sub">University of Sheffield · MSc research instrument</span>
+  <span class="status-pill"><span class="dot warm" id="dot"></span><span id="dotTxt">starting</span></span>
+</div></header>
+
+<main class="wrap">
+
+  <!-- ---------------- hero: asymmetric, left-aligned, real specimen ---------------- -->
+  <section class="hero">
+    <div>
+      <p class="eyebrow">Text-to-image · emotional fidelity</p>
+      <h1>Does the drawing feel what the words felt?</h1>
+      <p class="lede">At a science festival, people typed how they felt and an AI drew each one.
+        This instrument runs the research pipeline live — it <strong>describes</strong> a drawing,
+        <strong>reads the feeling</strong> from that description, then measures
+        <strong>how close</strong> the two are.</p>
+      <div class="rail">
+        <ol>
+          <li><span class="n">1</span><span><b>Describe</b><span>Facts only — expression, action, scene. Emotion is never asked for.</span></span></li>
+          <li><span class="n">2</span><span><b>Read</b><span>A language model infers the feeling from those facts, and from your words.</span></span></li>
+          <li><span class="n">3</span><span><b>Compare</b><span>Scored by similarity — how close, not right or wrong.</span></span></li>
+        </ol>
+      </div>
+    </div>
+    <aside class="specimen" id="specimen">
+      <figure><div class="skel"></div>
+        <figcaption><span class="k">Specimen · from the dataset</span><q>Loading…</q></figcaption>
+      </figure>
+    </aside>
+  </section>
+
+  <!-- ---------------- workspace ---------------- -->
+  <section class="work">
+    <div class="block">
+      <h2><i>01</i> Choose a drawing</h2>
+      <p class="hint">Select an example, load one by number, or upload your own image.</p>
+      <div class="thumbs" id="thumbs" role="group" aria-label="Example drawings"></div>
+      <div class="controls">
+        <button class="btn" id="btnRandom">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/>
+            <circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/>
+            <circle cx="15.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.3" fill="currentColor"/></svg>
+          Random</button>
+        <label class="sr" for="recId">Drawing number</label>
+        <input type="number" id="recId" placeholder="No. 14–1025" min="14" max="1025">
+        <button class="btn" id="btnLoad">Load</button>
+        <label><input type="file" id="file" accept="image/*"><button class="btn" onclick="document.getElementById('file').click()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>Upload</button></label>
+      </div>
+      <div class="canvas" id="canvas"><p class="empty">Select an example above, or upload an image, to begin.</p></div>
+    </div>
+
+    <div class="block">
+      <h2><i>02</i> The words</h2>
+      <p class="hint">What the person typed — or write your own.</p>
+      <label class="field" for="text">The feeling, in words</label>
+      <textarea id="text" placeholder="e.g. tired but happy"></textarea>
+      <div class="presets" id="presets">
+        <button class="preset">tired but happy</button>
+        <button class="preset">so excited to be here</button>
+        <button class="preset">feeling a bit lost today</button>
+        <button class="preset">calm and peaceful</button>
+        <button class="preset">absolutely furious</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="action">
+    <button class="cta" id="btnRun">Compare the feelings</button>
+    <span class="msg" id="msg" role="status" aria-live="polite"></span>
+  </div>
+
+  <!-- ---------------- results ---------------- -->
+  <section class="results" id="results">
+    <div class="rgrid">
+      <div>
+        <p class="sec-label">What the model observed</p>
+        <table class="obs"><tbody id="obs"></tbody></table>
+        <p class="quote" id="desc"></p>
+      </div>
+      <div>
+        <p class="sec-label">Emotion readout</p>
+        <div class="readout">
+          <div><h3>From the words</h3><div id="barsText"></div></div>
+          <div><h3>From the drawing</h3><div id="barsImg"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div>
+        <div class="score"><span class="num" id="scoreNum">–</span><span class="unit">%</span></div>
+        <div class="score-cap">Feeling similarity</div>
+        <div class="meter"><i id="meter"></i></div>
+      </div>
+      <div>
+        <p class="vsay" id="say"></p>
+        <div class="facts" id="facts"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------------- notes: stacked editorial rows ---------------- -->
+  <section class="notes" id="notes">
+    <h2>Method and limits</h2>
+    <div class="note">
+      <h3>Describe, don't ask</h3>
+      <div><p>Asking a vision model “what emotion is this?” is unreliable on line art. This pipeline never
+        does: one model reports only observable facts — expression, action, scene — and a separate language
+        model infers the feeling from them.</p>
+        <p>Your words are read the same way, so both sides are comparable.</p></div>
+    </div>
+    <div class="note">
+      <h3>Similarity, not accuracy</h3>
+      <div><p>Two people rarely agree exactly on an emotion, so the score measures closeness: “happy” and
+        “excited” count as similar rather than as a mismatch.</p>
+        <p>In the research, every score is referenced against random pairings — alignment counts only when
+        it beats chance.</p></div>
+    </div>
+    <div class="note">
+      <h3>Known limits</h3>
+      <div><p>The drawing-reader leans optimistic, and subtle emotions such as fear or disgust are often
+        missed. That is a finding of the research, not a fault of your input.</p>
+        <p><strong>Nothing you type or upload is stored.</strong> Some dataset drawings are withheld to
+        protect the privacy of festival visitors.</p></div>
+    </div>
+  </section>
+
+  <footer>
+    EmoViz — “Visualising Emotion”, MSc dissertation, University of Sheffield ·
+    <code>blip-vqa-base</code> · <code>bart-large-mnli</code> · <code>roberta-go_emotions</code>
+  </footer>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+let current = {record_id:null, image_b64:null}, timer = null;
+const HUE = e => `var(--${e||'neutral'})`, TXT = e => `var(--${e||'neutral'}-t)`;
+
+/* ---------- model status ---------- */
+async function poll(){
+  try{ const s = await (await fetch("/api/status")).json();
+    $("dot").className = s.ready ? "dot ready" : "dot warm";
+    $("dotTxt").textContent = s.ready ? "ready" : (s.warming ? "warming" : "idle");
+    return s.ready;
+  }catch(e){ $("dotTxt").textContent = "offline"; return false; }
+}
+(async()=>{ if(!await poll()){ fetch("/api/warmup",{method:"POST"});
+  const iv=setInterval(async()=>{ if(await poll()) clearInterval(iv); },3000);} })();
+
+/* ---------- examples + hero specimen ---------- */
+(async()=>{
+  try{
+    const fx = await (await fetch("/api/featured")).json();
+    $("thumbs").innerHTML = fx.map(f=>`<button class="thumb" data-id="${f.id}" aria-pressed="false"
+      title="${f.text.replace(/"/g,'&quot;')}"><img src="${f.thumb}" alt="" loading="lazy"
+      width="96" height="68"><span>${f.label}</span></button>`).join("");
+    document.querySelectorAll(".thumb").forEach(b=> b.onclick=()=>{
+      document.querySelectorAll(".thumb").forEach(x=>x.setAttribute("aria-pressed","false"));
+      b.setAttribute("aria-pressed","true"); load("/api/record/"+b.dataset.id); });
+    if(fx[0]){ const r = await (await fetch("/api/record/"+fx[0].id)).json();
+      $("specimen").innerHTML = `<figure><img src="${r.image}" alt="An example drawing from the dataset">
+        <figcaption><span class="k">Specimen · no. ${r.id}</span><q>${r.text}</q></figcaption></figure>`; }
+  }catch(e){}
+})();
+
+/* ---------- helpers ---------- */
+function setMsg(t, busy=false, err=false){
+  $("msg").innerHTML = (busy?'<span class="spin"></span>':'') + (t||"");
+  $("msg").className = "msg" + (err?" err":"");
+}
+function paint(src,id){
+  $("canvas").innerHTML = `<img src="${src}" alt="The selected drawing">` +
+    (id?`<span class="ref">No. ${id}</span>`:"");
+}
+async function load(url){
+  setMsg("Loading drawing", true); $("results").classList.remove("on");
+  try{
+    const res = await fetch(url), d = await res.json();
+    if(!res.ok){ setMsg(d.error||"Record unavailable", false, true); return; }
+    current = {record_id:d.id, image_b64:null};
+    paint(d.image, d.id); $("text").value = d.text; $("recId").value = d.id; setMsg("");
+  }catch(e){ setMsg("Could not reach the server", false, true); }
+}
+$("btnRandom").onclick = () => { document.querySelectorAll(".thumb").forEach(x=>x.setAttribute("aria-pressed","false"));
+  load("/api/random"); };
+$("btnLoad").onclick = () => { const v=$("recId").value; if(v) load("/api/record/"+v); };
+$("file").onchange = e => { const f=e.target.files[0]; if(!f) return;
+  if(f.size > 7*1024*1024){ setMsg("Image too large (max 7 MB)", false, true); return; }
+  const rd = new FileReader();
+  rd.onload = ev => { current = {record_id:null, image_b64:ev.target.result};
+    document.querySelectorAll(".thumb").forEach(x=>x.setAttribute("aria-pressed","false"));
+    paint(ev.target.result, null); $("results").classList.remove("on");
+    setMsg("Image ready — add words, then compare"); };
+  rd.readAsDataURL(f); };
+document.querySelectorAll(".preset").forEach(p => p.onclick = () => { $("text").value = p.textContent.trim(); });
+
+/* ---------- run ---------- */
+const STEPS = ["Describing the drawing","Reading the feeling in the description",
+               "Reading the feeling in the words","Comparing"];
+function bars(el, emos){
+  el.innerHTML = emos.map(([l,s])=>`<div class="bar" style="--ec:${HUE(l)};--et:${TXT(l)}">
+    <span class="lbl">${l}</span><span class="pct">${Math.round(s*100)}%</span>
+    <span class="track" role="img" aria-label="${l}: ${Math.round(s*100)} percent"><i class="fill"></i></span></div>`).join("");
+  requestAnimationFrame(()=>requestAnimationFrame(()=>
+    el.querySelectorAll(".fill").forEach((f,i)=> f.style.transform = `scaleX(${emos[i][1]})`)));
+}
+function sentence(s){
+  if(s.family_match && s.va>=.85) return "The drawing carries the <b>same feeling</b> as the words.";
+  if(s.valence_match && s.va>=.75) return "The drawing catches the <b>mood</b> of the words, if not the exact emotion.";
+  if(s.va>=.7) return "Partly similar — the feelings are close, but not the same.";
+  return "The drawing appears to carry a <b>different feeling</b> from the words.";
+}
+$("btnRun").onclick = async () => {
+  const text = $("text").value.trim();
+  if(!current.record_id && !current.image_b64) return setMsg("Choose a drawing first", false, true);
+  if(!text) return setMsg("Add some words first", false, true);
+  $("btnRun").disabled = true;
+  const st = await (await fetch("/api/status")).json();
+  let i = 0; const cold = !st.ready;
+  const tick = () => setMsg(cold ? "Loading models — first run takes a minute" : STEPS[i], true);
+  tick(); timer = setInterval(()=>{ i=(i+1)%STEPS.length; tick(); }, 2600);
+  try{
+    const res = await fetch("/api/analyse",{method:"POST",headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({text, record_id: current.record_id, image_b64: current.image_b64})});
+    const d = await res.json(); clearInterval(timer);
+    if(d.error || d.warning){ setMsg(d.error || d.warning, false, true); $("btnRun").disabled=false; return; }
+    if(d.vqa){
+      $("obs").innerHTML = Object.entries(d.vqa).map(([k,v])=>`<tr><th>${k}</th><td>${v}</td></tr>`).join("");
+      $("desc").textContent = "“" + d.description + "”";
+    }
+    bars($("barsText"), d.prompt_emotions); bars($("barsImg"), d.image_emotions);
+    const s = d.similarity, pct = Math.round(s.va*100);
+    $("scoreNum").textContent = pct;
+    $("meter").style.width = pct + "%";
+    $("say").innerHTML = sentence(s);
+    $("facts").innerHTML =
+      `<span class="fact ${s.family_match?'y':'n'}">Same emotion family <b>${s.family_match?'yes':'no'}</b></span>`+
+      `<span class="fact ${s.valence_match?'y':'n'}">Same mood direction <b>${s.valence_match?'yes':'no'}</b></span>`+
+      `<span class="fact">Overlap <b>${Math.round(s.overlap*100)}%</b></span>`;
+    $("results").classList.add("on"); setMsg("");
+    $("results").scrollIntoView({behavior:"smooth", block:"start"});
+  }catch(e){ clearInterval(timer); setMsg("Something went wrong — is the server running?", false, true); }
+  $("btnRun").disabled = false;
+};
+</script>
+</body>
+</html>

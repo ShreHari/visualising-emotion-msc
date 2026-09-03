@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------------------
+# Deliberately NOT in this repository
+#
+# 02AI_drawing_data/   the source corpus. It holds festival visitors' own words,
+#                      including 11 records with real names that are redacted at
+#                      LOAD time rather than on disk (see emoviz/preprocess_names.py).
+#                      Uploading it would transfer identifiable personal data from a
+#                      public-engagement event to a third-party host. Keep it local
+#                      and back it up somewhere you control.
+# RESEARCH PAPERS/     97 copyrighted PDFs. references.bib is tracked instead.
+# emoviz/.venv/        1 GB, fully regenerable with `bash emoviz/setup.sh`.
+# ---------------------------------------------------------------------------
+02AI_drawing_data/
+RESEARCH PAPERS/
+!RESEARCH PAPERS/references.bib
+!RESEARCH PAPERS/*.md
+
+emoviz/.venv/
+deck/node_modules/
+deck/package-lock.json
+
+# build and scratch artefacts
+**/__pycache__/
+*.pyc
+*.aux
+*.log
+*.out
+*.toc
+deck/*slide-*.jpg
+deck/*.pdf
+!final/*.pdf
+emoviz/outputs/app.log
+emoviz/outputs/*.prename
+emoviz/outputs/*.nodedup
+.DS_Store

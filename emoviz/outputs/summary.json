@@ -1,0 +1,1421 @@
+{
+ "meta": {
+  "n": 1012,
+  "text_backend": "goemotions-bert",
+  "image_backend": "clip-zeroshot-v2",
+  "dropped_pretest": true,
+  "elapsed_s": 88.2
+ },
+ "integrity": {
+  "n_records": 1012,
+  "images_missing": [],
+  "images_resolved": 1012,
+  "lowercase_png_ids": [],
+  "pretest_ids": [],
+  "n_duplicate_runs": 65,
+  "records_in_runs": 213,
+  "largest_run": 11,
+  "timestamp_coverage": 1012,
+  "timestamp_range": [
+   "2024-09-19T09:25:41+00:00",
+   "2024-10-20T21:54:44+00:00"
+  ]
+ },
+ "distribution": {
+  "basic_counts": {
+   "happiness": 454,
+   "sadness": 99,
+   "surprise": 25,
+   "fear": 16,
+   "anger": 13,
+   "disgust": 1
+  },
+  "quadrant_counts": {
+   "excited-positive": 479,
+   "low-negative": 99,
+   "tense-negative": 30
+  },
+  "n_emotional": 608,
+  "n_non_emotional": 404,
+  "mean_valence": 0.454,
+  "mean_arousal": 0.568
+ },
+ "fidelity": {
+  "n_total": 1012,
+  "n_emotional": 608,
+  "text_vs_image_feature_corr": {
+   "ink_density": {
+    "r_valence": -0.113,
+    "r_arousal": -0.071
+   },
+   "brightness": {
+    "r_valence": 0.105,
+    "r_arousal": 0.071
+   },
+   "contrast": {
+    "r_valence": -0.069,
+    "r_arousal": 0.009
+   },
+   "edge_density": {
+    "r_valence": 0.139,
+    "r_arousal": 0.095
+   },
+   "entropy": {
+    "r_valence": 0.046,
+    "r_arousal": -0.006
+   },
+   "v_center": {
+    "r_valence": -0.013,
+    "r_arousal": -0.018
+   },
+   "h_spread": {
+    "r_valence": 0.014,
+    "r_arousal": -0.019
+   },
+   "symmetry": {
+    "r_valence": 0.024,
+    "r_arousal": 0.048
+   }
+  },
+  "text_vs_image_emotion": {
+   "n_paired": 608,
+   "agreement": 0.215,
+   "cohens_kappa": 0.101,
+   "valence_r": 0.347
+  }
+ },
+ "consistency": {
+  "n_runs": 65,
+  "mean_feature_cv": {
+   "ink_density": 0.282,
+   "brightness": 0.174,
+   "contrast": 0.095,
+   "edge_density": 0.339,
+   "entropy": 0.212,
+   "v_center": 0.061,
+   "h_spread": 0.128,
+   "symmetry": 0.132
+  },
+  "mean_label_agreement": 0.712,
+  "per_run": [
+   {
+    "run_id": 520,
+    "size": 11,
+    "text": "Happy",
+    "ids": [
+     614,
+     615,
+     616,
+     617,
+     618,
+     619,
+     620,
+     621,
+     622,
+     623,
+     624
+    ],
+    "cv_ink_density": 0.452,
+    "cv_brightness": 0.261,
+    "cv_contrast": 0.102,
+    "cv_edge_density": 0.621,
+    "cv_entropy": 0.426,
+    "cv_v_center": 0.063,
+    "cv_h_spread": 0.206,
+    "cv_symmetry": 0.215,
+    "label_mode": "happiness",
+    "label_agreement": 0.636
+   },
+   {
+    "run_id": 237,
+    "size": 8,
+    "text": "pigs",
+    "ids": [
+     258,
+     259,
+     260,
+     261,
+     262,
+     263,
+     264,
+     265
+    ],
+    "cv_ink_density": 0.546,
+    "cv_brightness": 0.319,
+    "cv_contrast": 0.117,
+    "cv_edge_density": 0.414,
+    "cv_entropy": 0.22,
+    "cv_v_center": 0.079,
+    "cv_h_spread": 0.144,
+    "cv_symmetry": 0.119,
+    "label_mode": "disgust",
+    "label_agreement": 0.375
+   },
+   {
+    "run_id": 666,
+    "size": 8,
+    "text": "Excited for the cold and Christmas",
+    "ids": [
+     780,
+     781,
+     782,
+     783,
+     784,
+     785,
+     786,
+     787
+    ],
+    "cv_ink_density": 0.277,
+    "cv_brightness": 0.209,
+    "cv_contrast": 0.143,
+    "cv_edge_density": 0.328,
+    "cv_entropy": 0.152,
+    "cv_v_center": 0.185,
+    "cv_h_spread": 0.031,
+    "cv_symmetry": 0.103,
+    "label_mode": "neutral",
+    "label_agreement": 0.75
+   },
+   {
+    "run_id": 489,
+    "size": 7,
+    "text": "torn between homesick and reaching forward for new possibilities",
+    "ids": [
+     570,
+     571,
+     572,
+     573,
+     574,
+     575,
+     576
+    ],
+    "cv_ink_density": 0.18,
+    "cv_brightness": 0.188,
+    "cv_contrast": 0.053,
+    "cv_edge_density": 0.212,
+    "cv_entropy": 0.172,
+    "cv_v_center": 0.102,
+    "cv_h_spread": 0.037,
+    "cv_symmetry": 0.192,
+    "label_mode": "neutral",
+    "label_agreement": 0.714
+   },
+   {
+    "run_id": 852,
+    "size": 7,
+    "text": "i am the keybreaker",
+    "ids": [
+     989,
+     990,
+     991,
+     992,
+     993,
+     994,
+     995
+    ],
+    "cv_ink_density": 0.324,
+    "cv_brightness": 0.175,
+    "cv_contrast": 0.118,
+    "cv_edge_density": 0.647,
+    "cv_entropy": 0.34,
+    "cv_v_center": 0.099,
+    "cv_h_spread": 0.121,
+    "cv_symmetry": 0.251,
+    "label_mode": "disgust",
+    "label_agreement": 0.429
+   },
+   {
+    "run_id": 21,
+    "size": 6,
+    "text": "je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",
+    "ids": [
+     24,
+     25,
+     26,
+     27,
+     28,
+     29
+    ],
+    "cv_ink_density": 0.269,
+    "cv_brightness": 0.14,
+    "cv_contrast": 0.139,
+    "cv_edge_density": 0.314,
+    "cv_entropy": 0.292,
+    "cv_v_center": 0.097,
+    "cv_h_spread": 0.163,
+    "cv_symmetry": 0.105,
+    "label_mode": "fear",
+    "label_agreement": 0.333
+   },
+   {
+    "run_id": 290,
+    "size": 6,
+    "text": "city building",
+    "ids": [
+     327,
+     328,
+     329,
+     330,
+     331,
+     332
+    ],
+    "cv_ink_density": 0.197,
+    "cv_brightness": 0.083,
+    "cv_contrast": 0.111,
+    "cv_edge_density": 0.271,
+    "cv_entropy": 0.154,
+    "cv_v_center": 0.06,
+    "cv_h_spread": 0.119,
+    "cv_symmetry": 0.116,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 440,
+    "size": 6,
+    "text": "nashville",
+    "ids": [
+     509,
+     510,
+     511,
+     512,
+     513,
+     514
+    ],
+    "cv_ink_density": 0.248,
+    "cv_brightness": 0.116,
+    "cv_contrast": 0.13,
+    "cv_edge_density": 0.237,
+    "cv_entropy": 0.224,
+    "cv_v_center": 0.073,
+    "cv_h_spread": 0.055,
+    "cv_symmetry": 0.109,
+    "label_mode": "disgust",
+    "label_agreement": 0.667
+   },
+   {
+    "run_id": 772,
+    "size": 6,
+    "text": "gaming on someone's butt",
+    "ids": [
+     898,
+     899,
+     900,
+     901,
+     902,
+     903
+    ],
+    "cv_ink_density": 0.321,
+    "cv_brightness": 0.171,
+    "cv_contrast": 0.092,
+    "cv_edge_density": 0.408,
+    "cv_entropy": 0.312,
+    "cv_v_center": 0.091,
+    "cv_h_spread": 0.122,
+    "cv_symmetry": 0.078,
+    "label_mode": "disgust",
+    "label_agreement": 0.833
+   },
+   {
+    "run_id": 858,
+    "size": 6,
+    "text": "tired happy proud",
+    "ids": [
+     1001,
+     1002,
+     1003,
+     1004,
+     1005,
+     1006
+    ],
+    "cv_ink_density": 0.27,
+    "cv_brightness": 0.121,
+    "cv_contrast": 0.083,
+    "cv_edge_density": 0.314,
+    "cv_entropy": 0.219,
+    "cv_v_center": 0.086,
+    "cv_h_spread": 0.185,
+    "cv_symmetry": 0.156,
+    "label_mode": "neutral",
+    "label_agreement": 0.667
+   },
+   {
+    "run_id": 315,
+    "size": 5,
+    "text": "happy, relaxed, open minded",
+    "ids": [
+     358,
+     359,
+     360,
+     361,
+     362
+    ],
+    "cv_ink_density": 0.419,
+    "cv_brightness": 0.246,
+    "cv_contrast": 0.121,
+    "cv_edge_density": 0.533,
+    "cv_entropy": 0.433,
+    "cv_v_center": 0.06,
+    "cv_h_spread": 0.211,
+    "cv_symmetry": 0.188,
+    "label_mode": "neutral",
+    "label_agreement": 0.8
+   },
+   {
+    "run_id": 341,
+    "size": 5,
+    "text": "bland",
+    "ids": [
+     390,
+     391,
+     392,
+     393,
+     394
+    ],
+    "cv_ink_density": 0.277,
+    "cv_brightness": 0.121,
+    "cv_contrast": 0.094,
+    "cv_edge_density": 0.822,
+    "cv_entropy": 0.301,
+    "cv_v_center": 0.15,
+    "cv_h_spread": 0.244,
+    "cv_symmetry": 0.135,
+    "label_mode": "neutral",
+    "label_agreement": 0.8
+   },
+   {
+    "run_id": 275,
+    "size": 4,
+    "text": "birds eye view of sheffield from space ",
+    "ids": [
+     305,
+     306,
+     307,
+     308
+    ],
+    "cv_ink_density": 0.425,
+    "cv_brightness": 0.337,
+    "cv_contrast": 0.076,
+    "cv_edge_density": 0.518,
+    "cv_entropy": 0.148,
+    "cv_v_center": 0.088,
+    "cv_h_spread": 0.147,
+    "cv_symmetry": 0.213,
+    "label_mode": "disgust",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 289,
+    "size": 4,
+    "text": "relaxed but with menopausal hot flashes",
+    "ids": [
+     323,
+     324,
+     325,
+     326
+    ],
+    "cv_ink_density": 0.146,
+    "cv_brightness": 0.035,
+    "cv_contrast": 0.088,
+    "cv_edge_density": 0.272,
+    "cv_entropy": 0.19,
+    "cv_v_center": 0.05,
+    "cv_h_spread": 0.094,
+    "cv_symmetry": 0.085,
+    "label_mode": "sadness",
+    "label_agreement": 0.75
+   },
+   {
+    "run_id": 346,
+    "size": 4,
+    "text": "a very happy border collie",
+    "ids": [
+     399,
+     400,
+     401,
+     402
+    ],
+    "cv_ink_density": 0.238,
+    "cv_brightness": 0.087,
+    "cv_contrast": 0.053,
+    "cv_edge_density": 0.174,
+    "cv_entropy": 0.248,
+    "cv_v_center": 0.035,
+    "cv_h_spread": 0.192,
+    "cv_symmetry": 0.133,
+    "label_mode": "surprise",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 420,
+    "size": 4,
+    "text": "Curious",
+    "ids": [
+     485,
+     486,
+     487,
+     488
+    ],
+    "cv_ink_density": 0.175,
+    "cv_brightness": 0.081,
+    "cv_contrast": 0.103,
+    "cv_edge_density": 0.59,
+    "cv_entropy": 0.291,
+    "cv_v_center": 0.082,
+    "cv_h_spread": 0.12,
+    "cv_symmetry": 0.1,
+    "label_mode": "neutral",
+    "label_agreement": 0.75
+   },
+   {
+    "run_id": 443,
+    "size": 4,
+    "text": "Happy",
+    "ids": [
+     517,
+     518,
+     519,
+     520
+    ],
+    "cv_ink_density": 0.136,
+    "cv_brightness": 0.072,
+    "cv_contrast": 0.059,
+    "cv_edge_density": 0.552,
+    "cv_entropy": 0.356,
+    "cv_v_center": 0.06,
+    "cv_h_spread": 0.097,
+    "cv_symmetry": 0.181,
+    "label_mode": "happiness",
+    "label_agreement": 0.75
+   },
+   {
+    "run_id": 451,
+    "size": 4,
+    "text": "sheffield museum gallery train tea day out rainy happy day off",
+    "ids": [
+     528,
+     529,
+     530,
+     531
+    ],
+    "cv_ink_density": 0.093,
+    "cv_brightness": 0.06,
+    "cv_contrast": 0.031,
+    "cv_edge_density": 0.18,
+    "cv_entropy": 0.047,
+    "cv_v_center": 0.038,
+    "cv_h_spread": 0.033,
+    "cv_symmetry": 0.068,
+    "label_mode": "neutral",
+    "label_agreement": 0.75
+   },
+   {
+    "run_id": 549,
+    "size": 4,
+    "text": "amazing and satisified",
+    "ids": [
+     654,
+     655,
+     656,
+     657
+    ],
+    "cv_ink_density": 0.281,
+    "cv_brightness": 0.429,
+    "cv_contrast": 0.152,
+    "cv_edge_density": 0.639,
+    "cv_entropy": 0.253,
+    "cv_v_center": 0.137,
+    "cv_h_spread": 0.033,
+    "cv_symmetry": 0.105,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 634,
+    "size": 4,
+    "text": "ok",
+    "ids": [
+     745,
+     746,
+     747,
+     748
+    ],
+    "cv_ink_density": 0.223,
+    "cv_brightness": 0.159,
+    "cv_contrast": 0.113,
+    "cv_edge_density": 0.495,
+    "cv_entropy": 0.268,
+    "cv_v_center": 0.062,
+    "cv_h_spread": 0.119,
+    "cv_symmetry": 0.181,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 764,
+    "size": 4,
+    "text": "bemused",
+    "ids": [
+     887,
+     888,
+     889,
+     890
+    ],
+    "cv_ink_density": 0.705,
+    "cv_brightness": 0.483,
+    "cv_contrast": 0.198,
+    "cv_edge_density": 0.256,
+    "cv_entropy": 0.391,
+    "cv_v_center": 0.065,
+    "cv_h_spread": 0.186,
+    "cv_symmetry": 0.103,
+    "label_mode": "surprise",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 781,
+    "size": 4,
+    "text": "I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",
+    "ids": [
+     912,
+     913,
+     914,
+     915
+    ],
+    "cv_ink_density": 0.394,
+    "cv_brightness": 0.21,
+    "cv_contrast": 0.045,
+    "cv_edge_density": 0.311,
+    "cv_entropy": 0.386,
+    "cv_v_center": 0.15,
+    "cv_h_spread": 0.061,
+    "cv_symmetry": 0.312,
+    "label_mode": "neutral",
+    "label_agreement": 0.75
+   },
+   {
+    "run_id": 72,
+    "size": 3,
+    "text": "bus",
+    "ids": [
+     82,
+     83,
+     84
+    ],
+    "cv_ink_density": 0.226,
+    "cv_brightness": 0.159,
+    "cv_contrast": 0.059,
+    "cv_edge_density": 0.447,
+    "cv_entropy": 0.114,
+    "cv_v_center": 0.085,
+    "cv_h_spread": 0.225,
+    "cv_symmetry": 0.092,
+    "label_mode": "neutral",
+    "label_agreement": 0.667
+   },
+   {
+    "run_id": 212,
+    "size": 3,
+    "text": "i have a happy heart",
+    "ids": [
+     230,
+     231,
+     232
+    ],
+    "cv_ink_density": 0.529,
+    "cv_brightness": 0.102,
+    "cv_contrast": 0.216,
+    "cv_edge_density": 0.912,
+    "cv_entropy": 0.509,
+    "cv_v_center": 0.03,
+    "cv_h_spread": 0.287,
+    "cv_symmetry": 0.015,
+    "label_mode": "neutral",
+    "label_agreement": 0.667
+   },
+   {
+    "run_id": 376,
+    "size": 3,
+    "text": "a possum wearing a new pair of boots",
+    "ids": [
+     433,
+     434,
+     435
+    ],
+    "cv_ink_density": 0.168,
+    "cv_brightness": 0.106,
+    "cv_contrast": 0.026,
+    "cv_edge_density": 0.303,
+    "cv_entropy": 0.247,
+    "cv_v_center": 0.025,
+    "cv_h_spread": 0.103,
+    "cv_symmetry": 0.071,
+    "label_mode": "disgust",
+    "label_agreement": 0.333
+   },
+   {
+    "run_id": 391,
+    "size": 3,
+    "text": "futuristic",
+    "ids": [
+     450,
+     451,
+     452
+    ],
+    "cv_ink_density": 0.397,
+    "cv_brightness": 0.407,
+    "cv_contrast": 0.036,
+    "cv_edge_density": 0.132,
+    "cv_entropy": 0.085,
+    "cv_v_center": 0.045,
+    "cv_h_spread": 0.064,
+    "cv_symmetry": 0.012,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 419,
+    "size": 3,
+    "text": "Disgruntled",
+    "ids": [
+     482,
+     483,
+     484
+    ],
+    "cv_ink_density": 0.253,
+    "cv_brightness": 0.195,
+    "cv_contrast": 0.025,
+    "cv_edge_density": 0.354,
+    "cv_entropy": 0.315,
+    "cv_v_center": 0.029,
+    "cv_h_spread": 0.021,
+    "cv_symmetry": 0.238,
+    "label_mode": "anger",
+    "label_agreement": 0.667
+   },
+   {
+    "run_id": 519,
+    "size": 3,
+    "text": "tired over loaded lacking focus",
+    "ids": [
+     611,
+     612,
+     613
+    ],
+    "cv_ink_density": 0.405,
+    "cv_brightness": 0.282,
+    "cv_contrast": 0.211,
+    "cv_edge_density": 0.162,
+    "cv_entropy": 0.273,
+    "cv_v_center": 0.192,
+    "cv_h_spread": 0.278,
+    "cv_symmetry": 0.153,
+    "label_mode": "sadness",
+    "label_agreement": 0.667
+   },
+   {
+    "run_id": 12,
+    "size": 2,
+    "text": "very excited to be here ",
+    "ids": [
+     14,
+     15
+    ],
+    "cv_ink_density": 0.02,
+    "cv_brightness": 0.014,
+    "cv_contrast": 0.021,
+    "cv_edge_density": 0.285,
+    "cv_entropy": 0.158,
+    "cv_v_center": 0.01,
+    "cv_h_spread": 0.161,
+    "cv_symmetry": 0.019,
+    "label_mode": "happiness",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 44,
+    "size": 2,
+    "text": "happy",
+    "ids": [
+     52,
+     53
+    ],
+    "cv_ink_density": 0.109,
+    "cv_brightness": 0.013,
+    "cv_contrast": 0.034,
+    "cv_edge_density": 0.188,
+    "cv_entropy": 0.005,
+    "cv_v_center": 0.052,
+    "cv_h_spread": 0.002,
+    "cv_symmetry": 0.102,
+    "label_mode": "happiness",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 61,
+    "size": 2,
+    "text": "feeling excited with the travel around the beautiful Yorkshire Dale and industrious city of Sheffield ",
+    "ids": [
+     70,
+     71
+    ],
+    "cv_ink_density": 0.006,
+    "cv_brightness": 0.001,
+    "cv_contrast": 0.019,
+    "cv_edge_density": 0.142,
+    "cv_entropy": 0.008,
+    "cv_v_center": 0.035,
+    "cv_h_spread": 0.026,
+    "cv_symmetry": 0.142,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 88,
+    "size": 2,
+    "text": "i like football",
+    "ids": [
+     100,
+     101
+    ],
+    "cv_ink_density": 0.433,
+    "cv_brightness": 0.351,
+    "cv_contrast": 0.036,
+    "cv_edge_density": 0.338,
+    "cv_entropy": 0.462,
+    "cv_v_center": 0.098,
+    "cv_h_spread": 0.256,
+    "cv_symmetry": 0.034,
+    "label_mode": "disgust",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 107,
+    "size": 2,
+    "text": "Ok",
+    "ids": [
+     120,
+     121
+    ],
+    "cv_ink_density": 0.606,
+    "cv_brightness": 0.146,
+    "cv_contrast": 0.401,
+    "cv_edge_density": 0.354,
+    "cv_entropy": 0.151,
+    "cv_v_center": 0.05,
+    "cv_h_spread": 0.168,
+    "cv_symmetry": 0.224,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 171,
+    "size": 2,
+    "text": "beautiful girl from derby",
+    "ids": [
+     185,
+     186
+    ],
+    "cv_ink_density": 0.114,
+    "cv_brightness": 0.072,
+    "cv_contrast": 0.028,
+    "cv_edge_density": 0.14,
+    "cv_entropy": 0.046,
+    "cv_v_center": 0.072,
+    "cv_h_spread": 0.06,
+    "cv_symmetry": 0.086,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 182,
+    "size": 2,
+    "text": "amazed",
+    "ids": [
+     197,
+     198
+    ],
+    "cv_ink_density": 0.048,
+    "cv_brightness": 0.056,
+    "cv_contrast": 0.15,
+    "cv_edge_density": 0.18,
+    "cv_entropy": 0.316,
+    "cv_v_center": 0.044,
+    "cv_h_spread": 0.033,
+    "cv_symmetry": 0.08,
+    "label_mode": "disgust",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 200,
+    "size": 2,
+    "text": "I am in pain everyday and since childhood and I've had enough of it",
+    "ids": [
+     216,
+     217
+    ],
+    "cv_ink_density": 0.061,
+    "cv_brightness": 0.021,
+    "cv_contrast": 0.002,
+    "cv_edge_density": 0.525,
+    "cv_entropy": 0.192,
+    "cv_v_center": 0.024,
+    "cv_h_spread": 0.149,
+    "cv_symmetry": 0.057,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 206,
+    "size": 2,
+    "text": "confused",
+    "ids": [
+     223,
+     224
+    ],
+    "cv_ink_density": 0.239,
+    "cv_brightness": 0.21,
+    "cv_contrast": 0.11,
+    "cv_edge_density": 0.69,
+    "cv_entropy": 0.51,
+    "cv_v_center": 0.02,
+    "cv_h_spread": 0.257,
+    "cv_symmetry": 0.215,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 233,
+    "size": 2,
+    "text": "joyous",
+    "ids": [
+     253,
+     254
+    ],
+    "cv_ink_density": 0.487,
+    "cv_brightness": 0.162,
+    "cv_contrast": 0.174,
+    "cv_edge_density": 0.023,
+    "cv_entropy": 0.039,
+    "cv_v_center": 0.049,
+    "cv_h_spread": 0.002,
+    "cv_symmetry": 0.157,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 247,
+    "size": 2,
+    "text": "nostalgic over a reality you never got to experience",
+    "ids": [
+     275,
+     276
+    ],
+    "cv_ink_density": 0.342,
+    "cv_brightness": 0.148,
+    "cv_contrast": 0.11,
+    "cv_edge_density": 0.278,
+    "cv_entropy": 0.07,
+    "cv_v_center": 0.032,
+    "cv_h_spread": 0.044,
+    "cv_symmetry": 0.157,
+    "label_mode": "fear",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 259,
+    "size": 2,
+    "text": "CRAZY",
+    "ids": [
+     288,
+     289
+    ],
+    "cv_ink_density": 0.105,
+    "cv_brightness": 0.045,
+    "cv_contrast": 0.099,
+    "cv_edge_density": 0.16,
+    "cv_entropy": 0.073,
+    "cv_v_center": 0.012,
+    "cv_h_spread": 0.053,
+    "cv_symmetry": 0.026,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 286,
+    "size": 2,
+    "text": "is retirement good",
+    "ids": [
+     319,
+     320
+    ],
+    "cv_ink_density": 0.132,
+    "cv_brightness": 0.025,
+    "cv_contrast": 0.16,
+    "cv_edge_density": 0.213,
+    "cv_entropy": 0.099,
+    "cv_v_center": 0.041,
+    "cv_h_spread": 0.021,
+    "cv_symmetry": 0.051,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 291,
+    "size": 2,
+    "text": "the value of ai in ultrasound for medicine",
+    "ids": [
+     333,
+     334
+    ],
+    "cv_ink_density": 0.125,
+    "cv_brightness": 0.074,
+    "cv_contrast": 0.018,
+    "cv_edge_density": 0.098,
+    "cv_entropy": 0.066,
+    "cv_v_center": 0.023,
+    "cv_h_spread": 0.056,
+    "cv_symmetry": 0.086,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 336,
+    "size": 2,
+    "text": "curios",
+    "ids": [
+     383,
+     384
+    ],
+    "cv_ink_density": 0.412,
+    "cv_brightness": 0.327,
+    "cv_contrast": 0.125,
+    "cv_edge_density": 0.149,
+    "cv_entropy": 0.094,
+    "cv_v_center": 0.017,
+    "cv_h_spread": 0.235,
+    "cv_symmetry": 0.123,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 337,
+    "size": 2,
+    "text": "curious",
+    "ids": [
+     385,
+     386
+    ],
+    "cv_ink_density": 0.297,
+    "cv_brightness": 0.158,
+    "cv_contrast": 0.092,
+    "cv_edge_density": 0.292,
+    "cv_entropy": 0.002,
+    "cv_v_center": 0.091,
+    "cv_h_spread": 0.057,
+    "cv_symmetry": 0.129,
+    "label_mode": "fear",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 370,
+    "size": 2,
+    "text": "anticipation",
+    "ids": [
+     426,
+     427
+    ],
+    "cv_ink_density": 0.336,
+    "cv_brightness": 0.259,
+    "cv_contrast": 0.048,
+    "cv_edge_density": 0.01,
+    "cv_entropy": 0.246,
+    "cv_v_center": 0.075,
+    "cv_h_spread": 0.045,
+    "cv_symmetry": 0.043,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 416,
+    "size": 2,
+    "text": "ambivalent",
+    "ids": [
+     477,
+     478
+    ],
+    "cv_ink_density": 0.247,
+    "cv_brightness": 0.134,
+    "cv_contrast": 0.042,
+    "cv_edge_density": 0.089,
+    "cv_entropy": 0.253,
+    "cv_v_center": 0.124,
+    "cv_h_spread": 0.125,
+    "cv_symmetry": 0.087,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 417,
+    "size": 2,
+    "text": "vaguely blowing",
+    "ids": [
+     479,
+     480
+    ],
+    "cv_ink_density": 0.487,
+    "cv_brightness": 0.144,
+    "cv_contrast": 0.207,
+    "cv_edge_density": 0.778,
+    "cv_entropy": 0.23,
+    "cv_v_center": 0.037,
+    "cv_h_spread": 0.412,
+    "cv_symmetry": 0.28,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 426,
+    "size": 2,
+    "text": "raining golf man",
+    "ids": [
+     494,
+     495
+    ],
+    "cv_ink_density": 0.165,
+    "cv_brightness": 0.098,
+    "cv_contrast": 0.056,
+    "cv_edge_density": 0.505,
+    "cv_entropy": 0.374,
+    "cv_v_center": 0.001,
+    "cv_h_spread": 0.281,
+    "cv_symmetry": 0.097,
+    "label_mode": "sadness",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 477,
+    "size": 2,
+    "text": "I'm feeling a bit peckish",
+    "ids": [
+     557,
+     558
+    ],
+    "cv_ink_density": 0.011,
+    "cv_brightness": 0.016,
+    "cv_contrast": 0.011,
+    "cv_edge_density": 0.403,
+    "cv_entropy": 0.242,
+    "cv_v_center": 0.047,
+    "cv_h_spread": 0.092,
+    "cv_symmetry": 0.039,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 504,
+    "size": 2,
+    "text": "full of nice food",
+    "ids": [
+     591,
+     592
+    ],
+    "cv_ink_density": 0.054,
+    "cv_brightness": 0.034,
+    "cv_contrast": 0.053,
+    "cv_edge_density": 0.126,
+    "cv_entropy": 0.001,
+    "cv_v_center": 0.014,
+    "cv_h_spread": 0.015,
+    "cv_symmetry": 0.043,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 510,
+    "size": 2,
+    "text": "happy",
+    "ids": [
+     598,
+     599
+    ],
+    "cv_ink_density": 0.582,
+    "cv_brightness": 0.268,
+    "cv_contrast": 0.203,
+    "cv_edge_density": 0.535,
+    "cv_entropy": 0.049,
+    "cv_v_center": 0.065,
+    "cv_h_spread": 0.125,
+    "cv_symmetry": 0.995,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 511,
+    "size": 2,
+    "text": "enjoying",
+    "ids": [
+     600,
+     601
+    ],
+    "cv_ink_density": 0.5,
+    "cv_brightness": 0.155,
+    "cv_contrast": 0.135,
+    "cv_edge_density": 0.51,
+    "cv_entropy": 0.491,
+    "cv_v_center": 0.078,
+    "cv_h_spread": 0.327,
+    "cv_symmetry": 0.107,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 515,
+    "size": 2,
+    "text": "Happy",
+    "ids": [
+     605,
+     606
+    ],
+    "cv_ink_density": 0.318,
+    "cv_brightness": 0.08,
+    "cv_contrast": 0.072,
+    "cv_edge_density": 0.867,
+    "cv_entropy": 0.652,
+    "cv_v_center": 0.032,
+    "cv_h_spread": 0.276,
+    "cv_symmetry": 0.016,
+    "label_mode": "fear",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 517,
+    "size": 2,
+    "text": "excited",
+    "ids": [
+     608,
+     609
+    ],
+    "cv_ink_density": 0.071,
+    "cv_brightness": 0.003,
+    "cv_contrast": 0.084,
+    "cv_edge_density": 0.283,
+    "cv_entropy": 0.152,
+    "cv_v_center": 0.066,
+    "cv_h_spread": 0.019,
+    "cv_symmetry": 0.018,
+    "label_mode": "happiness",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 539,
+    "size": 2,
+    "text": "i feel like sandro botticelli",
+    "ids": [
+     643,
+     644
+    ],
+    "cv_ink_density": 0.159,
+    "cv_brightness": 0.097,
+    "cv_contrast": 0.063,
+    "cv_edge_density": 0.158,
+    "cv_entropy": 0.048,
+    "cv_v_center": 0.012,
+    "cv_h_spread": 0.007,
+    "cv_symmetry": 0.048,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 561,
+    "size": 2,
+    "text": "trapped and sexually frustrated",
+    "ids": [
+     669,
+     670
+    ],
+    "cv_ink_density": 0.206,
+    "cv_brightness": 0.245,
+    "cv_contrast": 0.028,
+    "cv_edge_density": 0.298,
+    "cv_entropy": 0.113,
+    "cv_v_center": 0.018,
+    "cv_h_spread": 0.119,
+    "cv_symmetry": 0.301,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 564,
+    "size": 2,
+    "text": "happy proud concerned grateful",
+    "ids": [
+     673,
+     674
+    ],
+    "cv_ink_density": 0.254,
+    "cv_brightness": 0.306,
+    "cv_contrast": 0.045,
+    "cv_edge_density": 0.076,
+    "cv_entropy": 0.013,
+    "cv_v_center": 0.005,
+    "cv_h_spread": 0.063,
+    "cv_symmetry": 0.106,
+    "label_mode": "neutral",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 620,
+    "size": 2,
+    "text": "calm",
+    "ids": [
+     730,
+     731
+    ],
+    "cv_ink_density": 0.252,
+    "cv_brightness": 0.025,
+    "cv_contrast": 0.175,
+    "cv_edge_density": 0.452,
+    "cv_entropy": 0.237,
+    "cv_v_center": 0.138,
+    "cv_h_spread": 0.286,
+    "cv_symmetry": 0.068,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 674,
+    "size": 2,
+    "text": "sensitive",
+    "ids": [
+     795,
+     796
+    ],
+    "cv_ink_density": 0.598,
+    "cv_brightness": 0.742,
+    "cv_contrast": 0.104,
+    "cv_edge_density": 0.095,
+    "cv_entropy": 0.264,
+    "cv_v_center": 0.021,
+    "cv_h_spread": 0.222,
+    "cv_symmetry": 0.003,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 676,
+    "size": 2,
+    "text": "anxious",
+    "ids": [
+     798,
+     799
+    ],
+    "cv_ink_density": 0.344,
+    "cv_brightness": 0.359,
+    "cv_contrast": 0.077,
+    "cv_edge_density": 0.227,
+    "cv_entropy": 0.009,
+    "cv_v_center": 0.03,
+    "cv_h_spread": 0.13,
+    "cv_symmetry": 0.06,
+    "label_mode": "fear",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 785,
+    "size": 2,
+    "text": "composed",
+    "ids": [
+     919,
+     920
+    ],
+    "cv_ink_density": 0.279,
+    "cv_brightness": 0.317,
+    "cv_contrast": 0.067,
+    "cv_edge_density": 0.035,
+    "cv_entropy": 0.185,
+    "cv_v_center": 0.076,
+    "cv_h_spread": 0.115,
+    "cv_symmetry": 0.276,
+    "label_mode": "neutral",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 793,
+    "size": 2,
+    "text": "happy joyful cheerful",
+    "ids": [
+     928,
+     929
+    ],
+    "cv_ink_density": 0.295,
+    "cv_brightness": 0.109,
+    "cv_contrast": 0.085,
+    "cv_edge_density": 0.357,
+    "cv_entropy": 0.259,
+    "cv_v_center": 0.053,
+    "cv_h_spread": 0.158,
+    "cv_symmetry": 0.15,
+    "label_mode": "happiness",
+    "label_agreement": 1.0
+   },
+   {
+    "run_id": 798,
+    "size": 2,
+    "text": "reflective",
+    "ids": [
+     934,
+     935
+    ],
+    "cv_ink_density": 0.402,
+    "cv_brightness": 0.202,
+    "cv_contrast": 0.122,
+    "cv_edge_density": 0.112,
+    "cv_entropy": 0.091,
+    "cv_v_center": 0.048,
+    "cv_h_spread": 0.075,
+    "cv_symmetry": 0.214,
+    "label_mode": "anger",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 866,
+    "size": 2,
+    "text": "I am feeling unhappy because I'm not getting my go on the virtual reality machine",
+    "ids": [
+     1014,
+     1015
+    ],
+    "cv_ink_density": 0.168,
+    "cv_brightness": 0.089,
+    "cv_contrast": 0.012,
+    "cv_edge_density": 0.18,
+    "cv_entropy": 0.234,
+    "cv_v_center": 0.038,
+    "cv_h_spread": 0.042,
+    "cv_symmetry": 0.05,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   },
+   {
+    "run_id": 868,
+    "size": 2,
+    "text": "boring",
+    "ids": [
+     1017,
+     1018
+    ],
+    "cv_ink_density": 0.486,
+    "cv_brightness": 0.46,
+    "cv_contrast": 0.094,
+    "cv_edge_density": 0.479,
+    "cv_entropy": 0.004,
+    "cv_v_center": 0.005,
+    "cv_h_spread": 0.091,
+    "cv_symmetry": 0.063,
+    "label_mode": "disgust",
+    "label_agreement": 0.5
+   }
+  ]
+ }
+}

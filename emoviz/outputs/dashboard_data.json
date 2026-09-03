@@ -1,0 +1,28 @@
+{
+ "n": 1012,
+ "emotional": 608,
+ "emotional_pct": 60,
+ "dup_runs": 65,
+ "dup_records": 213,
+ "rq3_basic": 71,
+ "rq3_val": 83,
+ "rq3_allsame": 21,
+ "rq3_total": 65,
+ "happy_run": {
+  "n": 11,
+  "labels": {
+   "happiness": 7,
+   "neutral": 3,
+   "surprise": 1
+  },
+  "vals": {
+   "+": 7,
+   "0": 4
+  },
+  "modal_basic": [
+   "happiness",
+   7
+  ],
+  "modal_val_frac": 0.64
+ }
+}

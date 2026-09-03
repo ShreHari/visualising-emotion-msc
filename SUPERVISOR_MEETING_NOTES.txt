@@ -1,0 +1,30 @@
+Visualising Emotion: Text and Image Analysis of Human Feelings
+SUPERVISOR MEETING NOTES
+MSc Dissertation Project — Shre Hari Prem Anandh
+Supervisor: Chaona Chen (chaona.chen@sheffield.ac.uk)
+
+================================================================================
+
+18 Jun 2026 | MSc dissertation project, Shre Hari
+Calendar: https://www.google.com/calendar/event?eid=NGdmdDFoNGZsYWQwdWIwYWdwcm9yY2hqYW9fMjAyNjA3MDJUMTMwMDAwWiBjaGFvbmEuY2hlbkBzaGVmZmllbGQuYWMudWs
+Attendees: Chaona Chen (chaona.chen@sheffield.ac.uk)
+           Shre Hari Prem Anandh (shpremanandh1@sheffield.ac.uk)
+
+Notes
+
+* Get familiar with the previous datasets
+* Start literature review (e.g., text-to-image)
+* Get the template
+
+--------------------------------------------------------------------------------
+
+9 Jul 2026 | MSc dissertation project, Shre Hari
+Calendar: https://www.google.com/calendar/event?eid=NGdmdDFoNGZsYWQwdWIwYWdwcm9yY2hqYW9fMjAyNjA3MDJUMTMwMDAwWiBjaGFvbmEuY2hlbkBzaGVmZmllbGQuYWMudWs
+Attendees: Shre Hari Prem Anandh (shpremanandh1@sheffield.ac.uk)
+           Chaona Chen (chaona.chen@sheffield.ac.uk)
+
+Notes
+
+* Emotions extracted from text analysis; image analysis
+
+================================================================================

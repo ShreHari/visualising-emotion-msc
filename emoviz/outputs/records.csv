@@ -1,0 +1,1013 @@
+id,text,timestamp,run_id,run_size,word_count,text_valence,text_arousal,text_basic,text_quadrant,is_emotional,feat_ink_density,feat_brightness,feat_contrast,feat_edge_density,feat_entropy,feat_v_center,feat_h_spread,feat_symmetry,img_basic,img_valence
+14,very excited to be here ,2024-09-19T09:25:41+00:00,12,2,5,0.8,0.6,happiness,excited-positive,True,0.3538,0.5723,0.8403,0.1395,0.5285,0.5551,0.2846,0.6811,happiness,0.8
+15,very excited to be here,2024-09-19T09:27:40+00:00,12,2,5,0.8,0.6,happiness,excited-positive,True,0.3685,0.5891,0.8061,0.2505,0.7264,0.5662,0.2056,0.6555,happiness,0.8
+16,I am feeling excited today because I am a biomedical engineer working on an artificial heart project which I am very passionate about. I am in space working at a desk with a view of mars with a chai l,2024-09-19T09:42:46+00:00,13,1,53,0.8,0.6,happiness,excited-positive,True,0.377,0.5177,0.7134,0.2367,0.887,0.4277,0.2877,0.6158,disgust,-0.7
+17,I am volunteer at a gallery and I am talking to tons of guests about science and I am feeling really confident ,2024-09-19T09:44:37+00:00,14,1,22,0.8,0.6,happiness,excited-positive,True,0.2301,0.743,0.7264,0.118,0.557,0.6099,0.2969,0.6997,neutral,0.0
+18,I am feeling emotional about working at the pet rescue centre ,2024-09-19T09:45:53+00:00,15,1,11,-0.75,0.3,sadness,low-negative,True,0.2905,0.6623,0.8347,0.1341,0.5938,0.5759,0.285,0.7254,neutral,0.0
+19,My fingers tingle with the excitement of all the potential possibilities of creation through the medium of the keyboard,2024-09-19T10:03:20+00:00,16,1,19,0.8,0.6,happiness,excited-positive,True,0.6,0.4,0.7473,0.2577,0.811,0.4652,0.2926,0.7413,disgust,-0.7
+20,I am visiting [name] and having a wonderful time,2024-09-19T10:14:11+00:00,17,1,9,0.8,0.6,happiness,excited-positive,True,0.447,0.5276,0.8944,0.2222,0.6063,0.5545,0.2961,0.5439,neutral,0.0
+21,che bello essere qui! ma fa freddo,2024-09-19T10:18:46+00:00,18,1,7,0.0,0.3,neutral,calm-positive,False,0.2693,0.6596,0.7337,0.2746,0.7375,0.5374,0.3049,0.7172,neutral,0.0
+22,ok ENJOYING THE fESTIVAL OF THE mIND,2024-09-19T10:21:19+00:00,19,1,7,0.8,0.6,happiness,excited-positive,True,0.3937,0.5082,0.6768,0.4034,0.9326,0.4945,0.2841,0.5294,neutral,0.0
+23,fairly chilled enjoying the art but what is this ai thing i am a bit worried about ai doing everything and feelings are surely human rather than computer stuff??,2024-09-19T11:01:52+00:00,20,1,29,0.8,0.6,happiness,excited-positive,True,0.1457,0.7162,0.5143,0.0928,0.5683,0.5509,0.1535,0.8707,neutral,0.0
+24,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",2024-09-19T11:06:01+00:00,21,6,16,0.0,0.3,neutral,calm-positive,False,0.3339,0.679,0.8548,0.0749,0.3383,0.506,0.2379,0.696,disgust,-0.7
+25,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",2024-09-19T11:06:09+00:00,21,6,16,0.0,0.3,neutral,calm-positive,False,0.3973,0.5891,0.9381,0.1066,0.3653,0.6099,0.2376,0.6684,fear,-0.65
+26,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",2024-09-19T11:06:11+00:00,21,6,16,0.0,0.3,neutral,calm-positive,False,0.2817,0.6244,0.7602,0.1525,0.5171,0.5042,0.2067,0.6395,surprise,0.3
+27,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",2024-09-19T11:06:16+00:00,21,6,16,0.0,0.3,neutral,calm-positive,False,0.2767,0.724,0.829,0.0819,0.3333,0.4878,0.1791,0.7462,surprise,0.3
+28,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",2024-09-19T11:06:07+00:00,21,6,16,0.0,0.3,neutral,calm-positive,False,0.1412,0.8403,0.6448,0.1161,0.3576,0.5597,0.1457,0.8728,fear,-0.65
+29,"je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",2024-09-19T11:06:07+00:00,21,6,16,0.0,0.3,neutral,calm-positive,False,0.2917,0.5599,0.644,0.1803,0.6756,0.6229,0.2233,0.7697,anger,-0.7
+30,I'm a little bit worried but very optimistic,2024-09-19T11:08:40+00:00,22,1,8,-0.65,0.75,fear,tense-negative,True,0.3508,0.6078,0.8679,0.1419,0.6155,0.6062,0.2343,0.8222,sadness,-0.75
+31,optimistic happy ,2024-09-19T11:11:07+00:00,23,1,2,0.8,0.6,happiness,excited-positive,True,0.302,0.6877,0.7858,0.1492,0.5975,0.4834,0.3212,0.6232,happiness,0.8
+32,a little relieved but optimistic about the many changes of life style,2024-09-19T11:13:17+00:00,24,1,12,0.8,0.6,happiness,excited-positive,True,0.4072,0.5514,0.8985,0.1188,0.5578,0.4985,0.3031,0.7984,neutral,0.0
+33,happy about singing songs with my friends and dressing up as princess,2024-09-19T11:15:50+00:00,25,1,12,0.8,0.6,happiness,excited-positive,True,0.3661,0.6147,0.7864,0.1447,0.6984,0.3121,0.2677,0.7369,happiness,0.8
+34,can you draw the look at this photograph meme that was viral a couple of years ago ,2024-09-19T11:17:40+00:00,26,1,17,0.8,0.6,happiness,excited-positive,True,0.1622,0.8031,0.6866,0.0815,0.3961,0.4301,0.1414,0.8773,surprise,0.3
+35,disney characters ,2024-09-19T11:18:23+00:00,27,1,2,0.0,0.3,neutral,calm-positive,False,0.1971,0.712,0.7166,0.1336,0.6024,0.5039,0.2777,0.7131,neutral,0.0
+36,mickey mouse ,2024-09-19T11:18:57+00:00,28,1,2,0.0,0.3,neutral,calm-positive,False,0.1406,0.808,0.6339,0.0806,0.3495,0.4974,0.1276,0.8578,disgust,-0.7
+37,moana,2024-09-19T11:21:00+00:00,29,1,1,0.0,0.3,neutral,calm-positive,False,0.2305,0.7383,0.7778,0.1966,0.4843,0.5125,0.229,0.7631,neutral,0.0
+38,feeling at peace living in a cottage baking bread with my pet dog sleeping by the fire place. Looking at a view of a river in spring time.,2024-09-19T11:25:46+00:00,30,1,28,0.8,0.6,happiness,excited-positive,True,0.3621,0.5502,0.7111,0.3399,0.9029,0.5327,0.2818,0.5995,neutral,0.0
+39,"feeling at peace as a women, sitting by the fire place reading a novel with my pet cat on my lap while listening to jazz on my speaker and a candle on the coffee table",2024-09-19T11:27:10+00:00,31,1,35,0.8,0.6,happiness,excited-positive,True,0.4374,0.4998,0.8529,0.1798,0.6812,0.5497,0.2987,0.5809,neutral,0.0
+40,"having a pumpkin spice latte while watching a scary movie, fluffy blankets and its raining in autumn, in a cozy cabin with my cat and dog",2024-09-19T11:28:54+00:00,32,1,26,0.8,0.6,happiness,excited-positive,True,0.5723,0.3772,0.7291,0.3631,0.8432,0.4824,0.2879,0.5305,fear,-0.65
+41,"chestnuts roasting on an open fire, jack frost snipping at your nose - by justin bieber",2024-09-19T11:30:35+00:00,33,1,16,0.0,0.3,neutral,calm-positive,False,0.3597,0.6344,0.8957,0.1097,0.4327,0.5501,0.2968,0.4728,disgust,-0.7
+42,Noah Kahan,2024-09-19T11:31:26+00:00,34,1,2,0.0,0.3,neutral,calm-positive,False,0.2448,0.7308,0.819,0.1021,0.3894,0.4097,0.1779,0.7304,disgust,-0.7
+43,ariana grande,2024-09-19T11:31:56+00:00,35,1,2,0.0,0.3,neutral,calm-positive,False,0.2914,0.737,0.761,0.0504,0.2932,0.492,0.1741,0.6189,sadness,-0.75
+44,sam and cat nickelodeon,2024-09-19T11:32:40+00:00,36,1,4,0.0,0.3,neutral,calm-positive,False,0.2184,0.7915,0.7221,0.0928,0.3762,0.4746,0.2126,0.8083,surprise,0.3
+45,absolutely fantastic,2024-09-19T11:33:20+00:00,37,1,2,0.8,0.6,happiness,excited-positive,True,0.6598,0.3438,0.8319,0.1216,0.4633,0.4955,0.3068,0.6233,neutral,0.0
+46,my eyes were burning in the shower today|!!!!!!!,2024-09-19T11:35:31+00:00,38,1,8,-0.75,0.3,sadness,low-negative,True,0.3177,0.6485,0.8542,0.2052,0.5568,0.5498,0.2667,0.5438,disgust,-0.7
+47,"Christmas market, pretty lights, snowing, magical, beanie, scarf, santa, reindeers, gloves, trees, hot chocolate, marshmallows ",2024-09-19T11:37:33+00:00,39,1,15,0.8,0.6,happiness,excited-positive,True,0.483,0.4408,0.6024,0.3327,0.9908,0.4859,0.2989,0.5539,disgust,-0.7
+48,Happy to be back in sheffield and out of the desert.,2024-09-19T11:42:33+00:00,40,1,11,0.8,0.6,happiness,excited-positive,True,0.287,0.6571,0.8121,0.114,0.6488,0.579,0.2755,0.5865,disgust,-0.7
+49,Happy to be reunited with my partner in the UK,2024-09-19T11:44:24+00:00,41,1,10,0.8,0.6,happiness,excited-positive,True,0.2177,0.7489,0.7247,0.1158,0.5415,0.6134,0.2328,0.7038,neutral,0.0
+50,inspired and overwhelmed in equal measure,2024-09-19T11:55:29+00:00,42,1,6,0.8,0.6,happiness,excited-positive,True,0.2885,0.6677,0.7967,0.2638,0.6333,0.5691,0.2807,0.5969,disgust,-0.7
+51,open to seeing culture,2024-09-19T12:30:59+00:00,43,1,4,0.0,0.3,neutral,calm-positive,False,0.3938,0.5451,0.8002,0.2599,0.7769,0.5216,0.276,0.5826,neutral,0.0
+52,happy,2024-09-19T12:37:37+00:00,44,2,1,0.8,0.6,happiness,excited-positive,True,0.3466,0.6617,0.781,0.1731,0.5392,0.5439,0.2731,0.6343,happiness,0.8
+53,happy,2024-09-19T12:38:38+00:00,44,2,1,0.8,0.6,happiness,excited-positive,True,0.2783,0.6791,0.8353,0.1182,0.5342,0.49,0.2721,0.7785,happiness,0.8
+54,feeling good after an interesting lunch after meeting an old friend,2024-09-19T12:41:57+00:00,45,1,11,0.8,0.6,happiness,excited-positive,True,0.3156,0.6287,0.8036,0.2954,0.7076,0.4985,0.3,0.5846,neutral,0.0
+55,Had a very nice portoin of honey cake with krysia,2024-09-19T12:46:36+00:00,46,1,10,0.8,0.6,happiness,excited-positive,True,0.1656,0.8112,0.6706,0.0756,0.3904,0.5262,0.1712,0.8198,neutral,0.0
+56,Exhausted after a long journey for work. Not looking forward to the increase in travel without my spouse. ,2024-09-19T12:56:19+00:00,47,1,18,-0.75,0.3,sadness,low-negative,True,0.3555,0.5776,0.8142,0.145,0.7153,0.5711,0.3012,0.6577,neutral,0.0
+57,Joy and pride at the headteacher agreeing to delay my daughters admission into primary school,2024-09-19T13:14:15+00:00,48,1,15,0.8,0.6,happiness,excited-positive,True,0.4518,0.5278,0.9268,0.1576,0.4868,0.4032,0.3036,0.5401,happiness,0.8
+58,How are you feeling?,2024-09-19T13:21:30+00:00,49,1,4,0.8,0.6,happiness,excited-positive,True,0.3598,0.6252,0.916,0.1213,0.387,0.5092,0.2693,0.6056,neutral,0.0
+59,"happy, creative, emotional",2024-09-19T13:32:38+00:00,50,1,3,0.8,0.6,happiness,excited-positive,True,0.5242,0.4635,0.8903,0.2258,0.6063,0.5436,0.2803,0.513,happiness,0.8
+60,"Somewhat under pressure, lots on, lots to do. Feeling strong, positive elements of risk. Looking forward ...",2024-09-19T13:43:51+00:00,51,1,17,0.8,0.6,happiness,excited-positive,True,0.2835,0.646,0.7824,0.1112,0.712,0.5975,0.2392,0.6012,fear,-0.65
+61,happy now there is sun,2024-09-19T14:08:25+00:00,52,1,5,0.8,0.6,happiness,excited-positive,True,0.4976,0.5011,0.9414,0.0902,0.3966,0.4969,0.2656,0.1288,neutral,0.0
+62,I need to buy a new rose for the garden,2024-09-19T14:19:11+00:00,53,1,10,0.8,0.6,happiness,excited-positive,True,0.3004,0.6701,0.8222,0.1861,0.5824,0.5262,0.24,0.6942,disgust,-0.7
+63,super tired,2024-09-19T14:21:49+00:00,54,1,2,-0.75,0.3,sadness,low-negative,True,0.4163,0.5597,0.9171,0.1484,0.4806,0.5533,0.2436,0.6043,sadness,-0.75
+64,intrigued optomistic tired hazy,2024-09-19T14:38:40+00:00,55,1,4,0.8,0.6,happiness,excited-positive,True,0.6571,0.3294,0.6992,0.147,0.7875,0.4642,0.3009,0.6573,neutral,0.0
+65,hopeful   slightly anxious    resigned     detached      appreciating the positives      persevering   ,2024-09-19T14:52:21+00:00,56,1,9,0.8,0.6,happiness,excited-positive,True,0.2481,0.686,0.7059,0.1684,0.5565,0.4603,0.2482,0.7884,neutral,0.0
+66,"hopeful, slightly anxious, resigned, detached, appreciating the positives, persevering, calmness, ",2024-09-19T14:57:36+00:00,57,1,10,0.8,0.6,happiness,excited-positive,True,0.307,0.6637,0.8428,0.1539,0.4758,0.5048,0.1932,0.6627,sadness,-0.75
+67,i am a bit worried about the coming weather,2024-09-19T15:05:58+00:00,58,1,9,-0.65,0.75,fear,tense-negative,True,0.4697,0.5227,0.7086,0.1921,0.7566,0.483,0.2785,0.5839,sadness,-0.75
+68,how can a circle be squared,2024-09-19T15:12:09+00:00,59,1,6,0.8,0.6,happiness,excited-positive,True,0.8847,0.147,0.5714,0.0577,0.2495,0.5004,0.3001,0.9452,neutral,0.0
+69,square a circle with a pair of compasses and a straight edge,2024-09-19T15:15:18+00:00,60,1,12,0.0,0.3,neutral,calm-positive,False,0.1583,0.7896,0.6698,0.0627,0.2767,0.5229,0.142,0.8962,disgust,-0.7
+70,feeling excited with the travel around the beautiful Yorkshire Dale and industrious city of Sheffield ,2024-09-19T15:20:05+00:00,61,2,15,0.8,0.6,happiness,excited-positive,True,0.4468,0.504,0.7273,0.234,0.8371,0.5353,0.2751,0.4263,disgust,-0.7
+71,feeling excited with the travel around the beautiful Yorkshire Dale and industrious city of Sheffield,2024-09-19T15:22:32+00:00,61,2,15,0.8,0.6,happiness,excited-positive,True,0.4419,0.5033,0.755,0.3114,0.8504,0.5742,0.2895,0.5672,sadness,-0.75
+72,curious,2024-09-19T15:32:57+00:00,62,1,1,0.8,0.6,happiness,excited-positive,True,0.3689,0.6027,0.872,0.2192,0.5734,0.4886,0.2464,0.6279,disgust,-0.7
+73,I don't know,2024-09-19T15:34:06+00:00,63,1,3,0.3,0.8,surprise,excited-positive,True,0.3388,0.6473,0.9093,0.0744,0.354,0.4943,0.2613,0.66,neutral,0.0
+74,very happy,2024-09-19T15:34:47+00:00,64,1,2,0.8,0.6,happiness,excited-positive,True,0.2433,0.7442,0.8264,0.0983,0.3099,0.5168,0.209,0.6864,happiness,0.8
+75,I am excited by the Festival of Light,2024-09-19T15:35:39+00:00,65,1,8,0.8,0.6,happiness,excited-positive,True,0.6693,0.316,0.6074,0.2252,0.837,0.4849,0.2855,0.6289,neutral,0.0
+76,i am feeling great i had a really tasty pie last night,2024-09-20T09:29:55+00:00,66,1,12,0.8,0.6,happiness,excited-positive,True,0.5623,0.4151,0.9044,0.2299,0.5127,0.5147,0.2839,0.6348,neutral,0.0
+77,3 year old girl happy with crabs and she's good,2024-09-20T09:38:23+00:00,67,1,10,0.8,0.6,happiness,excited-positive,True,0.237,0.7459,0.7986,0.1496,0.3966,0.5476,0.2247,0.6409,happiness,0.8
+78,Manifesting the house we all belong in,2024-09-20T10:13:47+00:00,68,1,7,0.0,0.3,neutral,calm-positive,False,0.1611,0.8309,0.685,0.0748,0.3093,0.5256,0.1628,0.937,fear,-0.65
+79,sunny day with friends,2024-09-20T10:30:35+00:00,69,1,4,0.8,0.6,happiness,excited-positive,True,0.5761,0.4303,0.824,0.1749,0.7129,0.4658,0.2993,0.6307,neutral,0.0
+80,joyful fridays,2024-09-20T10:32:20+00:00,70,1,2,0.8,0.6,happiness,excited-positive,True,0.2652,0.7156,0.8226,0.096,0.3763,0.4682,0.1968,0.7339,happiness,0.8
+81,jester juggling eggs,2024-09-20T10:34:34+00:00,71,1,3,0.0,0.3,neutral,calm-positive,False,0.2069,0.7686,0.7598,0.1066,0.3827,0.5062,0.1917,0.7193,surprise,0.3
+82,bus,2024-09-20T10:53:47+00:00,72,3,1,0.0,0.3,neutral,calm-positive,False,0.1504,0.816,0.5816,0.0701,0.5033,0.5321,0.1759,0.875,neutral,0.0
+83,bus,2024-09-20T10:54:01+00:00,72,3,1,0.0,0.3,neutral,calm-positive,False,0.239,0.549,0.6506,0.2094,0.6408,0.5224,0.199,0.7806,disgust,-0.7
+84,bus,2024-09-20T10:54:09+00:00,72,3,1,0.0,0.3,neutral,calm-positive,False,0.2661,0.6975,0.6677,0.1123,0.6536,0.6276,0.2913,0.6979,neutral,0.0
+85,i am pissed off as it is raining,2024-09-20T12:45:03+00:00,73,1,8,-0.7,0.8,anger,tense-negative,True,0.4824,0.4786,0.8402,0.2745,0.7345,0.5159,0.2791,0.7162,anger,-0.7
+86,i want to be free,2024-09-20T12:50:02+00:00,74,1,5,0.8,0.6,happiness,excited-positive,True,0.1741,0.8183,0.7356,0.0519,0.2321,0.5515,0.1957,0.8017,neutral,0.0
+87,grateful,2024-09-20T12:50:50+00:00,75,1,1,0.8,0.6,happiness,excited-positive,True,0.3552,0.6205,0.885,0.2365,0.5198,0.514,0.2751,0.6199,happiness,0.8
+88,compassionate,2024-09-20T12:52:47+00:00,76,1,1,0.8,0.6,happiness,excited-positive,True,0.2795,0.6682,0.6986,0.1698,0.6748,0.5369,0.2895,0.6844,disgust,-0.7
+89,grateful,2024-09-20T12:57:30+00:00,77,1,1,0.8,0.6,happiness,excited-positive,True,0.5158,0.4619,0.9084,0.1867,0.5219,0.5516,0.2947,0.7802,neutral,0.0
+90,hungover,2024-09-20T13:19:39+00:00,78,1,1,0.0,0.3,neutral,calm-positive,False,0.4262,0.5204,0.8768,0.1543,0.5613,0.5926,0.2849,0.5348,sadness,-0.75
+91,mixed emotions. Sad my daughter just got made redundant. Happy to be here,2024-09-20T13:21:24+00:00,79,1,13,0.8,0.6,happiness,excited-positive,True,0.4349,0.504,0.8407,0.1986,0.6985,0.4633,0.2821,0.5239,neutral,0.0
+92,Ominous,2024-09-20T13:36:41+00:00,80,1,1,0.0,0.3,neutral,calm-positive,False,0.8182,0.1783,0.6411,0.0965,0.5055,0.4876,0.2965,0.7476,neutral,0.0
+93,celebratory anguish,2024-09-20T13:37:46+00:00,81,1,2,-0.75,0.3,sadness,low-negative,True,0.6213,0.364,0.9068,0.1422,0.4107,0.5028,0.3203,0.4274,neutral,0.0
+94,Contemplative positivity,2024-09-20T13:39:48+00:00,82,1,2,0.0,0.3,neutral,calm-positive,False,0.1886,0.7559,0.7064,0.1411,0.6264,0.6675,0.2486,0.8003,neutral,0.0
+95,Collectively conscious,2024-09-20T13:40:40+00:00,83,1,2,0.0,0.3,neutral,calm-positive,False,0.1736,0.7911,0.7018,0.1026,0.5221,0.5193,0.2113,0.9061,neutral,0.0
+96,happy,2024-09-20T13:50:00+00:00,84,1,1,0.8,0.6,happiness,excited-positive,True,0.3765,0.6235,0.9199,0.0777,0.3485,0.4277,0.2846,0.4872,neutral,0.0
+97,Angry sad depressed trapped in a room and cant escape and my tormentors are watching my every step and time is running out,2024-09-20T13:51:47+00:00,85,1,23,-0.75,0.3,sadness,low-negative,True,0.7006,0.2964,0.7437,0.1565,0.714,0.491,0.3069,0.7883,fear,-0.65
+98,moonshine,2024-09-20T14:14:21+00:00,86,1,1,0.0,0.3,neutral,calm-positive,False,0.6845,0.2824,0.762,0.1548,0.5809,0.4914,0.3174,0.8112,neutral,0.0
+99,i ;,2024-09-20T14:15:04+00:00,87,1,2,0.0,0.3,neutral,calm-positive,False,0.3206,0.6582,0.8827,0.026,0.403,0.6229,0.2208,0.7065,neutral,0.0
+100,i like football,2024-09-20T14:15:12+00:00,88,2,3,0.8,0.6,happiness,excited-positive,True,0.2293,0.7594,0.8143,0.0697,0.2859,0.5338,0.1772,0.8,disgust,-0.7
+101,i like football,2024-09-20T14:15:19+00:00,88,2,3,0.8,0.6,happiness,excited-positive,True,0.5794,0.3651,0.7572,0.141,0.7774,0.4388,0.2993,0.7467,disgust,-0.7
+102,stressed tired,2024-09-20T14:16:15+00:00,89,1,2,-0.75,0.3,sadness,low-negative,True,0.5049,0.4287,0.6789,0.4703,0.9222,0.4675,0.2935,0.5193,fear,-0.65
+103,slightly damp,2024-09-20T14:19:03+00:00,90,1,2,0.0,0.3,neutral,calm-positive,False,0.3636,0.6259,0.9272,0.0396,0.3293,0.7521,0.2859,0.7267,neutral,0.0
+104,happy man playing football about to score the winner,2024-09-20T14:21:16+00:00,91,1,9,0.8,0.6,happiness,excited-positive,True,0.1676,0.8109,0.6766,0.1078,0.3943,0.582,0.1506,0.8117,happiness,0.8
+105,happy and good because the week is over ,2024-09-20T14:25:09+00:00,92,1,8,0.8,0.6,happiness,excited-positive,True,0.2855,0.6801,0.8227,0.242,0.5682,0.5057,0.2736,0.7531,happiness,0.8
+106,joyous times,2024-09-20T14:30:51+00:00,93,1,2,0.8,0.6,happiness,excited-positive,True,0.4077,0.5194,0.7593,0.3413,0.8493,0.493,0.2995,0.5624,disgust,-0.7
+107,Free from the stress of a bad situation and hopeful for the future.,2024-09-20T14:36:02+00:00,94,1,13,0.8,0.6,happiness,excited-positive,True,0.0696,0.9063,0.4793,0.0393,0.1777,0.6547,0.0946,0.9124,fear,-0.65
+108,happy and ginger,2024-09-20T14:40:23+00:00,95,1,3,0.8,0.6,happiness,excited-positive,True,0.1487,0.8261,0.6701,0.1035,0.4574,0.7347,0.1938,0.735,surprise,0.3
+109,"neutral, relaxed, exploring stuff ,curious, peaceful",2024-09-20T14:43:59+00:00,96,1,6,0.8,0.6,happiness,excited-positive,True,0.7256,0.2338,0.7532,0.082,0.3924,0.508,0.322,0.8808,neutral,0.0
+110,human not limitless,2024-09-20T14:46:53+00:00,97,1,3,0.0,0.3,neutral,calm-positive,False,0.1267,0.7836,0.4916,0.2118,0.6278,0.5241,0.1924,0.9077,fear,-0.65
+111,i am in a lost mood of joy  and  thoughtfull,2024-09-20T14:54:46+00:00,98,1,10,-0.75,0.3,sadness,low-negative,True,0.3446,0.6439,0.8358,0.1093,0.5132,0.6179,0.3001,0.5377,happiness,0.8
+112,show me with Jesus in a happy mood,2024-09-20T14:58:53+00:00,99,1,8,0.8,0.6,happiness,excited-positive,True,0.452,0.4947,0.8227,0.3233,0.7673,0.5421,0.2862,0.5898,disgust,-0.7
+113,how did Mohammad looks like,2024-09-20T15:00:36+00:00,100,1,5,0.8,0.6,happiness,excited-positive,True,0.4061,0.5774,0.9196,0.1586,0.4516,0.5546,0.2104,0.661,disgust,-0.7
+114,today ive been to a park and it's a bit chilly... but its very relaxing experience,2024-09-20T15:10:03+00:00,101,1,16,0.8,0.6,happiness,excited-positive,True,0.4746,0.4229,0.6119,0.2238,0.9426,0.537,0.3067,0.5508,neutral,0.0
+115,I am a man with no hair,2024-09-20T15:19:37+00:00,102,1,7,0.0,0.3,neutral,calm-positive,False,0.3649,0.5951,0.8957,0.0178,0.3277,0.4786,0.1471,0.8756,disgust,-0.7
+116,wacky image,2024-09-20T15:33:52+00:00,103,1,2,0.8,0.6,happiness,excited-positive,True,0.4491,0.5136,0.8635,0.2537,0.6674,0.5198,0.2733,0.5762,neutral,0.0
+117,calm,2024-09-20T15:41:12+00:00,104,1,1,0.0,0.3,neutral,calm-positive,False,0.391,0.5053,0.7199,0.1358,0.7341,0.6543,0.3244,0.7534,neutral,0.0
+118,i am feeling excited for the future but sometimes dwell on the past,2024-09-20T15:53:39+00:00,105,1,13,0.8,0.6,happiness,excited-positive,True,0.4155,0.5036,0.6929,0.3117,0.9443,0.4999,0.2998,0.6169,neutral,0.0
+119,a woman who is curious and excited,2024-09-20T15:56:14+00:00,106,1,7,0.8,0.6,happiness,excited-positive,True,0.3398,0.6276,0.8655,0.1962,0.5417,0.5232,0.2571,0.6043,surprise,0.3
+120,Ok,2024-09-21T09:10:38+00:00,107,2,1,0.8,0.6,happiness,excited-positive,True,0.0939,0.7899,0.3868,0.0584,0.3748,0.5748,0.2108,0.9013,neutral,0.0
+121,Ok,2024-09-21T09:10:48+00:00,107,2,1,0.8,0.6,happiness,excited-positive,True,0.3829,0.5887,0.9055,0.1224,0.5077,0.5196,0.2958,0.572,neutral,0.0
+122,"my boyfriend and i are feeling refreshed from our adventurous, restful and cultural trip to Morocco, filled with memories of camels, sea, mountains, tagine and mint tea",2024-09-21T10:01:14+00:00,108,1,27,0.8,0.6,happiness,excited-positive,True,0.3394,0.6144,0.799,0.2607,0.7155,0.5538,0.2833,0.5769,neutral,0.0
+123,I'm excited to see my friend's work.,2024-09-21T10:43:27+00:00,109,1,7,0.8,0.6,happiness,excited-positive,True,0.3996,0.5439,0.7867,0.1333,0.8086,0.7257,0.3103,0.7638,neutral,0.0
+124,hungry,2024-09-21T11:05:41+00:00,110,1,1,0.0,0.3,neutral,calm-positive,False,0.235,0.7496,0.8172,0.0563,0.2662,0.558,0.2043,0.7956,neutral,0.0
+125,confused,2024-09-21T11:17:01+00:00,111,1,1,0.3,0.8,surprise,excited-positive,True,0.2451,0.6754,0.6491,0.2621,0.7825,0.5681,0.2466,0.7059,disgust,-0.7
+126,i am deep in thought.,2024-09-21T11:24:49+00:00,112,1,5,0.0,0.3,neutral,calm-positive,False,0.2039,0.7885,0.7872,0.0252,0.1996,0.5368,0.1476,0.8837,sadness,-0.75
+127,conflicted,2024-09-21T11:25:41+00:00,113,1,1,0.3,0.8,surprise,excited-positive,True,0.3936,0.5976,0.9486,0.0762,0.3106,0.5028,0.2614,0.5479,neutral,0.0
+128,robotic,2024-09-21T11:27:00+00:00,114,1,1,0.0,0.3,neutral,calm-positive,False,0.1811,0.6954,0.5415,0.2244,0.8944,0.4324,0.2336,0.7182,disgust,-0.7
+129,chilled out,2024-09-21T11:33:36+00:00,115,1,2,0.0,0.3,neutral,calm-positive,False,0.2123,0.7344,0.7201,0.1245,0.5631,0.5468,0.2562,0.8011,neutral,0.0
+130,my knees crack when i walk upstairs,2024-09-21T11:34:57+00:00,116,1,7,-0.75,0.3,sadness,low-negative,True,0.4706,0.4634,0.835,0.1427,0.5734,0.4536,0.3112,0.6077,sadness,-0.75
+131,indecisive ,2024-09-21T11:36:44+00:00,117,1,1,-0.7,0.8,anger,tense-negative,True,0.2895,0.5848,0.7969,0.133,0.6178,0.6435,0.2818,0.9196,neutral,0.0
+132,I feel bored,2024-09-21T11:51:07+00:00,118,1,3,-0.75,0.3,sadness,low-negative,True,0.5233,0.4385,0.8995,0.1456,0.5151,0.5016,0.311,0.5891,neutral,0.0
+133,excited to find out more about crystals,2024-09-21T11:52:37+00:00,119,1,7,0.8,0.6,happiness,excited-positive,True,0.5943,0.3569,0.6453,0.2177,0.9113,0.4982,0.2882,0.4793,disgust,-0.7
+134,hogwarts is cool,2024-09-21T11:58:55+00:00,120,1,3,0.8,0.6,happiness,excited-positive,True,0.7372,0.3048,0.5993,0.1084,0.6363,0.4816,0.3023,0.8354,neutral,0.0
+135,scared,2024-09-21T12:02:12+00:00,121,1,1,-0.65,0.75,fear,tense-negative,True,0.7861,0.208,0.7647,0.0364,0.32,0.5415,0.3152,0.8425,fear,-0.65
+136,like dancing,2024-09-21T12:03:14+00:00,122,1,2,0.8,0.6,happiness,excited-positive,True,0.2514,0.7221,0.8021,0.1366,0.4429,0.5581,0.2858,0.6666,happiness,0.8
+137,i am excited,2024-09-21T12:04:17+00:00,123,1,3,0.8,0.6,happiness,excited-positive,True,0.5942,0.3775,0.8573,0.3014,0.6042,0.5067,0.2933,0.5689,anger,-0.7
+138,"happy, hopeful, joyful",2024-09-21T12:20:39+00:00,124,1,3,0.8,0.6,happiness,excited-positive,True,0.2363,0.7444,0.7998,0.1735,0.4099,0.6026,0.2528,0.7575,happiness,0.8
+139,sheffield,2024-09-21T12:22:40+00:00,125,1,1,0.0,0.3,neutral,calm-positive,False,0.3597,0.6139,0.7572,0.2537,0.7125,0.5777,0.2753,0.7072,neutral,0.0
+140,Happy,2024-09-21T12:25:09+00:00,126,1,1,0.8,0.6,happiness,excited-positive,True,0.1682,0.8124,0.7058,0.0644,0.2666,0.5194,0.1679,0.9861,neutral,0.0
+141,"tired, hungry",2024-09-21T12:27:15+00:00,127,1,2,0.0,0.3,neutral,calm-positive,False,0.3419,0.5624,0.7741,0.1293,0.6545,0.4668,0.2337,0.7504,neutral,0.0
+142,warm and sunny,2024-09-21T12:31:00+00:00,128,1,3,0.0,0.3,neutral,calm-positive,False,0.2516,0.7335,0.8241,0.1193,0.3658,0.5217,0.2369,0.7657,neutral,0.0
+143,exhausted and stressed,2024-09-21T12:33:13+00:00,129,1,3,-0.75,0.3,sadness,low-negative,True,0.2214,0.7049,0.7554,0.0471,0.3247,0.5802,0.1818,0.8112,sadness,-0.75
+144,jovial,2024-09-21T12:36:48+00:00,130,1,1,0.0,0.3,neutral,calm-positive,False,0.2957,0.6683,0.8454,0.1145,0.5219,0.5465,0.235,0.68,happiness,0.8
+145,hungry,2024-09-21T12:38:23+00:00,131,1,1,0.0,0.3,neutral,calm-positive,False,0.2151,0.7596,0.7741,0.0288,0.359,0.5388,0.1867,0.9008,disgust,-0.7
+146,I am happy because manchester united is winning,2024-09-21T12:43:31+00:00,132,1,8,0.8,0.6,happiness,excited-positive,True,0.3961,0.5843,0.8455,0.1934,0.6434,0.5751,0.2803,0.6383,disgust,-0.7
+147,im happy because im PLAYING FOOTBALL TOMORROW AT MY HOME GROUNDD,2024-09-21T12:46:18+00:00,133,1,11,0.8,0.6,happiness,excited-positive,True,0.1968,0.7825,0.7488,0.0964,0.3572,0.5727,0.1522,0.8703,happiness,0.8
+148,London,2024-09-21T12:47:05+00:00,134,1,1,0.0,0.3,neutral,calm-positive,False,0.4045,0.5459,0.7602,0.2029,0.7662,0.6309,0.2835,0.6477,neutral,0.0
+149,carnival,2024-09-21T12:48:12+00:00,135,1,1,0.0,0.3,neutral,calm-positive,False,0.4122,0.4974,0.6296,0.4822,0.9466,0.5426,0.2931,0.5367,fear,-0.65
+150,scorpion and frog,2024-09-21T12:49:03+00:00,136,1,3,0.0,0.3,neutral,calm-positive,False,0.3152,0.6601,0.7934,0.2376,0.6427,0.5308,0.2428,0.659,disgust,-0.7
+151,machinery robots weapons,2024-09-21T12:50:00+00:00,137,1,3,0.0,0.3,neutral,calm-positive,False,0.512,0.4562,0.7091,0.2826,0.9085,0.5446,0.2639,0.5357,disgust,-0.7
+152,content,2024-09-21T13:03:31+00:00,138,1,1,0.0,0.3,neutral,calm-positive,False,0.1466,0.7904,0.5835,0.0934,0.535,0.5899,0.2291,0.7962,neutral,0.0
+153,peaceful,2024-09-21T13:04:12+00:00,139,1,1,0.8,0.6,happiness,excited-positive,True,0.1865,0.8044,0.7491,0.0714,0.2759,0.5307,0.1896,0.8125,neutral,0.0
+154,crabby,2024-09-21T13:08:54+00:00,140,1,1,0.0,0.3,neutral,calm-positive,False,0.206,0.7908,0.7385,0.0907,0.3366,0.5164,0.21,0.9259,anger,-0.7
+155,Greedy,2024-09-21T13:10:05+00:00,141,1,1,0.0,0.3,neutral,calm-positive,False,0.3543,0.5681,0.6813,0.2394,0.754,0.5901,0.2862,0.7608,disgust,-0.7
+156,tired,2024-09-21T13:12:17+00:00,142,1,1,-0.75,0.3,sadness,low-negative,True,0.1513,0.8475,0.6398,0.0415,0.2137,0.5137,0.1468,0.8862,disgust,-0.7
+157,motive,2024-09-21T13:14:49+00:00,143,1,1,0.0,0.3,neutral,calm-positive,False,0.4536,0.5282,0.9193,0.1145,0.4724,0.5144,0.2344,0.3659,neutral,0.0
+158,bored,2024-09-21T13:17:11+00:00,144,1,1,-0.75,0.3,sadness,low-negative,True,0.2708,0.6788,0.7953,0.1501,0.5277,0.5296,0.24,0.7592,sadness,-0.75
+159,joyful,2024-09-21T13:19:20+00:00,145,1,1,0.8,0.6,happiness,excited-positive,True,0.3152,0.668,0.8866,0.1371,0.3903,0.4861,0.2692,0.7197,neutral,0.0
+160,like an oragami flower that has been unfolded,2024-09-21T13:20:09+00:00,146,1,8,0.0,0.3,neutral,calm-positive,False,0.7712,0.2571,0.5388,0.1324,0.596,0.5021,0.311,0.7583,neutral,0.0
+161,feeling lost,2024-09-21T13:21:11+00:00,147,1,2,-0.75,0.3,sadness,low-negative,True,0.1582,0.7878,0.6232,0.0768,0.6424,0.7597,0.2563,0.9364,sadness,-0.75
+162,feeling excited about my new life,2024-09-21T13:22:12+00:00,148,1,6,0.8,0.6,happiness,excited-positive,True,0.268,0.7065,0.8147,0.1977,0.502,0.5335,0.2911,0.7037,neutral,0.0
+163,Angry,2024-09-21T13:24:01+00:00,149,1,1,-0.7,0.8,anger,tense-negative,True,0.3697,0.6084,0.9124,0.1063,0.4102,0.6324,0.2218,0.8242,anger,-0.7
+164,ecstatic,2024-09-21T13:24:57+00:00,150,1,1,0.0,0.3,neutral,calm-positive,False,0.1478,0.8401,0.6858,0.0689,0.2356,0.5344,0.1278,0.9699,happiness,0.8
+165,bemused intrigued,2024-09-21T13:30:16+00:00,151,1,2,0.0,0.3,neutral,calm-positive,False,0.2741,0.4775,0.6288,0.1406,0.6143,0.5162,0.2265,0.7243,disgust,-0.7
+166,"creatively satisfied, quite tired, but with the energy of anticipation, sustaining me",2024-09-21T13:32:31+00:00,152,1,12,0.8,0.6,happiness,excited-positive,True,0.4992,0.4768,0.9187,0.1839,0.505,0.4871,0.2641,0.551,disgust,-0.7
+167,delighted but tired,2024-09-21T13:35:24+00:00,153,1,3,0.0,0.3,neutral,calm-positive,False,0.4716,0.5128,0.9399,0.1521,0.4412,0.5091,0.2933,0.5442,surprise,0.3
+168,Excited,2024-09-21T13:37:26+00:00,154,1,1,0.8,0.6,happiness,excited-positive,True,0.2423,0.6871,0.7518,0.1315,0.6096,0.6694,0.2214,0.6946,disgust,-0.7
+169,"hungry, interested",2024-09-21T13:42:03+00:00,155,1,2,0.8,0.6,happiness,excited-positive,True,0.3383,0.6486,0.909,0.0921,0.3549,0.6115,0.2051,0.696,disgust,-0.7
+170,unhungry,2024-09-21T13:42:49+00:00,156,1,1,0.0,0.3,neutral,calm-positive,False,0.3053,0.6845,0.8854,0.0706,0.3258,0.552,0.2279,0.9526,neutral,0.0
+171,sad happy hungry,2024-09-21T13:43:52+00:00,157,1,3,-0.75,0.3,sadness,low-negative,True,0.3392,0.6286,0.8529,0.099,0.5163,0.5014,0.2767,0.8498,neutral,0.0
+172,anticipation,2024-09-21T13:45:17+00:00,158,1,1,0.0,0.3,neutral,calm-positive,False,0.1949,0.758,0.7337,0.0535,0.2652,0.5226,0.1634,0.7923,surprise,0.3
+173,happy,2024-09-21T13:49:06+00:00,159,1,1,0.8,0.6,happiness,excited-positive,True,0.2,0.7575,0.7134,0.2035,0.5881,0.4583,0.2528,0.7079,neutral,0.0
+174,Morose,2024-09-21T13:56:35+00:00,160,1,1,0.0,0.3,neutral,calm-positive,False,0.7944,0.1832,0.6586,0.0468,0.4145,0.5531,0.2999,0.6561,sadness,-0.75
+175,happy,2024-09-21T13:58:24+00:00,161,1,1,0.8,0.6,happiness,excited-positive,True,0.3122,0.6849,0.8481,0.127,0.4262,0.5306,0.266,0.7126,fear,-0.65
+176,inspired,2024-09-21T13:59:32+00:00,162,1,1,0.0,0.3,neutral,calm-positive,False,0.517,0.448,0.8819,0.2195,0.5949,0.5097,0.2718,0.7588,disgust,-0.7
+177,Happy,2024-09-21T14:00:15+00:00,163,1,1,0.8,0.6,happiness,excited-positive,True,0.4425,0.5006,0.815,0.3939,0.763,0.5028,0.2861,0.5127,neutral,0.0
+178,whimsical,2024-09-21T14:02:07+00:00,164,1,1,0.0,0.3,neutral,calm-positive,False,0.2308,0.7487,0.7889,0.1733,0.408,0.4967,0.2298,0.7166,neutral,0.0
+179,hungover,2024-09-21T14:02:50+00:00,165,1,1,0.0,0.3,neutral,calm-positive,False,0.3324,0.6316,0.8578,0.1292,0.561,0.6026,0.278,0.6347,sadness,-0.75
+180,"curious, sleepy",2024-09-21T14:04:07+00:00,166,1,2,0.8,0.6,happiness,excited-positive,True,0.3487,0.6382,0.8734,0.2046,0.5177,0.551,0.2963,0.5701,neutral,0.0
+181,over-caffeinated,2024-09-21T14:06:08+00:00,167,1,1,0.0,0.3,neutral,calm-positive,False,0.5309,0.4324,0.838,0.2557,0.669,0.5056,0.303,0.7028,sadness,-0.75
+182,hungover ,2024-09-21T14:07:25+00:00,168,1,1,0.0,0.3,neutral,calm-positive,False,0.684,0.3092,0.86,0.1001,0.3776,0.489,0.3054,0.7157,sadness,-0.75
+183,not bad,2024-09-21T14:08:39+00:00,169,1,2,0.0,0.3,neutral,calm-positive,False,0.3402,0.6156,0.8599,0.0949,0.5582,0.5792,0.3003,0.7109,neutral,0.0
+184,optimistic tired and achy,2024-09-21T14:09:43+00:00,170,1,4,-0.75,0.3,sadness,low-negative,True,0.2704,0.7052,0.8215,0.1699,0.4646,0.5428,0.2659,0.7103,neutral,0.0
+185,beautiful girl from derby,2024-09-21T14:10:41+00:00,171,2,4,0.8,0.6,happiness,excited-positive,True,0.3414,0.6199,0.8471,0.2424,0.6149,0.5145,0.3219,0.7223,sadness,-0.75
+186,beautiful girl from derby,2024-09-21T14:10:45+00:00,171,2,4,0.8,0.6,happiness,excited-positive,True,0.4293,0.5363,0.8951,0.1827,0.5606,0.5943,0.2852,0.6075,neutral,0.0
+187,calm,2024-09-21T14:11:54+00:00,172,1,1,0.0,0.3,neutral,calm-positive,False,0.3007,0.6234,0.7773,0.09,0.7062,0.5324,0.3424,0.6497,neutral,0.0
+188,adventurous,2024-09-21T14:12:36+00:00,173,1,1,0.0,0.3,neutral,calm-positive,False,0.4104,0.539,0.7042,0.2003,0.7167,0.5467,0.2758,0.6947,fear,-0.65
+189,"exhausted, conflicted",2024-09-21T14:13:43+00:00,174,1,2,0.3,0.8,surprise,excited-positive,True,0.5326,0.4227,0.7832,0.3718,0.8062,0.5478,0.2818,0.5389,fear,-0.65
+190,interested happy ,2024-09-21T14:15:16+00:00,175,1,2,0.8,0.6,happiness,excited-positive,True,0.1577,0.8365,0.6671,0.0769,0.306,0.5295,0.1312,0.8448,happiness,0.8
+191,ok,2024-09-21T14:19:02+00:00,176,1,1,0.0,0.3,neutral,calm-positive,False,0.3994,0.5761,0.8233,0.1915,0.7204,0.5169,0.3055,0.5663,neutral,0.0
+192,happy and tired,2024-09-21T14:20:47+00:00,177,1,3,0.8,0.6,happiness,excited-positive,True,0.3584,0.6272,0.9178,0.1177,0.372,0.5605,0.2664,0.6009,sadness,-0.75
+193,tired and i want to go home,2024-09-21T14:21:27+00:00,178,1,7,0.8,0.6,happiness,excited-positive,True,0.3001,0.6925,0.8554,0.106,0.4027,0.5295,0.1997,0.7977,sadness,-0.75
+194,fine,2024-09-21T14:22:15+00:00,179,1,1,0.0,0.3,neutral,calm-positive,False,0.4405,0.514,0.7587,0.1583,0.8492,0.5585,0.288,0.6063,neutral,0.0
+195,anxious,2024-09-21T14:22:50+00:00,180,1,1,-0.65,0.75,fear,tense-negative,True,0.7107,0.2968,0.8423,0.0941,0.3485,0.4685,0.3027,0.7635,sadness,-0.75
+196,bonkers,2024-09-21T14:23:29+00:00,181,1,1,0.0,0.3,neutral,calm-positive,False,0.2812,0.665,0.7675,0.2806,0.7294,0.5014,0.2974,0.6314,fear,-0.65
+197,amazed,2024-09-21T14:24:21+00:00,182,2,1,0.3,0.8,surprise,excited-positive,True,0.5019,0.4714,0.6917,0.2377,0.8616,0.5008,0.3028,0.5687,disgust,-0.7
+198,amazed,2024-09-21T14:24:22+00:00,182,2,1,0.3,0.8,surprise,excited-positive,True,0.4563,0.5278,0.9362,0.1651,0.4481,0.4584,0.2836,0.4845,disgust,-0.7
+199,curious,2024-09-21T14:25:12+00:00,183,1,1,0.8,0.6,happiness,excited-positive,True,0.4946,0.4856,0.9248,0.2212,0.5133,0.4984,0.2781,0.5529,neutral,0.0
+200,life is good with anything in it,2024-09-21T14:26:26+00:00,184,1,7,0.8,0.6,happiness,excited-positive,True,0.4368,0.5389,0.9051,0.244,0.5544,0.5182,0.2997,0.5754,neutral,0.0
+201,tired but happy,2024-09-21T14:29:59+00:00,185,1,3,0.8,0.6,happiness,excited-positive,True,0.3717,0.6164,0.9331,0.0863,0.3426,0.6044,0.2755,0.6703,neutral,0.0
+202,my tummy hurts,2024-09-21T14:30:28+00:00,186,1,3,-0.75,0.3,sadness,low-negative,True,0.2695,0.7165,0.8288,0.0952,0.3644,0.5434,0.2068,0.7229,disgust,-0.7
+203,Curious,2024-09-21T14:31:13+00:00,187,1,1,0.8,0.6,happiness,excited-positive,True,0.2942,0.6938,0.8789,0.0808,0.3186,0.5138,0.1992,0.9048,surprise,0.3
+204,fantastic,2024-09-21T14:31:56+00:00,188,1,1,0.8,0.6,happiness,excited-positive,True,0.2348,0.7469,0.803,0.1512,0.38,0.4536,0.1992,0.7523,neutral,0.0
+205,like a small Mexican Chihuahua on acid,2024-09-21T14:35:13+00:00,189,1,7,0.0,0.3,neutral,calm-positive,False,0.2314,0.7094,0.6947,0.1935,0.6938,0.5358,0.2293,0.6955,surprise,0.3
+206,Happy but missing deap friendship,2024-09-22T10:15:37+00:00,190,1,5,0.8,0.6,happiness,excited-positive,True,0.4835,0.4864,0.8791,0.2828,0.6355,0.5133,0.2867,0.5851,neutral,0.0
+207,sono preoccupato ma fiducioso,2024-09-22T10:23:47+00:00,191,1,4,0.0,0.3,neutral,calm-positive,False,0.399,0.5865,0.936,0.116,0.3926,0.4993,0.2866,0.4174,neutral,0.0
+208,sono ansiosa,2024-09-22T10:25:40+00:00,192,1,2,0.0,0.3,neutral,calm-positive,False,0.4509,0.5243,0.8957,0.2987,0.5914,0.5342,0.2577,0.4894,neutral,0.0
+209,sono piacevolmente colpito da questo sistema,2024-09-22T10:26:51+00:00,193,1,6,0.0,0.3,neutral,calm-positive,False,0.5617,0.3803,0.7623,0.2504,0.7787,0.4528,0.3063,0.575,neutral,0.0
+210,Nourished and Scottish,2024-09-22T10:28:25+00:00,194,1,3,0.0,0.3,neutral,calm-positive,False,0.332,0.6388,0.6667,0.1734,0.7852,0.6987,0.2812,0.685,sadness,-0.75
+211,I am a happy 7 year old girl with a spiderman crazy 3 year old sister,2024-09-22T10:42:41+00:00,195,1,16,0.8,0.6,happiness,excited-positive,True,0.1446,0.8324,0.6604,0.0773,0.2985,0.585,0.2086,0.8138,fear,-0.65
+212,hopeful,2024-09-22T10:51:31+00:00,196,1,1,0.8,0.6,happiness,excited-positive,True,0.6497,0.3574,0.844,0.1603,0.4794,0.4986,0.3147,0.8324,fear,-0.65
+213,hungry,2024-09-22T10:52:25+00:00,197,1,1,0.0,0.3,neutral,calm-positive,False,0.2096,0.7697,0.7649,0.0459,0.2438,0.4938,0.1719,0.8949,neutral,0.0
+214,happy tired sleepy hungry craving caffein ,2024-09-22T10:53:19+00:00,198,1,6,0.8,0.6,happiness,excited-positive,True,0.2443,0.728,0.7823,0.2036,0.5054,0.5204,0.28,0.6938,neutral,0.0
+215,motherhood,2024-09-22T10:54:37+00:00,199,1,1,0.0,0.3,neutral,calm-positive,False,0.2386,0.7404,0.7964,0.1729,0.4213,0.5437,0.1855,0.7444,neutral,0.0
+216,I am in pain everyday and since childhood and I've had enough of it,2024-09-22T11:08:15+00:00,200,2,14,-0.75,0.3,sadness,low-negative,True,0.3102,0.6798,0.8493,0.0978,0.4603,0.547,0.197,0.7305,disgust,-0.7
+217,I am in pain everyday and since childhood and I've had enough of it,2024-09-22T11:10:34+00:00,200,2,14,-0.75,0.3,sadness,low-negative,True,0.2748,0.7084,0.8465,0.0305,0.3117,0.5734,0.1458,0.818,sadness,-0.75
+218,"I'm a sweetie lovely, chocoholic that loves spiderman and power rangers ",2024-09-22T11:21:46+00:00,201,1,11,0.8,0.6,happiness,excited-positive,True,0.3658,0.6126,0.8886,0.1916,0.5008,0.5093,0.2499,0.7199,disgust,-0.7
+219,"glitter, princess unicorn girl that loves butterflies",2024-09-22T11:28:31+00:00,202,1,7,0.8,0.6,happiness,excited-positive,True,0.1424,0.6921,0.5019,0.2309,0.887,0.557,0.2744,0.7522,neutral,0.0
+220,"call of duty dad team,",2024-09-22T11:31:23+00:00,203,1,5,0.0,0.3,neutral,calm-positive,False,0.3397,0.5335,0.7796,0.1425,0.5729,0.5696,0.2418,0.6343,neutral,0.0
+221,"festival of the mind in Sheffield, UK",2024-09-22T11:42:04+00:00,204,1,7,0.0,0.3,neutral,calm-positive,False,0.3266,0.6113,0.7303,0.3319,0.8016,0.5276,0.2793,0.6046,neutral,0.0
+222,free from daily responsibilities,2024-09-22T11:49:03+00:00,205,1,4,0.0,0.3,neutral,calm-positive,False,0.3294,0.6141,0.7395,0.258,0.7864,0.4862,0.3198,0.6713,fear,-0.65
+223,confused,2024-09-22T11:50:24+00:00,206,2,1,0.3,0.8,surprise,excited-positive,True,0.3113,0.6763,0.8993,0.074,0.2993,0.4957,0.1741,0.7765,neutral,0.0
+224,confused,2024-09-22T11:52:42+00:00,206,2,1,0.3,0.8,surprise,excited-positive,True,0.507,0.4413,0.7212,0.4032,0.9218,0.5157,0.2944,0.502,disgust,-0.7
+225,happy,2024-09-22T12:00:44+00:00,207,1,1,0.8,0.6,happiness,excited-positive,True,0.1558,0.8373,0.6562,0.0684,0.2725,0.5099,0.1867,0.8949,neutral,0.0
+226,fishtastic,2024-09-22T12:02:14+00:00,208,1,1,0.8,0.6,happiness,excited-positive,True,0.3812,0.5601,0.8393,0.2404,0.665,0.5155,0.3076,0.5833,neutral,0.0
+227,neugierig,2024-09-22T12:06:19+00:00,209,1,1,0.0,0.3,neutral,calm-positive,False,0.3689,0.5825,0.8479,0.2234,0.6383,0.5123,0.2668,0.5664,neutral,0.0
+228,I feel a bit tired but am very happy that I have settled in a new city.,2024-09-22T12:10:59+00:00,210,1,17,0.8,0.6,happiness,excited-positive,True,0.3775,0.6159,0.8959,0.106,0.4436,0.5601,0.258,0.7355,neutral,0.0
+229,like a damp sock wondering if I'll be dry enough to be worn next weekend. ,2024-09-22T12:13:51+00:00,211,1,15,0.3,0.8,surprise,excited-positive,True,0.4382,0.5123,0.8581,0.0816,0.6713,0.5622,0.3147,0.6006,fear,-0.65
+230,i have a happy heart,2024-09-22T12:15:23+00:00,212,3,5,0.8,0.6,happiness,excited-positive,True,0.2643,0.7198,0.8354,0.1611,0.3901,0.5006,0.2224,0.8779,neutral,0.0
+231,i have a happy heart,2024-09-22T12:15:30+00:00,212,3,5,0.8,0.6,happiness,excited-positive,True,0.0941,0.8997,0.5531,0.022,0.1421,0.4673,0.1109,0.9065,neutral,0.0
+232,i have a happy heart,2024-09-22T12:15:32+00:00,212,3,5,0.8,0.6,happiness,excited-positive,True,0.0951,0.903,0.532,0.0281,0.1486,0.4729,0.1499,0.9055,happiness,0.8
+233,being deeply lost in the woods but not particularly fussed about it,2024-09-22T12:16:58+00:00,213,1,12,0.0,0.3,neutral,calm-positive,False,0.5919,0.3728,0.804,0.273,0.7189,0.4918,0.3017,0.5736,fear,-0.65
+234,"grateful, hungover and cute",2024-09-22T12:19:13+00:00,214,1,4,0.8,0.6,happiness,excited-positive,True,0.2332,0.7255,0.7459,0.2383,0.6557,0.5857,0.27,0.6924,sadness,-0.75
+235,tired,2024-09-22T12:20:33+00:00,215,1,1,-0.75,0.3,sadness,low-negative,True,0.2083,0.781,0.7788,0.0691,0.301,0.6153,0.2207,0.7444,neutral,0.0
+236,flower,2024-09-22T12:23:53+00:00,216,1,1,0.0,0.3,neutral,calm-positive,False,0.07,0.882,0.4158,0.0747,0.321,0.4841,0.0905,0.9115,neutral,0.0
+237,I'm mostly quite relaxed but anticipating another busy week ahead and not sure there's ever enough weekend.,2024-09-22T12:32:46+00:00,217,1,17,0.8,0.6,happiness,excited-positive,True,0.468,0.5064,0.8953,0.2103,0.5914,0.4772,0.3252,0.5829,neutral,0.0
+238,sad,2024-09-22T12:34:14+00:00,218,1,1,-0.75,0.3,sadness,low-negative,True,0.7881,0.2258,0.6519,0.1275,0.4774,0.5113,0.3169,0.8078,sadness,-0.75
+239,fine,2024-09-22T12:36:31+00:00,219,1,1,0.0,0.3,neutral,calm-positive,False,0.4227,0.5242,0.8458,0.3219,0.6992,0.5072,0.2688,0.5759,fear,-0.65
+240,girl dinosaur,2024-09-22T12:38:52+00:00,220,1,2,0.0,0.3,neutral,calm-positive,False,0.231,0.7564,0.812,0.0892,0.3027,0.4876,0.1989,0.771,surprise,0.3
+241,bonnie,2024-09-22T12:39:24+00:00,221,1,1,0.0,0.3,neutral,calm-positive,False,0.4117,0.5126,0.8381,0.0753,0.4146,0.5755,0.2085,0.6666,sadness,-0.75
+242,love,2024-09-22T12:39:52+00:00,222,1,1,0.8,0.6,happiness,excited-positive,True,0.7759,0.252,0.7334,0.0518,0.3338,0.5049,0.3132,0.8015,neutral,0.0
+243,Cheated,2024-09-22T12:41:13+00:00,223,1,1,0.0,0.3,neutral,calm-positive,False,0.3529,0.608,0.8606,0.2188,0.5784,0.5067,0.2599,0.9332,neutral,0.0
+244,Spiritually awakened,2024-09-22T12:42:12+00:00,224,1,2,0.0,0.3,neutral,calm-positive,False,0.2581,0.6256,0.6571,0.2283,0.7236,0.5097,0.2168,0.6973,neutral,0.0
+245,a large assortment of microbial species having a bacchanalian tryst of hieronymous bosch proportions,2024-09-22T12:44:00+00:00,225,1,14,0.0,0.3,neutral,calm-positive,False,0.3853,0.4778,0.526,0.3598,0.9796,0.5814,0.2737,0.5741,disgust,-0.7
+246,grumpy old man,2024-09-22T12:52:00+00:00,226,1,3,0.0,0.3,neutral,calm-positive,False,0.3304,0.6306,0.8306,0.1079,0.5864,0.7038,0.252,0.768,anger,-0.7
+247,empty,2024-09-22T12:53:39+00:00,227,1,1,0.0,0.3,neutral,calm-positive,False,0.4731,0.4762,0.81,0.1219,0.7866,0.5217,0.336,0.5556,sadness,-0.75
+248,hungry,2024-09-22T12:54:40+00:00,228,1,1,0.0,0.3,neutral,calm-positive,False,0.2142,0.7617,0.7825,0.0247,0.3803,0.4796,0.1162,0.9756,anger,-0.7
+249,good,2024-09-22T12:55:41+00:00,229,1,1,0.8,0.6,happiness,excited-positive,True,0.3668,0.5967,0.8554,0.2609,0.6673,0.5246,0.3042,0.6192,neutral,0.0
+250,curious,2024-09-22T12:56:23+00:00,230,1,1,0.8,0.6,happiness,excited-positive,True,0.6562,0.3522,0.6531,0.2797,0.7002,0.504,0.3209,0.8995,neutral,0.0
+251,elated,2024-09-22T12:57:34+00:00,231,1,1,0.0,0.3,neutral,calm-positive,False,0.2853,0.6361,0.8001,0.0823,0.5993,0.5216,0.2588,0.6299,neutral,0.0
+252,good,2024-09-22T12:58:22+00:00,232,1,1,0.8,0.6,happiness,excited-positive,True,0.2394,0.577,0.6081,0.1619,0.8477,0.5925,0.2988,0.6873,neutral,0.0
+253,joyous,2024-09-22T12:59:08+00:00,233,2,1,0.8,0.6,happiness,excited-positive,True,0.141,0.7901,0.6267,0.1952,0.5841,0.6893,0.284,0.8107,happiness,0.8
+254,joyous,2024-09-22T13:00:55+00:00,233,2,1,0.8,0.6,happiness,excited-positive,True,0.4091,0.5695,0.8908,0.1864,0.5402,0.6253,0.2853,0.5909,neutral,0.0
+255,happy but nervous,2024-09-22T13:03:17+00:00,234,1,3,0.8,0.6,happiness,excited-positive,True,0.4361,0.5205,0.8597,0.2309,0.6668,0.5073,0.2909,0.7056,surprise,0.3
+256,hopeful,2024-09-22T13:09:20+00:00,235,1,1,0.8,0.6,happiness,excited-positive,True,0.3414,0.6161,0.9071,0.0604,0.3572,0.6495,0.333,0.7153,neutral,0.0
+257,disappointed,2024-09-22T13:15:45+00:00,236,1,1,-0.75,0.3,sadness,low-negative,True,0.6061,0.3639,0.8364,0.147,0.6323,0.5413,0.282,0.6228,sadness,-0.75
+258,pigs,2024-09-22T13:18:00+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.3642,0.5929,0.8469,0.2158,0.649,0.5046,0.2829,0.6741,surprise,0.3
+259,pigs,2024-09-22T13:18:05+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.3236,0.6789,0.8469,0.111,0.4169,0.5163,0.237,0.7222,surprise,0.3
+260,pigs,2024-09-22T13:18:06+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.3631,0.61,0.8773,0.2193,0.5444,0.5421,0.2548,0.6349,surprise,0.3
+261,pigs,2024-09-22T13:18:07+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.1503,0.8024,0.658,0.0742,0.4784,0.4953,0.2005,0.8138,disgust,-0.7
+262,pigs,2024-09-22T13:18:07+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.4585,0.5087,0.8749,0.28,0.6517,0.5016,0.3012,0.5713,neutral,0.0
+263,pigs,2024-09-22T13:18:12+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.2558,0.7263,0.8206,0.1278,0.3937,0.6291,0.256,0.7456,neutral,0.0
+264,pigs,2024-09-22T13:18:13+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.1875,0.7862,0.7078,0.16,0.4558,0.5184,0.2081,0.8216,disgust,-0.7
+265,pigs,2024-09-22T13:18:15+00:00,237,8,1,0.0,0.3,neutral,calm-positive,False,0.8359,0.1581,0.6437,0.0997,0.3379,0.4958,0.3038,0.8125,disgust,-0.7
+266,Happy and full of good food from cambridge collective,2024-09-22T13:22:33+00:00,238,1,9,0.8,0.6,happiness,excited-positive,True,0.2099,0.6464,0.6851,0.1527,0.5295,0.5886,0.2354,0.8458,happiness,0.8
+267,happy and full of good food from cambridge collective,2024-09-22T13:24:29+00:00,239,1,9,0.8,0.6,happiness,excited-positive,True,0.4408,0.5331,0.8755,0.1821,0.6545,0.4697,0.2782,0.6589,neutral,0.0
+268,"excited, a bit ill and dull; and anxious about the future moving to a new city",2024-09-22T13:42:55+00:00,240,1,16,0.8,0.6,happiness,excited-positive,True,0.3819,0.5336,0.7443,0.2798,0.8773,0.5445,0.3076,0.5357,sadness,-0.75
+269,good but a bit anxious following the final exam. ,2024-09-22T13:44:44+00:00,241,1,9,-0.65,0.75,fear,tense-negative,True,0.2566,0.7029,0.778,0.1772,0.568,0.4943,0.2328,0.6302,neutral,0.0
+270,i am happy because we are going to get gregs after this,2024-09-22T13:46:30+00:00,242,1,12,0.8,0.6,happiness,excited-positive,True,0.3867,0.5512,0.822,0.2463,0.7327,0.4425,0.2587,0.7733,neutral,0.0
+271,tired hungry angry ,2024-09-22T13:48:07+00:00,243,1,3,-0.7,0.8,anger,tense-negative,True,0.5433,0.4549,0.9055,0.1574,0.5402,0.507,0.2944,0.7257,fear,-0.65
+272,"very excited and ready to move house, feeling slightly tired, yet calm after having a cup of warm green tea and a panini in the tropical garden, my mind feels ready to explore a wealth of visual arts ",2024-09-22T13:51:37+00:00,244,1,59,0.8,0.6,happiness,excited-positive,True,0.4304,0.476,0.6341,0.3376,0.9786,0.4592,0.3257,0.6088,neutral,0.0
+273,"I am tried, but excited to spend the afternoon looking at exhibitions, and hopefully get to have some coffee and cake after this ",2024-09-22T13:55:16+00:00,245,1,23,0.8,0.6,happiness,excited-positive,True,0.4222,0.5238,0.7698,0.2201,0.79,0.5179,0.2866,0.4868,neutral,0.0
+274,i am feeling quite  tired but i had lots of good fun playing with a robot dog and am looking forward to playing some pokemon later,2024-09-22T13:58:29+00:00,246,1,26,0.8,0.6,happiness,excited-positive,True,0.426,0.5484,0.9078,0.1679,0.5397,0.4697,0.2889,0.7782,fear,-0.65
+275,nostalgic over a reality you never got to experience,2024-09-22T14:01:10+00:00,247,2,9,0.0,0.3,neutral,calm-positive,False,0.4045,0.5366,0.8001,0.2731,0.7636,0.4977,0.2815,0.5532,fear,-0.65
+276,nostalgic over a reality you never got to experience,2024-09-22T14:01:57+00:00,247,2,9,0.0,0.3,neutral,calm-positive,False,0.1984,0.7223,0.6414,0.1542,0.6639,0.5305,0.3077,0.7589,fear,-0.65
+277,homesick,2024-09-22T14:02:45+00:00,248,1,1,0.0,0.3,neutral,calm-positive,False,0.6748,0.3068,0.8109,0.1205,0.5529,0.5017,0.3072,0.7201,sadness,-0.75
+278,Whirlwind of emotions in greenery  .  On a wet sunny day. Stuck in a world of love and war. Following a broken crying melting heart with many temptations. ,2024-09-22T14:08:24+00:00,249,1,28,0.8,0.6,happiness,excited-positive,True,0.5107,0.4702,0.8025,0.2267,0.8014,0.5644,0.2509,0.7404,neutral,0.0
+279,with eyes closed let flow the ancient rhythms of time feel the pulse see the pattern the reason and rhyme when all of our senses tune into the frequency of existence ,2024-09-22T14:13:39+00:00,250,1,31,0.0,0.3,neutral,calm-positive,False,0.4974,0.4064,0.6137,0.3239,0.9566,0.4051,0.2778,0.5152,neutral,0.0
+280,avengers in the milky way fighting king of everything,2024-09-22T14:21:28+00:00,251,1,9,0.0,0.3,neutral,calm-positive,False,0.7507,0.2539,0.4811,0.1286,0.8604,0.4868,0.2995,0.6415,neutral,0.0
+281,football chocolate and lollies,2024-09-22T14:25:23+00:00,252,1,4,0.0,0.3,neutral,calm-positive,False,0.4158,0.5161,0.6604,0.3172,0.947,0.5295,0.273,0.6011,neutral,0.0
+282,godzilla and king kong playing football between time and space,2024-09-22T14:28:14+00:00,253,1,10,0.0,0.3,neutral,calm-positive,False,0.2342,0.633,0.6531,0.3176,0.8686,0.4859,0.3143,0.6866,disgust,-0.7
+283,unicorn on a rainbow,2024-09-22T14:31:35+00:00,254,1,4,0.0,0.3,neutral,calm-positive,False,0.112,0.8224,0.547,0.2796,0.5947,0.4919,0.2539,0.8067,surprise,0.3
+284,air bender bending air,2024-09-22T14:34:42+00:00,255,1,4,0.0,0.3,neutral,calm-positive,False,0.2315,0.7405,0.7672,0.1615,0.5054,0.5444,0.2037,0.7269,disgust,-0.7
+285,dragons vs unicons,2024-09-22T14:35:50+00:00,256,1,3,0.0,0.3,neutral,calm-positive,False,0.6463,0.3407,0.805,0.2511,0.6688,0.505,0.3044,0.6321,fear,-0.65
+286,sonic and tails flying to the mountains,2024-09-22T14:37:31+00:00,257,1,7,0.0,0.3,neutral,calm-positive,False,0.2173,0.6899,0.589,0.1255,0.8326,0.675,0.2894,0.8096,fear,-0.65
+287,happy mixed emotions ,2024-09-22T14:41:41+00:00,258,1,3,0.8,0.6,happiness,excited-positive,True,0.6346,0.3341,0.7917,0.3673,0.6811,0.5007,0.2939,0.5812,neutral,0.0
+288,CRAZY,2024-09-22T14:43:53+00:00,259,2,1,0.0,0.3,neutral,calm-positive,False,0.2636,0.5812,0.6885,0.156,0.5107,0.5323,0.2025,0.6599,neutral,0.0
+289,CRAZY,2024-09-22T14:44:29+00:00,259,2,1,0.0,0.3,neutral,calm-positive,False,0.3253,0.6366,0.8404,0.2155,0.5912,0.52,0.2251,0.6952,surprise,0.3
+290,crazy happy sad,2024-09-22T14:45:56+00:00,260,1,3,0.8,0.6,happiness,excited-positive,True,0.8476,0.1946,0.5738,0.0836,0.3243,0.4932,0.3081,0.8864,neutral,0.0
+291,what is the future of AI?,2024-09-22T14:49:06+00:00,261,1,6,0.8,0.6,happiness,excited-positive,True,0.2792,0.6023,0.7057,0.2322,0.7347,0.4869,0.2129,0.7536,neutral,0.0
+292,WHAT IS THE fUTURE OF ai,2024-09-22T14:50:21+00:00,262,1,6,0.8,0.6,happiness,excited-positive,True,0.4003,0.488,0.5664,0.1874,0.9927,0.4086,0.3045,0.7682,fear,-0.65
+293,ai are the dominant intelligent life form on earth,2024-09-22T14:51:32+00:00,263,1,9,0.8,0.6,happiness,excited-positive,True,0.8219,0.182,0.4378,0.2309,0.6959,0.5028,0.3007,0.7345,neutral,0.0
+294,"I am tired but curious, sad but keen",2024-09-22T14:53:01+00:00,264,1,8,0.8,0.6,happiness,excited-positive,True,0.6066,0.416,0.8713,0.0984,0.4427,0.4647,0.2953,0.6179,neutral,0.0
+295,surprisingly energetic grateful and happy,2024-09-22T14:54:39+00:00,265,1,5,0.8,0.6,happiness,excited-positive,True,0.2936,0.6614,0.805,0.2701,0.6427,0.5683,0.2722,0.6092,disgust,-0.7
+296,inquisitive and alwasy inspired a bit home sick,2024-09-22T14:55:49+00:00,266,1,8,0.0,0.3,neutral,calm-positive,False,0.2763,0.6661,0.6505,0.089,0.8007,0.7604,0.3035,0.8194,sadness,-0.75
+297,I am full of cold but soldiering on,2024-09-24T09:00:51+00:00,267,1,8,0.0,0.3,neutral,calm-positive,False,0.2389,0.7523,0.8116,0.0752,0.3218,0.5902,0.163,0.7859,disgust,-0.7
+298,dreaming of a mountain view,2024-09-24T09:23:27+00:00,268,1,5,0.8,0.6,happiness,excited-positive,True,0.3786,0.6079,0.8014,0.0552,0.5246,0.7541,0.3076,0.8303,neutral,0.0
+299,millenium gallery on an island on a lake,2024-09-24T09:24:24+00:00,269,1,8,0.0,0.3,neutral,calm-positive,False,0.3425,0.6091,0.7692,0.1661,0.7521,0.4636,0.2533,0.6874,neutral,0.0
+300,missing my son. 30 long years,2024-09-24T09:48:05+00:00,270,1,6,-0.75,0.3,sadness,low-negative,True,0.2813,0.6483,0.577,0.0564,0.8471,0.3481,0.3462,0.9019,sadness,-0.75
+301,i love autumn colours the smells and the peace,2024-09-24T09:51:32+00:00,271,1,9,0.8,0.6,happiness,excited-positive,True,0.3495,0.6245,0.8084,0.2371,0.6662,0.5093,0.2001,0.7159,neutral,0.0
+302,"Parkinson's stops me getting my sleep at night, but I fall asleep during the daytime every time I SIT DOWN.",2024-09-24T10:05:46+00:00,272,1,20,0.0,0.3,neutral,calm-positive,False,0.1779,0.8317,0.6362,0.0526,0.2862,0.5293,0.1706,0.8415,sadness,-0.75
+303,PARKINSON'S,2024-09-24T10:09:26+00:00,273,1,1,0.0,0.3,neutral,calm-positive,False,0.8423,0.2962,0.5749,0.0348,0.2007,0.4944,0.3077,0.8079,disgust,-0.7
+304,ISN'T IT AMAZING HOW MUCH PARKINSON'S THERAPY HAS IMPROVED OVER THE YEARS,2024-09-24T10:10:33+00:00,274,1,12,0.8,0.6,happiness,excited-positive,True,0.5298,0.4365,0.8091,0.2207,0.7433,0.5518,0.2758,0.5985,neutral,0.0
+305,birds eye view of sheffield from space ,2024-09-24T10:19:47+00:00,275,4,7,0.0,0.3,neutral,calm-positive,False,0.6269,0.325,0.4547,0.1389,0.6861,0.4866,0.3281,0.7129,disgust,-0.7
+306,birds eye view of sheffield from space ,2024-09-24T10:19:47+00:00,275,4,7,0.0,0.3,neutral,calm-positive,False,0.1277,0.743,0.5367,0.1342,0.6833,0.5968,0.2148,0.8152,disgust,-0.7
+307,birds eye view of sheffield from space ,2024-09-24T10:19:50+00:00,275,4,7,0.0,0.3,neutral,calm-positive,False,0.5143,0.4263,0.4432,0.3682,0.9225,0.5135,0.2912,0.5101,disgust,-0.7
+308,birds eye view of sheffield from space ,2024-09-24T10:19:54+00:00,275,4,7,0.0,0.3,neutral,calm-positive,False,0.5095,0.4021,0.4727,0.4609,0.9219,0.4839,0.2916,0.4979,disgust,-0.7
+309,geometric map of sheffield,2024-09-24T10:22:04+00:00,276,1,4,0.0,0.3,neutral,calm-positive,False,0.2348,0.6895,0.6515,0.2213,0.7028,0.4972,0.1963,0.7354,neutral,0.0
+310,the feeling of walking through a city,2024-09-24T10:23:17+00:00,277,1,7,0.0,0.3,neutral,calm-positive,False,0.5574,0.3972,0.7695,0.2942,0.7754,0.5057,0.3027,0.5684,neutral,0.0
+311,sonder ,2024-09-24T10:24:37+00:00,278,1,1,0.0,0.3,neutral,calm-positive,False,0.2842,0.6678,0.7846,0.2517,0.6404,0.3983,0.2367,0.8209,neutral,0.0
+312,sonder city ,2024-09-24T10:25:32+00:00,279,1,2,0.0,0.3,neutral,calm-positive,False,0.3459,0.6197,0.8101,0.2184,0.6308,0.5137,0.2606,0.7247,sadness,-0.75
+313,happy and special,2024-09-24T10:26:38+00:00,280,1,3,0.8,0.6,happiness,excited-positive,True,0.3144,0.6701,0.8828,0.1184,0.3841,0.548,0.2119,0.7116,happiness,0.8
+314,younger generation not living in the real world,2024-09-24T10:30:52+00:00,281,1,8,0.0,0.3,neutral,calm-positive,False,0.307,0.5892,0.7467,0.1738,0.8371,0.5222,0.2936,0.7371,neutral,0.0
+315,do you think area 51 is real?,2024-09-24T10:32:39+00:00,282,1,7,0.8,0.6,happiness,excited-positive,True,0.6859,0.3161,0.738,0.1086,0.7278,0.4239,0.2876,0.698,neutral,0.0
+316,happy because travel to here,2024-09-24T10:39:54+00:00,283,1,5,0.8,0.6,happiness,excited-positive,True,0.3366,0.6548,0.9236,0.0369,0.2631,0.7544,0.2593,0.8941,happiness,0.8
+317,thrillled to be in Sheffield today,2024-09-24T10:52:43+00:00,284,1,6,0.0,0.3,neutral,calm-positive,False,0.3141,0.6362,0.747,0.3124,0.7812,0.5683,0.2426,0.6949,disgust,-0.7
+318,"what's it like to live in guildford, surrey",2024-09-24T10:54:45+00:00,285,1,8,0.8,0.6,happiness,excited-positive,True,0.4202,0.498,0.6493,0.3278,0.9588,0.498,0.2978,0.5205,disgust,-0.7
+319,is retirement good,2024-09-24T10:56:50+00:00,286,2,3,0.8,0.6,happiness,excited-positive,True,0.2546,0.5953,0.605,0.308,0.7671,0.5163,0.2791,0.6711,neutral,0.0
+320,is retirement good,2024-09-24T10:56:51+00:00,286,2,3,0.8,0.6,happiness,excited-positive,True,0.3321,0.6259,0.8356,0.2,0.6288,0.561,0.2909,0.6057,neutral,0.0
+321,how's dr who feeling today?,2024-09-24T10:59:40+00:00,287,1,5,0.8,0.6,happiness,excited-positive,True,0.4303,0.5343,0.857,0.2365,0.6739,0.562,0.2764,0.5321,disgust,-0.7
+322,excited about seeing Ryan Adams tonight,2024-09-24T11:01:17+00:00,288,1,6,0.8,0.6,happiness,excited-positive,True,0.5427,0.452,0.8607,0.1758,0.5902,0.492,0.2848,0.7474,happiness,0.8
+323,relaxed but with menopausal hot flashes,2024-09-24T11:02:19+00:00,289,4,6,0.0,0.3,neutral,calm-positive,False,0.2989,0.6731,0.8578,0.1166,0.4764,0.603,0.2313,0.6461,disgust,-0.7
+324,relaxed but with menopausal hot flashes,2024-09-24T11:02:24+00:00,289,4,6,0.0,0.3,neutral,calm-positive,False,0.1974,0.7334,0.6692,0.1799,0.6992,0.5407,0.229,0.6917,sadness,-0.75
+325,relaxed but with menopausal hot flashes,2024-09-24T11:02:32+00:00,289,4,6,0.0,0.3,neutral,calm-positive,False,0.2486,0.7346,0.8045,0.0856,0.4368,0.5378,0.219,0.8073,sadness,-0.75
+326,relaxed but with menopausal hot flashes,2024-09-24T11:02:37+00:00,289,4,6,0.0,0.3,neutral,calm-positive,False,0.2415,0.7221,0.7933,0.1608,0.5106,0.5845,0.2775,0.757,sadness,-0.75
+327,city building,2024-09-24T11:03:54+00:00,290,6,2,0.0,0.3,neutral,calm-positive,False,0.2761,0.6032,0.6836,0.259,0.8868,0.5741,0.2877,0.6137,neutral,0.0
+328,city building,2024-09-24T11:03:55+00:00,290,6,2,0.0,0.3,neutral,calm-positive,False,0.3084,0.6141,0.6553,0.2595,0.89,0.575,0.2836,0.6864,neutral,0.0
+329,city building,2024-09-24T11:03:56+00:00,290,6,2,0.0,0.3,neutral,calm-positive,False,0.212,0.7373,0.7152,0.1052,0.5559,0.5867,0.1947,0.8525,neutral,0.0
+330,city building,2024-09-24T11:03:57+00:00,290,6,2,0.0,0.3,neutral,calm-positive,False,0.2465,0.6281,0.5663,0.2655,0.9463,0.6184,0.2722,0.6616,neutral,0.0
+331,city building,2024-09-24T11:03:58+00:00,290,6,2,0.0,0.3,neutral,calm-positive,False,0.3772,0.5765,0.7643,0.1844,0.8093,0.6603,0.2691,0.6196,neutral,0.0
+332,city building,2024-09-24T11:06:27+00:00,290,6,2,0.0,0.3,neutral,calm-positive,False,0.2373,0.6728,0.5672,0.1974,0.8714,0.5506,0.2638,0.6867,neutral,0.0
+333,the value of ai in ultrasound for medicine,2024-09-24T11:11:51+00:00,291,2,8,0.0,0.3,neutral,calm-positive,False,0.2904,0.6648,0.7846,0.2136,0.6353,0.4808,0.2323,0.6708,neutral,0.0
+334,the value of ai in ultrasound for medicine,2024-09-24T11:11:59+00:00,291,2,8,0.0,0.3,neutral,calm-positive,False,0.3733,0.5729,0.814,0.2602,0.7251,0.459,0.2601,0.5646,neutral,0.0
+335,Do you think AI will help medical?,2024-09-24T11:14:27+00:00,292,1,7,0.8,0.6,happiness,excited-positive,True,0.2794,0.7043,0.8521,0.1341,0.3919,0.5258,0.2298,0.6659,neutral,0.0
+336,I am a doctor. I want to use MRI in surgical,2024-09-24T11:16:00+00:00,293,1,11,0.8,0.6,happiness,excited-positive,True,0.3219,0.6065,0.6569,0.237,0.8434,0.5942,0.2506,0.5845,neutral,0.0
+337,invigorated,2024-09-24T11:40:16+00:00,294,1,1,0.8,0.6,happiness,excited-positive,True,0.1776,0.7624,0.6949,0.1382,0.498,0.5853,0.2154,0.7404,neutral,0.0
+338,i feel invigorated today with all the sunshine and I've found some interesting family history research,2024-09-24T11:42:43+00:00,295,1,16,0.8,0.6,happiness,excited-positive,True,0.3402,0.5717,0.7017,0.3104,0.8958,0.482,0.2872,0.5585,fear,-0.65
+339,"today feels like the best day of my uni time, at the start of day , it was not so organized and i lost my way but after 2 hours of walk and back to my own area which is relatively a new area for me , ",2024-09-24T11:47:29+00:00,296,1,94,0.8,0.6,happiness,excited-positive,True,0.3839,0.5596,0.8189,0.3427,0.7453,0.5488,0.3001,0.5794,happiness,0.8
+340,enjoying playing dominoes with children's faces expressing different emotions in a museum in Oslo,2024-09-24T11:55:19+00:00,297,1,14,0.8,0.6,happiness,excited-positive,True,0.2662,0.609,0.6645,0.3383,0.9185,0.5616,0.2893,0.6425,neutral,0.0
+341,children playing dominoes some happy some sad or concerned,2024-09-24T11:56:54+00:00,298,1,9,0.8,0.6,happiness,excited-positive,True,0.2548,0.6661,0.7459,0.1754,0.7027,0.4956,0.2876,0.6933,neutral,0.0
+342,"Today I am feeling curious. I want to look carefully at things and find out more in an art gallery. Some of the sculptures make me feel afraid, some of the paintings make me smile. ",2024-09-24T12:01:22+00:00,299,1,35,0.8,0.6,happiness,excited-positive,True,0.2992,0.5824,0.6547,0.313,0.9556,0.4608,0.273,0.7003,neutral,0.0
+343,worried wasting time busy distracted,2024-09-24T12:14:23+00:00,300,1,5,-0.75,0.3,sadness,low-negative,True,0.3871,0.5923,0.9146,0.1723,0.4741,0.511,0.2801,0.6371,neutral,0.0
+344,rewired spring dream river sky,2024-09-24T12:15:54+00:00,301,1,5,0.0,0.3,neutral,calm-positive,False,0.301,0.6238,0.7151,0.251,0.865,0.5612,0.3208,0.6118,neutral,0.0
+345,the complexities of understanding our inner feelings in relation to experiencing situations beyond our interpretation but apparent to others that we are yet to understand,2024-09-24T12:25:08+00:00,302,1,25,0.0,0.3,neutral,calm-positive,False,0.493,0.4282,0.7502,0.2769,0.8436,0.5133,0.2712,0.6667,disgust,-0.7
+346,"curious, pained, frustrated, happy, ",2024-09-24T12:30:40+00:00,303,1,4,0.8,0.6,happiness,excited-positive,True,0.3972,0.5806,0.9093,0.2024,0.4988,0.4879,0.2575,0.7341,neutral,0.0
+347,"curious, rushed, excited, anxious",2024-09-24T12:33:04+00:00,304,1,4,0.8,0.6,happiness,excited-positive,True,0.4526,0.5241,0.9091,0.2213,0.5425,0.4952,0.2499,0.7079,surprise,0.3
+348,"happy, excited, blessed, funny",2024-09-24T12:34:41+00:00,305,1,4,0.8,0.6,happiness,excited-positive,True,0.2812,0.6642,0.796,0.1832,0.581,0.552,0.2507,0.6315,fear,-0.65
+349,"curious, excited, frustrated, happy, agitator",2024-09-24T12:37:42+00:00,306,1,5,0.8,0.6,happiness,excited-positive,True,0.223,0.7388,0.7603,0.1642,0.5506,0.6373,0.1795,0.7533,disgust,-0.7
+350,a pair of pigeons wearing wedding clothes getting married,2024-09-24T12:40:05+00:00,307,1,9,0.0,0.3,neutral,calm-positive,False,0.2774,0.6849,0.8023,0.1327,0.538,0.5531,0.2552,0.7372,neutral,0.0
+351,"happy research scientist, sceptic, atheist, non material, socially altruistic, male",2024-09-24T12:48:46+00:00,308,1,10,0.8,0.6,happiness,excited-positive,True,0.2648,0.6958,0.8047,0.1862,0.5377,0.4898,0.2222,0.6382,happiness,0.8
+352,sexy organic food eating vegan rambler,2024-09-24T12:53:11+00:00,309,1,6,0.8,0.6,happiness,excited-positive,True,0.286,0.724,0.8011,0.0995,0.3782,0.5535,0.1891,0.7192,disgust,-0.7
+353,not tax different meeting people,2024-09-24T12:57:44+00:00,310,1,5,0.0,0.3,neutral,calm-positive,False,0.1855,0.7408,0.6817,0.2355,0.6783,0.5299,0.2815,0.7261,neutral,0.0
+354,happy excited nervous,2024-09-24T13:01:00+00:00,311,1,3,0.8,0.6,happiness,excited-positive,True,0.3074,0.6624,0.8443,0.1816,0.5273,0.5014,0.2688,0.7296,neutral,0.0
+355,feeling tired after 5 days of festival of the mind,2024-09-24T13:06:48+00:00,312,1,10,-0.75,0.3,sadness,low-negative,True,0.2746,0.6696,0.7247,0.1579,0.7576,0.5277,0.2475,0.713,sadness,-0.75
+356,Thirsty,2024-09-24T13:08:33+00:00,313,1,1,0.0,0.3,neutral,calm-positive,False,0.2295,0.7623,0.8156,0.069,0.2782,0.5212,0.2419,0.7578,neutral,0.0
+357,Intrigued,2024-09-24T13:20:27+00:00,314,1,1,0.8,0.6,happiness,excited-positive,True,0.2408,0.7036,0.7569,0.0699,0.4275,0.5236,0.172,0.828,neutral,0.0
+358,"happy, relaxed, open minded",2024-09-24T13:28:26+00:00,315,5,4,0.8,0.6,happiness,excited-positive,True,0.3513,0.5788,0.7,0.2575,0.8269,0.5206,0.2991,0.5915,neutral,0.0
+359,"happy, relaxed, open minded",2024-09-24T13:28:39+00:00,315,5,4,0.8,0.6,happiness,excited-positive,True,0.3541,0.6291,0.7773,0.187,0.6675,0.512,0.2858,0.5263,neutral,0.0
+360,"happy, relaxed, open minded",2024-09-24T13:28:49+00:00,315,5,4,0.8,0.6,happiness,excited-positive,True,0.1519,0.8419,0.7056,0.0254,0.1766,0.438,0.1625,0.8005,neutral,0.0
+361,"happy, relaxed, open minded",2024-09-24T13:28:52+00:00,315,5,4,0.8,0.6,happiness,excited-positive,True,0.4977,0.4904,0.9564,0.1045,0.3703,0.5087,0.2739,0.4845,neutral,0.0
+362,"happy, relaxed, open minded",2024-09-24T13:28:52+00:00,315,5,4,0.8,0.6,happiness,excited-positive,True,0.6589,0.4154,0.7447,0.1589,0.6145,0.5007,0.3302,0.7086,sadness,-0.75
+363,"happy, relaxed, open minded, refreshed",2024-09-24T13:30:26+00:00,316,1,5,0.8,0.6,happiness,excited-positive,True,0.2407,0.6462,0.6613,0.1592,0.6802,0.525,0.1986,0.7257,disgust,-0.7
+364,very happy about the wu tang series ,2024-09-24T13:34:43+00:00,317,1,7,0.8,0.6,happiness,excited-positive,True,0.4496,0.4887,0.83,0.2687,0.714,0.557,0.2988,0.568,happiness,0.8
+365,mad,2024-09-24T13:49:49+00:00,318,1,1,0.0,0.3,neutral,calm-positive,False,0.3321,0.6606,0.8819,0.1295,0.3978,0.4841,0.2312,0.6039,anger,-0.7
+366,happy,2024-09-24T13:50:22+00:00,319,1,1,0.8,0.6,happiness,excited-positive,True,0.0778,0.9129,0.5225,0.0283,0.1318,0.5254,0.0917,0.9351,happiness,0.8
+367,telecaster,2024-09-24T13:54:31+00:00,320,1,1,0.0,0.3,neutral,calm-positive,False,0.7991,0.1914,0.6429,0.2149,0.4575,0.4815,0.3026,0.7271,neutral,0.0
+368,"Assuming that by 'feeling' you mean, acquiring sensory input? Then I am feeling via a complex interplay of biological transducers and neuronal signal processing.",2024-09-24T14:02:08+00:00,321,1,24,0.0,0.3,neutral,calm-positive,False,0.4503,0.4814,0.7424,0.3423,0.8758,0.3717,0.2694,0.6435,disgust,-0.7
+369,cheerful,2024-09-24T14:12:27+00:00,322,1,1,0.8,0.6,happiness,excited-positive,True,0.4224,0.4956,0.7942,0.1397,0.7626,0.7046,0.2977,0.7261,neutral,0.0
+370,Adventurous,2024-09-24T14:23:49+00:00,323,1,1,0.0,0.3,neutral,calm-positive,False,0.6169,0.337,0.7275,0.1134,0.7696,0.5022,0.3137,0.65,neutral,0.0
+371,hungry henry,2024-09-24T14:27:58+00:00,324,1,2,0.0,0.3,neutral,calm-positive,False,0.2038,0.784,0.7736,0.0599,0.3024,0.493,0.158,0.8705,surprise,0.3
+372,colourful,2024-09-24T14:29:20+00:00,325,1,1,0.0,0.3,neutral,calm-positive,False,0.4179,0.5604,0.9209,0.1459,0.4816,0.4529,0.2609,0.4659,neutral,0.0
+373,cold happy ,2024-09-24T14:34:24+00:00,326,1,2,0.8,0.6,happiness,excited-positive,True,0.1894,0.7934,0.7381,0.1399,0.3637,0.5683,0.2181,0.7923,happiness,0.8
+374,content,2024-09-24T14:36:16+00:00,327,1,1,0.0,0.3,neutral,calm-positive,False,0.2235,0.7395,0.747,0.2135,0.5585,0.5493,0.2628,0.6619,neutral,0.0
+375,picnic,2024-09-24T14:37:36+00:00,328,1,1,0.0,0.3,neutral,calm-positive,False,0.3797,0.5449,0.6671,0.2936,0.9269,0.5267,0.2942,0.5302,neutral,0.0
+376,"Hungry, tired, my body aches but i am feeling accepting of that. i am feeling open and curious",2024-09-24T14:59:24+00:00,329,1,18,0.8,0.6,happiness,excited-positive,True,0.4126,0.5525,0.785,0.147,0.6311,0.4606,0.2834,0.6594,fear,-0.65
+377,"JESUS AND I HAVING TEA  WITH JACKETS ON, ISDE A PUB",2024-09-24T15:32:16+00:00,330,1,11,0.0,0.3,neutral,calm-positive,False,0.3842,0.5087,0.7407,0.2216,0.7707,0.5449,0.2858,0.6775,neutral,0.0
+378,JESUS STANDING WITH ME IN  A BOAT,2024-09-24T15:40:11+00:00,331,1,7,0.0,0.3,neutral,calm-positive,False,0.2422,0.7435,0.8156,0.1096,0.3477,0.5306,0.1853,0.8061,neutral,0.0
+379,Hopeful,2024-09-25T09:17:11+00:00,332,1,1,0.0,0.3,neutral,calm-positive,False,0.1926,0.8079,0.7126,0.0644,0.2836,0.5334,0.1872,0.9071,disgust,-0.7
+380,Jealous,2024-09-25T09:18:59+00:00,333,1,1,0.0,0.3,neutral,calm-positive,False,0.5037,0.4817,0.9465,0.1445,0.4167,0.4931,0.2646,0.3466,neutral,0.0
+381,impatient as I am waiting for an employer to confirm my new contract,2024-09-25T09:19:56+00:00,334,1,13,0.0,0.3,neutral,calm-positive,False,0.5546,0.4601,0.7638,0.203,0.7413,0.4053,0.2781,0.5703,sadness,-0.75
+382,more understanding and insightful for those that I would not think I connect with having just watched 'A Star is Born' last night and realising we can all go through similar emotions and experiences..,2024-09-25T09:25:01+00:00,335,1,46,0.8,0.6,happiness,excited-positive,True,0.1069,0.8611,0.4933,0.083,0.4108,0.532,0.1489,0.8873,sadness,-0.75
+383,curios,2024-09-25T09:30:40+00:00,336,2,1,0.0,0.3,neutral,calm-positive,False,0.3011,0.6848,0.8768,0.1118,0.3714,0.5263,0.2031,0.7052,sadness,-0.75
+384,curios,2024-09-25T09:30:42+00:00,336,2,1,0.0,0.3,neutral,calm-positive,False,0.7238,0.3472,0.6819,0.151,0.4485,0.5086,0.3277,0.9028,disgust,-0.7
+385,curious,2024-09-25T09:30:50+00:00,337,2,1,0.8,0.6,happiness,excited-positive,True,0.4453,0.5356,0.9231,0.2136,0.5024,0.5144,0.2755,0.5831,neutral,0.0
+386,curious,2024-09-25T09:30:59+00:00,337,2,1,0.8,0.6,happiness,excited-positive,True,0.2411,0.7368,0.7672,0.1171,0.5042,0.6176,0.2456,0.7557,fear,-0.65
+387,i am feeling bit under the weather,2024-09-25T09:39:02+00:00,338,1,7,-0.75,0.3,sadness,low-negative,True,0.258,0.6864,0.7653,0.1157,0.4996,0.6295,0.2493,0.8025,sadness,-0.75
+388,its raining cats and dogs,2024-09-25T09:43:02+00:00,339,1,5,0.0,0.3,neutral,calm-positive,False,0.5363,0.4284,0.8307,0.2059,0.7399,0.4277,0.2888,0.719,fear,-0.65
+389,life is like a box of choclates,2024-09-25T09:45:52+00:00,340,1,7,0.0,0.3,neutral,calm-positive,False,0.6367,0.3641,0.6391,0.2219,0.8516,0.4849,0.2987,0.5584,neutral,0.0
+390,bland,2024-09-25T09:47:08+00:00,341,5,1,0.0,0.3,neutral,calm-positive,False,0.1652,0.8048,0.6979,0.0283,0.3129,0.5346,0.1385,0.8734,disgust,-0.7
+391,bland,2024-09-25T09:47:11+00:00,341,5,1,0.0,0.3,neutral,calm-positive,False,0.2894,0.6465,0.7276,0.306,0.8235,0.5775,0.3108,0.6247,neutral,0.0
+392,bland,2024-09-25T09:47:11+00:00,341,5,1,0.0,0.3,neutral,calm-positive,False,0.4167,0.5604,0.9075,0.1645,0.5047,0.5781,0.3105,0.6214,neutral,0.0
+393,bland,2024-09-25T09:47:12+00:00,341,5,1,0.0,0.3,neutral,calm-positive,False,0.3113,0.6423,0.8275,0.1198,0.5406,0.544,0.2706,0.6514,neutral,0.0
+394,bland,2024-09-25T09:47:14+00:00,341,5,1,0.0,0.3,neutral,calm-positive,False,0.272,0.6421,0.7905,0.0189,0.5334,0.7804,0.2674,0.7057,neutral,0.0
+395,in ;ove,2024-09-25T09:51:11+00:00,342,1,2,0.0,0.3,neutral,calm-positive,False,0.5367,0.4473,0.9359,0.147,0.4323,0.5385,0.2932,0.5374,fear,-0.65
+396, full of despair,2024-09-25T09:51:54+00:00,343,1,3,-0.75,0.3,sadness,low-negative,True,0.423,0.4686,0.7011,0.3333,0.899,0.5669,0.2981,0.5763,sadness,-0.75
+397,hopeful,2024-09-25T09:52:38+00:00,344,1,1,0.8,0.6,happiness,excited-positive,True,0.7845,0.2226,0.7841,0.0211,0.1943,0.5091,0.3165,0.9655,happiness,0.8
+398,stuffed full with pancakes but content,2024-09-25T09:55:37+00:00,345,1,6,0.0,0.3,neutral,calm-positive,False,0.2167,0.7574,0.7781,0.0907,0.4581,0.552,0.2096,0.7785,disgust,-0.7
+399,a very happy border collie,2024-09-25T09:59:38+00:00,346,4,5,0.8,0.6,happiness,excited-positive,True,0.4001,0.6096,0.8528,0.1142,0.5596,0.4732,0.2745,0.6516,surprise,0.3
+400,a very happy border collie,2024-09-25T10:01:45+00:00,346,4,5,0.8,0.6,happiness,excited-positive,True,0.2121,0.7721,0.7684,0.0851,0.3209,0.4478,0.1712,0.9474,surprise,0.3
+401,a very happy border collie,2024-09-25T10:01:46+00:00,346,4,5,0.8,0.6,happiness,excited-positive,True,0.2567,0.7259,0.8411,0.0715,0.3414,0.4292,0.1815,0.8623,surprise,0.3
+402,a very happy border collie,2024-09-25T10:01:59+00:00,346,4,5,0.8,0.6,happiness,excited-positive,True,0.3128,0.6729,0.8902,0.1013,0.3472,0.457,0.2115,0.794,surprise,0.3
+403,I am fine but I could make it with more sunshine. How are you? Is the weather fine in Sheffield?,2024-09-25T10:12:31+00:00,347,1,20,0.8,0.6,happiness,excited-positive,True,0.2981,0.6946,0.8571,0.1007,0.4073,0.6127,0.2497,0.7501,neutral,0.0
+404,happy young children in woodland garden,2024-09-25T10:17:38+00:00,348,1,6,0.8,0.6,happiness,excited-positive,True,0.3348,0.5443,0.5425,0.1625,0.9228,0.5215,0.2812,0.5267,neutral,0.0
+405,"nostalgic, inspired and a bit hungry",2024-09-25T10:18:32+00:00,349,1,6,0.0,0.3,neutral,calm-positive,False,0.4075,0.579,0.9397,0.1027,0.3695,0.5637,0.273,0.6751,disgust,-0.7
+406,"a little jittery, hints of anxiety but overall calm and prepared",2024-09-25T10:21:48+00:00,350,1,11,0.8,0.6,happiness,excited-positive,True,0.1831,0.7985,0.731,0.1266,0.3667,0.4597,0.1724,0.7767,anger,-0.7
+407,"isolation, void, questions, expectations, high alert, unsettled, curiosity, determination, ",2024-09-25T10:23:59+00:00,351,1,9,0.8,0.6,happiness,excited-positive,True,0.8121,0.185,0.7365,0.0308,0.2534,0.4968,0.3106,0.8593,neutral,0.0
+408,ocean,2024-09-25T10:25:43+00:00,352,1,1,0.0,0.3,neutral,calm-positive,False,0.3256,0.6351,0.8573,0.0948,0.5153,0.7898,0.3069,0.8522,neutral,0.0
+409,biophillic design,2024-09-25T10:26:23+00:00,353,1,2,0.0,0.3,neutral,calm-positive,False,0.3035,0.5935,0.7282,0.2423,0.7305,0.543,0.2537,0.7596,neutral,0.0
+410,"unconditional love, fate, communication, openness, travel, future, caring, grounded, support, guidance, partner for life",2024-09-25T10:30:39+00:00,354,1,14,0.0,0.3,neutral,calm-positive,False,0.3199,0.6548,0.8528,0.2208,0.5435,0.5049,0.2498,0.8484,neutral,0.0
+411,"happiness, beauty, fun, lively, love, young, minimalism, rainforest",2024-09-25T10:33:29+00:00,355,1,8,0.8,0.6,happiness,excited-positive,True,0.1817,0.7901,0.7162,0.1435,0.3923,0.5595,0.2531,0.7831,neutral,0.0
+412,"holiday, italy, france, love, couple, sunshine, happiness, together",2024-09-25T10:35:28+00:00,356,1,8,0.8,0.6,happiness,excited-positive,True,0.3873,0.5601,0.7975,0.1633,0.6829,0.593,0.2544,0.5264,neutral,0.0
+413,a goddess lost in a forest,2024-09-25T10:39:20+00:00,357,1,6,0.0,0.3,neutral,calm-positive,False,0.5856,0.3628,0.6103,0.3006,0.9385,0.4977,0.3124,0.6035,fear,-0.65
+414,mellow,2024-09-25T10:49:41+00:00,358,1,1,0.0,0.3,neutral,calm-positive,False,0.2592,0.7507,0.7647,0.0654,0.3321,0.4863,0.1908,0.9935,neutral,0.0
+415,a goddess lost in a forest,2024-09-25T10:52:15+00:00,359,1,6,0.0,0.3,neutral,calm-positive,False,0.5109,0.4438,0.8334,0.2717,0.7134,0.5042,0.287,0.5503,fear,-0.65
+416,a teenage girl cheerleading at an ice hockey match,2024-09-25T10:53:21+00:00,360,1,9,0.0,0.3,neutral,calm-positive,False,0.3426,0.6358,0.8957,0.1273,0.4313,0.4418,0.2622,0.5754,happiness,0.8
+417,4 pints of milk spilled at lidl,2024-09-25T10:59:04+00:00,361,1,7,0.0,0.3,neutral,calm-positive,False,0.371,0.5855,0.7213,0.298,0.8291,0.378,0.2848,0.5881,disgust,-0.7
+418,"nihilistic London, like 1984 Orwell",2024-09-25T11:01:34+00:00,362,1,5,0.0,0.3,neutral,calm-positive,False,0.5023,0.4581,0.7633,0.2739,0.8689,0.5367,0.3118,0.6314,neutral,0.0
+419,happy and positive,2024-09-25T11:03:11+00:00,363,1,3,0.8,0.6,happiness,excited-positive,True,0.4763,0.4986,0.9108,0.2215,0.5475,0.4933,0.2854,0.5079,neutral,0.0
+420,walking pilgrimage woman,2024-09-25T11:10:15+00:00,364,1,3,0.0,0.3,neutral,calm-positive,False,0.2014,0.7863,0.7714,0.0749,0.2901,0.6455,0.2326,0.844,neutral,0.0
+421,intrigued,2024-09-25T11:11:43+00:00,365,1,1,0.8,0.6,happiness,excited-positive,True,0.4301,0.478,0.6961,0.4105,0.9155,0.4883,0.2772,0.5433,neutral,0.0
+422,a fine line mountain range ,2024-09-25T11:14:23+00:00,366,1,5,0.0,0.3,neutral,calm-positive,False,0.5673,0.4216,0.7903,0.1257,0.7337,0.6313,0.2919,0.6903,neutral,0.0
+423,mountain scene with lake and forest,2024-09-25T11:15:10+00:00,367,1,6,0.0,0.3,neutral,calm-positive,False,0.4635,0.5127,0.823,0.2152,0.7095,0.5349,0.2753,0.5898,neutral,0.0
+424,dog playing by lake,2024-09-25T11:15:58+00:00,368,1,4,0.0,0.3,neutral,calm-positive,False,0.2853,0.6967,0.8602,0.1136,0.3951,0.5455,0.2782,0.7224,fear,-0.65
+425,scared pumpkin fearful of being carved,2024-09-25T11:25:29+00:00,369,1,6,-0.65,0.75,fear,tense-negative,True,0.2741,0.6855,0.8181,0.1122,0.5907,0.581,0.1915,0.8419,fear,-0.65
+426,anticipation,2024-09-25T11:29:43+00:00,370,2,1,0.0,0.3,neutral,calm-positive,False,0.3118,0.6775,0.9005,0.0503,0.2931,0.5921,0.2693,0.7417,neutral,0.0
+427,anticipation,2024-09-25T11:30:40+00:00,370,2,1,0.0,0.3,neutral,calm-positive,False,0.628,0.3984,0.8181,0.0493,0.4842,0.509,0.2947,0.6807,sadness,-0.75
+428,horse committing a crime,2024-09-25T11:53:53+00:00,371,1,4,0.0,0.3,neutral,calm-positive,False,0.2115,0.7689,0.7572,0.141,0.4141,0.5829,0.2421,0.6809,disgust,-0.7
+429,amazement,2024-09-25T12:02:33+00:00,372,1,1,0.0,0.3,neutral,calm-positive,False,0.4562,0.51,0.872,0.3203,0.6538,0.524,0.2838,0.6805,neutral,0.0
+430,angry,2024-09-25T12:05:14+00:00,373,1,1,-0.7,0.8,anger,tense-negative,True,0.5588,0.4256,0.9353,0.1143,0.4055,0.5549,0.3091,0.5635,anger,-0.7
+431,mindful,2024-09-25T12:06:20+00:00,374,1,1,0.0,0.3,neutral,calm-positive,False,0.4177,0.5536,0.8764,0.2426,0.6138,0.5201,0.291,0.7668,neutral,0.0
+432,guinea pig knitting a jumper,2024-09-25T12:11:33+00:00,375,1,5,0.0,0.3,neutral,calm-positive,False,0.2674,0.6939,0.7403,0.2345,0.6995,0.5861,0.2495,0.7056,disgust,-0.7
+433,a possum wearing a new pair of boots,2024-09-25T12:15:04+00:00,376,3,8,0.0,0.3,neutral,calm-positive,False,0.2313,0.7514,0.8005,0.1095,0.36,0.6098,0.1914,0.76,neutral,0.0
+434,a possum wearing a new pair of boots,2024-09-25T12:15:12+00:00,376,3,8,0.0,0.3,neutral,calm-positive,False,0.347,0.5807,0.7914,0.2052,0.6263,0.5737,0.2446,0.6506,fear,-0.65
+435,a possum wearing a new pair of boots,2024-09-25T12:15:31+00:00,376,3,8,0.0,0.3,neutral,calm-positive,False,0.2752,0.7035,0.8407,0.1167,0.4118,0.591,0.2087,0.7586,disgust,-0.7
+436,an impressed baby in a bearsuit,2024-09-25T12:20:31+00:00,377,1,6,0.8,0.6,happiness,excited-positive,True,0.164,0.8065,0.6626,0.1203,0.4695,0.5893,0.1806,0.9117,surprise,0.3
+437,the weight of the world,2024-09-25T12:24:50+00:00,378,1,5,0.0,0.3,neutral,calm-positive,False,0.1452,0.8342,0.666,0.1278,0.3176,0.5253,0.181,0.8757,neutral,0.0
+438,hopeful of a lottery win,2024-09-25T12:28:02+00:00,379,1,5,0.8,0.6,happiness,excited-positive,True,0.2492,0.7567,0.7704,0.0746,0.3334,0.6032,0.1861,0.6761,happiness,0.8
+439,spider penguin,2024-09-25T12:29:07+00:00,380,1,2,0.0,0.3,neutral,calm-positive,False,0.0958,0.8572,0.5211,0.074,0.3353,0.5279,0.1525,0.8516,disgust,-0.7
+440,sad abraham lincoln riding a camel through the woods,2024-09-25T12:33:52+00:00,381,1,9,-0.75,0.3,sadness,low-negative,True,0.6438,0.3482,0.7764,0.1851,0.7232,0.5174,0.282,0.5941,disgust,-0.7
+441,happy jesus riding a camel through the woods,2024-09-25T12:36:42+00:00,382,1,8,0.8,0.6,happiness,excited-positive,True,0.2776,0.6965,0.8379,0.1171,0.4409,0.5576,0.3188,0.7053,neutral,0.0
+442,gym beer,2024-09-25T12:38:32+00:00,383,1,2,0.0,0.3,neutral,calm-positive,False,0.5405,0.4576,0.837,0.1261,0.6625,0.4801,0.2936,0.6314,neutral,0.0
+443,paddleboard girl wine,2024-09-25T12:39:43+00:00,384,1,3,0.0,0.3,neutral,calm-positive,False,0.2114,0.7636,0.7615,0.1296,0.4273,0.6077,0.2473,0.8024,sadness,-0.75
+444,campervan festival cowboy boots,2024-09-25T12:41:44+00:00,385,1,4,0.0,0.3,neutral,calm-positive,False,0.4315,0.5189,0.7911,0.3364,0.8083,0.5449,0.2894,0.5693,disgust,-0.7
+445,excited for a gregg's,2024-09-25T12:50:48+00:00,386,1,4,0.8,0.6,happiness,excited-positive,True,0.3241,0.6424,0.7985,0.2029,0.6998,0.4716,0.2756,0.7061,neutral,0.0
+446,tired but sense of achievement for goodmornings work,2024-09-25T13:02:21+00:00,387,1,8,-0.75,0.3,sadness,low-negative,True,0.4054,0.5278,0.8231,0.166,0.6696,0.6136,0.278,0.5869,neutral,0.0
+447,Happy to visit Sheffield and get my new phone today,2024-09-25T13:05:20+00:00,388,1,10,0.8,0.6,happiness,excited-positive,True,0.2154,0.7405,0.7426,0.1137,0.5217,0.5614,0.1994,0.748,disgust,-0.7
+448,Don't want to work tomorrow,2024-09-25T13:06:09+00:00,389,1,5,-0.7,0.8,anger,tense-negative,True,0.2391,0.7445,0.8143,0.0848,0.381,0.4875,0.2263,0.8406,neutral,0.0
+449,i miss japan,2024-09-25T13:07:10+00:00,390,1,3,-0.75,0.3,sadness,low-negative,True,0.4118,0.5219,0.7321,0.2908,0.885,0.4137,0.2919,0.7374,neutral,0.0
+450,futuristic,2024-09-25T13:19:21+00:00,391,3,1,0.0,0.3,neutral,calm-positive,False,0.2236,0.7438,0.6526,0.1893,0.6581,0.517,0.272,0.7052,neutral,0.0
+451,futuristic,2024-09-25T13:19:23+00:00,391,3,1,0.0,0.3,neutral,calm-positive,False,0.6136,0.3416,0.6926,0.2326,0.781,0.4633,0.3149,0.6852,neutral,0.0
+452,futuristic,2024-09-25T13:19:23+00:00,391,3,1,0.0,0.3,neutral,calm-positive,False,0.6762,0.3307,0.711,0.1703,0.6527,0.4881,0.3097,0.6999,neutral,0.0
+453,a person called [name],2024-09-25T13:20:44+00:00,392,1,5,0.0,0.3,neutral,calm-positive,False,0.2722,0.7151,0.8551,0.0754,0.3285,0.5029,0.1446,0.7479,anger,-0.7
+454,a sad pumpkin,2024-09-25T13:21:51+00:00,393,1,3,-0.75,0.3,sadness,low-negative,True,0.1644,0.7556,0.6244,0.1116,0.5,0.569,0.1891,0.9515,fear,-0.65
+455,"expansive, thankful, wistful, tired, longing, inspired, hopeful",2024-09-25T13:26:24+00:00,394,1,7,0.8,0.6,happiness,excited-positive,True,0.366,0.6018,0.8941,0.0875,0.38,0.5237,0.1468,0.9014,fear,-0.65
+456,happy,2024-09-25T13:30:43+00:00,395,1,1,0.8,0.6,happiness,excited-positive,True,0.2319,0.7441,0.7996,0.1251,0.3793,0.5318,0.2431,0.677,fear,-0.65
+457,exhausted,2024-09-25T13:31:31+00:00,396,1,1,-0.75,0.3,sadness,low-negative,True,0.6381,0.3703,0.7339,0.1757,0.6593,0.4913,0.293,0.6746,sadness,-0.75
+458,tired and my body is achey,2024-09-25T13:32:39+00:00,397,1,6,-0.75,0.3,sadness,low-negative,True,0.2216,0.7541,0.7775,0.1365,0.4017,0.5076,0.1758,0.7759,sadness,-0.75
+459,"happy,content,tired",2024-09-25T13:33:30+00:00,398,1,1,0.8,0.6,happiness,excited-positive,True,0.2536,0.6988,0.7631,0.159,0.56,0.4765,0.2888,0.7964,neutral,0.0
+460,sick and tired ,2024-09-25T13:35:47+00:00,399,1,3,-0.75,0.3,sadness,low-negative,True,0.5459,0.4464,0.8878,0.1357,0.5499,0.5145,0.2898,0.4769,sadness,-0.75
+461,gnarly,2024-09-25T13:36:10+00:00,400,1,1,0.0,0.3,neutral,calm-positive,False,0.5069,0.4508,0.7464,0.3467,0.8447,0.563,0.2541,0.5865,fear,-0.65
+462,nonchalant,2024-09-25T13:37:45+00:00,401,1,1,0.0,0.3,neutral,calm-positive,False,0.6264,0.4059,0.7831,0.1466,0.7042,0.403,0.2898,0.7904,neutral,0.0
+463,woolley mammoth with a cheetah's head,2024-09-25T13:38:59+00:00,402,1,6,0.0,0.3,neutral,calm-positive,False,0.3322,0.6462,0.883,0.1358,0.4555,0.5165,0.2582,0.6759,surprise,0.3
+464,untouchable keyboard,2024-09-25T13:39:34+00:00,403,1,2,0.0,0.3,neutral,calm-positive,False,0.8339,0.1779,0.6785,0.0807,0.2667,0.4969,0.301,0.8065,disgust,-0.7
+465,a mirror with something in the reflection,2024-09-25T13:40:30+00:00,404,1,7,0.0,0.3,neutral,calm-positive,False,0.2302,0.4617,0.6221,0.1581,0.5168,0.5089,0.1557,0.9576,fear,-0.65
+466,Nissan GTR Skyline R33,2024-09-25T13:41:33+00:00,405,1,4,0.0,0.3,neutral,calm-positive,False,0.8696,0.1284,0.591,0.0836,0.279,0.4958,0.2948,0.8389,disgust,-0.7
+467,Lamborghini Essenza SCV 12,2024-09-25T13:42:14+00:00,406,1,4,0.0,0.3,neutral,calm-positive,False,0.2572,0.7316,0.788,0.1234,0.461,0.5341,0.2742,0.7696,neutral,0.0
+468,nissan cube,2024-09-25T13:42:56+00:00,407,1,2,0.0,0.3,neutral,calm-positive,False,0.1812,0.7346,0.6571,0.0925,0.4479,0.536,0.2083,0.8317,disgust,-0.7
+469,vector,2024-09-25T13:43:29+00:00,408,1,1,0.0,0.3,neutral,calm-positive,False,0.2692,0.7434,0.7954,0.0622,0.3068,0.5124,0.1684,0.9079,neutral,0.0
+470,koenigsegg One1,2024-09-25T13:44:14+00:00,409,1,2,0.0,0.3,neutral,calm-positive,False,0.5824,0.4625,0.7785,0.1729,0.629,0.4912,0.2753,0.6754,neutral,0.0
+471,a diagram of an inline six 2jz engine,2024-09-25T13:44:59+00:00,410,1,8,0.0,0.3,neutral,calm-positive,False,0.7654,0.2696,0.5339,0.294,0.7453,0.5114,0.3044,0.6989,disgust,-0.7
+472,david walliams,2024-09-25T13:45:37+00:00,411,1,2,0.0,0.3,neutral,calm-positive,False,0.3227,0.6646,0.901,0.0604,0.3275,0.6028,0.1856,0.8763,surprise,0.3
+473,a machine that uses ai to make an image and draw it with a machine with pen on the end,2024-09-25T13:46:46+00:00,412,1,20,0.0,0.3,neutral,calm-positive,False,0.299,0.6654,0.8016,0.1703,0.5905,0.521,0.2161,0.6391,disgust,-0.7
+474,paper,2024-09-25T13:47:17+00:00,413,1,1,0.0,0.3,neutral,calm-positive,False,0.0853,0.7784,0.4766,0.0245,0.4375,0.5351,0.1692,0.9261,neutral,0.0
+475,what does god look like,2024-09-25T13:47:39+00:00,414,1,5,0.0,0.3,neutral,calm-positive,False,0.1503,0.8203,0.6606,0.1832,0.4168,0.5024,0.1682,0.8253,neutral,0.0
+476,skibidi toilet shooting cameraman,2024-09-25T13:48:44+00:00,415,1,4,0.0,0.3,neutral,calm-positive,False,0.4802,0.5343,0.6136,0.1757,0.6905,0.5039,0.3317,0.6596,neutral,0.0
+477,ambivalent,2024-09-25T13:50:02+00:00,416,2,1,0.0,0.3,neutral,calm-positive,False,0.4252,0.5637,0.9288,0.0414,0.4234,0.6445,0.2139,0.6175,neutral,0.0
+478,ambivalent,2024-09-25T13:50:06+00:00,416,2,1,0.0,0.3,neutral,calm-positive,False,0.2566,0.7388,0.8537,0.0346,0.2523,0.5027,0.1663,0.5186,surprise,0.3
+479,vaguely blowing,2024-09-25T13:51:01+00:00,417,2,2,0.0,0.3,neutral,calm-positive,False,0.4079,0.5676,0.9083,0.2439,0.5238,0.4617,0.2904,0.507,fear,-0.65
+480,vaguely blowing,2024-09-25T13:51:07+00:00,417,2,2,0.0,0.3,neutral,calm-positive,False,0.1408,0.7588,0.5971,0.0305,0.328,0.497,0.121,0.9018,disgust,-0.7
+481,Happy,2024-09-25T13:54:22+00:00,418,1,1,0.8,0.6,happiness,excited-positive,True,0.398,0.5843,0.9173,0.1957,0.4672,0.5069,0.2995,0.5773,neutral,0.0
+482,Disgruntled,2024-09-25T13:56:31+00:00,419,3,1,-0.75,0.3,sadness,low-negative,True,0.4783,0.446,0.8327,0.1428,0.5791,0.586,0.259,0.5326,anger,-0.7
+483,Disgruntled,2024-09-25T13:56:44+00:00,419,3,1,-0.75,0.3,sadness,low-negative,True,0.3284,0.6492,0.8861,0.1094,0.3893,0.5501,0.2711,0.6595,neutral,0.0
+484,Disgruntled,2024-09-25T13:56:44+00:00,419,3,1,-0.75,0.3,sadness,low-negative,True,0.2629,0.728,0.8566,0.0549,0.2646,0.553,0.26,0.9368,anger,-0.7
+485,Curious,2024-09-25T13:59:49+00:00,420,4,1,0.8,0.6,happiness,excited-positive,True,0.2355,0.763,0.7525,0.0966,0.4325,0.4231,0.2339,0.8419,neutral,0.0
+486,Curious,2024-09-25T13:59:56+00:00,420,4,1,0.8,0.6,happiness,excited-positive,True,0.2836,0.6662,0.7685,0.2194,0.7338,0.5103,0.2565,0.6745,neutral,0.0
+487,Curious,2024-09-25T13:59:58+00:00,420,4,1,0.8,0.6,happiness,excited-positive,True,0.3776,0.6092,0.9373,0.0693,0.3382,0.5276,0.2471,0.6856,neutral,0.0
+488,Curious,2024-09-25T13:59:58+00:00,420,4,1,0.8,0.6,happiness,excited-positive,True,0.2838,0.6714,0.7286,0.0549,0.5053,0.5075,0.1847,0.8195,fear,-0.65
+489,ecited,2024-09-25T14:06:02+00:00,421,1,1,0.0,0.3,neutral,calm-positive,False,0.4589,0.5235,0.8208,0.1931,0.7427,0.5853,0.2755,0.5209,neutral,0.0
+490,I don't know!,2024-09-25T14:09:02+00:00,422,1,3,0.3,0.8,surprise,excited-positive,True,0.2615,0.7061,0.8031,0.0881,0.5259,0.552,0.2298,0.5497,neutral,0.0
+491,alone,2024-09-25T14:11:45+00:00,423,1,1,0.0,0.3,neutral,calm-positive,False,0.6211,0.3818,0.6383,0.0559,0.8278,0.5484,0.3044,0.8605,neutral,0.0
+492,anxious,2024-09-25T14:12:45+00:00,424,1,1,-0.65,0.75,fear,tense-negative,True,0.4562,0.5084,0.8823,0.0869,0.5069,0.6098,0.2302,0.8251,neutral,0.0
+493,raining golg man,2024-09-25T14:14:29+00:00,425,1,3,0.0,0.3,neutral,calm-positive,False,0.336,0.5106,0.419,0.1709,0.9404,0.6557,0.2529,0.694,sadness,-0.75
+494,raining golf man,2024-09-25T14:14:39+00:00,426,2,3,0.0,0.3,neutral,calm-positive,False,0.198,0.6662,0.6207,0.3878,0.9018,0.5598,0.2341,0.7079,sadness,-0.75
+495,raining golf man,2024-09-25T14:14:42+00:00,426,2,3,0.0,0.3,neutral,calm-positive,False,0.142,0.8105,0.5552,0.1276,0.4113,0.5613,0.1315,0.8593,sadness,-0.75
+496,loved,2024-09-25T14:20:41+00:00,427,1,1,0.8,0.6,happiness,excited-positive,True,0.4166,0.5711,0.777,0.1042,0.4964,0.5585,0.1987,0.828,neutral,0.0
+497,content,2024-09-25T14:22:10+00:00,428,1,1,0.0,0.3,neutral,calm-positive,False,0.2138,0.7661,0.7709,0.1397,0.3889,0.4982,0.2241,0.7422,disgust,-0.7
+498,chippy chips ,2024-09-25T14:25:17+00:00,429,1,2,0.0,0.3,neutral,calm-positive,False,0.2195,0.7853,0.745,0.0851,0.312,0.5316,0.176,0.8044,neutral,0.0
+499,time machine,2024-09-25T14:25:42+00:00,430,1,2,0.0,0.3,neutral,calm-positive,False,0.5023,0.4568,0.8359,0.2727,0.6763,0.5203,0.2649,0.7018,disgust,-0.7
+500,aprehensive about medical results,2024-09-25T14:26:50+00:00,431,1,4,0.8,0.6,happiness,excited-positive,True,0.3577,0.5844,0.857,0.1056,0.6395,0.567,0.2995,0.6642,disgust,-0.7
+501,excited about a camping weekend,2024-09-25T14:27:59+00:00,432,1,5,0.8,0.6,happiness,excited-positive,True,0.7435,0.2833,0.6355,0.1505,0.6649,0.4701,0.3042,0.7599,neutral,0.0
+502,Emotional about my baby grandchildren,2024-09-25T14:31:43+00:00,433,1,5,-0.75,0.3,sadness,low-negative,True,0.2942,0.6075,0.7278,0.2733,0.7569,0.5246,0.2263,0.7186,surprise,0.3
+503,fascinated by the exhibition in the melinium galiry,2024-09-25T14:35:33+00:00,434,1,8,0.8,0.6,happiness,excited-positive,True,0.2641,0.6523,0.6334,0.2138,0.8502,0.471,0.272,0.6127,neutral,0.0
+504,"grateful for the day, happy",2024-09-25T14:42:10+00:00,435,1,5,0.8,0.6,happiness,excited-positive,True,0.3075,0.677,0.8212,0.0589,0.4958,0.734,0.326,0.8235,neutral,0.0
+505,tired annoyed resentfull frustrated gratful alive overwhelmed clumsy at peace,2024-09-25T14:44:26+00:00,436,1,10,-0.7,0.8,anger,tense-negative,True,0.4853,0.4649,0.8039,0.2699,0.7934,0.5539,0.293,0.5851,disgust,-0.7
+506,discombobulation inspired,2024-09-25T15:03:42+00:00,437,1,2,0.0,0.3,neutral,calm-positive,False,0.3809,0.5501,0.801,0.2537,0.6769,0.5917,0.2339,0.6845,disgust,-0.7
+507,rushed,2024-09-25T15:05:52+00:00,438,1,1,0.0,0.3,neutral,calm-positive,False,0.399,0.544,0.8188,0.2922,0.7457,0.5199,0.3109,0.5584,neutral,0.0
+508,modern country music,2024-09-25T15:30:48+00:00,439,1,3,0.0,0.3,neutral,calm-positive,False,0.3232,0.614,0.7177,0.2126,0.8065,0.6199,0.3047,0.6354,neutral,0.0
+509,nashville,2024-09-25T15:31:13+00:00,440,6,1,0.0,0.3,neutral,calm-positive,False,0.3609,0.5702,0.7544,0.2605,0.8658,0.6264,0.2694,0.642,disgust,-0.7
+510,nashville,2024-09-25T15:31:13+00:00,440,6,1,0.0,0.3,neutral,calm-positive,False,0.2561,0.5553,0.5732,0.2295,0.7494,0.6243,0.2626,0.7137,disgust,-0.7
+511,nashville,2024-09-25T15:31:14+00:00,440,6,1,0.0,0.3,neutral,calm-positive,False,0.1887,0.5528,0.618,0.1463,0.5954,0.5457,0.2471,0.8473,disgust,-0.7
+512,nashville,2024-09-25T15:31:14+00:00,440,6,1,0.0,0.3,neutral,calm-positive,False,0.3584,0.5732,0.7615,0.2575,0.8551,0.6305,0.2817,0.6401,disgust,-0.7
+513,nashville,2024-09-25T15:31:15+00:00,440,6,1,0.0,0.3,neutral,calm-positive,False,0.338,0.626,0.8497,0.2166,0.5601,0.5195,0.2802,0.6854,neutral,0.0
+514,nashville,2024-09-25T15:31:17+00:00,440,6,1,0.0,0.3,neutral,calm-positive,False,0.2082,0.7522,0.7409,0.1374,0.461,0.6005,0.2451,0.8053,neutral,0.0
+515,country music,2024-09-25T15:31:41+00:00,441,1,2,0.0,0.3,neutral,calm-positive,False,0.6267,0.3712,0.8602,0.1495,0.5606,0.4964,0.2803,0.7085,neutral,0.0
+516,modern country music,2024-09-25T15:35:41+00:00,442,1,3,0.0,0.3,neutral,calm-positive,False,0.5448,0.4196,0.8099,0.2173,0.7308,0.4823,0.3007,0.5744,neutral,0.0
+517,Happy,2024-09-25T15:55:45+00:00,443,4,1,0.8,0.6,happiness,excited-positive,True,0.2922,0.7014,0.8913,0.0399,0.2484,0.5743,0.2295,0.7012,happiness,0.8
+518,Happy,2024-09-25T15:55:53+00:00,443,4,1,0.8,0.6,happiness,excited-positive,True,0.3918,0.5891,0.9196,0.1668,0.4455,0.6095,0.259,0.9574,happiness,0.8
+519,Happy,2024-09-25T15:55:53+00:00,443,4,1,0.8,0.6,happiness,excited-positive,True,0.3192,0.6335,0.7935,0.3355,0.729,0.5143,0.2651,0.5878,happiness,0.8
+520,Happy,2024-09-25T15:55:55+00:00,443,4,1,0.8,0.6,happiness,excited-positive,True,0.2788,0.6978,0.8252,0.2384,0.5033,0.5704,0.3011,0.7211,neutral,0.0
+521,lively,2024-09-25T15:57:22+00:00,444,1,1,0.0,0.3,neutral,calm-positive,False,0.3126,0.608,0.764,0.1048,0.5916,0.5317,0.2237,0.6592,neutral,0.0
+522,really upset about the terrible weather,2024-09-26T09:04:49+00:00,445,1,6,-0.75,0.3,sadness,low-negative,True,0.633,0.3602,0.8226,0.1748,0.6569,0.5082,0.3094,0.6295,fear,-0.65
+523,morning sunshine happy place camping,2024-09-26T09:10:43+00:00,446,1,5,0.8,0.6,happiness,excited-positive,True,0.5543,0.4163,0.7708,0.3305,0.8037,0.5063,0.3159,0.5348,neutral,0.0
+524,hungry homeless stressed,2024-09-26T09:29:46+00:00,447,1,3,-0.75,0.3,sadness,low-negative,True,0.4039,0.5437,0.7031,0.145,0.7951,0.5616,0.2996,0.6747,sadness,-0.75
+525,injured nervous,2024-09-26T09:31:58+00:00,448,1,2,0.0,0.3,neutral,calm-positive,False,0.1686,0.7812,0.6673,0.1262,0.5631,0.5604,0.1524,0.7763,anger,-0.7
+526,"curious, disappointed, not sure, why this, trees and nature , hate shopping, worried about the car and need to feed my cat.",2024-09-26T09:40:01+00:00,449,1,22,0.8,0.6,happiness,excited-positive,True,0.4977,0.477,0.9131,0.1875,0.5375,0.4877,0.3036,0.4327,neutral,0.0
+527,grandchildren happy birthday sheffield cake presents,2024-09-26T09:49:54+00:00,450,1,6,0.8,0.6,happiness,excited-positive,True,0.3093,0.6049,0.7533,0.2718,0.8025,0.5211,0.2719,0.6362,happiness,0.8
+528,sheffield museum gallery train tea day out rainy happy day off,2024-09-26T09:53:25+00:00,451,4,11,0.8,0.6,happiness,excited-positive,True,0.2392,0.667,0.6542,0.2177,0.8728,0.569,0.295,0.725,neutral,0.0
+529,sheffield museum gallery train tea day out rainy happy day off,2024-09-26T09:53:35+00:00,451,4,11,0.8,0.6,happiness,excited-positive,True,0.3112,0.5723,0.6492,0.2968,0.9303,0.5728,0.2807,0.5989,neutral,0.0
+530,sheffield museum gallery train tea day out rainy happy day off,2024-09-26T09:53:35+00:00,451,4,11,0.8,0.6,happiness,excited-positive,True,0.2719,0.6633,0.7008,0.1951,0.8148,0.5846,0.3002,0.6607,sadness,-0.75
+531,sheffield museum gallery train tea day out rainy happy day off,2024-09-26T09:53:47+00:00,451,4,11,0.8,0.6,happiness,excited-positive,True,0.2736,0.6483,0.6777,0.2938,0.87,0.5278,0.2777,0.6514,neutral,0.0
+532,how is it bestto look after someone with Alzheimer#s as they descend into oblivion and how do you support thosse who are caring?,2024-09-26T10:18:47+00:00,452,1,23,0.8,0.6,happiness,excited-positive,True,0.3727,0.6088,0.8933,0.1439,0.5181,0.5529,0.2613,0.6511,neutral,0.0
+533,"thwarted, unable to pursue activities I love",2024-09-26T10:28:37+00:00,453,1,7,-0.75,0.3,sadness,low-negative,True,0.7823,0.2399,0.6784,0.1405,0.5705,0.4997,0.2892,0.7311,disgust,-0.7
+534,"Going through a period of grief and then bad health. But now feeling freeer and happier as I am able to start a new chapter in life and pursue the activities I love such as walking, scrambling and out",2024-09-26T10:32:45+00:00,454,1,41,0.8,0.6,happiness,excited-positive,True,0.3056,0.6307,0.7504,0.0729,0.693,0.5443,0.2697,0.5183,neutral,0.0
+535,"I am feeling happy today - I have met up with my mum who i haven't seen for a few weeks, i have a rubbish cold at the moment and i was worried i wouldn't be well enough to meet her, but i am so please",2024-09-26T10:39:50+00:00,455,1,107,0.8,0.6,happiness,excited-positive,True,0.429,0.5292,0.8416,0.3072,0.7395,0.4853,0.2631,0.6253,happiness,0.8
+536,the mind is exploding with wonderful research ideas,2024-09-26T11:15:18+00:00,456,1,8,0.8,0.6,happiness,excited-positive,True,0.8098,0.1873,0.6271,0.2138,0.5501,0.4997,0.3049,0.809,disgust,-0.7
+537,Messi winning the world cup,2024-09-26T11:29:07+00:00,457,1,5,0.0,0.3,neutral,calm-positive,False,0.3164,0.645,0.8386,0.1731,0.5752,0.6703,0.2559,0.8116,happiness,0.8
+538,"in the bottom of the pit, in the darkest moments, you need to look up at the sky and reach for the light, grab and not let it go",2024-09-26T11:32:03+00:00,458,1,29,0.8,0.6,happiness,excited-positive,True,0.8208,0.1922,0.5683,0.1279,0.6271,0.4723,0.3049,0.8883,neutral,0.0
+539,I'm at a time of endings and new beginnings. I have finished my degree and m starting a new job. I feel excited but nervous for the future. I am looking forward to what my life will be. ,2024-09-26T12:11:14+00:00,459,1,38,0.8,0.6,happiness,excited-positive,True,0.3339,0.6057,0.7377,0.139,0.8278,0.4769,0.2876,0.5307,sadness,-0.75
+540,i feel like i am going into a field where i am not needed anymore. The lost of the human soul can be seen in the work based off capitalist need and want for progress.,2024-09-26T12:13:56+00:00,460,1,35,-0.75,0.3,sadness,low-negative,True,0.2686,0.6162,0.6315,0.022,0.8196,0.8535,0.2867,0.9817,sadness,-0.75
+541,I am aging and need to think of transition into a a new life style where I feel fulfilled and useful to society.I am scared of illness and loosing independence,2024-09-26T12:15:54+00:00,461,1,30,-0.65,0.75,fear,tense-negative,True,0.2628,0.6757,0.7264,0.1875,0.8024,0.5063,0.2163,0.7449,neutral,0.0
+542,Could be better but ive had worse days,2024-09-26T12:18:18+00:00,462,1,8,-0.75,0.3,sadness,low-negative,True,0.2486,0.7494,0.6643,0.0844,0.5256,0.4815,0.2036,0.7593,neutral,0.0
+543,slightly anxious,2024-09-26T12:27:53+00:00,463,1,2,-0.65,0.75,fear,tense-negative,True,0.1248,0.8706,0.6092,0.0555,0.2406,0.4528,0.1087,0.9151,neutral,0.0
+544,excited,2024-09-26T12:29:58+00:00,464,1,1,0.8,0.6,happiness,excited-positive,True,0.7763,0.2768,0.6685,0.1269,0.4315,0.487,0.3085,0.7691,neutral,0.0
+545,sad,2024-09-26T12:30:55+00:00,465,1,1,-0.75,0.3,sadness,low-negative,True,0.3656,0.6094,0.8818,0.1586,0.517,0.5318,0.2134,0.7207,sadness,-0.75
+546,i want to see the sea,2024-09-26T12:34:18+00:00,466,1,6,0.8,0.6,happiness,excited-positive,True,0.28,0.6944,0.8219,0.1043,0.4962,0.826,0.2945,0.8951,neutral,0.0
+547,confused,2024-09-26T12:35:44+00:00,467,1,1,0.3,0.8,surprise,excited-positive,True,0.2711,0.7152,0.8526,0.1161,0.3503,0.4958,0.2474,0.6496,anger,-0.7
+548,i feel like ateddy bear,2024-09-26T13:02:18+00:00,468,1,5,0.0,0.3,neutral,calm-positive,False,0.1032,0.7352,0.3637,0.0693,0.4183,0.6085,0.1874,0.8312,neutral,0.0
+549,i am an anarchist,2024-09-26T13:03:13+00:00,469,1,4,0.0,0.3,neutral,calm-positive,False,0.2867,0.7025,0.8673,0.1025,0.3365,0.5071,0.209,0.9291,neutral,0.0
+550,pretty tired but generally pretty groovy,2024-09-26T13:05:51+00:00,470,1,6,0.8,0.6,happiness,excited-positive,True,0.4675,0.5502,0.8691,0.1041,0.4881,0.4435,0.3197,0.8537,neutral,0.0
+551,feel happy to be exploring ,2024-09-26T13:07:02+00:00,471,1,5,0.8,0.6,happiness,excited-positive,True,0.1788,0.8195,0.7082,0.0718,0.2769,0.5159,0.1894,0.9323,happiness,0.8
+552,very happy,2024-09-26T13:09:20+00:00,472,1,2,0.8,0.6,happiness,excited-positive,True,0.1834,0.7767,0.7283,0.0747,0.54,0.498,0.1411,0.8979,neutral,0.0
+553,I am feeling very thankful for the birth of my !st grandchild,2024-09-26T13:11:44+00:00,473,1,12,0.8,0.6,happiness,excited-positive,True,0.1074,0.825,0.5143,0.2266,0.5947,0.4882,0.3042,0.8094,neutral,0.0
+554,excited but a little nervous,2024-09-26T13:13:26+00:00,474,1,5,0.8,0.6,happiness,excited-positive,True,0.3421,0.5735,0.8124,0.184,0.5864,0.5059,0.2503,0.6284,fear,-0.65
+555,I feel intrigued by the prospect of how the computer will interpret a request for emotion based on running in the rain,2024-09-26T13:19:41+00:00,475,1,22,0.8,0.6,happiness,excited-positive,True,0.2672,0.6903,0.7684,0.1895,0.6693,0.6214,0.1987,0.7256,sadness,-0.75
+556,I'm feeling a little bit peckish and looking forward to having a meal this evening,2024-09-26T13:21:26+00:00,476,1,15,0.8,0.6,happiness,excited-positive,True,0.1908,0.8129,0.7169,0.0488,0.2621,0.4652,0.1654,0.9893,neutral,0.0
+557,I'm feeling a bit peckish,2024-09-26T13:22:08+00:00,477,2,5,0.0,0.3,neutral,calm-positive,False,0.2205,0.7461,0.7793,0.0803,0.3569,0.5724,0.2271,0.7351,neutral,0.0
+558,I'm feeling a bit peckish,2024-09-26T13:22:49+00:00,477,2,5,0.0,0.3,neutral,calm-positive,False,0.2158,0.7229,0.7623,0.1885,0.5844,0.6292,0.2733,0.7943,neutral,0.0
+559,I'm feeling confused,2024-09-26T13:23:45+00:00,478,1,3,0.3,0.8,surprise,excited-positive,True,0.4752,0.5053,0.9316,0.082,0.4405,0.4865,0.289,0.5279,neutral,0.0
+560,moody,2024-09-26T13:24:55+00:00,479,1,1,0.0,0.3,neutral,calm-positive,False,0.6919,0.328,0.5788,0.0637,0.6125,0.5214,0.3169,0.6937,sadness,-0.75
+561,caffinated,2024-09-26T13:26:46+00:00,480,1,1,0.0,0.3,neutral,calm-positive,False,0.5964,0.3772,0.8557,0.1525,0.5967,0.4843,0.3033,0.7474,neutral,0.0
+562,slight pain on my way,2024-09-26T13:28:13+00:00,481,1,5,-0.75,0.3,sadness,low-negative,True,0.8796,0.1952,0.5254,0.0752,0.2971,0.4957,0.3033,0.8623,neutral,0.0
+563,Happy that my gran is feeling better and was happy to see us,2024-09-26T13:29:48+00:00,482,1,13,0.8,0.6,happiness,excited-positive,True,0.2629,0.7249,0.8183,0.1448,0.4409,0.6308,0.265,0.641,happiness,0.8
+564,content and relief from constant routine,2024-09-26T13:32:48+00:00,483,1,6,0.0,0.3,neutral,calm-positive,False,0.3016,0.6642,0.8539,0.0754,0.438,0.4684,0.3047,0.7278,neutral,0.0
+565,sad for my grandson who refuses to go to school,2024-09-26T13:34:57+00:00,484,1,10,-0.75,0.3,sadness,low-negative,True,0.3011,0.6278,0.7245,0.0983,0.8133,0.6206,0.2682,0.6868,sadness,-0.75
+566,it's a sin,2024-09-26T13:38:16+00:00,485,1,3,-0.7,0.8,anger,tense-negative,True,0.2737,0.7152,0.8638,0.0689,0.3087,0.4944,0.1864,0.7545,disgust,-0.7
+567,bohemian rhapsody,2024-09-26T13:39:41+00:00,486,1,2,0.0,0.3,neutral,calm-positive,False,0.3271,0.6009,0.7396,0.3134,0.8163,0.5089,0.2104,0.6528,neutral,0.0
+568,"Really busy, not enough time to do everything and feeling stressed",2024-09-26T13:41:17+00:00,487,1,11,-0.75,0.3,sadness,low-negative,True,0.2215,0.6904,0.7459,0.2161,0.6625,0.6212,0.2213,0.7764,neutral,0.0
+569,"I'm a very busy women stressed, running a hectic life with no time to relax or enjoy the things I love to do.",2024-09-26T13:42:57+00:00,488,1,23,0.8,0.6,happiness,excited-positive,True,0.3124,0.6552,0.706,0.2331,0.6901,0.6014,0.2623,0.6542,fear,-0.65
+570,torn between homesick and reaching forward for new possibilities,2024-09-26T13:44:44+00:00,489,7,9,-0.75,0.3,sadness,low-negative,True,0.5468,0.4332,0.8996,0.1683,0.5445,0.5271,0.2843,0.5285,fear,-0.65
+571,torn between homesick and reaching forward for new possibilities,2024-09-26T13:44:51+00:00,489,7,9,-0.75,0.3,sadness,low-negative,True,0.6225,0.3519,0.8601,0.1563,0.537,0.4645,0.2849,0.5139,sadness,-0.75
+572,torn between homesick and reaching forward for new possibilities,2024-09-26T13:45:00+00:00,489,7,9,-0.75,0.3,sadness,low-negative,True,0.3994,0.575,0.8969,0.1432,0.5807,0.5319,0.258,0.4028,neutral,0.0
+573,torn between homesick and reaching forward for new possibilities,2024-09-26T13:45:01+00:00,489,7,9,-0.75,0.3,sadness,low-negative,True,0.415,0.5152,0.8146,0.2111,0.754,0.5882,0.2925,0.6743,neutral,0.0
+574,torn between homesick and reaching forward for new possibilities,2024-09-26T13:45:05+00:00,489,7,9,-0.75,0.3,sadness,low-negative,True,0.5596,0.4074,0.7633,0.2003,0.8345,0.4149,0.2746,0.5233,neutral,0.0
+575,torn between homesick and reaching forward for new possibilities,2024-09-26T13:45:33+00:00,489,7,9,-0.75,0.3,sadness,low-negative,True,0.6357,0.3445,0.8504,0.1813,0.5425,0.5163,0.2784,0.6336,neutral,0.0
+576,torn between homesick and reaching forward for new possibilities,2024-09-26T13:45:37+00:00,489,7,9,-0.75,0.3,sadness,low-negative,True,0.4283,0.5375,0.8766,0.0985,0.6698,0.4837,0.2859,0.3784,neutral,0.0
+577,I am a woman torn between homesickness for the familiar and reaching for new possibilities and experiences,2024-09-26T13:46:59+00:00,490,1,17,-0.75,0.3,sadness,low-negative,True,0.3531,0.6247,0.8915,0.1869,0.4733,0.4599,0.224,0.7526,neutral,0.0
+578,"curious, achy, tired, enjoying",2024-09-26T13:50:30+00:00,491,1,4,0.8,0.6,happiness,excited-positive,True,0.6813,0.3143,0.8028,0.0579,0.593,0.4769,0.2969,0.8427,fear,-0.65
+579,"optimistic, hungry, excited",2024-09-26T13:51:54+00:00,492,1,3,0.8,0.6,happiness,excited-positive,True,0.221,0.7531,0.7773,0.1527,0.4076,0.4494,0.2352,0.8021,surprise,0.3
+580,slightly tired,2024-09-26T13:54:15+00:00,493,1,2,0.0,0.3,neutral,calm-positive,False,0.2275,0.7652,0.8256,0.0279,0.2131,0.4491,0.167,0.8923,sadness,-0.75
+581,intrigued,2024-09-26T13:55:01+00:00,494,1,1,0.8,0.6,happiness,excited-positive,True,0.485,0.5112,0.8156,0.2071,0.6805,0.4753,0.2905,0.5731,fear,-0.65
+582,too much to do and lacking the energy to do it. ,2024-09-26T14:00:02+00:00,495,1,11,-0.75,0.3,sadness,low-negative,True,0.2945,0.6766,0.8206,0.2128,0.5582,0.5592,0.211,0.6423,fear,-0.65
+583,The house needs tidying the allotment needs tending. I go for a walk in the woods instead,2024-09-26T14:02:41+00:00,496,1,17,0.0,0.3,neutral,calm-positive,False,0.2694,0.5519,0.5181,0.2305,0.9533,0.5304,0.2973,0.6721,sadness,-0.75
+584,I am doubting my choices,2024-09-26T14:35:08+00:00,497,1,5,0.3,0.8,surprise,excited-positive,True,0.2014,0.7572,0.7102,0.0804,0.5333,0.6171,0.1948,0.8701,neutral,0.0
+585,my emotions are fluctuating between excited and doubtful through much fuzzy indecision,2024-09-26T14:36:25+00:00,498,1,12,0.8,0.6,happiness,excited-positive,True,0.1828,0.7917,0.7152,0.1826,0.4269,0.5087,0.2038,0.7588,neutral,0.0
+586,my emotions are fluctuating by the minute,2024-09-26T14:39:04+00:00,499,1,7,0.0,0.3,neutral,calm-positive,False,0.2422,0.7126,0.7811,0.1191,0.4557,0.5044,0.2134,0.7577,neutral,0.0
+587,I am a woman who is uncertain about the future,2024-09-26T14:39:50+00:00,500,1,10,0.0,0.3,neutral,calm-positive,False,0.3145,0.656,0.8649,0.1155,0.5174,0.5837,0.2161,0.5146,sadness,-0.75
+588,Curious about life in general,2024-09-26T14:41:34+00:00,501,1,5,0.8,0.6,happiness,excited-positive,True,0.2368,0.7438,0.7997,0.1564,0.3922,0.506,0.2459,0.7194,neutral,0.0
+589,Inspired by academic brilliance,2024-09-26T14:42:11+00:00,502,1,4,0.8,0.6,happiness,excited-positive,True,0.6184,0.3472,0.6667,0.1811,0.6817,0.5224,0.264,0.8423,sadness,-0.75
+590,Child-like but not childish,2024-09-26T14:43:10+00:00,503,1,4,0.0,0.3,neutral,calm-positive,False,0.1835,0.8031,0.7485,0.0629,0.2796,0.5374,0.1718,0.8061,sadness,-0.75
+591,full of nice food,2024-09-26T14:45:31+00:00,504,2,4,0.8,0.6,happiness,excited-positive,True,0.3174,0.5808,0.5999,0.3575,0.9413,0.4969,0.2773,0.5931,neutral,0.0
+592,full of nice food,2024-09-26T14:45:53+00:00,504,2,4,0.8,0.6,happiness,excited-positive,True,0.3538,0.543,0.6667,0.4609,0.944,0.5106,0.2856,0.5444,neutral,0.0
+593,romantic but damp.,2024-09-26T14:48:00+00:00,505,1,3,0.0,0.3,neutral,calm-positive,False,0.575,0.4002,0.5611,0.0952,0.9361,0.4795,0.3106,0.7587,sadness,-0.75
+594,excited and happy,2024-09-26T14:58:56+00:00,506,1,3,0.8,0.6,happiness,excited-positive,True,0.4801,0.4793,0.8469,0.4123,0.7194,0.5504,0.2843,0.5504,happiness,0.8
+595,"tired, hungry and curious",2024-09-26T15:02:59+00:00,507,1,4,0.8,0.6,happiness,excited-positive,True,0.3234,0.6622,0.895,0.1069,0.3747,0.474,0.2463,0.7823,fear,-0.65
+596,dead,2024-09-26T15:06:42+00:00,508,1,1,0.0,0.3,neutral,calm-positive,False,0.6444,0.3381,0.8755,0.1625,0.4593,0.4983,0.3129,0.6594,neutral,0.0
+597,wellness,2024-09-26T15:08:17+00:00,509,1,1,0.8,0.6,happiness,excited-positive,True,0.2421,0.7289,0.802,0.1119,0.4704,0.5421,0.2394,0.9676,neutral,0.0
+598,happy,2024-09-26T15:22:40+00:00,510,2,1,0.8,0.6,happiness,excited-positive,True,0.1318,0.8487,0.644,0.0618,0.2162,0.5675,0.1302,0.8811,neutral,0.0
+599,happy,2024-09-26T15:22:45+00:00,510,2,1,0.8,0.6,happiness,excited-positive,True,0.499,0.4903,0.973,0.0187,0.2383,0.498,0.1674,0.0021,surprise,0.3
+600,enjoying,2024-09-26T15:23:00+00:00,511,2,1,0.8,0.6,happiness,excited-positive,True,0.3681,0.634,0.8435,0.0972,0.4819,0.6075,0.316,0.6798,neutral,0.0
+601,enjoying,2024-09-26T15:27:43+00:00,511,2,1,0.8,0.6,happiness,excited-positive,True,0.1227,0.8674,0.6427,0.0315,0.1643,0.5197,0.1604,0.843,neutral,0.0
+602,I feel peaceful,2024-09-26T15:29:25+00:00,512,1,3,0.8,0.6,happiness,excited-positive,True,0.1595,0.8009,0.5936,0.1098,0.5414,0.5916,0.2651,0.9262,neutral,0.0
+603,inspired by collaboration and comforted by all of the wonderful work being done by these curious minds. Hopeful for a better and more nurturing world for all. Mushroom Manifesto. ,2024-09-26T15:32:01+00:00,513,1,29,0.8,0.6,happiness,excited-positive,True,0.2164,0.6505,0.592,0.2856,0.9338,0.54,0.2694,0.7499,neutral,0.0
+604,why am I looking and listening to all the woke crap at The Festival of the Mind 2024?,2024-09-26T15:46:36+00:00,514,1,18,-0.7,0.8,anger,tense-negative,True,0.2915,0.6452,0.7742,0.2837,0.7109,0.5622,0.2637,0.6874,neutral,0.0
+605,Happy,2024-09-27T08:36:48+00:00,515,2,1,0.8,0.6,happiness,excited-positive,True,0.0983,0.8899,0.5805,0.0206,0.1323,0.5058,0.1112,0.9975,happiness,0.8
+606,Happy,2024-09-27T08:36:50+00:00,515,2,1,0.8,0.6,happiness,excited-positive,True,0.19,0.7587,0.6703,0.2897,0.6284,0.4746,0.1959,0.9652,fear,-0.65
+607,"Very happy, I'm working at a new venue today so it's very exciting",2024-09-27T08:42:14+00:00,516,1,13,0.8,0.6,happiness,excited-positive,True,0.1364,0.72,0.5571,0.1461,0.8189,0.7467,0.3031,0.7961,neutral,0.0
+608,excited,2024-09-27T08:49:17+00:00,517,2,1,0.8,0.6,happiness,excited-positive,True,0.4,0.4988,0.734,0.3297,0.8346,0.5811,0.2963,0.5968,surprise,0.3
+609,excited,2024-09-27T08:50:42+00:00,517,2,1,0.8,0.6,happiness,excited-positive,True,0.461,0.5022,0.8682,0.1842,0.6145,0.5095,0.3078,0.5754,happiness,0.8
+610,optimistic,2024-09-27T08:51:10+00:00,518,1,1,0.0,0.3,neutral,calm-positive,False,0.862,0.1591,0.608,0.0742,0.281,0.4932,0.2993,0.9078,neutral,0.0
+611,tired over loaded lacking focus,2024-09-27T09:40:31+00:00,519,3,5,-0.75,0.3,sadness,low-negative,True,0.2258,0.7168,0.7563,0.0907,0.6556,0.5752,0.1545,0.7499,sadness,-0.75
+612,tired over loaded lacking focus,2024-09-27T09:40:30+00:00,519,3,5,-0.75,0.3,sadness,low-negative,True,0.2902,0.5371,0.4862,0.0645,0.9699,0.5045,0.2153,0.541,disgust,-0.7
+613,tired over loaded lacking focus,2024-09-27T09:40:36+00:00,519,3,5,-0.75,0.3,sadness,low-negative,True,0.561,0.3485,0.8221,0.095,0.5043,0.3545,0.3069,0.7758,sadness,-0.75
+614,Happy,2024-09-27T09:48:06+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.2945,0.6963,0.8885,0.055,0.2752,0.5539,0.1485,0.8758,happiness,0.8
+615,Happy,2024-09-27T09:48:10+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.2404,0.7464,0.8145,0.1213,0.3456,0.5453,0.2288,0.9613,happiness,0.8
+616,Happy,2024-09-27T09:48:12+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.2744,0.7076,0.8372,0.132,0.4036,0.5406,0.2646,0.7328,neutral,0.0
+617,Happy,2024-09-27T09:48:12+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.1762,0.8232,0.7026,0.0646,0.2801,0.6033,0.2177,0.9404,happiness,0.8
+618,Happy,2024-09-27T09:48:13+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.167,0.8252,0.7257,0.0568,0.2257,0.4927,0.1999,0.9201,happiness,0.8
+619,Happy,2024-09-27T09:48:14+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.5071,0.4435,0.8371,0.2032,0.6406,0.525,0.2825,0.381,happiness,0.8
+620,Happy,2024-09-27T09:48:14+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.4561,0.4674,0.8425,0.2788,0.6408,0.4883,0.2601,0.5758,surprise,0.3
+621,Happy,2024-09-27T09:49:37+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.5855,0.3841,0.861,0.2895,0.5994,0.4921,0.31,0.8824,neutral,0.0
+622,Happy,2024-09-27T09:49:40+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.2175,0.7699,0.7941,0.0994,0.303,0.5068,0.208,0.7361,happiness,0.8
+623,Happy,2024-09-27T09:49:40+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.3295,0.4372,0.6454,0.2159,0.6915,0.4997,0.2355,0.7436,happiness,0.8
+624,Happy,2024-09-27T09:49:45+00:00,520,11,1,0.8,0.6,happiness,excited-positive,True,0.1523,0.8357,0.6642,0.035,0.1994,0.5187,0.1594,0.8759,neutral,0.0
+625,tired of work I want to drink beer and play golf ,2024-09-27T10:06:27+00:00,521,1,11,0.8,0.6,happiness,excited-positive,True,0.2382,0.6997,0.7791,0.0827,0.551,0.7156,0.1917,0.8528,sadness,-0.75
+626,i am confused,2024-09-27T10:19:04+00:00,522,1,3,0.3,0.8,surprise,excited-positive,True,0.2081,0.7661,0.7779,0.0449,0.3097,0.6903,0.2629,0.7299,neutral,0.0
+627,I am confused,2024-09-27T10:21:13+00:00,523,1,3,0.3,0.8,surprise,excited-positive,True,0.2462,0.7598,0.7598,0.0994,0.3771,0.5396,0.1961,0.8084,neutral,0.0
+628,playing golf with cola,2024-09-27T10:23:57+00:00,524,1,4,0.0,0.3,neutral,calm-positive,False,0.3891,0.5843,0.8927,0.1328,0.5322,0.5271,0.2958,0.6477,neutral,0.0
+629,good,2024-09-27T10:25:51+00:00,525,1,1,0.8,0.6,happiness,excited-positive,True,0.2405,0.7124,0.7937,0.0723,0.3936,0.5274,0.1862,0.9034,neutral,0.0
+630,mountain map walking rain flowers lichen,2024-09-27T10:27:28+00:00,526,1,6,0.0,0.3,neutral,calm-positive,False,0.3135,0.664,0.8095,0.204,0.6235,0.5341,0.2706,0.6378,neutral,0.0
+631,golf fairway cola,2024-09-27T10:31:33+00:00,527,1,3,0.0,0.3,neutral,calm-positive,False,0.4405,0.5356,0.8492,0.2552,0.6896,0.6675,0.2921,0.6968,neutral,0.0
+632,happy ,2024-09-27T10:42:21+00:00,528,1,1,0.8,0.6,happiness,excited-positive,True,0.1738,0.8094,0.7314,0.0557,0.233,0.512,0.1743,0.9326,neutral,0.0
+633,happy tardis star trek excited,2024-09-27T10:45:25+00:00,529,1,5,0.8,0.6,happiness,excited-positive,True,0.4362,0.5305,0.665,0.2055,0.8394,0.3753,0.2949,0.551,disgust,-0.7
+634,joyful optimistic intrigued hopeful curious particular,2024-09-27T11:06:06+00:00,530,1,6,0.8,0.6,happiness,excited-positive,True,0.2182,0.7352,0.7516,0.1533,0.5977,0.4866,0.2128,0.8622,neutral,0.0
+635,"anxious, uncertain but hopeful and growth oriented.",2024-09-27T11:15:26+00:00,531,1,7,0.8,0.6,happiness,excited-positive,True,0.7424,0.221,0.6037,0.3449,0.6794,0.4851,0.2888,0.6146,sadness,-0.75
+636,i feel hungry but at peace with what ive accomplished so far,2024-09-27T11:16:57+00:00,532,1,12,0.8,0.6,happiness,excited-positive,True,0.525,0.497,0.817,0.1985,0.6684,0.44,0.2946,0.6376,neutral,0.0
+637,bored,2024-09-27T11:19:21+00:00,533,1,1,-0.75,0.3,sadness,low-negative,True,0.1745,0.8062,0.7317,0.0466,0.2166,0.4441,0.1675,0.8753,disgust,-0.7
+638,happy with grandchildren,2024-09-27T11:26:22+00:00,534,1,3,0.8,0.6,happiness,excited-positive,True,0.3016,0.6676,0.8452,0.1784,0.5199,0.5695,0.2589,0.694,neutral,0.0
+639,overwhelmed and tired but generally happy.,2024-09-27T12:38:32+00:00,535,1,6,0.8,0.6,happiness,excited-positive,True,0.5359,0.4458,0.892,0.2777,0.5697,0.4969,0.2766,0.4011,neutral,0.0
+640,tired and happy but excited,2024-09-27T12:39:27+00:00,536,1,5,0.8,0.6,happiness,excited-positive,True,0.4786,0.494,0.8871,0.2013,0.644,0.5038,0.3257,0.5488,fear,-0.65
+641,inspired intrigued confused enlightened joyful,2024-09-27T12:52:06+00:00,537,1,5,0.3,0.8,surprise,excited-positive,True,0.2896,0.5215,0.698,0.1683,0.6367,0.496,0.1974,0.7,neutral,0.0
+642,i feel like sandra botticelli,2024-09-27T12:54:34+00:00,538,1,5,0.0,0.3,neutral,calm-positive,False,0.5717,0.3909,0.7053,0.1945,0.8208,0.4542,0.3087,0.541,disgust,-0.7
+643,i feel like sandro botticelli,2024-09-27T12:55:20+00:00,539,2,5,0.0,0.3,neutral,calm-positive,False,0.5143,0.4352,0.7362,0.2796,0.8867,0.4667,0.2914,0.6083,sadness,-0.75
+644,i feel like sandro botticelli,2024-09-27T12:55:33+00:00,539,2,5,0.0,0.3,neutral,calm-positive,False,0.373,0.5287,0.6483,0.3846,0.9759,0.4784,0.2955,0.67,neutral,0.0
+645,full open interested light calm,2024-09-27T12:58:04+00:00,540,1,5,0.0,0.3,neutral,calm-positive,False,0.6576,0.3438,0.7799,0.1029,0.51,0.4766,0.3253,0.9697,neutral,0.0
+646,happy curious overloaded with admin ,2024-09-27T13:00:52+00:00,541,1,5,0.8,0.6,happiness,excited-positive,True,0.3045,0.66,0.8057,0.3197,0.6427,0.5541,0.2555,0.6258,surprise,0.3
+647,stressed out but perfect now I'm in here and I'm an artist,2024-09-27T13:02:35+00:00,542,1,12,0.8,0.6,happiness,excited-positive,True,0.6623,0.3601,0.8254,0.1145,0.4918,0.5084,0.3208,0.6706,disgust,-0.7
+648,tired elated hopeful and excited for Monday ,2024-09-27T13:05:41+00:00,543,1,7,0.8,0.6,happiness,excited-positive,True,0.0841,0.7971,0.4403,0.1168,0.3555,0.5344,0.223,0.8659,sadness,-0.75
+649,tired elated happy,2024-09-27T13:06:44+00:00,544,1,3,0.8,0.6,happiness,excited-positive,True,0.5866,0.3591,0.7217,0.2436,0.819,0.4923,0.2805,0.6718,neutral,0.0
+650,"happy, enthusiastic, interested, curious",2024-09-27T13:08:33+00:00,545,1,4,0.8,0.6,happiness,excited-positive,True,0.3709,0.5667,0.8153,0.3306,0.7452,0.4975,0.3006,0.5001,fear,-0.65
+651,open curious adventurous,2024-09-27T13:16:20+00:00,546,1,3,0.8,0.6,happiness,excited-positive,True,0.4199,0.5477,0.8807,0.2388,0.6137,0.4945,0.2849,0.4936,fear,-0.65
+652,happy sad excited tired bouncy hungry warm tired calm interested happy restless,2024-09-27T13:24:44+00:00,547,1,12,0.8,0.6,happiness,excited-positive,True,0.3981,0.5501,0.8657,0.2923,0.6537,0.512,0.289,0.6518,surprise,0.3
+653,"slightly low, a little lacking in energy but not so bad as other days",2024-09-27T13:40:50+00:00,548,1,14,-0.75,0.3,sadness,low-negative,True,0.4515,0.537,0.5669,0.2211,0.8752,0.4167,0.2575,0.6056,sadness,-0.75
+654,amazing and satisified,2024-09-27T13:44:21+00:00,549,4,3,0.8,0.6,happiness,excited-positive,True,0.8517,0.1305,0.5508,0.1677,0.4027,0.4992,0.3018,0.7914,neutral,0.0
+655,amazing and satisified,2024-09-27T13:44:35+00:00,549,4,3,0.8,0.6,happiness,excited-positive,True,0.6593,0.2964,0.7823,0.0955,0.54,0.4653,0.3185,0.8123,neutral,0.0
+656,amazing and satisified,2024-09-27T13:44:34+00:00,549,4,3,0.8,0.6,happiness,excited-positive,True,0.4788,0.4628,0.7898,0.4099,0.8184,0.5239,0.293,0.7976,neutral,0.0
+657,amazing and satisified,2024-09-27T13:44:39+00:00,549,4,3,0.8,0.6,happiness,excited-positive,True,0.418,0.5147,0.842,0.1143,0.6251,0.6584,0.3148,0.6187,neutral,0.0
+658,Relieved and proud and also worried about the future,2024-09-27T13:50:00+00:00,550,1,9,0.8,0.6,happiness,excited-positive,True,0.2852,0.7026,0.8651,0.0972,0.3383,0.6063,0.2216,0.7487,sadness,-0.75
+659,i want a takeaway,2024-09-27T13:52:44+00:00,551,1,4,0.8,0.6,happiness,excited-positive,True,0.1091,0.8753,0.5971,0.0521,0.2378,0.5435,0.1344,0.8972,neutral,0.0
+660,hungry and wants a takeaway,2024-09-27T14:05:00+00:00,552,1,5,0.0,0.3,neutral,calm-positive,False,0.3628,0.5873,0.8487,0.1513,0.6374,0.552,0.2796,0.5052,neutral,0.0
+661,happy to be back in a place i call home ,2024-09-27T14:05:49+00:00,553,1,10,0.8,0.6,happiness,excited-positive,True,0.4901,0.4655,0.8423,0.3287,0.7179,0.509,0.2925,0.5599,fear,-0.65
+662,good positive productive excited and very very lucky,2024-09-27T14:10:43+00:00,554,1,8,0.8,0.6,happiness,excited-positive,True,0.3451,0.6269,0.8744,0.2305,0.5284,0.5476,0.2655,0.6074,neutral,0.0
+663,i am feeling sleepy,2024-09-27T14:14:44+00:00,555,1,4,0.0,0.3,neutral,calm-positive,False,0.3142,0.6624,0.8819,0.068,0.396,0.6531,0.2242,0.645,fear,-0.65
+664,shamita,2024-09-27T14:15:27+00:00,556,1,1,0.0,0.3,neutral,calm-positive,False,0.1553,0.5765,0.624,0.089,0.4507,0.4944,0.1264,0.8839,surprise,0.3
+665,vinu,2024-09-27T14:16:01+00:00,557,1,1,0.0,0.3,neutral,calm-positive,False,0.2999,0.5247,0.6686,0.0303,0.4396,0.5173,0.1418,0.9588,sadness,-0.75
+666,inspired relaxed fun friendly,2024-09-27T14:16:56+00:00,558,1,4,0.8,0.6,happiness,excited-positive,True,0.2329,0.6707,0.7281,0.1831,0.5753,0.5087,0.2813,0.7104,neutral,0.0
+667,inspired relaxed fun friendly man,2024-09-27T14:19:05+00:00,559,1,5,0.8,0.6,happiness,excited-positive,True,0.2285,0.7574,0.8085,0.0896,0.306,0.5188,0.2516,0.921,happiness,0.8
+668,inspired relaxed fun friendly,2024-09-27T14:19:54+00:00,560,1,4,0.8,0.6,happiness,excited-positive,True,0.2905,0.6901,0.8497,0.2146,0.4646,0.5061,0.239,0.6888,happiness,0.8
+669,trapped and sexually frustrated,2024-09-27T14:20:27+00:00,561,2,4,-0.75,0.3,sadness,low-negative,True,0.6267,0.3285,0.8355,0.0946,0.5028,0.5182,0.3162,0.935,surprise,0.3
+670,trapped and sexually frustrated,2024-09-27T14:20:38+00:00,561,2,4,-0.75,0.3,sadness,low-negative,True,0.4126,0.5412,0.8844,0.175,0.6307,0.4999,0.2489,0.502,neutral,0.0
+671,a little bit wobbly due to various worries in my life. But also optimistic about our country with a new government. happy to be going to a film and a meal with my husband,2024-09-27T14:24:27+00:00,562,1,34,0.8,0.6,happiness,excited-positive,True,0.2656,0.7193,0.8404,0.1201,0.3715,0.5114,0.2224,0.7743,neutral,0.0
+672,complicated disapointment curiosity sociability success ,2024-09-27T14:26:57+00:00,563,1,5,-0.75,0.3,sadness,low-negative,True,0.4382,0.5201,0.8354,0.4241,0.7512,0.5105,0.2854,0.5317,neutral,0.0
+673,happy proud concerned grateful,2024-09-27T14:30:47+00:00,564,2,4,0.8,0.6,happiness,excited-positive,True,0.6933,0.2994,0.8374,0.1826,0.4684,0.495,0.2971,0.7937,surprise,0.3
+674,happy proud concerned grateful,2024-09-27T14:30:53+00:00,564,2,4,0.8,0.6,happiness,excited-positive,True,0.4127,0.5635,0.9159,0.1567,0.4561,0.4897,0.262,0.6411,neutral,0.0
+675,curious expecting stressed despondent hopeful ,2024-09-27T14:35:31+00:00,565,1,5,0.8,0.6,happiness,excited-positive,True,0.2454,0.7105,0.7937,0.0753,0.472,0.4761,0.1926,0.8128,neutral,0.0
+676,not able to figure out were my life is taking me ,2024-09-27T14:38:01+00:00,566,1,11,0.3,0.8,surprise,excited-positive,True,0.46,0.5487,0.7701,0.055,0.5819,0.6075,0.3056,0.9269,neutral,0.0
+677,"I am feeling ecstatic about my new tattoo. I love rodents and used to keep multiple mice when I was younger. This tattoo is for terry nibbles, a rat who joined me in my wonderful house last year and h",2024-09-27T14:46:24+00:00,567,1,45,0.8,0.6,happiness,excited-positive,True,0.2301,0.7332,0.7358,0.2059,0.6338,0.5416,0.2192,0.7069,surprise,0.3
+678,curious,2024-09-27T14:53:11+00:00,568,1,1,0.8,0.6,happiness,excited-positive,True,0.4297,0.5353,0.8724,0.1614,0.6423,0.5063,0.3141,0.6097,neutral,0.0
+679,full,2024-09-27T14:55:35+00:00,569,1,1,0.0,0.3,neutral,calm-positive,False,0.2361,0.7526,0.7828,0.1153,0.3937,0.5946,0.2132,0.7956,neutral,0.0
+680,"sleep deprived, autumnal, cultured, steel",2024-09-27T14:59:27+00:00,570,1,5,-0.75,0.3,sadness,low-negative,True,0.3808,0.5679,0.8058,0.172,0.7659,0.557,0.2463,0.6132,neutral,0.0
+681,yippee woohoo,2024-09-27T15:01:07+00:00,571,1,2,0.0,0.3,neutral,calm-positive,False,0.3084,0.6729,0.8714,0.1683,0.4331,0.5072,0.2473,0.6566,happiness,0.8
+682,horrified ghoulish spooky scary skeletal shivering my spine,2024-09-27T15:02:23+00:00,572,1,8,-0.65,0.75,fear,tense-negative,True,0.5887,0.3687,0.7661,0.3795,0.7779,0.5242,0.3003,0.7599,anger,-0.7
+683,cheery wonderful happy energetic eager ecstatic,2024-09-27T15:03:35+00:00,573,1,6,0.8,0.6,happiness,excited-positive,True,0.258,0.5969,0.5905,0.4712,0.9649,0.4314,0.2837,0.5961,fear,-0.65
+684,trippy hallucinating sparked drugged,2024-09-27T15:05:10+00:00,574,1,4,0.0,0.3,neutral,calm-positive,False,0.2663,0.6074,0.5556,0.2208,0.962,0.4132,0.2469,0.5826,neutral,0.0
+685,contours outdoorsy hiking wild green blue,2024-09-27T15:06:10+00:00,575,1,6,0.0,0.3,neutral,calm-positive,False,0.5984,0.3492,0.7614,0.1951,0.6694,0.603,0.2929,0.6757,neutral,0.0
+686,meme funny hilarious sonic lemon,2024-09-27T15:07:28+00:00,576,1,5,0.8,0.6,happiness,excited-positive,True,0.279,0.6908,0.8286,0.1494,0.4862,0.5291,0.2247,0.6677,disgust,-0.7
+687,tired,2024-09-27T15:08:49+00:00,577,1,1,-0.75,0.3,sadness,low-negative,True,0.1173,0.8521,0.6071,0.0322,0.2247,0.5235,0.1324,0.884,neutral,0.0
+688,excited,2024-09-27T15:10:05+00:00,578,1,1,0.8,0.6,happiness,excited-positive,True,0.396,0.5805,0.8868,0.1461,0.5614,0.6453,0.2768,0.7258,happiness,0.8
+689,trapped sexually frustrated and in need of a man,2024-09-27T15:18:07+00:00,579,1,9,-0.75,0.3,sadness,low-negative,True,0.5749,0.4031,0.8803,0.2904,0.5769,0.4825,0.2875,0.4914,sadness,-0.75
+690,irritated frustrated annoyed,2024-09-27T15:20:40+00:00,580,1,3,-0.7,0.8,anger,tense-negative,True,0.4161,0.5401,0.8981,0.1635,0.5199,0.5296,0.2676,0.8176,anger,-0.7
+691,hungry sleepy horny,2024-09-27T15:21:35+00:00,581,1,3,0.0,0.3,neutral,calm-positive,False,0.2011,0.8048,0.7208,0.06,0.2703,0.5125,0.2626,0.9178,sadness,-0.75
+692,calm but tired. Happy that it is the weekend,2024-09-27T15:44:32+00:00,582,1,9,0.8,0.6,happiness,excited-positive,True,0.294,0.6611,0.8356,0.0807,0.4281,0.7823,0.2859,0.8085,neutral,0.0
+693,excited to see my grandchildren and daughter. ,2024-09-27T15:48:22+00:00,583,1,7,0.8,0.6,happiness,excited-positive,True,0.1788,0.7774,0.6968,0.1717,0.5201,0.6091,0.2247,0.7962,neutral,0.0
+694,a woman in need of some loving,2024-09-27T15:49:30+00:00,584,1,7,0.8,0.6,happiness,excited-positive,True,0.5254,0.4835,0.7681,0.2117,0.6606,0.5105,0.2819,0.5085,sadness,-0.75
+695,looking forward to love in paris,2024-09-27T15:51:50+00:00,585,1,6,0.8,0.6,happiness,excited-positive,True,0.3215,0.6334,0.8243,0.1653,0.5614,0.669,0.2468,0.7043,neutral,0.0
+696,grateful to see sunshine,2024-09-28T09:07:54+00:00,586,1,4,0.8,0.6,happiness,excited-positive,True,0.435,0.5006,0.7429,0.0824,0.8839,0.5713,0.3066,0.7751,neutral,0.0
+697,"cool, calm and collected",2024-09-28T09:09:22+00:00,587,1,4,0.8,0.6,happiness,excited-positive,True,0.1581,0.8289,0.7021,0.0796,0.2761,0.5064,0.162,0.8382,neutral,0.0
+698,i need all the coffee,2024-09-28T09:10:05+00:00,588,1,5,0.0,0.3,neutral,calm-positive,False,0.6277,0.3317,0.6027,0.1933,0.8805,0.5001,0.3042,0.6567,neutral,0.0
+699,a scottish old lady ,2024-09-28T09:11:23+00:00,589,1,4,0.0,0.3,neutral,calm-positive,False,0.2039,0.7846,0.7413,0.1182,0.3746,0.6174,0.1453,0.8546,disgust,-0.7
+700,taking my collie for a walk in the countryside,2024-09-28T09:12:59+00:00,590,1,9,0.0,0.3,neutral,calm-positive,False,0.2908,0.6938,0.8188,0.1656,0.5099,0.5313,0.2596,0.6587,sadness,-0.75
+701,sunny sheffield,2024-09-28T09:13:25+00:00,591,1,2,0.8,0.6,happiness,excited-positive,True,0.5239,0.4557,0.7992,0.3143,0.7711,0.5263,0.3052,0.6005,fear,-0.65
+702,autumn is coming,2024-09-28T09:15:29+00:00,592,1,3,0.0,0.3,neutral,calm-positive,False,0.5089,0.4663,0.8984,0.1701,0.538,0.522,0.3168,0.7539,neutral,0.0
+703,an autumnal day,2024-09-28T09:17:02+00:00,593,1,3,0.0,0.3,neutral,calm-positive,False,0.4916,0.4339,0.684,0.2926,0.932,0.4973,0.3062,0.5132,neutral,0.0
+704,fresh coffee,2024-09-28T09:17:41+00:00,594,1,2,0.0,0.3,neutral,calm-positive,False,0.4643,0.4774,0.7872,0.3281,0.8257,0.5329,0.2806,0.5694,neutral,0.0
+705,"Looking forward to a very special birthday with family and friends, especially the ladies.",2024-09-28T09:19:58+00:00,595,1,14,0.8,0.6,happiness,excited-positive,True,0.2479,0.659,0.7086,0.2247,0.7659,0.5153,0.2665,0.6712,neutral,0.0
+706,Tired but enjoying working at the festival. Not looking forward to the analysis and reporting I'm going to have to do.,2024-09-28T09:21:55+00:00,596,1,21,0.8,0.6,happiness,excited-positive,True,0.4127,0.5268,0.8305,0.2284,0.7334,0.5759,0.2962,0.62,neutral,0.0
+707,wondering about biases in AI images and why most people seem to be white and male,2024-09-28T09:33:15+00:00,597,1,16,0.8,0.6,happiness,excited-positive,True,0.2652,0.7084,0.8194,0.0711,0.5113,0.5765,0.2452,0.7477,neutral,0.0
+708,A bit hungover. I've got a headache and my left knee aches but it's sunny and I'm having a lovely weekend away so overall not too bad. ,2024-09-28T09:39:43+00:00,598,1,27,0.8,0.6,happiness,excited-positive,True,0.4622,0.4942,0.8551,0.223,0.6895,0.5247,0.2627,0.5581,sadness,-0.75
+709,sitting on a stool in an art gallery not sure what the art means,2024-09-28T09:41:04+00:00,599,1,14,0.3,0.8,surprise,excited-positive,True,0.1902,0.7619,0.7254,0.1523,0.4495,0.4664,0.2792,0.7074,sadness,-0.75
+710,happy,2024-09-28T09:55:36+00:00,600,1,1,0.8,0.6,happiness,excited-positive,True,0.3269,0.6616,0.9046,0.0863,0.3307,0.5678,0.2359,0.9581,happiness,0.8
+711,cat and dog,2024-09-28T09:56:33+00:00,601,1,3,0.0,0.3,neutral,calm-positive,False,0.187,0.7988,0.7482,0.0855,0.2931,0.5798,0.2114,0.7976,surprise,0.3
+712,alien dog,2024-09-28T09:57:18+00:00,602,1,2,0.0,0.3,neutral,calm-positive,False,0.2797,0.7092,0.8715,0.0722,0.2987,0.5124,0.2129,0.7757,surprise,0.3
+713,minion,2024-09-28T10:00:30+00:00,603,1,1,0.0,0.3,neutral,calm-positive,False,0.2203,0.7675,0.8026,0.0566,0.2747,0.527,0.1126,0.9508,surprise,0.3
+714,kitchen,2024-09-28T10:01:56+00:00,604,1,1,0.0,0.3,neutral,calm-positive,False,0.2359,0.7468,0.8053,0.1031,0.4077,0.5272,0.2411,0.7113,neutral,0.0
+715,Happy blue sky familly,2024-09-28T10:04:07+00:00,605,1,4,0.8,0.6,happiness,excited-positive,True,0.2796,0.5367,0.7079,0.1736,0.7642,0.7224,0.2769,0.7243,neutral,0.0
+716,good and happy,2024-09-28T10:05:46+00:00,606,1,3,0.8,0.6,happiness,excited-positive,True,0.1244,0.813,0.5726,0.1668,0.5462,0.6074,0.3156,0.8116,happiness,0.8
+717,water colour painting alien landscape,2024-09-28T10:07:07+00:00,607,1,5,0.0,0.3,neutral,calm-positive,False,0.3997,0.535,0.7056,0.1482,0.9171,0.5378,0.2996,0.6686,neutral,0.0
+718,"legs are sore, cycling big hills",2024-09-28T10:17:50+00:00,608,1,6,-0.75,0.3,sadness,low-negative,True,0.44,0.5433,0.9419,0.1137,0.3991,0.6437,0.2493,0.6329,fear,-0.65
+719,tired and sleepy from girls night,2024-09-28T10:19:14+00:00,609,1,6,-0.75,0.3,sadness,low-negative,True,0.2829,0.6997,0.853,0.1374,0.3976,0.5911,0.2602,0.6335,neutral,0.0
+720,boredom,2024-09-28T10:23:34+00:00,610,1,1,-0.7,0.8,anger,tense-negative,True,0.7692,0.2191,0.7685,0.0952,0.3606,0.5009,0.3168,0.8286,sadness,-0.75
+721,curious,2024-09-28T10:24:16+00:00,611,1,1,0.8,0.6,happiness,excited-positive,True,0.239,0.7121,0.7808,0.0794,0.574,0.4888,0.205,0.6662,surprise,0.3
+722,spider penguin,2024-09-28T10:25:07+00:00,612,1,2,0.0,0.3,neutral,calm-positive,False,0.2156,0.7584,0.7646,0.1361,0.3966,0.5997,0.2439,0.7635,fear,-0.65
+723,crocodile dragon,2024-09-28T10:25:37+00:00,613,1,2,0.0,0.3,neutral,calm-positive,False,0.3199,0.6641,0.8216,0.1817,0.5576,0.4763,0.2131,0.7075,fear,-0.65
+724,shit,2024-09-28T10:31:41+00:00,614,1,1,0.0,0.3,neutral,calm-positive,False,0.5856,0.3982,0.7358,0.0444,0.7205,0.6234,0.294,0.7923,neutral,0.0
+725,compressed,2024-09-28T10:32:22+00:00,615,1,1,0.0,0.3,neutral,calm-positive,False,0.493,0.4447,0.7551,0.1077,0.8629,0.4981,0.2982,0.4703,neutral,0.0
+726,good,2024-09-28T10:34:14+00:00,616,1,1,0.8,0.6,happiness,excited-positive,True,0.4422,0.5329,0.6625,0.135,0.8305,0.6491,0.3082,0.6204,neutral,0.0
+727,interesting delicious amazing,2024-09-28T10:35:05+00:00,617,1,3,0.8,0.6,happiness,excited-positive,True,0.3849,0.5769,0.8543,0.3393,0.6616,0.4945,0.2588,0.595,disgust,-0.7
+728,interesting,2024-09-28T10:35:39+00:00,618,1,1,0.8,0.6,happiness,excited-positive,True,0.7227,0.2574,0.6638,0.2332,0.7352,0.4718,0.3027,0.6654,neutral,0.0
+729,excited to discover new things,2024-09-28T10:38:52+00:00,619,1,5,0.8,0.6,happiness,excited-positive,True,0.3544,0.5585,0.7087,0.4349,0.9047,0.5256,0.2852,0.5711,disgust,-0.7
+730,calm,2024-09-28T10:42:55+00:00,620,2,1,0.0,0.3,neutral,calm-positive,False,0.1169,0.7384,0.4958,0.0446,0.7826,0.6781,0.1106,0.8066,neutral,0.0
+731,calm,2024-09-28T10:42:58+00:00,620,2,1,0.0,0.3,neutral,calm-positive,False,0.1957,0.7765,0.7061,0.1182,0.483,0.5138,0.1992,0.9244,neutral,0.0
+732,violent,2024-09-28T10:43:44+00:00,621,1,1,0.0,0.3,neutral,calm-positive,False,0.7833,0.204,0.6198,0.1894,0.5635,0.5044,0.3089,0.7918,fear,-0.65
+733,I feel the power of the sunset in a mountain and sea scape,2024-09-28T10:55:30+00:00,622,1,13,0.8,0.6,happiness,excited-positive,True,0.7711,0.246,0.6964,0.1261,0.5597,0.5095,0.3194,0.9134,neutral,0.0
+734,detailed description of a sunset landscape by the sea,2024-09-28T10:56:31+00:00,623,1,9,0.0,0.3,neutral,calm-positive,False,0.6887,0.2895,0.6454,0.1098,0.7441,0.5095,0.3034,0.82,neutral,0.0
+735,can you give colour to a very detailed sunset seascape? ,2024-09-28T10:59:00+00:00,624,1,10,0.8,0.6,happiness,excited-positive,True,0.7672,0.2558,0.4754,0.0818,0.8382,0.5177,0.3141,0.7485,neutral,0.0
+736,festival of words book litruture,2024-09-28T11:01:46+00:00,625,1,5,0.0,0.3,neutral,calm-positive,False,0.4473,0.4943,0.797,0.2559,0.8185,0.4303,0.2891,0.6356,neutral,0.0
+737,Magical,2024-09-28T11:12:04+00:00,626,1,1,0.0,0.3,neutral,calm-positive,False,0.673,0.301,0.5976,0.2823,0.887,0.4572,0.297,0.5958,fear,-0.65
+738,Magical happiness pleasure ,2024-09-28T11:13:33+00:00,627,1,3,0.8,0.6,happiness,excited-positive,True,0.4723,0.4473,0.6907,0.3916,0.9343,0.4811,0.3029,0.5457,neutral,0.0
+739,feeling good looking forward to see [name] play water polo,2024-09-28T11:24:27+00:00,628,1,10,0.8,0.6,happiness,excited-positive,True,0.2445,0.6685,0.7303,0.1931,0.631,0.551,0.1819,0.8016,disgust,-0.7
+740,relaxed,2024-09-28T11:38:39+00:00,629,1,1,0.0,0.3,neutral,calm-positive,False,0.5081,0.4542,0.8588,0.3556,0.676,0.4953,0.2868,0.5771,neutral,0.0
+741,"Still feeling full of my breakfast, tired but happy with the weather",2024-09-28T11:40:11+00:00,630,1,12,0.8,0.6,happiness,excited-positive,True,0.2666,0.7204,0.8559,0.0845,0.3092,0.5855,0.2131,0.8079,happiness,0.8
+742,fuzzy,2024-09-28T11:42:05+00:00,631,1,1,0.0,0.3,neutral,calm-positive,False,0.1348,0.8295,0.5993,0.0294,0.4799,0.507,0.105,0.8639,fear,-0.65
+743,flubby,2024-09-28T11:43:22+00:00,632,1,1,0.0,0.3,neutral,calm-positive,False,0.2133,0.7605,0.7967,0.0339,0.2872,0.554,0.2722,0.948,surprise,0.3
+744,flat,2024-09-28T11:44:14+00:00,633,1,1,0.0,0.3,neutral,calm-positive,False,0.4115,0.5897,0.9023,0.0445,0.4365,0.5004,0.3518,0.8867,neutral,0.0
+745,ok,2024-09-28T11:46:09+00:00,634,4,1,0.0,0.3,neutral,calm-positive,False,0.5198,0.4174,0.6887,0.225,0.9038,0.5396,0.3145,0.5582,neutral,0.0
+746,ok,2024-09-28T11:46:13+00:00,634,4,1,0.0,0.3,neutral,calm-positive,False,0.3866,0.5905,0.8856,0.0482,0.4027,0.4915,0.2397,0.8636,neutral,0.0
+747,ok,2024-09-28T11:46:14+00:00,634,4,1,0.0,0.3,neutral,calm-positive,False,0.2881,0.6021,0.7186,0.1121,0.7971,0.5731,0.2502,0.6647,neutral,0.0
+748,ok,2024-09-28T11:46:14+00:00,634,4,1,0.0,0.3,neutral,calm-positive,False,0.5065,0.4523,0.6791,0.2225,0.8511,0.5753,0.3058,0.5782,neutral,0.0
+749,I feel like how a plant would feel if it had lemon juice instead of water,2024-09-28T11:48:24+00:00,635,1,16,0.0,0.3,neutral,calm-positive,False,0.0583,0.7602,0.3482,0.0853,0.4681,0.5087,0.1721,0.902,disgust,-0.7
+750,[name],2024-09-28T11:49:13+00:00,636,1,2,0.0,0.3,neutral,calm-positive,False,0.3145,0.67,0.8851,0.0973,0.3628,0.5575,0.1803,0.8654,sadness,-0.75
+751,[name],2024-09-28T11:50:00+00:00,637,1,2,0.0,0.3,neutral,calm-positive,False,0.3017,0.6796,0.8813,0.0858,0.3517,0.4526,0.2541,0.7417,neutral,0.0
+752,tired but happy,2024-09-28T12:03:06+00:00,638,1,3,0.8,0.6,happiness,excited-positive,True,0.1274,0.8603,0.6471,0.0354,0.1796,0.6275,0.1238,0.9091,neutral,0.0
+753,tired. sleepy.  Chilled.  Slightly worried about new tyres for car.  Enjoying being back in sheffield.  Hungry,2024-09-28T12:12:09+00:00,639,1,16,0.8,0.6,happiness,excited-positive,True,0.2646,0.6948,0.7775,0.1959,0.5945,0.538,0.2816,0.6847,disgust,-0.7
+754,"thinking of getting a van gogh tattoo, I'm very tired as well",2024-09-28T12:13:44+00:00,640,1,12,0.8,0.6,happiness,excited-positive,True,0.2798,0.667,0.7587,0.2421,0.674,0.5528,0.1761,0.7627,disgust,-0.7
+755,content and excited,2024-09-28T12:16:53+00:00,641,1,3,0.8,0.6,happiness,excited-positive,True,0.2968,0.6877,0.8125,0.1523,0.5333,0.533,0.2399,0.7159,happiness,0.8
+756,confused and suprised,2024-09-28T12:18:25+00:00,642,1,3,0.3,0.8,surprise,excited-positive,True,0.1126,0.8792,0.6124,0.0526,0.1905,0.4663,0.1652,0.8861,surprise,0.3
+757,feeling happy and loved,2024-09-28T12:19:48+00:00,643,1,4,0.8,0.6,happiness,excited-positive,True,0.3489,0.6161,0.8758,0.1785,0.5194,0.5266,0.2457,0.6206,happiness,0.8
+758,normal,2024-09-28T12:23:05+00:00,644,1,1,0.0,0.3,neutral,calm-positive,False,0.2604,0.5923,0.7395,0.1736,0.5976,0.5438,0.2721,0.7388,sadness,-0.75
+759,nice curiouse,2024-09-28T12:24:40+00:00,645,1,2,0.8,0.6,happiness,excited-positive,True,0.2921,0.6528,0.7444,0.3783,0.7613,0.4927,0.2924,0.636,neutral,0.0
+760,nice curious,2024-09-28T12:24:52+00:00,646,1,2,0.8,0.6,happiness,excited-positive,True,0.482,0.5096,0.8868,0.117,0.561,0.5017,0.3247,0.6835,neutral,0.0
+761,magical happy ,2024-09-28T12:26:29+00:00,647,1,2,0.8,0.6,happiness,excited-positive,True,0.1906,0.7852,0.6414,0.1963,0.5429,0.5283,0.2034,0.7866,neutral,0.0
+762,magical curious and excited,2024-09-28T12:28:31+00:00,648,1,4,0.8,0.6,happiness,excited-positive,True,0.6082,0.434,0.8193,0.1803,0.5611,0.4933,0.3142,0.6739,happiness,0.8
+763,excited,2024-09-28T12:31:35+00:00,649,1,1,0.8,0.6,happiness,excited-positive,True,0.563,0.4016,0.6999,0.2316,0.908,0.4874,0.2486,0.3845,surprise,0.3
+764,excited to explore a new city,2024-09-28T12:33:10+00:00,650,1,6,0.8,0.6,happiness,excited-positive,True,0.1483,0.7048,0.5338,0.2452,0.8391,0.61,0.3159,0.7615,neutral,0.0
+765,"alive, sad excited calm happy, comfortable",2024-09-28T12:37:16+00:00,651,1,6,0.8,0.6,happiness,excited-positive,True,0.1944,0.7866,0.7475,0.0896,0.3762,0.5004,0.2475,0.8262,fear,-0.65
+766,feeling fortunate for what i have,2024-09-28T12:40:15+00:00,652,1,6,0.8,0.6,happiness,excited-positive,True,0.2762,0.707,0.8444,0.1217,0.3894,0.5433,0.2247,0.7334,neutral,0.0
+767,new,2024-09-28T12:44:15+00:00,653,1,1,0.0,0.3,neutral,calm-positive,False,0.7808,0.2331,0.7412,0.0889,0.4429,0.4897,0.3096,0.7605,fear,-0.65
+768,optimistic,2024-09-28T12:48:35+00:00,654,1,1,0.0,0.3,neutral,calm-positive,False,0.4152,0.5181,0.7479,0.1925,0.8381,0.5752,0.3125,0.6808,fear,-0.65
+769,good,2024-09-28T12:56:05+00:00,655,1,1,0.8,0.6,happiness,excited-positive,True,0.4724,0.5152,0.8837,0.032,0.5966,0.7293,0.2913,0.8029,neutral,0.0
+770,I feel amazing. And happy.,2024-09-28T12:57:49+00:00,656,1,5,0.8,0.6,happiness,excited-positive,True,0.3835,0.596,0.9271,0.0823,0.39,0.6722,0.2955,0.6776,happiness,0.8
+771,excited to draw with the printer,2024-09-28T13:01:00+00:00,657,1,6,0.8,0.6,happiness,excited-positive,True,0.5214,0.5033,0.74,0.3253,0.7718,0.5199,0.267,0.6065,disgust,-0.7
+772,i am feeling slightly hungover but curious about science and excited about learning,2024-09-28T13:03:10+00:00,658,1,13,0.8,0.6,happiness,excited-positive,True,0.2517,0.6585,0.7172,0.1786,0.7558,0.6015,0.2219,0.7198,neutral,0.0
+773,"excited, interested, robotics, mind, existence",2024-09-28T13:07:11+00:00,659,1,5,0.8,0.6,happiness,excited-positive,True,0.2486,0.7372,0.7181,0.1922,0.5667,0.6062,0.2482,0.7173,neutral,0.0
+774,"happy, tired, loved",2024-09-28T13:10:48+00:00,660,1,3,0.8,0.6,happiness,excited-positive,True,0.2687,0.7089,0.8299,0.1965,0.453,0.5356,0.2098,0.7313,neutral,0.0
+775,friends family mountains music,2024-09-28T13:19:04+00:00,661,1,4,0.0,0.3,neutral,calm-positive,False,0.4546,0.5183,0.8965,0.1863,0.5546,0.6235,0.2744,0.7153,neutral,0.0
+776,having  fun with my children at the weekend,2024-09-28T13:20:18+00:00,662,1,8,0.8,0.6,happiness,excited-positive,True,0.2418,0.7396,0.8237,0.0681,0.3514,0.6351,0.2314,0.7654,neutral,0.0
+777,I've got a bit of a cold,2024-09-28T13:28:10+00:00,663,1,7,0.0,0.3,neutral,calm-positive,False,0.644,0.332,0.8805,0.094,0.3999,0.4957,0.3143,0.6967,neutral,0.0
+778,\\i feel very stimulated and excited with so many things at the same time.,2024-09-28T13:31:52+00:00,664,1,14,0.8,0.6,happiness,excited-positive,True,0.7757,0.2182,0.765,0.1155,0.3343,0.5047,0.3073,0.7422,neutral,0.0
+779,"Peaceful, and a reunion of friends and family",2024-09-28T13:33:05+00:00,665,1,8,0.8,0.6,happiness,excited-positive,True,0.414,0.5195,0.8245,0.2393,0.7363,0.5747,0.2908,0.6091,neutral,0.0
+780,Excited for the cold and Christmas,2024-09-28T13:34:14+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.5397,0.4718,0.7954,0.1928,0.7168,0.4325,0.3041,0.6641,fear,-0.65
+781,Excited for the cold and Christmas,2024-09-28T13:34:20+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.2836,0.6615,0.7809,0.2019,0.7352,0.5732,0.2973,0.7492,neutral,0.0
+782,Excited for the cold and Christmas,2024-09-28T13:34:25+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.347,0.5721,0.6287,0.3261,0.9185,0.5517,0.2955,0.6049,neutral,0.0
+783,Excited for the cold and Christmas,2024-09-28T13:34:26+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.3469,0.5532,0.559,0.0737,0.9699,0.3189,0.2825,0.7563,neutral,0.0
+784,Excited for the cold and Christmas,2024-09-28T13:34:30+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.6366,0.3453,0.7491,0.2239,0.7458,0.4647,0.2931,0.5788,fear,-0.65
+785,Excited for the cold and Christmas,2024-09-28T13:34:31+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.5046,0.4086,0.6454,0.2412,0.9153,0.3464,0.2767,0.6754,neutral,0.0
+786,Excited for the cold and Christmas,2024-09-28T13:34:31+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.4837,0.4588,0.5635,0.3219,0.9721,0.4591,0.303,0.5746,neutral,0.0
+787,Excited for the cold and Christmas,2024-09-28T13:36:18+00:00,666,8,6,0.8,0.6,happiness,excited-positive,True,0.3049,0.6617,0.8173,0.2697,0.6255,0.5074,0.298,0.6169,neutral,0.0
+788,happy,2024-09-28T13:36:50+00:00,667,1,1,0.8,0.6,happiness,excited-positive,True,0.069,0.9059,0.4854,0.0207,0.1585,0.5551,0.1353,0.9348,happiness,0.8
+789,Excited for a cold and colourful Christmas.,2024-09-28T13:38:19+00:00,668,1,7,0.8,0.6,happiness,excited-positive,True,0.2328,0.6383,0.5457,0.2748,0.9197,0.5676,0.3006,0.6525,neutral,0.0
+790,largely happy,2024-09-28T13:39:32+00:00,669,1,2,0.8,0.6,happiness,excited-positive,True,0.0736,0.9224,0.4581,0.0388,0.1531,0.5581,0.127,0.9794,neutral,0.0
+791,unsure and I have a feeling of woe,2024-09-28T13:41:33+00:00,670,1,8,-0.75,0.3,sadness,low-negative,True,0.4062,0.5542,0.8754,0.1298,0.6242,0.5089,0.251,0.7566,sadness,-0.75
+792,angry and comfused,2024-09-28T13:42:57+00:00,671,1,3,0.0,0.3,neutral,calm-positive,False,0.6369,0.4201,0.7926,0.1643,0.6011,0.4815,0.2915,0.8276,disgust,-0.7
+793,demure and mindful,2024-09-28T13:45:13+00:00,672,1,3,0.0,0.3,neutral,calm-positive,False,0.5303,0.4615,0.6863,0.243,0.8935,0.4985,0.3314,0.6716,sadness,-0.75
+794,calm and tired,2024-09-28T13:46:33+00:00,673,1,3,0.0,0.3,neutral,calm-positive,False,0.2554,0.6974,0.7049,0.0928,0.6466,0.7327,0.345,0.7931,neutral,0.0
+795,sensitive,2024-09-28T13:48:57+00:00,674,2,1,0.0,0.3,neutral,calm-positive,False,0.2216,0.7728,0.7554,0.0512,0.3001,0.5219,0.1916,0.8286,neutral,0.0
+796,sensitive,2024-09-28T13:49:34+00:00,674,2,1,0.0,0.3,neutral,calm-positive,False,0.8814,0.1144,0.6129,0.0423,0.1746,0.5003,0.3008,0.8341,disgust,-0.7
+797,relaxed,2024-09-28T13:50:15+00:00,675,1,1,0.0,0.3,neutral,calm-positive,False,0.1995,0.7516,0.6651,0.1625,0.6341,0.5689,0.2409,0.8484,neutral,0.0
+798,anxious,2024-09-28T13:50:55+00:00,676,2,1,-0.65,0.75,fear,tense-negative,True,0.7295,0.2906,0.7405,0.1674,0.5762,0.505,0.3047,0.7543,fear,-0.65
+799,anxious,2024-09-28T13:51:22+00:00,676,2,1,-0.65,0.75,fear,tense-negative,True,0.3563,0.6167,0.8642,0.2655,0.5869,0.5367,0.2347,0.6692,sadness,-0.75
+800,expectant,2024-09-28T13:52:04+00:00,677,1,1,0.0,0.3,neutral,calm-positive,False,0.5144,0.4748,0.9611,0.0664,0.3556,0.4891,0.2441,0.2377,sadness,-0.75
+801,Drowning feeling of tiredness and worries that comes from the fear,2024-09-28T13:54:13+00:00,678,1,11,-0.65,0.75,fear,tense-negative,True,0.4868,0.4491,0.7585,0.3063,0.8657,0.56,0.2857,0.5702,sadness,-0.75
+802,confused and joy,2024-09-28T13:55:26+00:00,679,1,3,0.3,0.8,surprise,excited-positive,True,0.3423,0.6276,0.8847,0.15,0.5389,0.5066,0.3266,0.6531,neutral,0.0
+803,happy,2024-09-28T13:59:23+00:00,680,1,1,0.8,0.6,happiness,excited-positive,True,0.3101,0.6738,0.8625,0.1571,0.4609,0.5465,0.2837,0.7109,neutral,0.0
+804,tired,2024-09-28T14:01:03+00:00,681,1,1,-0.75,0.3,sadness,low-negative,True,0.8381,0.1561,0.6972,0.0565,0.2182,0.4912,0.3091,0.8244,disgust,-0.7
+805,creative peaceful,2024-09-28T14:02:16+00:00,682,1,2,0.0,0.3,neutral,calm-positive,False,0.2603,0.6306,0.6198,0.0627,0.8091,0.7,0.3121,0.7747,neutral,0.0
+806,I feel calm and happy and enjoying the time with my daughter,2024-09-28T14:05:42+00:00,683,1,12,0.8,0.6,happiness,excited-positive,True,0.3046,0.6769,0.8805,0.0977,0.3762,0.6159,0.2326,0.5757,neutral,0.0
+807,golden retriever playful,2024-09-28T14:07:01+00:00,684,1,3,0.0,0.3,neutral,calm-positive,False,0.233,0.7632,0.7686,0.1133,0.3856,0.5426,0.2236,0.7259,surprise,0.3
+808,content and relaxed,2024-09-28T14:08:10+00:00,685,1,3,0.8,0.6,happiness,excited-positive,True,0.4273,0.5163,0.6877,0.1246,0.8507,0.5588,0.3324,0.7317,neutral,0.0
+809,excited but apprehensive,2024-09-28T14:10:57+00:00,686,1,3,-0.65,0.75,fear,tense-negative,True,0.4707,0.4653,0.7945,0.3132,0.7434,0.5092,0.2574,0.6538,surprise,0.3
+810,pensive and enthusiastic,2024-09-28T14:12:47+00:00,687,1,3,0.8,0.6,happiness,excited-positive,True,0.2362,0.7327,0.8088,0.0602,0.3209,0.6,0.1546,0.7527,sadness,-0.75
+811,excited but apprehensivw,2024-09-28T14:13:54+00:00,688,1,3,0.8,0.6,happiness,excited-positive,True,0.5113,0.4613,0.9006,0.2267,0.5691,0.4778,0.2995,0.5574,fear,-0.65
+812,sad looking outside a window missing a dearly person,2024-09-28T14:16:08+00:00,689,1,9,-0.75,0.3,sadness,low-negative,True,0.8053,0.226,0.5794,0.1157,0.6556,0.5085,0.3116,0.7407,sadness,-0.75
+813,highly intrigued,2024-09-28T14:17:49+00:00,690,1,2,0.8,0.6,happiness,excited-positive,True,0.2005,0.7611,0.7528,0.037,0.3838,0.5075,0.1577,0.86,neutral,0.0
+814,very happy to be with my family today,2024-09-28T14:19:08+00:00,691,1,8,0.8,0.6,happiness,excited-positive,True,0.2772,0.6922,0.8056,0.256,0.5642,0.5397,0.2837,0.6472,neutral,0.0
+815,happy being with my grandson,2024-09-28T14:22:54+00:00,692,1,5,0.8,0.6,happiness,excited-positive,True,0.3106,0.641,0.8046,0.3025,0.6752,0.5916,0.2565,0.6386,disgust,-0.7
+816,i'm feeling lucky kind of ,2024-09-28T14:25:04+00:00,693,1,5,0.8,0.6,happiness,excited-positive,True,0.3425,0.5873,0.7407,0.3427,0.8048,0.5051,0.2169,0.7751,neutral,0.0
+817,i am 9 years old and i am standing outside feeling nothing in particular,2024-09-28T14:29:50+00:00,694,1,14,0.0,0.3,neutral,calm-positive,False,0.2436,0.7149,0.713,0.2556,0.6762,0.5973,0.3125,0.6588,sadness,-0.75
+818,I am a middle aged woman who is missing her Mum,2024-09-28T14:31:48+00:00,695,1,11,-0.75,0.3,sadness,low-negative,True,0.422,0.5398,0.8464,0.2238,0.6985,0.5003,0.2996,0.5827,sadness,-0.75
+819,i am a nine year old boy scoring a goal in football and being happy,2024-09-28T14:34:38+00:00,696,1,15,0.8,0.6,happiness,excited-positive,True,0.0808,0.8827,0.5113,0.0843,0.2978,0.6749,0.1832,0.8701,disgust,-0.7
+820,overcharged excitement,2024-09-28T14:36:25+00:00,697,1,2,0.8,0.6,happiness,excited-positive,True,0.6121,0.3615,0.8704,0.1759,0.5221,0.4703,0.2939,0.5275,surprise,0.3
+821,Excited after 2 hours of cuban salsa dancing,2024-09-28T14:38:13+00:00,698,1,8,0.8,0.6,happiness,excited-positive,True,0.2483,0.735,0.8014,0.0967,0.3919,0.559,0.1994,0.7109,neutral,0.0
+822,calm labrador excited playing with a ball another dog,2024-09-28T14:40:01+00:00,699,1,9,0.8,0.6,happiness,excited-positive,True,0.2947,0.69,0.8709,0.1195,0.3703,0.5858,0.2737,0.6719,surprise,0.3
+823,a footballer in mancity,2024-09-28T14:41:53+00:00,700,1,4,0.0,0.3,neutral,calm-positive,False,0.2104,0.7785,0.7873,0.0759,0.2766,0.491,0.1947,0.7649,happiness,0.8
+824,"Happy, but with a niggling fear in the bag of mind",2024-09-28T14:42:49+00:00,701,1,11,0.8,0.6,happiness,excited-positive,True,0.4398,0.5606,0.8792,0.0754,0.5108,0.5322,0.2124,0.6069,neutral,0.0
+825,happy with a full belly,2024-09-28T14:43:52+00:00,702,1,5,0.8,0.6,happiness,excited-positive,True,0.2202,0.7672,0.8025,0.0658,0.2923,0.453,0.1809,0.9309,fear,-0.65
+826,a bored nine year old boy in school writing,2024-09-28T14:45:18+00:00,703,1,9,0.0,0.3,neutral,calm-positive,False,0.1996,0.7398,0.7081,0.1247,0.5618,0.4969,0.1637,0.8162,sadness,-0.75
+827,a ugly frog+,2024-09-28T14:47:16+00:00,704,1,3,-0.7,0.6,disgust,tense-negative,True,0.1908,0.8071,0.6714,0.1195,0.382,0.5561,0.2056,0.7993,surprise,0.3
+828,a nine year old boy missing his dead grandma,2024-09-28T14:48:32+00:00,705,1,9,-0.75,0.3,sadness,low-negative,True,0.3275,0.6375,0.8173,0.0657,0.6663,0.6704,0.2616,0.6857,sadness,-0.75
+829,good wierd,2024-09-28T14:50:14+00:00,706,1,2,0.8,0.6,happiness,excited-positive,True,0.3161,0.6536,0.8704,0.1187,0.4521,0.4994,0.2256,0.7726,neutral,0.0
+830,content inquisative,2024-09-28T14:51:55+00:00,707,1,2,0.0,0.3,neutral,calm-positive,False,0.129,0.8445,0.6347,0.0524,0.2514,0.428,0.1243,0.8712,neutral,0.0
+831,happy,2024-09-28T14:52:57+00:00,708,1,1,0.8,0.6,happiness,excited-positive,True,0.2673,0.6817,0.8085,0.0794,0.4673,0.5446,0.1952,0.7361,neutral,0.0
+832,very happy,2024-09-28T14:54:55+00:00,709,1,2,0.8,0.6,happiness,excited-positive,True,0.1115,0.8828,0.5856,0.0561,0.2071,0.4916,0.1457,0.8492,happiness,0.8
+833,inquisitive,2024-09-28T14:56:07+00:00,710,1,1,0.0,0.3,neutral,calm-positive,False,0.2267,0.7461,0.7683,0.0418,0.4804,0.4448,0.1852,0.7962,surprise,0.3
+834,make the most out of it,2024-09-28T14:56:47+00:00,711,1,6,0.0,0.3,neutral,calm-positive,False,0.5858,0.3867,0.6531,0.317,0.9302,0.5455,0.3002,0.6065,neutral,0.0
+835,excited to see new things like the star vr,2024-09-28T14:58:06+00:00,712,1,9,0.8,0.6,happiness,excited-positive,True,0.8058,0.2098,0.6201,0.1095,0.4883,0.4464,0.2865,0.8464,neutral,0.0
+836,stressed to buggery ,2024-09-28T14:59:13+00:00,713,1,3,0.0,0.3,neutral,calm-positive,False,0.3737,0.5366,0.725,0.26,0.8618,0.5078,0.2429,0.7727,anger,-0.7
+837,chipper,2024-09-28T15:03:37+00:00,714,1,1,0.0,0.3,neutral,calm-positive,False,0.2724,0.698,0.8107,0.2029,0.5049,0.5478,0.2153,0.6923,disgust,-0.7
+838,tuneful,2024-09-28T15:04:22+00:00,715,1,1,0.0,0.3,neutral,calm-positive,False,0.3499,0.5911,0.7891,0.3721,0.7549,0.5411,0.245,0.606,neutral,0.0
+839,"positive, productive,sleepy",2024-09-28T15:05:23+00:00,716,1,2,0.8,0.6,happiness,excited-positive,True,0.675,0.3112,0.793,0.1635,0.5942,0.4812,0.2843,0.7903,neutral,0.0
+840,hypnotised,2024-09-28T15:06:35+00:00,717,1,1,0.0,0.3,neutral,calm-positive,False,0.2933,0.6848,0.8727,0.0658,0.2876,0.5231,0.244,0.5516,disgust,-0.7
+841,"cold, battered and tired.",2024-09-28T15:08:30+00:00,718,1,4,-0.75,0.3,sadness,low-negative,True,0.3926,0.5769,0.7186,0.1144,0.7872,0.4324,0.2219,0.6613,sadness,-0.75
+842,"content, happy, jolly",2024-09-28T15:10:16+00:00,719,1,3,0.8,0.6,happiness,excited-positive,True,0.3168,0.6488,0.8567,0.1915,0.5244,0.5557,0.2877,0.5786,happiness,0.8
+843,autumnal active calm,2024-09-28T15:11:17+00:00,720,1,3,0.0,0.3,neutral,calm-positive,False,0.1887,0.7858,0.7316,0.1219,0.3475,0.5494,0.1997,0.8052,neutral,0.0
+844,apprehensive,2024-09-28T15:12:12+00:00,721,1,1,0.0,0.3,neutral,calm-positive,False,0.441,0.5443,0.9545,0.0611,0.3499,0.5892,0.2087,0.8952,disgust,-0.7
+845,good,2024-09-28T15:14:42+00:00,722,1,1,0.8,0.6,happiness,excited-positive,True,0.3431,0.5851,0.7331,0.0582,0.571,0.4801,0.2434,0.7775,neutral,0.0
+846,ok,2024-09-28T15:15:23+00:00,723,1,1,0.0,0.3,neutral,calm-positive,False,0.2814,0.6456,0.7191,0.158,0.7655,0.585,0.3281,0.7397,neutral,0.0
+847,festival of the mind,2024-09-28T15:16:50+00:00,724,1,4,0.0,0.3,neutral,calm-positive,False,0.2233,0.6736,0.6853,0.314,0.7994,0.5255,0.2987,0.6724,neutral,0.0
+848,eh i just did something exciting and now i'm quite happy,2024-09-28T15:22:47+00:00,725,1,11,0.8,0.6,happiness,excited-positive,True,0.2955,0.6862,0.8663,0.1331,0.404,0.5478,0.2881,0.6526,happiness,0.8
+849,i am a nine year old boy riding on an elephant and being happy,2024-09-28T15:24:34+00:00,726,1,14,0.8,0.6,happiness,excited-positive,True,0.3583,0.5983,0.6997,0.1197,0.8007,0.6152,0.2683,0.5539,neutral,0.0
+850,Im feeling like me preppy A 10 year old girl ,2024-09-28T15:26:11+00:00,727,1,10,0.0,0.3,neutral,calm-positive,False,0.1497,0.8194,0.643,0.1917,0.461,0.5193,0.1636,0.8174,sadness,-0.75
+851,A girl is sittintg in the ground in a void,2024-09-28T15:27:06+00:00,728,1,10,0.0,0.3,neutral,calm-positive,False,0.2406,0.6472,0.7152,0.097,0.5848,0.6099,0.2332,0.7548,sadness,-0.75
+852,A colourful butterfly swims in the sea.,2024-09-28T15:28:07+00:00,729,1,7,0.0,0.3,neutral,calm-positive,False,0.2336,0.6463,0.6878,0.2174,0.7414,0.6325,0.2878,0.8332,neutral,0.0
+853,under the weather,2024-09-28T15:30:27+00:00,730,1,3,0.0,0.3,neutral,calm-positive,False,0.6783,0.313,0.7142,0.2843,0.7075,0.4874,0.3232,0.7841,sadness,-0.75
+854,"happy, contentful",2024-09-28T15:31:52+00:00,731,1,2,0.8,0.6,happiness,excited-positive,True,0.6763,0.3359,0.7927,0.1747,0.588,0.5228,0.3017,0.6114,neutral,0.0
+855,"happy, nice sunny day",2024-09-28T15:32:33+00:00,732,1,4,0.8,0.6,happiness,excited-positive,True,0.3667,0.576,0.8017,0.3565,0.7789,0.5515,0.2827,0.5287,happiness,0.8
+856,i am in a city center with lots of buildings and lights ,2024-09-28T15:37:08+00:00,733,1,12,0.0,0.3,neutral,calm-positive,False,0.3227,0.5663,0.5583,0.2956,0.8982,0.5392,0.2921,0.6008,neutral,0.0
+857,"I feel hopeful and confused at the same time. I'm tired but my mind is full of energy. I am looking forward to a film later on, but not to the rain on Monday.",2024-09-28T15:39:01+00:00,734,1,34,0.8,0.6,happiness,excited-positive,True,0.3184,0.5615,0.7591,0.1307,0.5151,0.4862,0.2298,0.7624,neutral,0.0
+858,I am desparate and alone and in need of love,2024-09-28T15:40:06+00:00,735,1,10,-0.75,0.3,sadness,low-negative,True,0.5266,0.4586,0.9353,0.0641,0.346,0.6239,0.2953,0.5787,neutral,0.0
+859,very pleased this week I helped hundreds of people,2024-09-28T15:41:54+00:00,736,1,9,0.8,0.6,happiness,excited-positive,True,0.502,0.478,0.9385,0.0999,0.4297,0.6739,0.2575,0.6973,disgust,-0.7
+860,im a nine year old boy in a big lego city ,2024-09-28T15:43:26+00:00,737,1,11,0.0,0.3,neutral,calm-positive,False,0.337,0.6106,0.7952,0.2347,0.6882,0.5454,0.2927,0.6336,fear,-0.65
+861,I am a child playing by the river with large rocks and a few trees jumping into the water fprm the biggest rock,2024-09-28T15:46:00+00:00,738,1,23,0.0,0.3,neutral,calm-positive,False,0.4083,0.5399,0.863,0.2437,0.6373,0.529,0.2983,0.5872,neutral,0.0
+862,tired but happy,2024-09-28T15:47:31+00:00,739,1,3,0.8,0.6,happiness,excited-positive,True,0.3229,0.6145,0.8648,0.1381,0.5026,0.5384,0.2732,0.5732,happiness,0.8
+863,i am a male on top of the burg kalifa in the night,2024-09-28T15:49:21+00:00,740,1,13,0.0,0.3,neutral,calm-positive,False,0.6384,0.3318,0.7704,0.1707,0.6613,0.4142,0.2931,0.6161,fear,-0.65
+864,I am feeling sad but happy with my nine year old son,2024-09-28T15:50:06+00:00,741,1,12,-0.75,0.3,sadness,low-negative,True,0.4162,0.4906,0.8381,0.1147,0.5044,0.4768,0.2228,0.4986,sadness,-0.75
+865,"pain in jaw and neck and back, feeling like I have been left in a washing mashine",2024-09-28T15:53:25+00:00,742,1,17,-0.75,0.3,sadness,low-negative,True,0.4165,0.5729,0.9533,0.0855,0.3337,0.5134,0.2312,0.7581,disgust,-0.7
+866,okay,2024-09-29T10:02:39+00:00,743,1,1,0.8,0.6,happiness,excited-positive,True,0.5478,0.4023,0.7678,0.3678,0.8142,0.5101,0.2901,0.4813,disgust,-0.7
+867,happy,2024-09-29T10:03:12+00:00,744,1,1,0.8,0.6,happiness,excited-positive,True,0.3129,0.6599,0.8497,0.24,0.5313,0.5723,0.3047,0.6232,happiness,0.8
+868,chucky in colours,2024-09-29T10:03:41+00:00,745,1,3,0.0,0.3,neutral,calm-positive,False,0.7766,0.204,0.6706,0.2209,0.4812,0.5001,0.3147,0.806,fear,-0.65
+869,horny,2024-09-29T10:17:18+00:00,746,1,1,0.0,0.3,neutral,calm-positive,False,0.143,0.8082,0.6521,0.0302,0.4402,0.5301,0.1169,0.8603,surprise,0.3
+870,stung,2024-09-29T10:22:28+00:00,747,1,1,0.0,0.3,neutral,calm-positive,False,0.162,0.829,0.716,0.0636,0.2303,0.5351,0.1627,0.8242,disgust,-0.7
+871,tired and a little achey,2024-09-29T10:24:48+00:00,748,1,5,-0.75,0.3,sadness,low-negative,True,0.2418,0.7539,0.8321,0.0425,0.2416,0.5995,0.212,0.7379,sadness,-0.75
+872,Tired but happy,2024-09-29T10:28:30+00:00,749,1,3,0.8,0.6,happiness,excited-positive,True,0.2656,0.6463,0.7867,0.0791,0.4723,0.5553,0.2637,0.8571,sadness,-0.75
+873,wanted to see the robot,2024-09-29T10:29:15+00:00,750,1,5,0.8,0.6,happiness,excited-positive,True,0.3296,0.6366,0.8461,0.1114,0.6431,0.4876,0.2241,0.8692,surprise,0.3
+874,"i feel tired, like a crumpled piece of paper",2024-09-29T10:31:10+00:00,751,1,9,-0.75,0.3,sadness,low-negative,True,0.6481,0.3136,0.5925,0.1088,0.6692,0.5218,0.2732,0.4118,anger,-0.7
+875,curious of the artworks,2024-09-29T10:32:05+00:00,752,1,4,0.8,0.6,happiness,excited-positive,True,0.3576,0.5553,0.7232,0.2378,0.6735,0.4888,0.2218,0.8492,fear,-0.65
+876,tired and a bit warm,2024-09-29T10:33:15+00:00,753,1,5,0.0,0.3,neutral,calm-positive,False,0.4325,0.5478,0.9244,0.2015,0.4796,0.5998,0.2882,0.566,neutral,0.0
+877,"inspired, contemplative, nostalgic, curious, fearful",2024-09-29T10:40:19+00:00,754,1,5,0.8,0.6,happiness,excited-positive,True,0.3737,0.5433,0.8185,0.201,0.6319,0.5207,0.2861,0.6634,neutral,0.0
+878,tired but invigorated,2024-09-29T10:45:47+00:00,755,1,3,0.0,0.3,neutral,calm-positive,False,0.2628,0.6203,0.7089,0.1014,0.4353,0.5832,0.1704,0.7159,sadness,-0.75
+879,carbon footprint reduction,2024-09-29T10:48:19+00:00,756,1,3,0.0,0.3,neutral,calm-positive,False,0.6178,0.3826,0.8382,0.2066,0.5832,0.4828,0.2902,0.6302,neutral,0.0
+880,Happy,2024-09-29T10:56:25+00:00,757,1,1,0.8,0.6,happiness,excited-positive,True,0.237,0.7438,0.8096,0.1289,0.3764,0.4944,0.2108,0.902,happiness,0.8
+881,interested and stressed,2024-09-29T10:57:35+00:00,758,1,3,-0.75,0.3,sadness,low-negative,True,0.4766,0.4824,0.8379,0.2377,0.6896,0.4897,0.274,0.295,neutral,0.0
+882,Happy and calm,2024-09-29T11:00:44+00:00,759,1,3,0.8,0.6,happiness,excited-positive,True,0.3026,0.6864,0.8869,0.0789,0.321,0.5154,0.2676,0.6875,neutral,0.0
+883,excited,2024-09-29T11:02:13+00:00,760,1,1,0.8,0.6,happiness,excited-positive,True,0.4102,0.5316,0.8689,0.1614,0.5999,0.5093,0.3377,0.7849,disgust,-0.7
+884,Excited and happy,2024-09-29T11:04:56+00:00,761,1,3,0.8,0.6,happiness,excited-positive,True,0.4972,0.4807,0.925,0.1949,0.4964,0.5559,0.2792,0.56,happiness,0.8
+885,overwhelmed,2024-09-29T11:07:20+00:00,762,1,1,-0.75,0.3,sadness,low-negative,True,0.5245,0.4336,0.8847,0.1684,0.538,0.4828,0.2822,0.5234,sadness,-0.75
+886,tired,2024-09-29T11:08:31+00:00,763,1,1,-0.75,0.3,sadness,low-negative,True,0.1469,0.8475,0.6975,0.0218,0.1647,0.5719,0.1536,0.9971,disgust,-0.7
+887,bemused,2024-09-29T11:09:27+00:00,764,4,1,-0.75,0.3,sadness,low-negative,True,0.181,0.8122,0.754,0.042,0.2115,0.4881,0.2361,0.8371,surprise,0.3
+888,bemused,2024-09-29T11:09:27+00:00,764,4,1,-0.75,0.3,sadness,low-negative,True,0.8826,0.1568,0.5655,0.0469,0.4792,0.4977,0.3036,0.8552,surprise,0.3
+889,bemused,2024-09-29T11:09:36+00:00,764,4,1,-0.75,0.3,sadness,low-negative,True,0.4895,0.5008,0.9679,0.0686,0.3183,0.571,0.2918,0.6573,happiness,0.8
+890,bemused,2024-09-29T11:09:42+00:00,764,4,1,-0.75,0.3,sadness,low-negative,True,0.1385,0.8543,0.6784,0.0357,0.1822,0.497,0.1851,0.8469,sadness,-0.75
+891,overwhelmed byv exixtential angst,2024-09-29T11:10:34+00:00,765,1,4,-0.75,0.3,sadness,low-negative,True,0.107,0.8396,0.5292,0.0754,0.6017,0.6402,0.1733,0.8893,sadness,-0.75
+892,seen and whached every minite,2024-09-29T11:11:53+00:00,766,1,5,0.0,0.3,neutral,calm-positive,False,0.4507,0.4581,0.6024,0.4125,0.9827,0.5015,0.2916,0.5224,neutral,0.0
+893,relaxed curious happy ready to boogy tired,2024-09-29T11:13:56+00:00,767,1,7,0.8,0.6,happiness,excited-positive,True,0.2356,0.7229,0.716,0.1279,0.5908,0.5498,0.2432,0.7429,sadness,-0.75
+894,being three and jumping high up in the air and seeing [name] with pizza and [name] bbec a,2024-09-29T11:16:44+00:00,768,1,18,0.0,0.3,neutral,calm-positive,False,0.1515,0.7807,0.616,0.0823,0.6672,0.6773,0.2446,0.872,fear,-0.65
+895,bored and happy,2024-09-29T11:18:38+00:00,769,1,3,-0.75,0.3,sadness,low-negative,True,0.2181,0.7712,0.8026,0.0608,0.2552,0.504,0.1694,0.8226,surprise,0.3
+896,human eating food while getting eaten by a megladon,2024-09-29T11:19:29+00:00,770,1,9,0.0,0.3,neutral,calm-positive,False,0.4437,0.5397,0.8645,0.0678,0.4591,0.5377,0.2623,0.6134,fear,-0.65
+897,gaming on someones but,2024-09-29T11:20:16+00:00,771,1,4,0.0,0.3,neutral,calm-positive,False,0.4804,0.474,0.8493,0.2416,0.6898,0.4492,0.2781,0.5668,neutral,0.0
+898,gaming on someone's butt,2024-09-29T11:20:21+00:00,772,6,4,0.0,0.3,neutral,calm-positive,False,0.2029,0.5003,0.6364,0.1776,0.5661,0.5089,0.2056,0.7656,disgust,-0.7
+899,gaming on someone's butt,2024-09-29T11:20:21+00:00,772,6,4,0.0,0.3,neutral,calm-positive,False,0.1761,0.8071,0.7289,0.069,0.2576,0.5997,0.1757,0.7977,disgust,-0.7
+900,gaming on someone's butt,2024-09-29T11:20:21+00:00,772,6,4,0.0,0.3,neutral,calm-positive,False,0.2331,0.697,0.755,0.1061,0.5714,0.4985,0.2255,0.6519,disgust,-0.7
+901,gaming on someone's butt,2024-09-29T11:20:23+00:00,772,6,4,0.0,0.3,neutral,calm-positive,False,0.2722,0.6856,0.823,0.0646,0.5289,0.5289,0.2277,0.7925,disgust,-0.7
+902,gaming on someone's butt,2024-09-29T11:20:27+00:00,772,6,4,0.0,0.3,neutral,calm-positive,False,0.4221,0.5047,0.7609,0.1642,0.8434,0.5594,0.2565,0.6783,sadness,-0.75
+903,gaming on someone's butt,2024-09-29T11:20:30+00:00,772,6,4,0.0,0.3,neutral,calm-positive,False,0.2111,0.6284,0.6424,0.0803,0.732,0.4481,0.1938,0.7001,disgust,-0.7
+904,gaming on someone's house while having a stroke,2024-09-29T11:21:23+00:00,773,1,8,0.0,0.3,neutral,calm-positive,False,0.6078,0.3462,0.7417,0.2376,0.7818,0.4976,0.3051,0.6015,fear,-0.65
+905,food fight of the dead ,2024-09-29T11:22:40+00:00,774,1,5,0.0,0.3,neutral,calm-positive,False,0.4726,0.4731,0.8353,0.2607,0.7195,0.4197,0.2846,0.6585,fear,-0.65
+906,being inside the music is my safe space,2024-09-29T11:36:02+00:00,775,1,8,0.8,0.6,happiness,excited-positive,True,0.3428,0.6336,0.8742,0.2071,0.5232,0.4733,0.2407,0.7276,neutral,0.0
+907,happy,2024-09-29T11:39:00+00:00,776,1,1,0.8,0.6,happiness,excited-positive,True,0.3271,0.6622,0.9096,0.0764,0.3118,0.5135,0.2209,0.6669,happiness,0.8
+908,nice,2024-09-29T11:39:46+00:00,777,1,1,0.8,0.6,happiness,excited-positive,True,0.6988,0.3106,0.7656,0.1825,0.6184,0.4976,0.3116,0.7813,disgust,-0.7
+909,terrified,2024-09-29T11:40:56+00:00,778,1,1,-0.65,0.75,fear,tense-negative,True,0.147,0.8446,0.6905,0.0546,0.2149,0.5038,0.2378,0.8631,neutral,0.0
+910,like my head is full of wool wire,2024-09-29T11:43:59+00:00,779,1,8,0.0,0.3,neutral,calm-positive,False,0.1169,0.7033,0.4499,0.0995,0.479,0.5266,0.1138,0.8282,disgust,-0.7
+911,"i am feeling inspired, like i could sail further if i could build a better boat",2024-09-29T11:45:06+00:00,780,1,16,0.8,0.6,happiness,excited-positive,True,0.5004,0.4265,0.7076,0.4572,0.9089,0.4829,0.288,0.5561,disgust,-0.7
+912,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",2024-09-29T11:47:12+00:00,781,4,23,0.8,0.6,happiness,excited-positive,True,0.386,0.5406,0.7257,0.1121,0.8869,0.5669,0.2873,0.4736,neutral,0.0
+913,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",2024-09-29T11:47:13+00:00,781,4,23,0.8,0.6,happiness,excited-positive,True,0.4603,0.4756,0.7885,0.125,0.7959,0.533,0.2432,0.4218,fear,-0.65
+914,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",2024-09-29T11:47:14+00:00,781,4,23,0.8,0.6,happiness,excited-positive,True,0.1693,0.7999,0.7098,0.0467,0.2732,0.4849,0.2723,0.8336,neutral,0.0
+915,"I am feeling a little bit inspired. also, somewhat let down by a friend. And also like I have less blood than normal",2024-09-29T11:47:18+00:00,781,4,23,0.8,0.6,happiness,excited-positive,True,0.2096,0.7356,0.708,0.0985,0.5294,0.7159,0.2789,0.8667,neutral,0.0
+916,knee pain,2024-09-29T11:49:46+00:00,782,1,2,-0.75,0.3,sadness,low-negative,True,0.4506,0.5274,0.9283,0.1618,0.4694,0.4782,0.2877,0.4972,sadness,-0.75
+917,hungry,2024-09-29T11:50:37+00:00,783,1,1,0.0,0.3,neutral,calm-positive,False,0.1753,0.6658,0.6132,0.0995,0.5809,0.6442,0.1986,0.8438,neutral,0.0
+918,mixed emotions,2024-09-29T11:51:33+00:00,784,1,2,0.0,0.3,neutral,calm-positive,False,0.2291,0.7632,0.7921,0.0994,0.3457,0.4999,0.1722,0.8301,neutral,0.0
+919,composed,2024-09-29T11:52:07+00:00,785,2,1,0.0,0.3,neutral,calm-positive,False,0.4345,0.4927,0.8475,0.0966,0.6997,0.4371,0.2499,0.4765,neutral,0.0
+920,composed,2024-09-29T11:52:09+00:00,785,2,1,0.0,0.3,neutral,calm-positive,False,0.7704,0.2557,0.7415,0.1037,0.4812,0.5092,0.3149,0.8405,neutral,0.0
+921,happy,2024-09-29T11:53:22+00:00,786,1,1,0.8,0.6,happiness,excited-positive,True,0.2928,0.6828,0.8573,0.0829,0.4647,0.7254,0.2903,0.735,neutral,0.0
+922,excited and happy,2024-09-29T11:54:35+00:00,787,1,3,0.8,0.6,happiness,excited-positive,True,0.262,0.7222,0.7983,0.1413,0.4426,0.5939,0.2505,0.6994,fear,-0.65
+923,hangry,2024-09-29T11:55:11+00:00,788,1,1,-0.7,0.8,anger,tense-negative,True,0.5338,0.4398,0.9106,0.0995,0.4479,0.4792,0.2298,0.1692,sadness,-0.75
+924,hungry,2024-09-29T11:56:22+00:00,789,1,1,0.0,0.3,neutral,calm-positive,False,0.3499,0.6255,0.8996,0.1219,0.4542,0.6026,0.2854,0.6793,disgust,-0.7
+925,groovy,2024-09-29T11:57:15+00:00,790,1,1,0.0,0.3,neutral,calm-positive,False,0.5762,0.4739,0.7217,0.3001,0.7278,0.498,0.3056,0.6459,disgust,-0.7
+926,okay,2024-09-29T12:00:19+00:00,791,1,1,0.8,0.6,happiness,excited-positive,True,0.4144,0.5095,0.793,0.2588,0.7965,0.5556,0.2957,0.4969,neutral,0.0
+927,warm caffeinated contented hopeful,2024-09-29T12:01:37+00:00,792,1,4,0.0,0.3,neutral,calm-positive,False,0.138,0.8277,0.6463,0.0667,0.3033,0.5561,0.1911,0.888,neutral,0.0
+928,happy joyful cheerful,2024-09-29T12:03:22+00:00,793,2,3,0.8,0.6,happiness,excited-positive,True,0.1799,0.806,0.74,0.0915,0.2813,0.5051,0.1902,0.9309,happiness,0.8
+929,happy joyful cheerful,2024-09-29T12:03:23+00:00,793,2,3,0.8,0.6,happiness,excited-positive,True,0.3308,0.6477,0.8767,0.1932,0.4779,0.5615,0.2617,0.6876,happiness,0.8
+930,sore louche contented,2024-09-29T12:04:59+00:00,794,1,3,0.0,0.3,neutral,calm-positive,False,0.3333,0.5473,0.7501,0.1567,0.6377,0.469,0.2513,0.6742,neutral,0.0
+931,hangover sleepy chill,2024-09-29T12:06:09+00:00,795,1,3,0.0,0.3,neutral,calm-positive,False,0.237,0.7406,0.7983,0.1343,0.3942,0.4755,0.2176,0.7943,neutral,0.0
+932,"confused, my back hurts",2024-09-29T12:07:02+00:00,796,1,4,-0.75,0.3,sadness,low-negative,True,0.18,0.8226,0.6601,0.0983,0.3355,0.5581,0.1776,0.8152,disgust,-0.7
+933,content,2024-09-29T12:09:03+00:00,797,1,1,0.0,0.3,neutral,calm-positive,False,0.6753,0.3104,0.8213,0.1335,0.5789,0.4451,0.2967,0.6641,neutral,0.0
+934,reflective,2024-09-29T12:10:15+00:00,798,2,1,0.0,0.3,neutral,calm-positive,False,0.7271,0.4285,0.6386,0.0538,0.5957,0.5366,0.3142,0.8425,anger,-0.7
+935,reflective,2024-09-29T12:10:22+00:00,798,2,1,0.0,0.3,neutral,calm-positive,False,0.3105,0.6459,0.8158,0.0674,0.7152,0.4873,0.2703,0.5454,neutral,0.0
+936,good,2024-09-29T12:11:12+00:00,799,1,1,0.8,0.6,happiness,excited-positive,True,0.6122,0.3436,0.8335,0.0638,0.3875,0.5964,0.2382,0.9075,sadness,-0.75
+937,happy,2024-09-29T12:11:53+00:00,800,1,1,0.8,0.6,happiness,excited-positive,True,0.3293,0.6459,0.8654,0.2495,0.5275,0.5566,0.2959,0.6038,neutral,0.0
+938,uncertain,2024-09-29T12:16:55+00:00,801,1,1,0.3,0.8,surprise,excited-positive,True,0.1629,0.8269,0.7181,0.0489,0.2142,0.4888,0.1646,0.8014,surprise,0.3
+939,a fish out of water,2024-09-29T12:17:38+00:00,802,1,5,0.0,0.3,neutral,calm-positive,False,0.1776,0.7899,0.6784,0.0504,0.2642,0.5159,0.1647,0.8358,surprise,0.3
+940,grateful and unperturbed,2024-09-29T12:19:19+00:00,803,1,3,0.8,0.6,happiness,excited-positive,True,0.3075,0.4501,0.6167,0.1108,0.4485,0.4899,0.2014,0.9948,neutral,0.0
+941,balanced excited content,2024-09-29T12:21:07+00:00,804,1,3,0.8,0.6,happiness,excited-positive,True,0.3275,0.6448,0.8733,0.0778,0.4255,0.4827,0.1912,0.9026,neutral,0.0
+942,content calm meditative,2024-09-29T12:22:30+00:00,805,1,3,0.0,0.3,neutral,calm-positive,False,0.7669,0.387,0.3672,0.0716,0.5808,0.4813,0.3063,0.9615,neutral,0.0
+943,confused and aroused,2024-09-29T12:23:43+00:00,806,1,3,0.3,0.8,surprise,excited-positive,True,0.2388,0.7433,0.8101,0.1411,0.3733,0.4886,0.1974,0.7396,disgust,-0.7
+944,betrayed,2024-09-29T12:26:28+00:00,807,1,1,0.0,0.3,neutral,calm-positive,False,0.6497,0.3432,0.7761,0.0566,0.6553,0.4421,0.3073,0.868,sadness,-0.75
+945,excited,2024-09-29T12:30:27+00:00,808,1,1,0.8,0.6,happiness,excited-positive,True,0.3511,0.6254,0.8426,0.2639,0.6135,0.4859,0.2721,0.6851,disgust,-0.7
+946,scared and worried,2024-09-29T12:31:27+00:00,809,1,3,-0.65,0.75,fear,tense-negative,True,0.2295,0.7646,0.8046,0.0614,0.2812,0.606,0.1838,0.7949,sadness,-0.75
+947,hesitant,2024-09-29T12:32:22+00:00,810,1,1,0.0,0.3,neutral,calm-positive,False,0.3859,0.5856,0.852,0.0618,0.4728,0.6968,0.2241,0.806,sadness,-0.75
+948,kareoke singing book,2024-09-29T12:42:38+00:00,811,1,3,0.0,0.3,neutral,calm-positive,False,0.1414,0.7933,0.579,0.0818,0.4922,0.5263,0.172,0.8449,neutral,0.0
+949,drained overrked sleepy,2024-09-29T12:44:52+00:00,812,1,3,0.0,0.3,neutral,calm-positive,False,0.8344,0.1698,0.5956,0.1059,0.5218,0.4914,0.2977,0.7971,disgust,-0.7
+950,happy pug with an ice cream ,2024-09-29T12:49:34+00:00,813,1,6,0.8,0.6,happiness,excited-positive,True,0.1854,0.8012,0.7428,0.0973,0.3068,0.535,0.1625,0.8037,disgust,-0.7
+951,proud to complete the first 10 K race,2024-09-29T12:56:26+00:00,814,1,8,0.8,0.6,happiness,excited-positive,True,0.3567,0.6165,0.7945,0.187,0.6938,0.6267,0.2881,0.6163,happiness,0.8
+952,kareoke queen ,2024-09-29T12:58:37+00:00,815,1,2,0.0,0.3,neutral,calm-positive,False,0.5529,0.406,0.8649,0.1225,0.6087,0.5344,0.3161,0.545,disgust,-0.7
+953,working with a greeat team,2024-09-29T12:59:03+00:00,816,1,5,0.0,0.3,neutral,calm-positive,False,0.4477,0.5225,0.888,0.2511,0.5969,0.4881,0.2762,0.6344,neutral,0.0
+954,cosmic,2024-09-29T13:01:03+00:00,817,1,1,0.0,0.3,neutral,calm-positive,False,0.7939,0.2241,0.5807,0.1704,0.646,0.5017,0.299,0.7633,neutral,0.0
+955,evil smily face,2024-09-29T13:05:38+00:00,818,1,3,0.0,0.3,neutral,calm-positive,False,0.7885,0.2002,0.7536,0.0927,0.3068,0.4983,0.3155,0.9424,anger,-0.7
+956,zombie eating ice cream,2024-09-29T13:07:13+00:00,819,1,4,0.0,0.3,neutral,calm-positive,False,0.252,0.7062,0.7888,0.1477,0.553,0.5786,0.1909,0.6417,disgust,-0.7
+957,feel calm and having a good time with my girlfriend. we don't agree on everything and have differences but she is a good person,2024-09-29T13:09:57+00:00,820,1,24,0.8,0.6,happiness,excited-positive,True,0.4682,0.4761,0.8564,0.205,0.638,0.5374,0.3131,0.5408,neutral,0.0
+958,"tired,, pensive, engaged, interested, quite calm, thinking about the future, thinking about possibilities, reflecting on the past",2024-09-29T13:12:07+00:00,821,1,17,0.0,0.3,neutral,calm-positive,False,0.2117,0.7653,0.7667,0.1176,0.4014,0.5573,0.1703,0.7546,sadness,-0.75
+959,apprehensive and a bit sad,2024-09-29T13:14:01+00:00,822,1,5,-0.75,0.3,sadness,low-negative,True,0.2903,0.6482,0.7781,0.1681,0.646,0.5437,0.1835,0.6083,sadness,-0.75
+960,Hopeful state of mind anticipating exciting opportunities,2024-09-29T13:15:38+00:00,823,1,7,0.8,0.6,happiness,excited-positive,True,0.1868,0.7922,0.74,0.0944,0.2818,0.5553,0.1845,0.7746,sadness,-0.75
+961,tired but happy.  creative and inspired.  excited for the future and keen to try new projects based on what I'm seeing today,2024-09-29T13:20:23+00:00,824,1,22,0.8,0.6,happiness,excited-positive,True,0.1748,0.8143,0.7322,0.0719,0.2583,0.5101,0.1749,0.887,surprise,0.3
+962,excited for me science degree and enjoying being around so many inspired people. a bit too hot in my coat and looking forward to a coffee,2024-09-29T13:21:57+00:00,825,1,26,0.8,0.6,happiness,excited-positive,True,0.2887,0.6117,0.7148,0.3034,0.8547,0.6248,0.2554,0.6461,happiness,0.8
+963,happy,2024-09-29T13:27:11+00:00,826,1,1,0.8,0.6,happiness,excited-positive,True,0.278,0.6658,0.653,0.0748,0.6549,0.6896,0.2478,0.7061,neutral,0.0
+964,inspired happy green alive stressed ,2024-09-29T13:28:49+00:00,827,1,5,0.8,0.6,happiness,excited-positive,True,0.5189,0.4665,0.8888,0.2038,0.6107,0.496,0.2747,0.2546,neutral,0.0
+965,skeleton,2024-09-29T13:31:56+00:00,828,1,1,0.0,0.3,neutral,calm-positive,False,0.0912,0.843,0.4791,0.07,0.2871,0.5453,0.0853,0.9302,sadness,-0.75
+966,happy,2024-09-29T13:32:42+00:00,829,1,1,0.8,0.6,happiness,excited-positive,True,0.2869,0.6697,0.8195,0.2087,0.5613,0.5751,0.2953,0.6525,happiness,0.8
+967,tired and full of food,2024-09-29T13:34:39+00:00,830,1,5,-0.75,0.3,sadness,low-negative,True,0.194,0.771,0.745,0.0513,0.3754,0.4901,0.2426,0.7653,fear,-0.65
+968,cosmic,2024-09-29T13:36:33+00:00,831,1,1,0.0,0.3,neutral,calm-positive,False,0.728,0.2529,0.7161,0.1782,0.6155,0.515,0.295,0.6071,neutral,0.0
+969,quite happy,2024-09-29T13:40:38+00:00,832,1,2,0.8,0.6,happiness,excited-positive,True,0.513,0.4854,0.8481,0.1647,0.6005,0.4473,0.2733,0.5376,neutral,0.0
+970,hope and care,2024-09-29T13:41:48+00:00,833,1,3,0.8,0.6,happiness,excited-positive,True,0.2023,0.7922,0.738,0.0697,0.3079,0.5079,0.1484,0.9972,neutral,0.0
+971,sadmy friends have gone but happy from the weekend,2024-09-29T13:44:00+00:00,834,1,9,-0.75,0.3,sadness,low-negative,True,0.5306,0.4302,0.8192,0.272,0.7282,0.5235,0.3003,0.6013,neutral,0.0
+972,amazed,2024-09-29T13:52:58+00:00,835,1,1,0.3,0.8,surprise,excited-positive,True,0.3385,0.6379,0.7922,0.2087,0.6448,0.4665,0.2038,0.7627,surprise,0.3
+973,amazed by ai ,2024-09-29T13:53:40+00:00,836,1,3,0.3,0.8,surprise,excited-positive,True,0.1701,0.7819,0.6943,0.0608,0.3234,0.5326,0.1508,0.8554,surprise,0.3
+974,calm,2024-09-29T13:55:22+00:00,837,1,1,0.0,0.3,neutral,calm-positive,False,0.3298,0.661,0.7694,0.1222,0.6082,0.4897,0.2763,0.7895,neutral,0.0
+975,annoyed radical,2024-09-29T13:57:28+00:00,838,1,2,-0.7,0.8,anger,tense-negative,True,0.4797,0.508,0.9625,0.0852,0.3366,0.5816,0.253,0.6993,disgust,-0.7
+976,nice radical good funny ,2024-09-29T13:59:02+00:00,839,1,4,0.8,0.6,happiness,excited-positive,True,0.2797,0.7015,0.848,0.1378,0.4018,0.4909,0.2385,0.82,neutral,0.0
+977,proud tired,2024-09-29T14:00:26+00:00,840,1,2,0.8,0.6,happiness,excited-positive,True,0.6303,0.3639,0.8933,0.0708,0.3673,0.5002,0.3119,0.8001,neutral,0.0
+978,exhausted,2024-09-29T14:03:50+00:00,841,1,1,-0.75,0.3,sadness,low-negative,True,0.3349,0.6345,0.8474,0.2129,0.572,0.5734,0.2656,0.6675,sadness,-0.75
+979,"old, grumpy, unsettled",2024-09-29T14:05:27+00:00,842,1,3,0.0,0.3,neutral,calm-positive,False,0.7477,0.2909,0.7224,0.1523,0.5508,0.4948,0.3132,0.7228,disgust,-0.7
+980,"Great, happy, enjoying life, enjoying walking through the countryside",2024-09-29T14:07:06+00:00,843,1,9,0.8,0.6,happiness,excited-positive,True,0.1486,0.8423,0.6344,0.0642,0.2735,0.63,0.2772,0.7694,neutral,0.0
+981,poisoned by a mushroom,2024-09-29T14:07:53+00:00,844,1,4,0.0,0.3,neutral,calm-positive,False,0.2001,0.7912,0.7503,0.0611,0.33,0.5624,0.1202,0.8159,fear,-0.65
+982,emotional as pet is dying,2024-09-29T14:09:00+00:00,845,1,5,-0.75,0.3,sadness,low-negative,True,0.4254,0.5567,0.9383,0.0967,0.373,0.5737,0.2856,0.5929,neutral,0.0
+983,emotional as cat is dying both female,2024-09-29T14:09:58+00:00,846,1,7,-0.75,0.3,sadness,low-negative,True,0.4309,0.5439,0.8755,0.1034,0.6134,0.5205,0.3019,0.7325,fear,-0.65
+984,"pretty good, with friends and partner, been for a good walk this morning despite a bad knee, will be seeing grandchildren tomorrow",2024-09-29T14:11:40+00:00,847,1,22,0.8,0.6,happiness,excited-positive,True,0.2612,0.6983,0.7835,0.1698,0.5799,0.6178,0.2521,0.7332,neutral,0.0
+985,i am verry happy with my friend [name],2024-09-29T14:12:51+00:00,848,1,8,0.8,0.6,happiness,excited-positive,True,0.5048,0.4815,0.9204,0.0976,0.4703,0.6607,0.2713,0.6344,happiness,0.8
+986,i m feeling happy as the club i support won 1-0 (go Panionios!!),2024-09-29T14:14:20+00:00,849,1,13,0.8,0.6,happiness,excited-positive,True,0.3758,0.5976,0.8827,0.2113,0.5406,0.4902,0.2685,0.6436,happiness,0.8
+987,I am feeling happy to spend the day with my boyfriend,2024-09-29T14:15:26+00:00,850,1,11,0.8,0.6,happiness,excited-positive,True,0.4571,0.5024,0.7413,0.2408,0.8074,0.5128,0.2955,0.5178,neutral,0.0
+988,tired proud happy,2024-09-29T14:16:52+00:00,851,1,3,0.8,0.6,happiness,excited-positive,True,0.2158,0.7518,0.7699,0.1424,0.4299,0.4993,0.1659,0.7927,surprise,0.3
+989,i am the keybreaker,2024-09-29T14:17:26+00:00,852,7,4,0.0,0.3,neutral,calm-positive,False,0.5405,0.4486,0.95,0.0365,0.2796,0.5628,0.2596,0.695,disgust,-0.7
+990,i am the keybreaker,2024-09-29T14:17:31+00:00,852,7,4,0.0,0.3,neutral,calm-positive,False,0.2106,0.7592,0.7449,0.1434,0.4786,0.581,0.2247,0.6876,disgust,-0.7
+991,i am the keybreaker,2024-09-29T14:17:32+00:00,852,7,4,0.0,0.3,neutral,calm-positive,False,0.3987,0.5767,0.8957,0.218,0.5318,0.5617,0.2306,0.7387,neutral,0.0
+992,i am the keybreaker,2024-09-29T14:17:36+00:00,852,7,4,0.0,0.3,neutral,calm-positive,False,0.2368,0.6616,0.7171,0.1565,0.7289,0.5305,0.1967,0.7455,disgust,-0.7
+993,i am the keybreaker,2024-09-29T14:17:38+00:00,852,7,4,0.0,0.3,neutral,calm-positive,False,0.4631,0.5059,0.9062,0.0271,0.4458,0.4931,0.1917,0.3224,fear,-0.65
+994,i am the keybreaker,2024-09-29T14:17:39+00:00,852,7,4,0.0,0.3,neutral,calm-positive,False,0.4049,0.4922,0.7995,0.0431,0.3558,0.6909,0.2152,0.9569,sadness,-0.75
+995,i am the keybreaker,2024-09-29T14:18:05+00:00,852,7,4,0.0,0.3,neutral,calm-positive,False,0.2568,0.6379,0.6863,0.1011,0.8051,0.5903,0.2703,0.7574,fear,-0.65
+996,i am the key breaker,2024-09-29T14:18:18+00:00,853,1,5,0.0,0.3,neutral,calm-positive,False,0.2689,0.5803,0.5472,0.0883,0.9591,0.6131,0.21,0.8488,fear,-0.65
+997,relaxed tired content happy ,2024-09-29T14:20:51+00:00,854,1,4,0.8,0.6,happiness,excited-positive,True,0.2401,0.7417,0.8086,0.1224,0.3921,0.5281,0.2794,0.7669,neutral,0.0
+998,aroused stimulated tired confused,2024-09-29T14:23:44+00:00,855,1,4,0.3,0.8,surprise,excited-positive,True,0.3684,0.5708,0.8312,0.251,0.6946,0.4763,0.2679,0.6862,neutral,0.0
+999,tired proud and very happy woman,2024-09-29T14:27:28+00:00,856,1,6,0.8,0.6,happiness,excited-positive,True,0.3253,0.6256,0.8598,0.083,0.4846,0.5731,0.237,0.7562,happiness,0.8
+1000,very tired from the festival but very proud and happy of my team,2024-09-29T14:28:25+00:00,857,1,13,0.8,0.6,happiness,excited-positive,True,0.3408,0.6109,0.8025,0.3058,0.7126,0.4642,0.2837,0.6342,happiness,0.8
+1001,tired happy proud,2024-09-29T14:29:20+00:00,858,6,3,0.8,0.6,happiness,excited-positive,True,0.2355,0.773,0.7462,0.0932,0.3415,0.4556,0.2977,0.8987,neutral,0.0
+1002,tired happy proud,2024-09-29T14:29:25+00:00,858,6,3,0.8,0.6,happiness,excited-positive,True,0.3986,0.5905,0.9415,0.0886,0.3528,0.5222,0.2296,0.6487,neutral,0.0
+1003,tired happy proud,2024-09-29T14:29:33+00:00,858,6,3,0.8,0.6,happiness,excited-positive,True,0.3889,0.5923,0.8961,0.1503,0.4474,0.5498,0.2502,0.6362,neutral,0.0
+1004,tired happy proud,2024-09-29T14:29:33+00:00,858,6,3,0.8,0.6,happiness,excited-positive,True,0.2138,0.7657,0.7747,0.0984,0.3393,0.5866,0.1618,0.8362,disgust,-0.7
+1005,tired happy proud,2024-09-29T14:29:35+00:00,858,6,3,0.8,0.6,happiness,excited-positive,True,0.2088,0.7807,0.7882,0.0632,0.2566,0.5472,0.2736,0.8846,neutral,0.0
+1006,tired happy proud,2024-09-29T14:29:35+00:00,858,6,3,0.8,0.6,happiness,excited-positive,True,0.3308,0.6501,0.8339,0.1578,0.5097,0.4756,0.2933,0.6349,happiness,0.8
+1007,tired proud happy,2024-09-29T14:29:52+00:00,859,1,3,0.8,0.6,happiness,excited-positive,True,0.1816,0.7944,0.7215,0.1295,0.3556,0.5493,0.1637,0.823,happiness,0.8
+1008,tired happy and proud,2024-09-29T14:31:00+00:00,860,1,4,0.8,0.6,happiness,excited-positive,True,0.4616,0.5084,0.8988,0.1421,0.5477,0.4961,0.268,0.3372,happiness,0.8
+1009,gay drunk mess,2024-09-29T14:31:30+00:00,861,1,3,0.0,0.3,neutral,calm-positive,False,0.2936,0.6815,0.8456,0.1644,0.4781,0.5619,0.2214,0.6885,sadness,-0.75
+1010,"exited for my birthday on halloween, happy, tired, full from food",2024-09-29T14:34:00+00:00,862,1,11,0.8,0.6,happiness,excited-positive,True,0.3737,0.5546,0.8146,0.2596,0.7324,0.5295,0.2751,0.628,happiness,0.8
+1011,proud happy tired ,2024-09-29T14:36:07+00:00,863,1,3,0.8,0.6,happiness,excited-positive,True,0.5745,0.4193,0.884,0.1662,0.581,0.5737,0.2875,0.5497,disgust,-0.7
+1012,"happy, excited, motivated",2024-09-29T14:36:50+00:00,864,1,3,0.8,0.6,happiness,excited-positive,True,0.4341,0.5489,0.8816,0.2352,0.6148,0.5058,0.2826,0.7262,anger,-0.7
+1013,hungry hangry,2024-09-29T14:38:12+00:00,865,1,2,0.0,0.3,neutral,calm-positive,False,0.2763,0.7132,0.866,0.0752,0.296,0.5681,0.2245,0.8787,anger,-0.7
+1014,I am feeling unhappy because I'm not getting my go on the virtual reality machine,2024-09-29T14:39:49+00:00,866,2,15,-0.75,0.3,sadness,low-negative,True,0.2089,0.774,0.7813,0.0836,0.3209,0.5841,0.2369,0.7481,sadness,-0.75
+1015,I am feeling unhappy because I'm not getting my go on the virtual reality machine,2024-09-29T14:39:51+00:00,866,2,15,-0.75,0.3,sadness,low-negative,True,0.2935,0.6473,0.8006,0.1202,0.5167,0.6297,0.2579,0.6772,disgust,-0.7
+1016,happy little girl on her daddies shoulders,2024-09-29T14:42:25+00:00,867,1,7,0.8,0.6,happiness,excited-positive,True,0.1031,0.8596,0.5201,0.1094,0.4432,0.4766,0.138,0.8977,happiness,0.8
+1017,boring,2024-09-29T14:46:15+00:00,868,2,1,0.0,0.3,neutral,calm-positive,False,0.2683,0.6519,0.7784,0.0848,0.6188,0.4926,0.2556,0.6742,neutral,0.0
+1018,boring,2024-09-29T14:46:35+00:00,868,2,1,0.0,0.3,neutral,calm-positive,False,0.7756,0.2409,0.6443,0.2407,0.6142,0.4979,0.3067,0.7656,disgust,-0.7
+1019,boering,2024-09-29T14:46:56+00:00,869,1,1,0.0,0.3,neutral,calm-positive,False,0.2177,0.7743,0.7375,0.1275,0.4229,0.4839,0.1772,0.8705,neutral,0.0
+1020,professor [name],2024-09-29T14:47:21+00:00,870,1,2,0.0,0.3,neutral,calm-positive,False,0.3686,0.6088,0.9152,0.0979,0.3925,0.6199,0.2288,0.8916,neutral,0.0
+1021,excited about next week,2024-09-29T14:53:24+00:00,871,1,4,0.8,0.6,happiness,excited-positive,True,0.3023,0.6694,0.7682,0.1949,0.5994,0.5044,0.2186,0.6571,neutral,0.0
+1022,Cautiously optimistic ,2024-09-29T14:54:23+00:00,872,1,2,0.8,0.6,happiness,excited-positive,True,0.1781,0.6864,0.6381,0.057,0.3953,0.4604,0.1615,0.9302,neutral,0.0
+1023,boring,2024-09-29T14:55:20+00:00,873,1,1,0.0,0.3,neutral,calm-positive,False,0.1576,0.8235,0.7071,0.0346,0.2114,0.7492,0.2124,0.9173,neutral,0.0
+1024,tired relieved hungry excited for my sunday dinner and my holiday with patrick bergin,2024-09-29T14:57:06+00:00,874,1,14,0.8,0.6,happiness,excited-positive,True,0.3798,0.5528,0.7953,0.2783,0.7669,0.485,0.2632,0.5818,disgust,-0.7
+1025,A factory of the future where human and robots work together. ,2024-10-20T21:54:44+00:00,875,1,11,0.0,0.3,neutral,calm-positive,False,0.2715,0.5858,0.5841,0.3424,0.9551,0.536,0.3002,0.6316,disgust,-0.7
