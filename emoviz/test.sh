@@ -30,6 +30,7 @@ check "  dedup robustness present"     "grep -q 'DISTINCT PROMPTS' /tmp/af.log"
 $PY similarity_v2.py > /tmp/s2.log 2>&1
 check "  old-vs-new comparison runs"   "grep -q 'BASELINE COMPARISON' /tmp/s2.log"
 $PY data_audit_consistency.py > /tmp/ca.log 2>&1
+check "  significance test exits 0"   "$PY significance.py"
 check "  consistency analysis exits 0" "$PY data_audit_consistency.py"
 check "  consistency analysis runs"    "grep -q 'CONSISTENCY' /tmp/ca.log"
 check "  data accounting = 1025"       "grep -q '1025' /tmp/ca.log"

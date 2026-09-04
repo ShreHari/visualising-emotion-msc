@@ -1,0 +1,14 @@
+emotional n=607   face n=402   scene n=205
+
+=== valence-sign agreement ===
+  face   73.9%  95% CI [68.2%, 79.2%]   (n=360)
+  scene  42.9%  95% CI [33.3%, 51.1%]   (n=170)
+  difference  +30.9%  95% CI [+22.6%, +40.6%]
+  permutation test (labels shuffled across prompt groups, 10000 draws): p = 0.0001  -> significant at 0.05
+
+=== emotion-family agreement ===
+  face   61.9%  95% CI [55.7%, 68.0%]   (n=402)
+  scene  35.6%  95% CI [26.7%, 44.1%]   (n=205)
+  difference  +26.3%  95% CI [+18.4%, +35.3%]
+  permutation test (labels shuffled across prompt groups, 10000 draws): p = 0.0001  -> significant at 0.05
+
