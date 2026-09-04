@@ -5,53 +5,68 @@ Roughly 1,450 words: about nine and a half minutes including the live demonstrat
 
 ## Your deck, as it actually runs
 
+Checked against `Visualising_Emotion_viva_deck.pptx` — **11 slides, speaker notes on every one.**
+Present from this file, not the PDF: the PDF is a shorter 10-slide export with no notes.
+
 | # | Section | |
 |---|---|---|
 | 1 | Title | |
-| 2 | Literature — the 2×2 coverage matrix | |
-| 3 | Contribution — similarity, not matching | |
-| 4 | Methodology — the pipeline diagram | |
-| 5 | Data | |
-| 6 | Evaluation design — the two checks and the scale | |
-| 7 | Results — the dot-and-null chart | |
-| 8 | Demonstration | **live, 90 seconds** |
-| 9 | Conclusion | |
-| 10 | Backup — only if the demo stalls | **skip unless needed** |
+| 2 | The problem — **your research question is on this slide** | |
+| 3 | Literature — the 2x2 coverage matrix | |
+| 4 | Contribution — similarity, not matching | |
+| 5 | Methodology — the pipeline diagram | |
+| 6 | Data | |
+| 7 | Evaluation design — the two checks and the scale | |
+| 8 | Results — the dot-and-null chart | |
+| 9 | Demonstration | **live, 90 seconds** |
+| 10 | Conclusion | |
+| 11 | Backup | **skip unless the demo stalls** |
 
-## Two things to know before you start
+## Two spoken corrections
 
-**There is no research-question slide.** The deck goes straight from the title to the literature, so
-**you must say the research question out loud on slide 1.** It is written into the script below. Do
-not skip it — an examiner needs to hear the question stated plainly.
+**Slide 8** still carries the footnote *"No formal significance test of the face-scene difference has
+been run."* That is now out of date — you ran one. Say the real figure aloud; the wording is in the
+script below.
 
-**On the title.** The registered title is *Visualising Emotion: A Similarity-Based Analysis of
-Emotional Fidelity in Text-to-Image Generation*. Say it as written. It names the **topic**
-(emotional fidelity) and the **approach** (a similarity-based analysis), which is correct. Inside the
-talk keep saying *agreement* — the title names the target, the body says what was established.
+**Slide 3** says *"23 excluded, 74 retained across twelve themes."* The correct figures from your own
+filtering log are **73 retained across eight themes**. Nobody is likely to raise it; if they do, give
+the right numbers and move on.
 
----
+## On the title
 
-## Slide 1 — Title · 0:00–1:00
+The registered title is *Visualising Emotion: A Similarity-Based Analysis of Emotional Fidelity in
+Text-to-Image Generation*. Say it as written. It names the **topic** and the **approach**, which is
+correct. Inside the talk keep saying *agreement* — the title names the target, the body says what was
+established.
+
+## Slide 1 — Title · 0:00–0:35
 
 Good morning. I'm Shre Hari Prem Anandh. This is my MSc Artificial Intelligence dissertation,
 supervised by Dr Chaona Chen: *Visualising Emotion — A Similarity-Based Analysis of Emotional
 Fidelity in Text-to-Image Generation*.
 
-Here is the problem in one example. If you prompt an image generator with "a red car", checking the
-output is easy — look for a car, check it's red. That is essentially what text-to-image evaluation
-does today.
-
-Now take the drawing on this slide. Someone at the Festival of the Mind typed "tired but happy", and
-this is what the AI drew. There is no object to look for. There is no answer key. And the feeling is
-mixed.
-
-So my research question is deliberately precise: **to what extent does an automatic image-emotion
-reader agree with prompt-derived emotion labels for AI-generated monochrome drawings — and how does
-that agreement vary by visual content and by repeated prompts?**
+The drawing on this slide is real. Someone at the Festival of the Mind typed "tired but happy", and
+that is what the AI produced. One of 1,025.
 
 ---
 
-## Slide 2 — Literature · 1:00–1:50
+## Slide 2 — The problem · 0:35–1:25
+
+If you prompt an image generator with "a red car", checking the output is easy — look for a car,
+check it's red. That is essentially what text-to-image evaluation does today.
+
+Now take "tired but happy". There is no object to look for. There is no answer key. And the feeling
+is mixed. None of the existing metrics transfer.
+
+So my research question is deliberately precise, and it is on the slide: **to what extent does an
+automatic image-emotion reader agree with prompt-derived emotion labels for AI-generated monochrome
+drawings — and how does that agreement vary by visual content and by repeated prompts?**
+
+Four sub-questions follow from it, and each one becomes a result later in the talk.
+
+---
+
+## Slide 3 — Literature · 1:25–2:15
 
 Four areas are each well established on their own, and this matrix shows where they sit.
 
@@ -72,7 +87,7 @@ art is a hard case. I have no colour-control condition, so I make no claim about
 
 ---
 
-## Slide 3 — Contribution · 1:50–2:45
+## Slide 4 — Contribution · 2:15–3:10
 
 This is the contribution, and my supervisor named it.
 
@@ -90,7 +105,7 @@ chance-referenced similarity.
 
 ---
 
-## Slide 4 — Methodology · 2:45–3:45
+## Slide 5 — Methodology · 3:10–4:05
 
 My supervisor's instruction was: don't force CLIP to output an emotion. CLIP is trained on real
 colour photographs and is good at objects, not affect.
@@ -110,7 +125,7 @@ I report that.
 
 ---
 
-## Slide 5 — Data · 3:45–4:30
+## Slide 6 — Data · 4:05–4:45
 
 1,025 drawings. Three things had to be solved before any analysis was possible.
 
@@ -125,7 +140,7 @@ scenes.
 
 ---
 
-## Slide 6 — Evaluation design · 4:30–5:45
+## Slide 7 — Evaluation design · 4:45–5:55
 
 This is the slide I would most like you to take away.
 
@@ -147,7 +162,7 @@ chance. That is why I lead with valence-sign and family agreement rather than th
 
 ---
 
-## Slide 7 — Results · 5:45–7:00
+## Slide 8 — Results · 5:55–7:05
 
 Agreement is well above chance overall: 64% valence-sign against a null of 46, z over eleven.
 
@@ -157,7 +172,7 @@ still above chance, for scenes at 42.9%.
 **I have tested that difference.** A clustered permutation test gives **p equals 0.0001**, and the 95%
 confidence interval on the difference is **plus 22.6 to plus 40.6 percentage points**. I clustered on
 prompt identity because 249 records repeat an earlier prompt and are therefore not independent.
-*(The footnote on this slide predates that test — please take the spoken figure.)*
+*(The footnote on this slide predates that test — take the spoken figure.)*
 
 Three further results. Repeated prompts: given the same words, the image reader recovers the same
 emotion 68.8% of the time against a null of 59.1%. The method comparison favours describe-then-extract,
@@ -167,7 +182,7 @@ scene result weakens substantially, to 37.3%.
 
 ---
 
-## Slide 8 — Demonstration · 7:00–8:30 · LIVE
+## Slide 9 — Demonstration · 7:05–8:35 · LIVE
 
 *Switch to the browser. Click "super tired".*
 
@@ -192,7 +207,7 @@ previous slide.
 
 ---
 
-## Slide 9 — Conclusion · 8:30–9:30
+## Slide 10 — Conclusion · 8:35–9:35
 
 To close.
 
@@ -216,7 +231,7 @@ Thank you — I'm happy to take questions.
 
 ---
 
-## Slide 10 — Backup
+## Slide 11 — Backup
 
 Do not go to this slide unless the demonstration fails. If it does: *"I'll show you the numbers
 instead"* — then walk through record 201 exactly as you would have walked through the live run.
