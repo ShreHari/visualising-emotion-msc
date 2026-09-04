@@ -1,72 +1,78 @@
 # Spoken script — 10 minutes
 
-Written to be **said**, not read. Roughly 1,400 words: about nine minutes of speech at a normal pace,
-leaving a minute of slack. Timings are cumulative.
+Checked against the actual deck on 4 September. **The slide numbers below match your deck.**
+Roughly 1,450 words: about nine and a half minutes including the live demonstration.
+
+## Your deck, as it actually runs
+
+| # | Section | |
+|---|---|---|
+| 1 | Title | |
+| 2 | Literature — the 2×2 coverage matrix | |
+| 3 | Contribution — similarity, not matching | |
+| 4 | Methodology — the pipeline diagram | |
+| 5 | Data | |
+| 6 | Evaluation design — the two checks and the scale | |
+| 7 | Results — the dot-and-null chart | |
+| 8 | Demonstration | **live, 90 seconds** |
+| 9 | Conclusion | |
+| 10 | Backup — only if the demo stalls | **skip unless needed** |
+
+## Two things to know before you start
+
+**There is no research-question slide.** The deck goes straight from the title to the literature, so
+**you must say the research question out loud on slide 1.** It is written into the script below. Do
+not skip it — an examiner needs to hear the question stated plainly.
 
 **On the title.** The registered title is *Visualising Emotion: A Similarity-Based Analysis of
-Emotional Fidelity in Text-to-Image Generation*. Say it as written — it is the formal title. Note that
-it describes the **topic** ("emotional fidelity") and the **approach** ("a similarity-based analysis"),
-which is exactly right. Inside the talk, keep saying *agreement*: the title names what is being
-studied; the body says what was measured. If an examiner presses on the word, the answer is on the
-last page of this script.
-
-**One correction carried into this script:** the face–scene difference **has** now been tested. Do not
-say that no test has been run.
+Emotional Fidelity in Text-to-Image Generation*. Say it as written. It names the **topic**
+(emotional fidelity) and the **approach** (a similarity-based analysis), which is correct. Inside the
+talk keep saying *agreement* — the title names the target, the body says what was established.
 
 ---
 
-## Slide 1 — Title  ·  0:00–0:30
+## Slide 1 — Title · 0:00–1:00
 
 Good morning. I'm Shre Hari Prem Anandh. This is my MSc Artificial Intelligence dissertation,
 supervised by Dr Chaona Chen: *Visualising Emotion — A Similarity-Based Analysis of Emotional
 Fidelity in Text-to-Image Generation*.
 
-The project measures whether an AI-generated drawing agrees emotionally with the words that produced
-it. The drawing on the right is real — it came from the prompt "tired but happy", one of 1,025
-collected at the Festival of the Mind.
+Here is the problem in one example. If you prompt an image generator with "a red car", checking the
+output is easy — look for a car, check it's red. That is essentially what text-to-image evaluation
+does today.
 
----
-
-## Slide 2 — The problem  ·  0:30–1:20
-
-If someone prompts an image generator with "a red car", checking the output is easy. Look for a car.
-Check it's red. That is essentially what text-to-image evaluation does today.
-
-Now take "tired but happy". There is no object to look for. There is no answer key. And the feeling
-is mixed. None of the existing metrics transfer.
+Now take the drawing on this slide. Someone at the Festival of the Mind typed "tired but happy", and
+this is what the AI drew. There is no object to look for. There is no answer key. And the feeling is
+mixed.
 
 So my research question is deliberately precise: **to what extent does an automatic image-emotion
-reader agree with prompt-derived emotion labels for AI-generated monochrome drawings, and how does
+reader agree with prompt-derived emotion labels for AI-generated monochrome drawings — and how does
 that agreement vary by visual content and by repeated prompts?**
 
-Four sub-questions follow, and each one becomes a result later.
+---
+
+## Slide 2 — Literature · 1:00–1:50
+
+Four areas are each well established on their own, and this matrix shows where they sit.
+
+Generating images from text — well established. Evaluating that output — well established, but for
+**objects**: CLIPScore and VQAScore ask whether the picture contains what the prompt named.
+
+Generating images to carry a chosen **emotion** — also well established, and the literature reports
+colour as the principal carrier of affect.
+
+And then the fourth cell, which is empty. Evaluating the emotion recovered from a generated line
+drawing. That is where this project sits.
+
+Reading emotion back out of an image is known to be weak — vision-language models are positively
+biased and order-sensitive readers of affect.
+
+One thing I want to be explicit about: I cite the colour work as motivation for why monochrome line
+art is a hard case. I have no colour-control condition, so I make no claim about colour.
 
 ---
 
-## Slide 3 — The gap  ·  1:20–2:10
-
-Four areas are each well established on their own.
-
-Reading emotion from text — GoEmotions gives a taxonomy and a classifier, though short first-person
-self-report is the hardest register for it.
-
-Generating emotional images — systems exist that condition on a target emotion, and the literature
-reports colour as the principal carrier of affect.
-
-Evaluating text-to-image output — but for objects, not feelings.
-
-And reading emotion back out of an image, which is known to be weak and positively biased.
-
-The gap sits between them. No work in the corpus I reviewed measures whether the emotion in a
-person's own unedited self-report is recoverable from the drawing generated from it — in monochrome
-line art, where the colour channel the literature relies on is simply absent.
-
-I should be explicit: I cite the colour work as motivation for why line art is a hard case. I have no
-colour condition, so I make no claim about colour.
-
----
-
-## Slide 4 — Contribution  ·  2:10–3:00
+## Slide 3 — Contribution · 1:50–2:45
 
 This is the contribution, and my supervisor named it.
 
@@ -76,15 +82,15 @@ noisy. So asking whether the image emotion *matches* the text — right or wrong
 Instead I measure how **similar** the two readings are, on a four-level ladder over emotion families,
 so that "happy" and "excited" count as close rather than as a miss.
 
-You can see it on the left: under a conventional one-to-one rule, that pair scores as a failure.
-On my ladder it scores near the top.
+You can see it here. Under a conventional one-to-one rule, that pair scores as a failure. On my
+ladder it sits near the top.
 
 That is the novel element. The field reports one-to-one accuracy; this study reports graded,
 chance-referenced similarity.
 
 ---
 
-## Slide 5 — Method  ·  3:00–4:00
+## Slide 4 — Methodology · 2:45–3:45
 
 My supervisor's instruction was: don't force CLIP to output an emotion. CLIP is trained on real
 colour photographs and is good at objects, not affect.
@@ -95,7 +101,7 @@ neutral sentence. A separate model, BART-MNLI, reads a feeling out of that sente
 
 The prompt goes through GoEmotions into the same seven emotion families.
 
-Now both sides are text, and I compare text to text on four measures — every one of them against a
+Now both sides are text, and I compare text to text on four measures — every one against a
 300-shuffle random-pairing null.
 
 One honest caveat, which is on the slide: asking "what is the facial expression" often returns a
@@ -104,7 +110,7 @@ I report that.
 
 ---
 
-## Slide 6 — Data  ·  4:00–4:45
+## Slide 5 — Data · 3:45–4:30
 
 1,025 drawings. Three things had to be solved before any analysis was possible.
 
@@ -119,7 +125,7 @@ scenes.
 
 ---
 
-## Slide 7 — Evaluation design  ·  4:45–6:00
+## Slide 6 — Evaluation design · 4:30–5:45
 
 This is the slide I would most like you to take away.
 
@@ -137,34 +143,33 @@ is informative there.
 
 And third — the scale does not start at zero. This measure has a mathematical floor of 41, and
 randomly paired items already score 76. So a score of 71 reads as a pass and is actually below
-chance. That is why I lead with valence-sign and family agreement rather than this number.
+chance. That is why I lead with valence-sign and family agreement rather than that number.
 
 ---
 
-## Slide 8 — Results  ·  6:00–7:15
+## Slide 7 — Results · 5:45–7:00
 
 Agreement is well above chance overall: 64% valence-sign against a null of 46, z over eleven.
 
 It is strongest for face-classified drawings — 73.9% against a null of 53.5 — and weaker, though
 still above chance, for scenes at 42.9%.
 
-I have tested that difference. A clustered permutation test gives **p equals 0.0001**, and the 95%
+**I have tested that difference.** A clustered permutation test gives **p equals 0.0001**, and the 95%
 confidence interval on the difference is **plus 22.6 to plus 40.6 percentage points**. I clustered on
-prompt identity, because 249 of the records repeat an earlier prompt and are therefore not
-independent.
+prompt identity because 249 records repeat an earlier prompt and are therefore not independent.
+*(The footnote on this slide predates that test — please take the spoken figure.)*
 
 Three further results. Repeated prompts: given the same words, the image reader recovers the same
 emotion 68.8% of the time against a null of 59.1%. The method comparison favours describe-then-extract,
-49.3% against 25.3% for reading emotion from the image directly — though I should note the prompt
-side is held constant with BART-MNLI in that comparison, not the GoEmotions reader used elsewhere.
-And on distinct prompts only, the face result holds while the scene result weakens substantially,
-to 37.3%.
+49.3% against 25.3% — though the prompt side is held constant with BART-MNLI in that comparison only,
+not the GoEmotions reader used elsewhere. And on distinct prompts, the face result holds while the
+scene result weakens substantially, to 37.3%.
 
 ---
 
-## Slide 9 — Demonstration  ·  7:15–8:45  (LIVE)
+## Slide 8 — Demonstration · 7:00–8:30 · LIVE
 
-*Switch to the browser. Pick "super tired".*
+*Switch to the browser. Click "super tired".*
 
 Here are the five factual answers the image model gave — expression sad, posture bent, one person.
 I never asked it what emotion the picture shows.
@@ -172,10 +177,10 @@ I never asked it what emotion the picture shows.
 *Click Compare.*
 
 A second model read sadness out of that description, at 93%. A third model read the person's own
-words and also said sadness. And here is the score — 89, against the chance line at 76, on an axis
-that starts at 41.
+words and also said sadness. And the score is 89, against the chance line at 76, on an axis starting
+at 41.
 
-*Now pick "disney characters".*
+*Now click "disney characters".*
 
 This one has no feeling in the words. The pipeline doesn't invent one — it lands below chance. That
 is the specificity check, running live.
@@ -187,7 +192,7 @@ previous slide.
 
 ---
 
-## Slide 10 — Conclusion  ·  8:45–9:45
+## Slide 9 — Conclusion · 8:30–9:30
 
 To close.
 
@@ -199,33 +204,33 @@ Not established, and I want to say these before you ask. What a *human* perceive
 are automatic and they disagree with each other. Anything about colour. And any positive-versus-
 negative direction, which I withdrew when the evidence didn't support it.
 
-One limitation I'll name directly: the face/scene split is derived from the same describer output
-that the emotion reader then reads, so it is partly circular. The difference is statistically real,
-but that does not make it independent evidence.
+One limitation I'll name directly: the face/scene split is derived from the same describer output the
+emotion reader then reads, so it is partly circular. The difference is statistically real, but that
+does not make it independent evidence.
 
 My contribution is not a new emotion classifier. It is a reproducible methodology for evaluating
 emotional agreement between prompts and AI-generated monochrome drawings, using graded similarity
-against a random-pairing baseline, in a setting where no human ground truth exists.
+against a random-pairing baseline, where no human ground truth exists.
 
 Thank you — I'm happy to take questions.
 
+---
+
+## Slide 10 — Backup
+
+Do not go to this slide unless the demonstration fails. If it does: *"I'll show you the numbers
+instead"* — then walk through record 201 exactly as you would have walked through the live run.
 
 ---
 
-# If an examiner asks about the word "fidelity" in your title
+# If an examiner asks about "fidelity" in your title
 
-They may. Have this ready — it takes fifteen seconds and it turns the question into a strength.
+> "The title names the phenomenon I set out to study — emotional fidelity — and the approach, a
+> similarity-based analysis. What I actually measure is agreement between two automatic readers,
+> which is narrower, and I say so throughout. I chose a similarity-based analysis precisely *because*
+> fidelity implies a correct answer, and this dataset has no human ground truth to be faithful to.
+> The title states the target; the thesis states what could be established about it."
 
-> "The title names the phenomenon I set out to study — emotional fidelity — and it names the approach,
-> a similarity-based analysis. What I actually measure is agreement between two automatic readers,
-> which is a narrower thing, and I'm careful to say so throughout. I chose a similarity-based analysis
-> precisely because fidelity implies a correct answer, and this dataset has no human ground truth to
-> be faithful to. So the title states the target; the thesis states what could actually be established
-> about it."
+# The habit that carries every answer
 
-That answer shows you understand the distinction rather than having missed it.
-
-# Last thing before you walk in
-
-Say the number, concede the limitation before you are pushed, then bound the claim. That sequence
-works for every question you will be asked.
+Say the number. Concede the limitation before you are pushed. Then bound the claim.
