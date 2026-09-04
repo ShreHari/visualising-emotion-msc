@@ -40,7 +40,7 @@ BLIP-VQA - zero-shot NLI - GoEmotions - Ekman families - describe-then-extract -
 3. "I make **no claim about colour**: the corpus is monochrome, but there is no colour-control condition."
 
 ## Conclusion
-Prompt-reader and image-reader agreement is well above chance and substantially stronger for drawings containing a person; the generator is not stable in what emotion it conveys for the same words. The contribution is the chance-referenced similarity measure, not a new classifier.
+Prompt-reader and image-reader agreement is well above chance and substantially stronger for drawings containing a person; the pipeline reads a different emotion family from redraws of the same words about a third of the time. The contribution is the chance-referenced similarity measure, not a new classifier.
 
 ## Two-minute verbal recap - if asked "tell me about your project"
 "At a science festival about a thousand people typed how they were feeling, and an AI drew each one as a black-and-white line drawing. My question is whether the emotion in the drawing agrees with the emotion in the words.

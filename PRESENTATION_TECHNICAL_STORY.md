@@ -71,7 +71,7 @@ The vision model is **never** asked for an emotion.
   a name gazetteer and phrase patterns, not capitals. 8 records held real names → `[name]`.
   Illness and grief content kept (supervisor direction). **Proved analytically inert:
   zero emotion readings changed.**
-- **28 automated tests**, all passing.
+- **29 smoke-test assertions**, all passing.
 
 ## Suggested 15-minute running order
 1. The problem (red car vs "tired but happy")

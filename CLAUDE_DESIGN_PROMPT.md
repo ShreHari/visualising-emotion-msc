@@ -95,7 +95,7 @@ Four labelled rows:
 Highlighted block beneath:
 **The gap:** no study has measured whether the emotion in a person's own unedited self-report is recoverable from the drawing generated from it — in monochrome line art, where the reported colour channel is absent.
 
-FOOTNOTE: 97 papers screened · 23 excluded · 74 retained across twelve themes. Colour is cited as motivation only — this study has no colour-control condition.
+FOOTNOTE: 97 papers screened; 73 retained as core evidence across eight themes. Colour is cited as motivation only — this study has no colour-control condition.
 
 ---
 

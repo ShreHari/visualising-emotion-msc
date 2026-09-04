@@ -55,9 +55,9 @@ A complete, self-contained account of the dissertation. Each section gives a pla
 
 **In simple English.** I read and filtered a large body of work and found that the neighbouring research either scores objects rather than feelings, uses tidy template sentences rather than what real people type, generates in full colour towards a chosen target emotion, or uses models trained on photographs. Nothing sits where this project sits.
 
-**Technically.** The curated library holds 74 retained papers across twelve themes, with 23 excluded as surveys, position pieces or off-target, documented in a filtering log and an annotated bibliography with a 74-entry BibTeX file. Four neighbours define the boundary. Automatic text-to-image metrics (VQAScore, TIFA, GenEval, DSG) evaluate semantic content, not affect. Lomas et al. (2024), the closest work, uses templated prompts rather than unmediated self-report. Affect-conditioned generators (EmoGen, EmotiCrafter) are target-conditioned and full-colour. Visual-emotion recognisers (EmoSet, ArtELingo) are trained on photographs and colour art, leaving monochrome line art out of distribution.
+**Technically.** The curated library holds 73 papers retained as core evidence across eight themes, from 97 screened as surveys, position pieces or off-target, documented in a filtering log and an annotated bibliography with a 74-entry BibTeX file. Four neighbours define the boundary. Automatic text-to-image metrics (VQAScore, TIFA, GenEval, DSG) evaluate semantic content, not affect. Lomas et al. (2024), the closest work, uses templated prompts rather than unmediated self-report. Affect-conditioned generators (EmoGen, EmotiCrafter) are target-conditioned and full-colour. Visual-emotion recognisers (EmoSet, ArtELingo) are trained on photographs and colour art, leaving monochrome line art out of distribution.
 
-**The gap.** No existing work measures prompt-reader / image-reader agreement for short, unmediated, mixed-affect first-person self-reports rendered as colour-free line art, nor the stability of the image reading under repeated identical prompts. The contribution is a corpus, a question framed as graded similarity, and a consistency experiment — not a new metric; the toolkit recombines existing models.
+**The gap.** Within the 73-paper corpus reviewed here, no work measures prompt-reader / image-reader agreement for short, unmediated, mixed-affect first-person self-reports rendered as colour-free line art, nor the stability of the image reading under repeated identical prompts. The contribution is a corpus, a question framed as graded similarity, and a consistency experiment — not a new metric; the toolkit recombines existing models.
 
 ---
 
@@ -252,6 +252,13 @@ Each measure is stated in plain words first.
 11. **No confidence intervals** are reported on any figure; the z-scores against the shuffle null are the only inferential quantity.
 
 ---
+
+**12. Serial dependency on the describer.** Every image-side number is a reading of BLIP-VQA's
+output, not of the drawing itself. Its answers were never validated against human coding, and it
+returns a confident facial-expression word even for records where it simultaneously reports that no
+people are present: of the 421 scene-classified records, 332 answer "smile", "smiling" or "happy".
+Describer error therefore propagates into every downstream measure, and it is the principal
+unquantified source of error in the pipeline.
 
 ## 18. Future work
 

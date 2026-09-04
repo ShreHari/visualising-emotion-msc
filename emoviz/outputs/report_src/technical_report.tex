@@ -66,7 +66,7 @@ compared with asking CLIP for the emotion directly.
 
 All results are measured against random-pairing null baselines (z-scores 4--16), independently
 re-derived by an adversarial statistical review, checked on deduplicated prompts, and covered by an
-automated \textbf{28/28-passing test suite}.
+automated \textbf{29-assertion smoke-test suite (all passing)}.
 
 % ---------------- dataset ----------------
 \section{The dataset --- and how every record is used}
@@ -239,7 +239,7 @@ drafted) is the designed adjudicator.
 \texttt{data\_audit\_consistency.py} & Data accounting + repeated-prompt consistency\\
 \texttt{similarity\_v2.py} & Old-vs-new method comparison\\
 \texttt{make\_figures.py} & All report figures\\
-\texttt{test.sh} & 28-check automated test suite\\
+\texttt{test.sh} & 29-assertion smoke-test suite\\
 \texttt{emoviz/} & Core package (loader; earlier baseline reader)\\
 \texttt{outputs/RESULTS\_final.md} & Verified findings write-up\\
 \texttt{outputs/describe\_extract.jsonl} & Full per-record pipeline output (1{,}025)\\

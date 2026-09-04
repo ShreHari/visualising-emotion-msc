@@ -69,7 +69,7 @@ G.forEach((g,i)=>{const y=1.98+i*0.86;
 card(s,M,5.42,CW,1.05,"EEF2F3",TEAL);
 s.addText("The gap: no study has measured whether the emotion in a person's own unedited self-report is recoverable from the drawing generated from it — in monochrome line art, where the reported colour channel is absent.",
   {x:M+0.35,y:5.55,w:11.1,h:0.8,isTextBox:true,margin:0,fontFace:HF,fontSize:16,bold:true,color:TEAL,valign:"middle"});
-foot(s,"97 papers screened · 23 excluded · 74 retained across twelve themes. Colour is cited as motivation only — this study has no colour-control condition.");
+foot(s,"97 papers screened; 73 retained as core evidence across eight themes. Colour is cited as motivation only — this study has no colour-control condition.");
 s.addNotes("[50s] Four areas are each well established on their own. Reading emotion from text. Generating emotional images — where the literature says colour carries most of the affect. Evaluating text-to-image output, but for objects, not feelings. And reading emotion back out of an image, which is known to be weak and positively biased. The gap sits between them. I should be explicit: I cite the colour work as motivation for why line art is hard. I have no colour condition, so I make no claim about colour.");
 
 /* ============================== 4 CONTRIBUTION ====================== */

@@ -136,7 +136,7 @@ s.addShape(p.ShapeType.roundRect,{x:M,y:5.6,w:11.93,h:1.05,rectRadius:0.06,
 s.addText("Nobody had asked whether the feeling in a person's own unedited words survives the journey into a drawing.",
   {x:M+0.35,y:5.7,w:11.2,h:0.85,isTextBox:true,margin:0,fontFace:HFONT,fontSize:19,
    bold:true,color:TEAL,valign:"middle"});
-note(s,"97 papers collected and read · 73 kept as core evidence · organised into twelve themes");
+note(s,"97 papers collected and read · 73 kept as core evidence · organised into eight themes");
 s.addNotes("Each of these four areas is well studied on its own. What nobody had done is check whether a real person's own words about their own feeling survive into the picture.");
 
 /* ==================================================== 5. THE QUESTION ===== */
