@@ -352,9 +352,9 @@ lessons are recorded because both were real errors caught by the audit:
 \begin{itemize}
 \item \textbf{Unscoped redaction over-reaches.} A bare token list destroyed \say{Jack Frost} and
 \say{woolly mammoth}, because those strings occur innocently elsewhere.
-\item \textbf{Redaction can forge duplicates.} \say{karena cheung} and \say{Thomas chung} both become
-\texttt{[name]}, which made the analysis count two different people's entries as one prompt drawn
-twice. Duplicate identity is therefore decided on a key derived from the original text.
+\item \textbf{Redaction can forge duplicates.} Two records holding two \emph{different} people's full
+names both become \texttt{[name]}, which made the analysis count them as one prompt drawn twice.
+Duplicate identity is therefore decided on a key derived from the original text.
 \end{itemize}
 
 \textbf{Redaction is analytically inert:} re-running the text-emotion model on the redacted prompts

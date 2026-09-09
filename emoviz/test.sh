@@ -36,11 +36,11 @@ check "  consistency analysis runs"    "grep -q 'CONSISTENCY' /tmp/ca.log"
 check "  data accounting = 1025"       "grep -q '1025' /tmp/ca.log"
 
 echo; echo "[4] Live pipeline (BLIP-VQA + NLI) on 3 fresh images"
-rm -f /tmp/pipe_test.jsonl
-$PY describe_extract.py --limit 3 --out /tmp/pipe_test.jsonl > /tmp/pipe.log 2>&1
+PT=$(mktemp -t emoviz_pipe).jsonl; rm -f "$PT"      # unique per run: concurrent runs must not collide
+$PY describe_extract.py --limit 3 --out "$PT" > /tmp/pipe.log 2>&1
 check "  pipeline completes 3/3"       "grep -q 'ok=3 fail=0' /tmp/pipe.log"
-check "  produces valid records"       "[ \$(wc -l < /tmp/pipe_test.jsonl) -eq 3 ]"
-check "  each record has description+emotions" "$PY -c 'import json;[[r[\"description\"],r[\"prompt_emotions\"],r[\"image_emotions\"]] for r in map(json.loads,open(\"/tmp/pipe_test.jsonl\"))]'"
+check "  produces valid records"       "[ \$(wc -l < "$PT") -eq 3 ]"
+check "  each record has description+emotions" "$PY -c 'import json;[[r[\"description\"],r[\"prompt_emotions\"],r[\"image_emotions\"]] for r in map(json.loads,open(\""$PT"\"))]'"
 
 echo; echo "[4b] Name redaction (supervisor direction: redact names, keep illness content)"
 $PY preprocess_names.py > /tmp/redact.log 2>&1
