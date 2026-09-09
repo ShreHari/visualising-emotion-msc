@@ -33,3 +33,4 @@ emoviz/outputs/app.log
 emoviz/outputs/*.prename
 emoviz/outputs/*.nodedup
 .DS_Store
+**/~$*
