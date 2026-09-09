@@ -1,14 +1,29 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-% COM Dissertation Project Template 
+% COM Dissertation Project Template
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-% Based on template originally developed by 
+% Based on template originally developed by
 % Prof. Roger K. Moore
 % University of Sheffield
 % 22 March 2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 % Updated 22 October 2025 (Mark Stevenson)
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%
+% HOW THIS DOCUMENT IS BUILT
+%   1. emoviz/.venv/bin/python emoviz/export_tex.py      -> generated/numbers.tex + generated/tab_*.tex
+%   2. emoviz/.venv/bin/python emoviz/make_figures.py    -> ../emoviz/outputs/figures/fig*.pdf
+%   3. pdflatex myReport && bibtex myReport && pdflatex myReport && pdflatex myReport
+% Every statistic in the text is a macro from generated/numbers.tex (e.g. \FullEmoSignObs), so the
+% dissertation cannot drift from the analysis. Never type a result number by hand.
+%
+% WRITING RULE (supervisor): the student writes the prose. Each section carries a
+% "% GUIDANCE:" block — a content plan naming the macros, tables, figures and citations to use.
+% Delete the guidance block once the section is written.
+%
+% VOCABULARY: the central quantity is *agreement* between the prompt reader and the image reader.
+% Do not write alignment / fidelity / accuracy / matching for it, and do not write that a drawing
+% "conveys" or "carries" an emotion — except when quoting what the project does NOT claim, when
+% describing other people's work in their own terms, and in the registered title.
 
 \documentclass[11pt,oneside]{book}
 \usepackage[margin=1.2in]{geometry}
@@ -16,29 +31,33 @@
 \usepackage[toc,page]{appendix}
 \usepackage[none]{hyphenat} % turn hyphenation off by default
 \usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit}
 \usepackage{url}
 \usepackage{hyperref}
+
+\graphicspath{{figures/}{../emoviz/outputs/figures/}}
+\input{generated/numbers}
 
 \begin{document}
 
 \frontmatter
 
 \begin{titlepage}
-
-% You need to edit the details here
-
 \begin{center}
 \includegraphics[width=5cm]{images/UOSLogo_Portrait_Violet_RGB.png}\\[2cm]
-\linespread{1.2}\huge {\bfseries Project title}\\[2cm]
+\linespread{1.2}\huge {\bfseries Visualising Emotion: A Similarity-Based Analysis of Emotional Fidelity in Text-to-Image Generation}\\[2cm]
 \linespread{1}
-{\Large Your name}\\[1cm]
-{\large \emph{Supervisor:} Supervisor name}\\[1cm]
-\large \emph{A report submitted in fulfilment of the requirements}\\ \emph{for the degree of} your degree (e.g. BSc in Computer Science)\\[0.3cm] 
+{\Large Shre Hari Prem Anandh}\\[1cm]
+{\large \emph{Supervisor:} Dr Chaona Chen}\\[1cm]
+\large \emph{A report submitted in fulfilment of the requirements}\\ \emph{for the degree of} MSc in Artificial Intelligence\\[0.3cm]
 \textit{in the}\\[0.3cm]
 School of Computer Science\\[2cm]
-\today
+September 2026
 \end{center}
-
 \end{titlepage}
 
 % -------------------------------------------------------------------
@@ -48,7 +67,7 @@ School of Computer Science\\[2cm]
 \newpage
 \chapter*{\Large Declaration}
 
-\setstretch{1.1} % set the line spacing differently if you wish, but this looks good to me. 
+\setstretch{1.1}
 
 All sentences or passages quoted in this report from other people's work have been specifically acknowledged by clear cross-referencing to author, work and page(s). Any illustrations that are not the work of the author of this report have been used with the explicit permission of the originator and are specifically acknowledged. I understand that failure to do this amounts to plagiarism and will be considered grounds for failure in this project and the degree examination as a whole.\\[1cm]
 
@@ -62,10 +81,11 @@ All sentences or passages quoted in this report from other people's work have be
 \rule[1em]{25em}{0.5pt}
 
 % -------------------------------------------------------------------
-% Abstract
+% Abstract, glossary
 % -------------------------------------------------------------------
 
 \input{chapters/abstract.tex}
+\input{chapters/glossary.tex}
 
 % -------------------------------------------------------------------
 % TOC etc
@@ -75,22 +95,24 @@ All sentences or passages quoted in this report from other people's work have be
 \listoffigures
 \listoftables
 
-\setstretch{1.1} 
+\setstretch{1.1}
 
 \mainmatter
 
-\input{chapters/chapter1.tex}
-\input{chapters/chapter2.tex}
-\input{chapters/chapter3.tex}
-\input{chapters/chapter4.tex}
-\input{chapters/chapter5.tex}
+\input{chapters/chapter1.tex}   % Introduction
+\input{chapters/chapter2.tex}   % Literature Review
+\input{chapters/chapter3.tex}   % Methodology
+\input{chapters/chapter4.tex}   % Results
+\input{chapters/chapter5.tex}   % Discussion
+\input{chapters/chapter6.tex}   % Conclusions and Further Work
 
-\bibliographystyle{acm} 
-\bibliography{mybibliography} 
+\nocite{*}   % DRAFT ONLY: lists every bibliography entry so the .bib is checked. REMOVE before submission and cite what you use.
+\bibliographystyle{acm}
+\bibliography{mybibliography}
 
 \begin{appendices}
-\input{chapters/appendixA.tex}
-\input{chapters/appendixB.tex}
+\input{chapters/appendixA.tex}  % Reproducibility
+\input{chapters/appendixB.tex}  % Instruments
 \end{appendices}
 
 \end{document}

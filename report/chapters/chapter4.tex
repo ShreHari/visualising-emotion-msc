@@ -1,13 +1,188 @@
-\chapter{Planning}
+\chapter{Results}
+\label{ch:results}
 
-\section{Risk Analysis}
+% GUIDANCE (chapter target about 2,000 words — shorter than the Methodology, per the supervisor).
+% Tables and figures carry the numbers; the prose says what each shows and nothing more. Interpretation
+% belongs in Chapter~\ref{ch:discussion}. Every number is a macro or is in a generated table.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\section{Overall agreement}
+\label{sec:results-overall}
+% GUIDANCE: Table~\ref{tab:headline}, top block, and Figure~\ref{fig:zgroup}. On the \nEmotional\
+% emotional prompts every measure sits well above its null: valence sign \FullEmoSignObs\ vs
+% \FullEmoSignNull\ ($z$ \FullEmoSignZ, CI \FullEmoSignCi), family \FullEmoFamObs\ vs \FullEmoFamNull\
+% ($z$ \FullEmoFamZ), overlap \FullEmoOvlpObs\ vs \FullEmoOvlpNull, VA \FullEmoVaObs\ vs \FullEmoVaNull.
+% Say that the valence-sign denominator is \FullEmoNSign\ because surprise-family prompts have no sign.
 
-\section{Project Plan}
+\input{generated/tab_headline}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.9\textwidth]{fig3_z_by_prompt_group}
+\caption{Distance from the random-pairing null ($z$) by prompt group and measure. For the neutral-labelled prompts the sign and family nulls are degenerate and no $z$ is shown.}
+\label{fig:zgroup}
+\end{figure}
 
-\section{Another Section if You Need It}
+\section{Face-classified versus scene-classified drawings}
+\label{sec:results-face-scene}
+% GUIDANCE: Figure~\ref{fig:facescene} and Table~\ref{tab:difference}. Face-classified
+% (\FullFaceN\ records): valence sign \FullFaceSignObs\ vs null \FullFaceSignNull, family
+% \FullFaceFamObs\ vs \FullFaceFamNull. Scene-classified (\FullSceneN): \FullSceneSignObs\ vs
+% \FullSceneSignNull, \FullSceneFamObs\ vs \FullSceneFamNull. Both above their nulls. The difference
+% is \DiffSignPp\ (CI \DiffSignCi) on valence sign and \DiffFamPp\ (CI \DiffFamCi) on family, with
+% clustered permutation $p$ = \DiffSignP. Report the ratio as excess over null, not raw (the nulls
+% differ). VA does not separate the classes (\FullFaceVaObs\ vs \FullSceneVaObs) — say so.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig1_face_vs_scene}
+\caption{Agreement between the prompt reader and the image reader on the emotional prompts, by describer-defined image class, with clustered-bootstrap 95\% CIs (error bars) and each cell's random-pairing null (dotted).}
+\label{fig:facescene}
+\end{figure}
+
+\input{generated/tab_difference}
+
+\section{Robustness to repeated prompts and multiple comparisons}
+\label{sec:results-robustness}
+% GUIDANCE: Table~\ref{tab:distinct} (first occurrence of each prompt, \nDistinct\ records,
+% \nDistinctEmo\ emotional). Overall and face results hold (face sign \DistFaceSignObs, $z$
+% \DistFaceSignZ); the scene result weakens substantially (sign \DistSceneSignObs, $z$ \DistSceneSignZ;
+% family \DistSceneFamObs, $z$ \DistSceneFamZ; $n$ falls to \DistSceneN) and should be read as
+% suggestive. Then Table~\ref{tab:holm}: of \HolmM\ non-degenerate $z$-scores, \HolmSurvive\ survive
+% Holm at family-wise 0.05 and \HolmFail\ do not — list which, and note that every headline survives
+% while the distinct-prompt scene family result does not.
+
+\input{generated/tab_distinct}
+\input{generated/tab_holm}
+
+\section{Specificity check: prompts the text reader labels neutral}
+\label{sec:results-control}
+% GUIDANCE: Table~\ref{tab:control}. On the \CtrlN\ neutral-labelled prompts only VA is informative:
+% \CtrlVaObs\ vs \CtrlVaNull\ ($z$ \CtrlVaZ; clustered \CtrlVaZClustered). Sign and family are
+% degenerate there (family equals its null, \CtrlFamObs, by construction). The audit found
+% \CtrlFlagged\ (\CtrlFlaggedPct) contain a plain affect word (most often \CtrlTopWords) and
+% \CtrlNameOnly\ reduce to the placeholder; on the cleaned control of \CtrlCleanN\ the VA result is
+% unchanged (\CtrlCleanVaObs\ vs \CtrlCleanVaNull, $z$ \CtrlCleanVaZ). State that the VA null here
+% has very small spread (\CtrlVaSd) because the prompt-side points barely vary, so this is a weak
+% check, passed.
+
+\input{generated/tab_control}
+
+\section{Two image readers, like for like}
+\label{sec:results-method}
+% GUIDANCE: Figure~\ref{fig:method}, Table~\ref{tab:method}. Same prompt reader, same \McN\ records,
+% same measures and re-pairings; only the image reader varies. Family \McDeFam\ vs \McClipFam\
+% (\McDiffFamPp, CI \McDiffFamCi; cluster sign-flip $p<0.001$; unclustered McNemar \McMcNemarFamP);
+% valence sign \McDeSign\ vs \McClipSign\ (\McDiffSignPp, CI \McDiffSignCi). Note that $z$ alone
+% would mislead on family (CLIP's null is far lower because it reads \McClipNeutral\ of the images as
+% neutral); the paired tests on the rates are the comparison. The two readers agree with each other on
+% only \McReaderAgree\ of top-1 families. Table~\ref{tab:methodvone} is the earlier v1 comparison,
+% kept as a record; explain in one sentence why it is not comparable.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig2_method_comparison}
+\caption{Two image readers scored against the same prompt reader on the same \McN\ emotional records, each against its own random-pairing null (dotted).}
+\label{fig:method}
+\end{figure}
+
+\input{generated/tab_method}
+\input{generated/tab_methodvone}
+
+\section{Consistency across repeated prompts}
+\label{sec:results-consistency}
+% GUIDANCE: Figure~\ref{fig:consistency}, Table~\ref{tab:consistency}. \nGroups\ prompts drawn two or
+% more times (\nGroupRecords\ records; \nPairGroups\ pairs). Same family \ConsFam\ (CI \ConsFamCi) vs
+% null \ConsFamNull\ ($z$ \ConsFamZ, $p$ \ConsFamP); same valence \ConsVal\ vs \ConsValNull\ ($z$
+% \ConsValZ); \ConsFull\ of \nGroups\ groups fully consistent vs \ConsFullNull\ expected ($z$
+% \ConsFullZ). The largest group, "happy" (\ConsHappyN\ drawings): \ConsHappyJoy\ joy, \ConsHappyNeutral\
+% neutral, \ConsHappySurprise\ surprise. Never quote \ConsFam\ without its null.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig4_consistency}
+\caption{Repeated prompts: the image reader's top-1 family across the \ConsHappyN\ drawings of ``happy'' (left), and within-group agreement over all \nGroups\ repeated prompts against the permutation null (right).}
+\label{fig:consistency}
+\end{figure}
+
+\input{generated/tab_consistency}
+
+\section{Per-family agreement}
+\label{sec:results-families}
+% GUIDANCE: Figure~\ref{fig:confusion}, Tables~\ref{tab:confusion}, \ref{tab:kappa}, \ref{tab:families}.
+% Recall by prompt family: joy \RecJoy\ (\RecJoyCi), sadness \RecSadness, anger \RecAnger\ ($n$ =
+% \RecAngerN), fear \RecFear\ ($n$ = \RecFearN), surprise \RecSurprise, disgust $n$ = \RecDisgustN.
+% The image reader never returns disgust and returns fear \famImageFear\ times. Kappa: emotional
+% \KappaEmo\ (\KappaEmoCi, \KappaEmoBand), face \KappaFace\ (\KappaFaceBand), scene \KappaScene\
+% (\KappaSceneBand). Say plainly that the seven-family ladder is in practice joy / sadness / neutral.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.85\textwidth]{fig6_confusion}
+\caption{Prompt-reader family (rows) against image-reader family (columns) on the \nEmotional\ emotional records; cell = count, shading = row fraction.}
+\label{fig:confusion}
+\end{figure}
+
+\input{generated/tab_confusion}
+\input{generated/tab_kappa}
+\input{generated/tab_families}
+
+\section{The describer}
+\label{sec:results-describer}
+% GUIDANCE: Table~\ref{tab:describer}. The describer answers an expression for \DescNoPeopleExpr\ of
+% the records in which it reports no people; of the \DescSceneN\ scene-classified records
+% \DescScenePeopleZero\ report no people, \DescScenePeopleZeroExpr\ of those still carry an
+% expression word, and \DescSceneSmile\ answer smile, smiling or happy (\DescSceneSmilePct\ of them).
+% Smile bias: \DescSmileFace\ of face-classified records, \DescSmileAll\ of all analysed records —
+% always give the denominator. Copy rate: where the expression answer names an emotion
+% (\DescBareStrictN\ records, \DescBareStrictPct), the image reader returns that word's family
+% \DescCopyStrict\ of the time; on the broad definition \DescCopyBroad\ (\DescCopyBroadPeople\ with a
+% person reported, \DescCopyBroadPeopleZero\ without).
+
+\input{generated/tab_describer}
+
+\section{Error taxonomy}
+\label{sec:results-taxonomy}
+% GUIDANCE: Figure~\ref{fig:taxonomy}, Table~\ref{tab:taxonomy}. \TaxN\ high-confidence disagreements
+% (\TaxDistinct\ distinct prompts; a census, below the target sample). By stage: describer \TaxDescriber,
+% image reader \TaxReader, prompt side \TaxPrompt, generator \TaxGenerator. Report the two mechanisms
+% the taxonomy exposed: people-count 0 predicts an invented expression; "calm" and low-arousal
+% positive states fall to neutral because the seven-family scheme has nowhere else to put them.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.95\textwidth]{fig7_error_taxonomy}
+\caption{Primary failure mode of the \TaxN\ high-confidence disagreements, assigned from the drawing.}
+\label{fig:taxonomy}
+\end{figure}
+
+\input{generated/tab_taxonomy}
+
+\section{Description-template ablation}
+\label{sec:results-ablation}
+% GUIDANCE: Table~\ref{tab:ablation} (generated when ablate\_nli.py has run; \AblationAvailable).
+% Report, per variant, whether the emotional, face and scene results move, and by how much relative
+% to the baseline row, which must reproduce Section~\ref{sec:results-overall}. The two variants that
+% matter most: drop\_expression and fixed\_expression — they say how much of the face/scene gap is
+% carried by the expression word alone. Add Figure fig8\_ablation once it exists.
+
+\input{generated/tab_ablation}
+
+\section{Single-coder reliability check}
+\label{sec:results-human}
+% GUIDANCE: Table~\ref{tab:humancheck} (generated once labels.csv is coded and human\_check.py score
+% has run; \HumanCheckAvailable). Report the describer's people-count agreement with the coder, the
+% face rule's precision and recall, what lies behind "smiling" answers, the image reader against the
+% coder's valence, and — the point of the exercise — the face/scene contrast on the CODER's split,
+% which breaks the circularity for this sample. State the single-coder limitation.
+
+\input{generated/tab_humancheck}
+
+\section{Summary of findings}
+\label{sec:results-summary}
+% GUIDANCE: Five numbered findings, one sentence each, each with its null, mapped to the objectives
+% in Section~\ref{sec:intro-aims}: (1) agreement on emotional prompts is far above chance;
+% (2) face-classified drawings agree far more than scene-classified, difference tested; (3) neutral-
+% labelled prompts sit at chance on the one informative measure; (4) describe-then-extract agrees
+% more than direct CLIP, like for like and paired; (5) repeated prompts are read consistently more
+% often than chance but far from always. Then one sentence on the audits: the split and much of the
+% agreement run through the describer's expression word.

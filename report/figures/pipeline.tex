@@ -1,0 +1,43 @@
+% TikZ: the describe-then-extract pipeline and the similarity ladder. Input from chapter3.tex.
+\begin{tikzpicture}[
+  font=\small,
+  node distance=6mm and 10mm,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=8mm, inner sep=4pt, fill=white},
+  data/.style={box, fill=black!4},
+  model/.style={box, fill=blue!8},
+  res/.style={box, fill=green!8},
+  meas/.style={box, fill=orange!10, minimum width=30mm},
+  arr/.style={-{Latex[length=2mm]}, thick},
+  lab/.style={font=\scriptsize, text=black!60, yshift=1mm}
+]
+% prompt lane
+\node[data] (prompt) {prompt text\\\footnotesize e.g.\ ``tired but happy''};
+\node[model, right=of prompt] (goe) {prompt reader\\\footnotesize GoEmotions, 28 labels};
+\node[res, right=of goe] (pfam) {top-3 families\\\footnotesize $P$};
+\draw[arr] (prompt) -- (goe);
+\draw[arr] (goe) -- node[lab, above] {28 $\to$ 7} (pfam);
+
+% image lane
+\node[data, below=14mm of prompt] (img) {line drawing};
+\node[model, right=of img] (vqa) {describer\\\footnotesize BLIP-VQA, five factual questions};
+\node[data, right=of vqa] (desc) {one-sentence\\description};
+\node[model, right=of desc] (nli) {image reader\\\footnotesize BART-MNLI, zero-shot};
+\node[res, right=of nli] (ifam) {top-3 families\\\footnotesize $Q$};
+\draw[arr] (img) -- (vqa);
+\draw[arr] (vqa) -- node[lab, above] {template} (desc);
+\draw[arr] (desc) -- node[lab, above] {entailment} (nli);
+\draw[arr] (nli) -- (ifam);
+
+% ladder
+\node[meas, below=16mm of desc, xshift=-12mm] (va) {valence--arousal similarity};
+\node[meas, right=3mm of va] (sign) {valence-sign agreement};
+\node[meas, right=3mm of sign] (fam) {family agreement};
+\node[meas, right=3mm of fam] (ovl) {top-3 soft overlap};
+\node[draw, dashed, rounded corners, inner sep=3pt, fit=(va)(sign)(fam)(ovl), label={[lab]above left:similarity ladder, loosest $\to$ strictest}] (ladder) {};
+\draw[arr] (pfam.east) -- ++(6mm,0) |- ($(ladder.north east)+(0,2mm)$) -- (ladder.north east);
+\draw[arr] (ifam.south) -- (ladder.north -| ifam.south);
+
+% null
+\node[box, fill=red!6, below=6mm of ladder, text width=110mm] (null) {random-pairing null: re-pair $Q$ with $P$ at random $K$ times $\to$ mean, sd $\to$ $z$\\\footnotesize degenerate (sd $=0$) $\Rightarrow$ no $z$; intervals and tests cluster on the prompt group};
+\draw[arr] (ladder) -- (null);
+\end{tikzpicture}

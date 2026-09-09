@@ -1,11 +1,65 @@
 \chapter{Introduction}
+\label{ch:intro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+% GUIDANCE (chapter target about 1,500 words):
+% Open with the festival scene, then move to the measurement problem in two paragraphs. Do not open
+% with "In recent years". Cite the T2I lineage once (\cite{ramesh2021zero, ramesh2022hierarchical,
+% betker2023improving}) and the evaluation literature once (\cite{hessel2021clipscore, hu2023tifa,
+% ghosh2023geneval, lin2024evaluating}) to establish that existing metrics score objects, not affect.
 
-\section{Aims and Objectives}
+\section{Context}
+\label{sec:intro-context}
+% GUIDANCE: The corpus: \nTotal\ prompt--drawing records collected at Festival of the Mind 2024 in
+% Sheffield; visitors were invited to describe how they were feeling, the interface accepted free
+% text, and a model drew each entry as a black-and-white line drawing. Records are not linked to
+% people: \nRepeats\ repeat an earlier prompt, so the number of contributors is unknown and no greater
+% than \nDistinct. State that a substantial minority (\nNonEmotional\ records by the prompt reader)
+% are object or scene requests ("pigs") rather than self-report, and that this is a property of the
+% collection, not a defect of the analysis. Keep it factual; no numbers beyond the macros.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\section{The question}
+\label{sec:intro-question}
+% GUIDANCE: One question, stated once: when a text-to-image model draws what a person wrote about
+% their feeling, does the emotion recoverable from the drawing agree with the emotion recoverable
+% from the words? Then the supervisor's reframing, which is the intellectual centre of the project:
+% SIMILARITY, NOT MATCHING. Emotion labels overlap and blend (\cite{cowen2017self, russell1980circumplex,
+% posner2005circumplex}), so "happy" versus "excited" is a near miss, not an error; the right
+% instrument is a ladder of measures of increasing strictness, each read against what random pairing
+% would give. Introduce the four rungs by name only (valence--arousal similarity, valence sign,
+% family, top-3 overlap) and point to Chapter~\ref{ch:method}.
+% Also say here what the project does NOT claim, in one sentence: nothing in it is a statement about
+% what a person would see in a drawing — agreement is between two machine readers, and the human
+% study is future work.
 
-\section{Overview of the Report}
+\section{Aims and objectives}
+\label{sec:intro-aims}
+% GUIDANCE: One aim, then objectives as a numbered list (the marker maps the Conclusions back to this):
+%   1. Build a pipeline that reads an emotion from a monochrome drawing WITHOUT asking a vision model
+%      for one: describe with factual questions, then extract from the description.
+%   2. Define a similarity ladder and a random-pairing null so that every value has a chance level.
+%   3. Measure agreement on the whole corpus and on the splits the supervisor asked for
+%      (emotional vs neutral-labelled prompts; face vs scene drawings).
+%   4. Test the face/scene difference formally and check robustness to repeated prompts.
+%   5. Compare the describe-then-extract reader with a direct CLIP reader like for like.
+%   6. Use the repeated prompts to measure the stability of the whole prompt-to-reading chain.
+%   7. Audit the instrument: the control set, the describer, an error taxonomy, an ablation of the
+%      description template, and a single-coder reliability check.
+%   8. Release a reproducible toolkit with pinned numeric tests and a live demonstrator.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\section{Contributions}
+\label{sec:intro-contributions}
+% GUIDANCE: Honest novelty accounting (from RESEARCH_GAP.md): what is new is the OBJECT (unmediated,
+% mixed-affect public self-report rendered as colour-free line art), the QUESTION (end-to-end affect
+% agreement on non-templated input, cf. \cite{lomas2024improved} who use a fixed typology), the
+% NULL-REFERENCED similarity ladder, and the CONSISTENCY experiment that the repeated prompts make
+% possible. What is incremental is the toolkit (existing models recombined). Say so.
+% List the deliverables: the analysis code, \nAnalysed-record result tables, the demonstrator, the
+% test suite, and the audits in Chapter~\ref{ch:results}.
+
+\section{Overview of the report}
+\label{sec:intro-overview}
+% GUIDANCE: One sentence per chapter. Chapter~\ref{ch:lit} reviews the literature in eight themes and
+% states the gap. Chapter~\ref{ch:method} gives the corpus, pre-processing, pipeline, measures, null,
+% inference and audits. Chapter~\ref{ch:results} reports the results, tables first. Chapter~\ref{ch:discussion}
+% interprets them, says what is not claimed, and relates them to prior work. Chapter~\ref{ch:conclusion}
+% concludes. Appendices give reproducibility and the instruments.

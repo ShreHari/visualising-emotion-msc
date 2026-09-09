@@ -33,7 +33,17 @@ $PY data_audit_consistency.py > /tmp/ca.log 2>&1
 check "  significance test exits 0"   "$PY significance.py"
 check "  consistency analysis exits 0" "$PY data_audit_consistency.py"
 check "  consistency analysis runs"    "grep -q 'CONSISTENCY' /tmp/ca.log"
+check "  consistency null is scripted"  "$PY -c 'import json;d=json.load(open(\"outputs/consistency.json\"));assert d[\"null\"][\"draws\"]>=1000'"
 check "  data accounting = 1025"       "grep -q '1025' /tmp/ca.log"
+check "  analysis_final.json written"  "[ -f outputs/analysis_final.json ]"
+check "  inference (CIs, kappa, Holm) exits 0"      "$PY inference.py"
+check "  like-for-like method comparison exits 0"  "$PY method_comparison.py"
+check "  control + describer audits exit 0"        "$PY audits.py"
+
+echo; echo "[3b] Numeric regression — every headline number pinned to the result file that produces it"
+NL=$(mktemp -t emoviz_num); $PY test_numeric.py > "$NL" 2>&1
+check "  test_numeric.py: all pinned values reproduce"  "grep -q ', 0 failed' \"$NL\""
+check "  metric module is the single definition (analysis, significance, app import it)" "grep -q 'from emoviz.metrics import' analysis_final.py && grep -q 'from emoviz.metrics import' significance.py && grep -q 'from emoviz.metrics import' app.py"
 
 echo; echo "[4] Live pipeline (BLIP-VQA + NLI) on 3 fresh images"
 PT=$(mktemp -t emoviz_pipe).jsonl; rm -f "$PT"      # unique per run: concurrent runs must not collide
@@ -48,9 +58,9 @@ check "  redaction audit passes"       "grep -q 'every detector candidate has a 
 check "  no unreviewed candidates"     "grep -q 'unreviewed candidates      : 0' /tmp/redact.log"
 check "  no stale REDACT entries"      "grep -q 'stale REDACT entries       : 0' /tmp/redact.log"
 check "  loader redacts by default"    "$PY -c 'import sys;sys.path.insert(0,\".\");from emoviz import data;rs=data.load(with_timestamps=False);assert all(\"[name]\" in r.text for r in rs if r.id in (750,751,1020))'"
-check "  no redacted name in outputs"  "! grep -ril -E 'karena|cheung|thomas chung|matteo|timmy|professor vanessa|laurie' outputs/ --exclude='*.prename' | grep -q ."
+check "  no redacted name in outputs"  "$PY -c 'import sys,json,csv;sys.path.insert(0,\".\");import preprocess_names as p;rows={r[\"id\"]:r[\"text\"] for r in map(json.loads,open(\"outputs/describe_extract.jsonl\"))};rows.update({int(r[\"id\"]):r[\"text\"] for r in csv.DictReader(open(\"outputs/analysis_final.csv\"))});bad=[(t,i) for t,(ids,_) in p.REDACT.items() for i in ids if i in rows and t in rows[i].lower()];assert not bad,bad'"
 check "  illness content KEPT"         "$PY -c 'import sys;sys.path.insert(0,\".\");from emoviz import data;rs={r.id:r.text for r in data.load(with_timestamps=False)};assert \"Parkinson\" in rs[302] and \"Alzheimer\" in rs[532]'"
-check "  non-person names preserved"   "$PY -c 'import sys;sys.path.insert(0,\".\");from emoviz import data;rs={r.id:r.text for r in data.load(with_timestamps=False)};assert \"woolley\" in rs[463].lower() and \"frost\" in rs[41].lower()'"
+check "  non-person names preserved"   "$PY -c 'import sys;sys.path.insert(0,\".\");from emoviz import data;rs={r.id:r.text for r in data.load(with_timestamps=False)};assert \"mammoth\" in rs[463].lower() and \"frost\" in rs[41].lower()'"
 check "  demo pool = all 1012"         "[ \$($PY -c 'import app;print(len(app.records()))') -eq 1012 ]"
 
 echo; echo "[5] All scripts compile"
@@ -61,7 +71,9 @@ for f in *.py; do tot=$((tot+1)); $PY -c "import ast;ast.parse(open('$f').read()
 echo; echo "[6] Figures regenerate"
 $PY make_figures.py > /tmp/figs.log 2>&1
 check "  make_figures.py runs in venv"  "grep -q 'all figures done' /tmp/figs.log"
-check "  5 figure PDFs present"         "[ \$(ls outputs/figures/*.pdf 2>/dev/null | wc -l) -ge 5 ]"
+check "  at least 7 figure PDFs present" "[ \$(ls outputs/figures/*.pdf 2>/dev/null | wc -l) -ge 7 ]"
+check "  figures carry no typed result lists (read JSON)" "! grep -qE '\\[ *[0-9]+(\\.[0-9]+)? *, *[0-9]+(\\.[0-9]+)? *, *[0-9]+' make_figures.py"
 
 echo; echo "════════ RESULT: $pass passed, $fail failed ════════"
 [ "$fail" -eq 0 ] && echo "🟢 ALL TESTS PASSED — tech side is working." || echo "🔴 $fail test(s) failed — see above."
+exit "$fail"

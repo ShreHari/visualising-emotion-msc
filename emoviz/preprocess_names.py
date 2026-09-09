@@ -83,42 +83,23 @@ def candidates(text: str) -> dict[str, list[str]]:
 # Scoping matters: a bare token list redacted "Jack Frost" (id 41, folklore) and "woolly
 # mammoth" (id 463) because those strings also occur innocently elsewhere. Each entry is a
 # specific reviewed edit to a specific record, which is also what makes the log auditable.
-REDACT: dict[str, tuple[set[int], str]] = {
-    "marilyn":  ({20},   "private individual being visited"),
-    "jack":     ({453},  "private individual, 'a person called Jack Woolley'"),
-    "woolley":  ({453},  "surname of the same individual"),
-    "timmy":    ({739},  "private individual"),
-    "karena":   ({750},  "private individual, full name given"),
-    "cheung":   ({750},  "surname of the same individual"),
-    "thomas":   ({751},  "private individual, full name given"),
-    "chung":    ({751},  "surname of the same individual"),
-    "laurie":   ({894},  "private individual"),
-    "ellis":    ({894},  "private individual"),
-    "matteo":   ({985},  "private individual, 'my friend Matteo'"),
-    "vanessa":  ({1020}, "named individual, 'professor vanessa'"),
-}
-# KEEP — reviewed and judged not personal data. Grouped by why.
-KEEP = {
-    **dict.fromkeys(["sheffield", "yorkshire", "dale", "uk", "oslo", "london", "france",
-                     "millenium", "morocco", "mexican", "scottish"], "place name"),
-    **dict.fromkeys(["pinterest", "nissan", "gtr", "skyline", "essenza", "scv", "panionios",
-                     "chihuahua", "lamborghini"], "brand / club / product"),
-    **dict.fromkeys(["sandro", "botticelli", "noah", "kahan", "ryan", "adams", "orwell",
-                     "jesus", "mohammad", "star", "born"], "public or cultural figure — not personal data"),
-    **dict.fromkeys(["parkinson", "parkinson's", "alzheimer", "alzheimer's", "mri"],
-                    "medical term — supervisor directed that illness content is kept"),
-    **dict.fromkeys(["whiskers"], "pet name, not a person"),
-    **dict.fromkeys(["cat", "dog", "pet", "baby", "gran", "mum", "nan"],
-                    "relationship word captured by the naming regex, not a name"),
-    **dict.fromkeys(["justin", "bieber", "frost", "woolly", "wooley", "elvis", "santa"],
-                    "public or folklore figure — not personal data"),
-    **dict.fromkeys(["christmas", "festival", "monday", "gallery", "jackets", "isde", "groundd",
-                     "playing", "having", "has", "improved", "years", "grandchildren", "sleeping",
-                     "named", "and", "on", "in", "just", "who", "is", "i'm", "i've", "i'll",
-                     "the", "but", "not", "then", "some", "how", "draw", "looking", "following",
-                     "feeling", "happy", "sad", "light", "stuck"],
-                    "detector artefact — ALL-CAPS text, contraction or ordinary word"),
-}
+# The reviewed decision table is NOT tracked in the repository: by its nature it names the
+# tokens it redacts. It is distributed with the dataset and lives at private/redaction_decisions.json
+# (git-ignored). Structure: {"redact": {token: {"ids": [record ids], "why": str}},
+#                            "keep":   {token: why}}
+DECISIONS = os.path.join(ROOT, "private", "redaction_decisions.json")
+
+def _load_decisions() -> tuple[dict[str, tuple[set[int], str]], dict[str, str]]:
+    if not os.path.exists(DECISIONS):
+        raise FileNotFoundError(
+            f"{DECISIONS} not found. The name-redaction decision table travels with the dataset, not "
+            "with the repository, because it names the tokens it redacts. Place it next to the dataset "
+            "copy. Cached outputs under outputs/ are already redacted and need neither.")
+    d = json.load(open(DECISIONS, encoding="utf-8"))
+    redact = {tok: (set(v["ids"]), v["why"]) for tok, v in d["redact"].items()}
+    return redact, dict(d["keep"])
+
+REDACT, KEEP = _load_decisions()
 
 def redact(text: str, record_id: int | None = None) -> str:
     """Replace reviewed private-individual names with a placeholder. Idempotent.

@@ -1,37 +1,85 @@
-# EmoViz — measuring whether AI drawings convey the feeling in their prompts
+# EmoViz — measuring agreement between a prompt's emotion and its AI drawing's emotion
 
-Analysis toolkit for the MSc dissertation *"Visualising Emotion"* (University of Sheffield,
-supervisor Dr Chaona Chen). Dataset: **1,025 short public self-reports of emotion**, each rendered
-as a black-and-white line drawing by DALL·E at Festival of the Mind 2024. Question: **does the
-drawing convey the feeling in the words?** — measured by **similarity, not exact matching**.
+Analysis toolkit for the MSc dissertation *"Visualising Emotion: A Similarity-Based Analysis of
+Emotional Fidelity in Text-to-Image Generation"* (University of Sheffield, supervisor Dr Chaona
+Chen). Corpus: **1,025 prompt–drawing records** collected at Festival of the Mind 2024 (visitors
+typed free text, mostly how they felt; DALL·E drew each as a black-and-white line drawing).
+Question: **how far does the emotion a text model reads from the words agree with the emotion a
+second model reads from the drawing?** — measured as **similarity against chance, not exact
+matching**. Nothing here is a statement about what a person would see in a drawing: that is the
+next study, and a single-coder check is built in (below).
 
-## The pipeline (final architecture)
+## The pipeline
 
 ```
-PROMPT ── GoEmotions (28 → 7 Ekman families) ──────────────► top-3 emotion ┐
-                                                                           ├─► SIMILARITY LADDER
-IMAGE ── BLIP-VQA describes it ── zero-shot NLI reads the ─► top-3 emotion ┘    (each metric vs a
-         (expression / action /    description               random-pairing null → z-score)
-          posture / scene —
-          emotion never asked)
+PROMPT ── GoEmotions (28 → 7 Ekman families) ──────────────► top-3 families ┐
+                                                                            ├─► FOUR MEASURES, each vs a
+IMAGE ── BLIP-VQA answers 5 factual questions ── zero-shot NLI ─► top-3     ┘   random-pairing null → z
+         (expression / action / posture /        reads the one-
+          people / scene — emotion never asked)  sentence description
 ```
 
-* **Describe, don't ask** — the vision model is never asked for an emotion (supervisor's design);
-  emotion is inferred from its factual description by a separate text model.
-* **Similarity, not matching** — four metrics at increasing strictness (valence–arousal proximity,
-  valence sign, Ekman family, probability-weighted top-3 overlap); every number is referenced to a
-  random-pairing null, so alignment means *beats chance*, not "exact match".
+* **Describe, then extract.** The vision model is asked only factual questions; a separate text
+  model infers the emotion from the description. (The separation is weaker than it sounds: where
+  the expression answer is itself an affect word — 41% of records — the reader relays it 99.8% of
+  the time. That is measured, not assumed: `audits.py`, `ablate_nli.py`.)
+* **Similarity, not matching.** Four measures at increasing strictness (valence–arousal proximity,
+  valence sign, Ekman family, top-3 soft overlap). **Every number is read against a random-pairing
+  null**: the valence–arousal measure cannot fall below 0.412 and randomly paired records already
+  average 76%, so a bare score means nothing; the z against the null does.
+* **One definition of everything.** `emoviz/metrics.py` holds every constant and measure; the
+  analysis, the significance test, the demo app, the audits and the numeric tests import it.
 
 ## Quick start
 
 ```bash
 bash setup.sh                          # one-time: creates .venv, installs pinned requirements.txt
-bash test.sh                           # full self-test (env, data, analyses, live pipeline, figures)
-.venv/bin/python analysis_final.py     # the final analysis (instant — uses cached outputs)
+bash test.sh                           # full self-test: environment, data, every analysis, a live
+                                       #   pipeline run, redaction, numeric regression, figures
+.venv/bin/python analysis_final.py     # the final analysis (seconds — uses cached outputs)
 ```
 
 First run downloads ~3.5 GB of models from Hugging Face (cached afterwards):
 `Salesforce/blip-vqa-base` · `facebook/bart-large-mnli` · `SamLowe/roberta-base-go_emotions`.
+
+## Key results (all verified; details and caveats in `outputs/RESULTS_final.md`)
+
+Every figure below is agreement between the prompt reader and the image reader on the 607 records
+whose prompt the text reader labels emotional, against a 300-shuffle random-pairing null (seed 7),
+with clustered-bootstrap 95% CIs (10,000 draws, clustered on prompt identity).
+
+| | valence-sign agreement | emotion-family agreement |
+|---|---|---|
+| all emotional (n=607) | 64.0% vs 45.6% null, z +11.1, CI [58.6, 68.8] | 53.0% vs 38.8%, z +10.3, CI [47.3, 58.7] |
+| face-classified (n=402) | 73.9% vs 53.5%, z +10.4, CI [68.3, 79.2] | 61.9% vs 45.8%, z +10.3, CI [55.8, 68.1] |
+| scene-classified (n=205) | 42.9% vs 29.6%, z +5.8, CI [33.1, 51.1] | 35.6% vs 26.2%, z +4.4, CI [26.4, 44.1] |
+
+1. **Agreement is real** on every measure and survives Holm–Bonferroni across the 36 non-degenerate
+   comparisons the analysis prints (26 survive; the ten that do not are the control cells, the
+   single-valence cells and the distinct-prompt scene family, z +2.6).
+2. **Face-classified drawings agree far more than scene-classified ones**: difference +30.9 pp
+   [+22.6, +40.6] on valence sign, +26.3 pp [+18.4, +35.3] on family, clustered permutation
+   p = 0.0001. The split is the describer's, not a human's, and 414 of the 421 scene-classified
+   records are drawings in which the describer reports no person yet still names an expression
+   (332 of them "smile"/"smiling"/"happy") — the template asserts a face that is not there. The
+   description-template ablation (`ablate_nli.py`) shows what this rests on: with a people-aware
+   description, face rows are unchanged and **scene agreement falls to its null** (valence sign
+   4.7% vs 3.4%, z +1.6); and removing the expression word alone drops family agreement from 53.0%
+   to 20.3%. This reader reads faces, and only faces.
+3. **Specificity check passes weakly**: on the 405 prompts the text reader labels neutral, only the
+   valence–arousal measure is informative (76.6% vs 76.6%, z +0.3; the other nulls are degenerate by
+   construction). 68 of those prompts contain a plain affect word; on the cleaned 335 the z is +0.04.
+4. **Like-for-like image-reader comparison**: same prompt reader, same 607 records — describe-then-
+   extract agrees with the text reader on 53.0% of families against 22.4% for direct CLIP
+   (+30.6 pp, CI [+25.5, +35.6], cluster sign-flip p < 0.0001). Neither reader has ground truth, so
+   this shows the two readers disagree, with describe-then-extract far closer to the text reader.
+5. **Repeated prompts**: across 87 prompts drawn 2+ times, the reader returns the same family for
+   68.8% of drawings within a group against a permutation null of 59.4% (z +4.5) — more consistent
+   than chance, far from fixed. Half the groups are pairs (floor 50%). This bounds the whole
+   prompt→image→reader chain, not the generator alone.
+6. **Not claimed**: a positive-vs-negative direction (single-valence nulls are degenerate and the
+   two readers point opposite ways); anything about fear, disgust or surprise (n ≤ 16, or a class
+   made largely of curiosity-mapped prompts; the reader never returns disgust); human validity.
 
 ## Interactive interface (pipeline tester)
 
@@ -39,110 +87,104 @@ First run downloads ~3.5 GB of models from Hugging Face (cached afterwards):
 bash run_interface.sh          # starts the app and opens http://127.0.0.1:5050
 ```
 
-A small local web app that runs the **real** pipeline live — useful for testing, for showing the
-supervisor, and as a demo in the presentation:
+A local web app that runs the **real** pipeline live: pick a drawing (random, by id, or upload your
+own), watch BLIP-VQA answer the five questions, see the emotion NLI infers from that description
+and the emotion GoEmotions reads from the words, and get the four measures **against chance** —
+`/api/baselines` computes the same null the analysis uses, and the interface starts the
+valence–arousal axis at its true floor, shades the middle half of random pairings, reports the
+percentile, and leads with valence sign and family. Degenerate chance figures are suppressed.
 
-* pick a drawing (random from the dataset, by id, or **upload your own image**),
-* watch BLIP-VQA describe it (expression / action / posture / scene — emotion never asked),
-* see the emotion NLI infers from that description, and the emotion GoEmotions reads from the text,
-* get the **similarity verdict** on the same ladder the analysis uses.
+Host-ready: models pre-warm in the background (float16, ~1.8 GB); an inference lock queues
+concurrent visitors; uploads are size-capped; nothing a visitor types or uploads is stored; the
+request log is suppressed. All 1,012 analysed records are served, names redacted. Port 5050.
+Same Wi-Fi: `HOST=0.0.0.0 .venv/bin/python app.py`; beyond it, a tunnel (`cloudflared`, ngrok).
 
-**Every number is shown against chance.** `/api/baselines` computes the random-pairing null at
-startup from `describe_extract.jsonl` + `prompt_emotions_goe.json`, using the *identical* procedure as
-`analysis_final.py` (300 shuffles), and the interface renders it. This matters: the valence–arousal
-metric **cannot fall below 0.412** and randomly paired text/images already average **76%**, so a bare
-0–100 score reads as a pass when it is in fact below chance. The interface therefore
-(a) starts that axis at the metric's real floor, (b) shades the middle half of random pairings,
-(c) reports the percentile (*"closer than N% of random pairings"*), and (d) leads the verdict with
-valence-sign and family agreement — the two measures `RESULTS_final.md` identifies as carrying the
-finding, VA being unable to separate faces from scenes.
-
-The app is **host-ready**: models pre-warm in the background (float16, ~1.8 GB); an inference lock
-queues concurrent visitors safely; uploads are size-capped; nothing a visitor types or uploads is
-stored and the request log is suppressed (no visitor IPs). Port **5050** (macOS AirPlay occupies 5000).
-
-**Name redaction, not withholding.** Per supervisor direction (30 Jul 2026): *redact real names;
-keep illness and grief content — it is not identifying on its own and it is essential to the
-analysis; document the procedure.* `preprocess_names.py` implements exactly that, and
-`emoviz/data.py` applies it at load time, so the analysis, the figures and the demo cannot diverge.
-All **1,012 records are served** — nothing is hidden, so there is no hidden set for id-probing to
-recover. The dataset files on disk are never modified.
-
-**Sharing it:**
-- *Same Wi-Fi:* `HOST=0.0.0.0 .venv/bin/python app.py` → share `http://<your-ip>:5050`.
-- *Beyond your network:* a quick tunnel (`cloudflared tunnel --url http://localhost:5050` or ngrok),
-  or a small always-on machine. GitHub Pages **cannot** host it (it needs a Python server + models).
-- *Ethics note:* fine to share as a **demo** (it collects nothing). The moment you ask testers to
-  **rate** things and keep their answers, that is the human study — ethics approval first.
-
-## Name redaction (pre-processing)
+## Name redaction (data pre-processing)
 
 ```bash
 .venv/bin/python preprocess_names.py            # audit report (dry run)
 .venv/bin/python preprocess_names.py --apply    # also scrub derived artifacts (.prename backups kept)
 ```
 
-Three documented stages. **Detect** — high recall by design, because 77% of the corpus is written
-entirely in lower case, so capitalisation alone would miss most names; candidates come from an NLTK
-given-name gazetteer, mid-sentence capitalisation against a ~236k-word English dictionary, and
-naming phrases ("called X", "my friend X"). **Review** — every candidate carries a recorded
-REDACT/KEEP decision with a reason; the audit **fails** if any candidate is unreviewed or if a
-REDACT entry matches nothing. **Apply** — scoped to the specific record each name was reviewed in,
-which is what stops "Jack Frost" and "woolly mammoth" being scrubbed as people.
+Per supervisor direction (30 Jul 2026): redact real names of private individuals; keep illness
+and grief content, which is not identifying on its own and is essential to the analysis. Three
+documented stages — **detect** (high recall by design: about 78% of the corpus is lower-case, so
+capitalisation alone would miss most names; candidates come from an NLTK given-name gazetteer,
+mid-sentence capitalisation against a ~236k-word dictionary, and naming phrases), **review**
+(every candidate carries a recorded REDACT/KEEP decision with a reason; the audit fails on any
+unreviewed candidate or stale entry), **apply** (scoped to the specific record each name was
+reviewed in, which is what stops "Jack Frost" and "woolly mammoth" being scrubbed as people).
+Redaction is applied at load time by `emoviz/data.py`; the files on disk are never modified.
 
-**8 records** contain names of private individuals; those names become `[name]`. Places, brands,
-public figures (Orwell, Botticelli), medical eponyms (Parkinson's, Alzheimer's) and detector
-artefacts are kept. **Redaction is analytically inert:** re-running GoEmotions on the redacted
-prompts moves each probability by ≤0.012 and changes **zero** top-1 emotion families.
+**8 records** contain names of private individuals; those names become `[name]`. Two records
+consisted of a name alone and reduce to `[name]`; they are counted in the neutral-labelled group
+and the control audit shows removing them changes nothing. Redaction changes no top-1 family and
+moves no GoEmotions probability by more than 0.012. **The reviewed decision table is not in the
+repository** — by its nature it names the tokens it redacts — it lives at
+`private/redaction_decisions.json` (git-ignored) and travels with the dataset. Everything that
+reads only `outputs/` works without it.
 
 ## Regenerating everything from scratch (order matters)
 
 ```bash
-.venv/bin/python describe_extract.py               # 1. full pipeline over all 1,025 images
-                                                   #    (~30-90 min; crash-safe/resumable JSONL)
-.venv/bin/python analysis_final.py                 # 2. final analysis: splits, similarity, nulls, dedup
-.venv/bin/python data_audit_consistency.py         # 3. data accounting + repeated-prompt consistency
-.venv/bin/python similarity_v2.py                  # 4. old-vs-new method comparison
-                                                   #    (reads outputs/results_clip_v2_baseline.json —
-                                                   #     the FROZEN direct-CLIP baseline)
-.venv/bin/python make_figures.py                   # 5. all report figures -> outputs/figures/
+.venv/bin/python describe_extract.py          # 1. the pipeline over all 1,025 images (30–90 min; resumable)
+.venv/bin/python analysis_final.py            # 2. splits · four measures · nulls · dedup -> analysis_final.json
+.venv/bin/python data_audit_consistency.py    # 3. data accounting + repeated-prompt consistency with its null
+.venv/bin/python significance.py              # 4. clustered bootstrap CIs + clustered permutation test (face vs scene)
+.venv/bin/python inference.py                 # 5. CIs on every subset, Cohen's kappa, Holm–Bonferroni, z stability
+.venv/bin/python method_comparison.py         # 6. like-for-like image-reader comparison + paired tests
+.venv/bin/python audits.py                    # 7. control contamination · describer leak / copy rate · per family
+.venv/bin/python error_taxonomy.py            # 8. failure modes of the 38 high-confidence disagreements
+.venv/bin/python ablate_nli.py                # 9. description-template ablation (NLI only re-run; ~30 min)
+.venv/bin/python make_figures.py              # 10. every figure, generated from the JSON above
+.venv/bin/python export_tex.py                # 11. LaTeX macros + tables for the dissertation (report/generated/)
+.venv/bin/python test_numeric.py              # pins every headline number to its result file
 ```
+Steps 2–8 and 10–11 read cached outputs and take seconds. `similarity_v2.py` is the historical v1
+comparison (NLI prompt side, 608 records; superseded by step 6 but kept as a record).
 
-Demo without touching real outputs: `.venv/bin/python describe_extract.py --limit 5 --out /tmp/demo.jsonl`
+### The human check (single coder, blind)
 
-## Key results (verified; details in `outputs/RESULTS_final.md`)
-
-1. **Faces carry emotion, scenes far less** — valence-sign agreement 74% (z≈+11) vs 43% (z≈+6);
-   robust on deduplicated prompts.
-2. **Validity check passes** — non-emotional prompts ("pigs") align at chance (z≈0).
-3. **Generative emotion is unstable** — identical prompts re-drawn agree on the emotion only ~69%.
-4. **Method comparison** — describe→extract beats direct-CLIP (family agreement roughly doubled).
-5. **Not claimed:** a positive-vs-negative direction (reader biases conflict; awaiting the
-   human-rating study).
+```bash
+.venv/bin/python human_check.py sample      # 120 drawings, stratified on the describer's output ->
+                                            #   outputs/human_check/sheet_01..06.png + labels.csv
+# ... code each drawing from the sheets only (person? readable face? valence? family?) ...
+.venv/bin/python human_check.py score       # describer and reader vs the human, Wilson 95% CIs; the
+                                            #   face/scene contrast re-run on the HUMAN split
+```
 
 ## File map
 
 | File | Role |
 |---|---|
-| `preprocess_names.py` | **Name redaction** (detect → reviewed decision → apply; `--apply` scrubs derived artifacts) |
+| `emoviz/metrics.py` | **The single definition** of every constant, measure, split rule and the null |
+| `emoviz/data.py` | Robust loader (three filename schemes, timestamps, dedup_key, redaction at load) |
+| `preprocess_names.py` | Name redaction (detect → reviewed decision → apply; decision table in `private/`) |
 | `describe_extract.py` | **The pipeline** (BLIP-VQA + NLI; crash-safe, resumable) |
-| `analysis_final.py` | **The final analysis** (splits · similarity ladder · nulls · dedup) |
-| `data_audit_consistency.py` | Data accounting + repeated-prompt consistency |
-| `similarity_v2.py` | Old-vs-new baseline comparison |
-| `make_figures.py` | Report figures (PDF + PNG) |
-| `test.sh` / `setup.sh` / `requirements.txt` | Self-test · environment setup · pinned deps |
+| `analysis_final.py` | **The final analysis** → `outputs/analysis_final.{csv,json}` |
+| `data_audit_consistency.py` | Data accounting + repeated-prompt consistency with permutation null |
+| `significance.py` | Clustered bootstrap + clustered permutation test of the face/scene difference |
+| `inference.py` | CIs on every subset · Cohen's κ · Holm–Bonferroni · z stability over seeds |
+| `method_comparison.py` | Like-for-like describe-then-extract vs direct-CLIP, McNemar + cluster sign-flip |
+| `audits.py` | Control contamination · describer leak and copy rate · per-family recall |
+| `error_taxonomy.py` | Failure-mode census of high-confidence disagreements (+ `outputs/ERROR_TAXONOMY.md`) |
+| `ablate_nli.py` | Description-template ablation (drop-one, fixed expression, people-aware) |
+| `human_check.py` | Blind single-coder sample, contact sheets, scoring with Wilson CIs |
+| `make_figures.py` | Report figures, entirely from the JSON result files |
+| `export_tex.py` | LaTeX macros and tables for `report/` from the same JSON |
+| `test.sh` / `test_numeric.py` / `setup.sh` / `requirements.txt` | Self-test · numeric regression · environment · pinned deps |
 | `app.py` + `web/index.html` + `run_interface.sh` | **Interactive pipeline tester** (local web app) |
-| `emoviz/` | Core package — `data.py` (robust loader, used by everything) + v1 baseline reader |
-| `run.py`, `validate.py`, `similarity_v1.py`, `valence_rq1.py` | **v1 baseline era (superseded** — banners inside; `run.py` overwrites `outputs/results.json`) |
-| `outputs/RESULTS_final.md` | **The verified findings** |
+| `outputs/RESULTS_final.md` | **The verified findings**, with every caveat |
 | `outputs/RESULTS_describe_extract.md` | Method build log (incl. rejected approaches) |
 | `outputs/describe_extract.jsonl` | Per-record pipeline output (all 1,025) |
-| `outputs/analysis_final.csv` | Per-record analysis table (1,012 analysed) |
 | `outputs/results_clip_v2_baseline.json` | Frozen direct-CLIP baseline for the comparison |
 | `outputs/archive/` | Superseded dashboards/write-ups (banners inside; do not cite) |
-| `PIPELINE_DESIGN.md` | Design-space record (options considered; see AS-BUILT banner) |
+| `run.py`, `validate.py`, `similarity_v1.py`, `valence_rq1.py` | v1 baseline era (superseded; banners inside) |
+| `PIPELINE_DESIGN.md` | Design-space record (options considered; AS-BUILT banner) |
 
 ## Notes for a new machine
 * Paths in `describe_extract.jsonl` are absolute to the authoring machine; regenerate or remap if moving.
 * Runtime auto-selects `mps` (Apple) / `cuda` / `cpu`. Keep RAM free: models >1B parameters were
   found to thrash on a 16 GB laptop (see "Rejected approaches" in the method build log).
+* The analysis scripts (steps 2–11) need only `outputs/`; the pipeline, the demo and the human
+  check need `../02AI_drawing_data/` and `private/redaction_decisions.json`.

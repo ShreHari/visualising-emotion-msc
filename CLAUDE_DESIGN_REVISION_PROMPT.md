@@ -90,7 +90,7 @@ If the live demo fails, the audience then watches the method run rather than rea
 - **Slide 4** — the dark slides silently drop the running foot while the light slides carry it. Carry it on every slide.
 - **Slide 9** — either crop the interface screenshot to one legible region and run it at double size, or drop it and give the three steps the full width at a readable size. A shrunken full screenshot communicates nothing from the back of a room.
 - **Slide 10** — shorten each bullet to a headline; the qualifier is spoken. Keep the two-column established / not-established ledger exactly as it is — that structure is right.
-- **Terminology on slide 11** — the interface screenshot shows the app's own labels, "Same direction of mood" and "feeling similarity", which contradict the deck's controlled vocabulary ("valence-sign agreement", "valence–arousal distance"). If a screenshot remains, add one small caption noting that the interface uses lay wording for public visitors.
+- **Terminology on slide 11** — the interface screenshot shows the app's labels at the time, "Same direction of mood" and "feeling similarity" (the interface has since been relabelled "Same valence sign"), which contradict the deck's controlled vocabulary ("valence-sign agreement", "valence–arousal distance"). If a screenshot remains, add one small caption noting that the interface uses lay wording for public visitors.
 
 ---
 

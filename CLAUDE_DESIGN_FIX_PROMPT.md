@@ -27,7 +27,7 @@ It currently says the valence–arousal figure is one of *"the emotional-prompt 
 It reads *"Agreement well above chance on every metric."* Restore the referent: **"Prompt-reader and image-reader agreement is well above chance on every metric."** On the conclusion slide, an unqualified "agreement" invites exactly the reading this deck exists to refuse.
 
 **7 · Slide 10 — restore the evidential clause.**
-*"That the face–scene gap is statistically significant"* should read **"That the face–scene gap is statistically significant — no formal test has been run."**
+*"That the face–scene gap is statistically significant"* should read **"That the face–scene split reflects faces as such — the gap is significant (clustered permutation p = 0.0001), but the split is the describer's own classification."**
 
 **8 · Slide 3 — the title contradicts the figure.**
 The title says *"Four established areas"* while the matrix marks three cells established and the fourth empty. Change the title to **"Three established areas, and the space between them."**

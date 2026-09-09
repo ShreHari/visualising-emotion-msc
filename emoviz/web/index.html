@@ -455,7 +455,7 @@ footer code{font-family:var(--mono)}
               the score is how close the two placements land.</p>
             <p id="geoNote"></p>
             <p>This is the weakest of the four measures used in the research: it cannot tell a face
-              apart from a scene. The two checks on the left are the ones that carry the finding.</p>
+              apart from a scene. The two checks on the left are the ones the finding rests on.</p>
           </div>
         </div>
       </details>
@@ -495,16 +495,21 @@ footer code{font-family:var(--mono)}
     </div>
     <div class="note">
       <h3>Faces read far better than scenes</h3>
-      <div><p>Where the drawing contains a readable face, the two readings agree on the direction of
-        mood 74% of the time. Where it is a scene with no person, that falls to 43%. <strong>If you
+      <div><p>Where the describer reports a readable face, the two readings agree on the valence
+        sign 74% of the time (chance 54%). Where it reports a scene with no person, that falls to 43%
+        (chance 30%). The split is the describer's, not a human's — and the describer names an
+        expression even when it reports no person; when that invented clause is removed, the scene
+        figure falls to chance. <strong>If you
         upload a picture with no one in it, treat the result as weak</strong> — the pipeline has much
         less to go on than the confident-looking output suggests.</p></div>
     </div>
     <div class="note">
-      <h3>The generator is inconsistent too</h3>
-      <div><p>87 prompts in the dataset were drawn more than once. Given the identical words, the AI
-        produced drawings that convey the same emotion only about 69% of the time — so a single
-        drawing is one sample of the model's behaviour, not a fixed answer.</p></div>
+      <h3>The same words do not always give the same reading</h3>
+      <div><p>87 prompts in the dataset were drawn more than once. Given identical words, the reader
+        returns the same emotion for 69% of the drawings in a group, against 59% for randomly
+        regrouped drawings — more consistent than chance, but far from fixed. Half the groups are
+        pairs, so this figure cannot fall below 50%. It measures the whole prompt–image–reader chain,
+        not the generator alone.</p></div>
     </div>
     <div class="note">
       <h3>Known limits</h3>
@@ -513,7 +518,7 @@ footer code{font-family:var(--mono)}
         whole), which inflates positive results. Fear, disgust and surprise are poorly captured by
         <em>both</em> readers —
         the one reading the drawing and the one reading your words. A low score can therefore mean the
-        drawing conveys something different, or simply that the reader missed it.</p>
+        two readers disagree about the drawing, or simply that one of them missed it.</p>
         <p><strong>Your words and any image you upload are processed in memory and never written to
         disk, and this server keeps no record of visitors.</strong> Names of private individuals in the
         festival entries have been replaced with a placeholder; every drawing is shown.</p></div>
@@ -559,8 +564,8 @@ function refFor(sim){
   const neutral = sim.prompt_top === "neutral";
   const b = neutral ? BASE.non_emotional : BASE.emotional;
   if(!b) return null;
-  return {...b, name: `the ${b.n.toLocaleString()} records whose words carry `
-                      + (neutral ? "no feeling" : "a feeling")};
+  return {...b, name: `the ${b.n.toLocaleString()} records whose words the text reader labels `
+                      + (neutral ? "neutral" : "emotional")};
 }
 
 /* ---------- examples + hero specimen ---------- */
@@ -665,7 +670,7 @@ function sentence(s, beat){
   if(s.prompt_top === "neutral")
     return "These words don't name a feeling, so there is little here for the drawing to match.";
   if(s.family_match)  return "Both readings land on the <b>same feeling</b>.";
-  if(s.valence_match) return "The same <b>direction of mood</b> — but a different feeling within it.";
+  if(s.valence_match) return "The same <b>valence sign</b> — but a different feeling within it.";
   /* keyed to the percentile, not to the mean: the null is left-skewed, so beating the mean is not
      the same as beating most random pairings, and the two would contradict each other on screen. */
   if(beat == null) return "The two readings name <b>different feelings</b>.";
@@ -759,13 +764,13 @@ $("btnRun").onclick = async () => {
        shares one label) — the server flags those and they must not be shown as "chance". */
     const bl = ref ? ref.null : null, deg = (ref && ref.degenerate) || [];
     const chance = k => (bl && bl[k] != null && deg.indexOf(k) < 0) ? bl[k] : null;
-    /* valence_match is false BY CONSTRUCTION when the words carry no direction (neutral, and also
+    /* valence_match is false BY CONSTRUCTION when the words have no valence sign (neutral, and also
        surprise). Showing that as a failed check with a chance rate would be a measurement artefact
        dressed up as a result. */
     const noDir = s.prompt_valence === "0";
     $("ev").innerHTML =
-      (noDir ? row(null, "Same direction of mood", null, "no direction in these words")
-             : row(s.valence_match, "Same direction of mood", chance("vsign"))) +
+      (noDir ? row(null, "Same valence sign", null, "no sign in these words")
+             : row(s.valence_match, "Same valence sign", chance("vsign"))) +
       row(s.family_match, "Same emotion family", chance("family")) +
       row(null, "Shared weight across both readings", null,
           pc(s.overlap) + "%" + (chance("overlap") != null ? ` · chance ${pc(chance("overlap"))}%` : ""));

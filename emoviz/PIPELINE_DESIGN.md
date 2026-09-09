@@ -23,7 +23,7 @@ Every option below is free/open and runs on the existing laptop (Apple-Silicon M
         GoEmotions top-3  +  NRC-VAD (valence/arousal)     GoEmotions top-3  +  NRC-VAD
                             │                               │
                             └──────────► STAGE 3: SIMILARITY LADDER ◄────────┘
-                                (1) Ekman-6 family agreement
+                                (1) seven-family agreement (Ekman's six + neutral)
                                 (2) valence-arousal distance   ← headline
                                 (3) top-3 soft overlap  (+ null baseline)
 
@@ -42,7 +42,7 @@ Every option below is free/open and runs on the existing laptop (Apple-Silicon M
 | **Pre-proc · names** | Presidio + GLiNER → `[NAME]`, with emotion-word allow-list + 30-min manual confirm of flagged rows | reliable, preserves emotion; guards Joy/Hope/Grace |
 | **1 · describe** | **`Qwen/Qwen2.5-VL-3B-Instruct`** (primary) + `Salesforce/blip-image-captioning-large` (baseline) | native in transformers 5.14, follows "describe objects, no emotion", laptop-friendly; two describers = hallucination check. Optional aux: `kmewhort/beit-sketch-classifier` shape tags |
 | **2 · emotion from text** (both sides) | **GoEmotions** `SamLowe/roberta-base-go_emotions` (top-3, 28-dim) + **NRC-VAD v2.1** (valence-arousal) | categorical mixed-affect + continuous affect; GoEmotions ships the Ekman family map |
-| **3 · similarity** | ladder: (1) Ekman-6 family agreement · (2) **VAD distance = headline** · (3) top-3 soft overlap; + sentence-transformers `all-mpnet-base-v2` cosine sanity check; + **permutation null + bootstrap CIs** | "similar not identical" made rigorous; null proves true pairs beat random |
+| **3 · similarity** | ladder: (1) seven-family agreement (Ekman's six + neutral) · (2) **VAD distance = headline** · (3) top-3 soft overlap; + sentence-transformers `all-mpnet-base-v2` cosine sanity check; + **permutation null + bootstrap CIs** | "similar not identical" made rigorous; null proves true pairs beat random |
 
 **Install (all free, CPU/MPS):**
 ```
@@ -69,7 +69,7 @@ Every option below is free/open and runs on the existing laptop (Apple-Silicon M
 - QuickDraw ViT finetunes — equivalent swap-in (pick one).
 - Sketch_LVM / Sketch-CLIP — principled open-vocab version; research-grade, stretch goal.
 - Sketch-a-Net, DoodleNet, ImageNet-Sketch — avoid (dated / off-stack / not a describer).
-- **Honest finding to report:** these read line-art *style* well but collapse a multi-object scene into one doodle word → they can't describe scenes. That negative result is itself a finding.
+- **Status (9 Sep 2026): designed, not executed.** None of these models was run — the time went to the BLIP-VQA→NLI pipeline, its null baselines and the clustered significance test. The expectation that a sketch classifier would collapse a multi-object scene into one doodle word is untested and is listed as further work, with the people-aware description template (see `ablate_nli.py`) as its prerequisite, because a sketch describer would feed the same template.
 
 ### Stage 2 — emotion from text (prompt AND description, identical code)
 - **GoEmotions RoBERTa** ⭐ — 28 multi-label, top-3 easy, ships Ekman family map.
@@ -80,7 +80,7 @@ Every option below is free/open and runs on the existing laptop (Apple-Silicon M
 - Local LLM (Ollama Qwen2.5-7B / Llama-3.1-8B) — optional validator on disagreement cases only.
 
 ### Stage 3 — similarity (not matching)
-- **Ekman-6 family agreement** — rate + confusion matrix.
+- **Seven-family agreement (Ekman's six + neutral)** — rate + confusion matrix.
 - **Valence-arousal distance** ⭐ headline — makes "tired but happy" ≈ "content" score high; plots as a 2D scatter.
 - **Top-3 soft/probability-weighted overlap** — implements Chen's "top-3 per side"; EMD over the 28-dim distribution for full partial credit.
 - sentence-transformers cosine — taxonomy-free corroboration, not headline.
@@ -99,8 +99,8 @@ Every option below is free/open and runs on the existing laptop (Apple-Silicon M
 - **Guard:** emotion-word allow-list; manual confirm of flagged rows (~30 min). Illness/grief words are not name entities → untouched.
 
 ### Evaluation (its own marked section)
-- **P1 now (no ethics):** shuffled-pair null control · baseline old-CLIP-direct vs new describe-then-extract · bootstrap/data-halving CIs · per-family similarity distributions (Kruskal-Wallis).
-- **P2 mark-maker (ethics now):** human study — 60-100 stratified items, 3-5 raters, Lomas 0-10 + top-3 pick, Krippendorff α; **headline = Spearman(pipeline similarity, human alignment)** → validates the metric. `validate.py` is already ~80% of this harness.
+- **P1 now:** shuffled-pair null control · baseline old-CLIP-direct vs new describe-then-extract · bootstrap/data-halving CIs · per-family similarity distributions (Kruskal-Wallis).
+- **P2 (human study, designed but not run):** human study — 60-100 stratified items, 3-5 raters, Lomas 0-10 + top-3 pick, Krippendorff α; **headline = Spearman(pipeline similarity, human alignment)** → validates the metric. `validate.py` is already ~80% of this harness.
 - **P3 if time:** captioner-swap ablation (also probes line-art reading).
 
 ---
@@ -109,8 +109,8 @@ Every option below is free/open and runs on the existing laptop (Apple-Silicon M
 
 1. **RQ1 · text→image emotional *similarity*** (the core, reframed): how similar is the drawing's emotion (describe→extract) to the prompt's, on the similarity ladder? The positive-affect-collapse finding becomes a *similarity distribution*, not an accuracy number.
 2. **RQ2 · which emotions stay similar vs drift** — per-family similarity.
-3. **RQ3 · generative consistency** — across the 65 duplicate-prompt runs, how similar are the emotions across repeats.
+3. **RQ3 · consistency** — across the 87 prompt groups drawn two or more times (336 records; the earlier 65-run definition is superseded), how stable is the image reading across repeats, against a permutation null.
 4. **Methodological contribution + evaluation** — describe-then-extract vs direct-CLIP (Chen's redirection, proven empirically).
 5. **Face vs scene** — does emotional similarity differ when a face is present?
 6. **Emotional vs non-emotional prompts** — the split, and what the non-emotional ones generate.
-7. **The novel framing** — *similarity, not matching* — Chen's highlighted contribution: flexible partial-credit alignment instead of one-to-one accuracy.
+7. **The novel framing** — *similarity, not matching* — Chen's highlighted contribution: flexible partial-credit similarity instead of one-to-one accuracy.

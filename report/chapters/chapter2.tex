@@ -1,41 +1,97 @@
-\chapter{Literature Survey}
+\chapter{Literature Review}
+\label{ch:lit}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. \cite{Reference2} Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. 
-\begin{equation}
-M = \frac{1}{T}\sum_{t=1}^{T} e(t) / \max_{t}[e(t)]
-\end{equation}
-Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+% GUIDANCE (chapter target about 3,000 words). Source material: RESEARCH PAPERS/ANNOTATED_BIBLIOGRAPHY.md
+% (the eight themes, one annotated entry per paper) and RESEARCH PAPERS/RESEARCH_GAP.md (the synthesis).
+% Every paragraph should end in a sentence that says what the paper means FOR THIS PROJECT.
+% The literature's own word for prompt--image correspondence is "alignment"; use it only when
+% describing their work, and switch to "agreement" whenever you speak about this project.
 
-\section{A Section that Contains a Figure}
+\section{Scope and method of the review}
+\label{sec:lit-scope}
+% GUIDANCE: 97 papers were screened, 24 excluded (surveys, position pieces, off-target work — reasons
+% logged in FILTERING_LOG.md) and 73 retained under one rule: relevant to the dissertation's path AND
+% evidence-based (empirical study, dataset, benchmark or lexicon), with seminal foundations kept by
+% exception. The retained papers fall into eight themes, which structure the sections below.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim \cite{Reference1}. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. 
-\begin{figure}[ht]
-\includegraphics[width=15cm]{figures/figure1.png}
-\caption{A simple figure in \LaTeX. Reproduced from http://tinyurl.com/nqtrlj5 with the permission of the copyright owner.}
-\label{fig:graph}
-\end{figure}
-Porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. See Figure \ref{fig:graph}. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\section{Foundations: emotion theory and taxonomy}
+\label{sec:lit-theory}
+% GUIDANCE (5 papers): \cite{ekman1992argument} (basic emotions — the seven-family scheme used here),
+% \cite{russell1980circumplex, posner2005circumplex} (the circumplex — the valence--arousal measure),
+% \cite{cowen2017self} (27 self-report categories bridged by continuous gradients — the argument for
+% similarity rather than matching), plus the supervisor's line: \cite{jack2012facial, jack2014dynamic,
+% chen2018distinct, chen2018reverse, chen2024cultural} (facial signalling is culturally relative and
+% decomposes into which-emotion and how-intense components). Close: no single canonical structure;
+% a ladder of measures is the honest response.
 
-\section{A Section that Contains a Table}
+\section{Emotion from text}
+\label{sec:lit-text}
+% GUIDANCE (10 papers): \cite{demszky2020goemotions} (GoEmotions, the prompt reader; macro-F1 .46 and
+% weakness on rare, implicit labels), \cite{harutyunyan2026fine}, \cite{yang2023context} (first-person
+% self-report is the hardest register), \cite{saravia2018carer}, \cite{buechel2017emobank} (writer vs
+% reader perspective), \cite{mohammad2018obtaining, mohammad2025nrc} (NRC-VAD, the continuous
+% alternative), \cite{tausczik2010psychological}, \cite{zanwar2022improving}, \cite{grootendorst2022bertopic}.
+% Also the method references: \cite{yin2019benchmarking} (zero-shot classification by entailment — the
+% image reader), \cite{lewis2020bart, williams2018broad} (BART, MNLI), \cite{wolf2020transformers}.
+% Close: the corpus's register (short, first-person, mixed) is exactly where these tools are weakest.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, \cite{Reference3} pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, 
+\section{Datasets, benchmarks and lexicons}
+\label{sec:lit-data}
+% GUIDANCE (13 papers): text-side resources (\cite{mohammad2013crowdsourcing, mohammad2018semeval,
+% muhammad2025semeval}), image-side affect datasets (\cite{yang2023emoset, machajdik2010affective,
+% mohammad2018wikiart, mohamed2022artelingo, achlioptas2021artemis, marchewka2014nencki, kosti2020context}),
+% human-preference sets for T2I (\cite{kirstain2023pick, wu2023human, xu2023imagereward}).
+% Close: every image-affect resource is photographic or painted and coloured; monochrome line art is
+% out of distribution for all of them.
 
-\begin{table}[ht]
-\center
-\begin{tabular}{cc|c}
-A & B & A XOR B\\
-\hline
-0 & 0 & 0\\
-0 & 1 & 1\\
-1 & 0 & 1\\
-1 & 1 & 0\\
-\end{tabular}
-\caption{A simple table in \LaTeX.}
-\label{tab:xor}
-\end{table}
+\section{Text-to-image generative models}
+\label{sec:lit-t2i}
+% GUIDANCE (10 papers): \cite{ramesh2021zero, ramesh2022hierarchical, betker2023improving} (DALL-E
+% line; DALL-E 3 rewrites prompts and is weak on faces and detail), \cite{rombach2022high, podell2023sdxl,
+% saharia2022photorealistic}, \cite{radford2021learning} (CLIP, the baseline reader),
+% \cite{li2022blip, li2023blip} (BLIP, the describer), \cite{raffel2020exploring, chung2022scaling}.
+% Close: the generator renders fluently but wobbles on faces; the festival installation's generation
+% parameters were not recorded.
 
-porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. See Table \ref{tab:xor}. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\section{Image evaluation: metrics and frameworks}
+\label{sec:lit-eval}
+% GUIDANCE (18 papers): compositional/object metrics \cite{hessel2021clipscore, hu2023tifa,
+% cho2024davidsonian, ghosh2023geneval, lin2024evaluating, li2024evaluating, koo2026evaluating},
+% classic captioning metrics \cite{anderson2016spice, vedantam2015cider, heusel2017gans}, holistic and
+% robustness critiques \cite{lee2023holistic, zhang2025rethinking}, VLM-as-judge and prompt studies
+% \cite{chang2023prompt, niu2025contrastive, oppenlaender2024artworks, carrasco2024level,
+% millet2023defending, horton2023bias}. Close: none of these evaluates affect, and their reliability is
+% itself contested — which motivates reading every value against a null rather than trusting a score.
 
-\section{Summary}
+\section{The intersection: emotion in generated images}
+\label{sec:lit-intersection}
+% GUIDANCE (6 papers): \cite{yang2024emogen, lin2024make, dang2025emoticrafter, mehta2024generating}
+% (target-conditioned affective generation in colour), \cite{alvarado2025texttoimage} (lightness and
+% chroma, not hue, are the principal COLOUR carriers of emotional meaning in T2I output — the study
+% models colour features only and says nothing about shape or line), \cite{lomas2024improved}
+% (the closest prior art: human-rated emotional alignment on a fixed ten-item typology; model is the
+% dominant factor; emotions on people rate higher than on robots).
+% Close: nobody has measured affect agreement on unmediated, mixed-affect self-report rendered without colour.
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\section{Emotion perception and human judgement}
+\label{sec:lit-perception}
+% GUIDANCE (10 papers): \cite{bhattacharyya2025evaluating} (VLMs are inept at zero-shot evoked-emotion
+% recognition and biased towards positive labels — directly relevant to the describer's smile bias),
+% \cite{gao2025eemo} (MLLMs conflate expressed and evoked emotion), \cite{parkington2025human,
+% zhou2025analyzing, liu2023emotion, yang2018weakly, bhat2024emotion, chen2020building, gao2025eemo}
+% and the supervisor's perception work already cited. Close: expressed versus evoked affect is a
+% distinction this project must keep — the pipeline reads EXPRESSED cues (a drawn expression), and a
+% human study would read evoked affect.
+
+\section{Context}
+\label{sec:lit-context}
+% GUIDANCE (1 paper): \cite{ragot2020ai} — public perception of AI-generated art, the festival setting.
+
+\section{The gap}
+\label{sec:lit-gap}
+% GUIDANCE: Restate RESEARCH_GAP.md section 3 in your own words, bounded honestly: WITHIN THIS 73-PAPER
+% CORPUS no work measures text-to-image affect agreement for short, unmediated, mixed-affect first-person
+% self-reports rendered as colour-free line art, nor characterises how stable the reading is under
+% identical prompts. Then the four contrasts (vs compositional metrics; vs \cite{lomas2024improved};
+% vs conditional affective generation; vs visual-emotion recognition). End with the two research
+% questions the results answer and the one they explicitly do not (human validity).

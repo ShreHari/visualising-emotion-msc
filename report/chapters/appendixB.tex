@@ -1,3 +1,81 @@
-\chapter{Another Appendix}
+\chapter{Instruments}
+\label{app:instruments}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+\section{The five describer questions}
+The describer is asked, in this order, and its answers are stored per record:
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item \emph{What is the facial expression?} (\texttt{expression})
+\item \emph{What is the person doing?} (\texttt{action})
+\item \emph{What is the body posture?} (\texttt{posture})
+\item \emph{How many people are there?} (\texttt{people})
+\item \emph{What is in the picture?} (\texttt{scene})
+\end{enumerate}
+The word ``emotion'' appears in none of them.
+
+\section{The description template}
+The five answers are composed into one sentence:
+\begin{quote}\ttfamily
+A drawing of \{people\} showing \{scene\}. The person is \{action\}, \{posture\}. The facial expression is \{expression\}.
+\end{quote}
+The template is applied to every record, including those where \texttt{people} is ``0'' or ``none''; the ablation variants remove one clause at a time or fix \texttt{expression} to ``unclear''.
+
+\section{The image reader's hypothesis}
+Zero-shot classification by entailment with the hypothesis template
+\begin{quote}\ttfamily
+This scene conveys \{family\}.
+\end{quote}
+scored for each of the seven families; the three highest entailment scores are kept.
+
+\section{GoEmotions labels to families}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[joy] admiration, amusement, approval, caring, desire, excitement, gratitude, joy, love, optimism, pride, relief
+\item[sadness] disappointment, embarrassment, grief, remorse, sadness
+\item[anger] anger, annoyance, disapproval
+\item[fear] fear, nervousness
+\item[surprise] surprise, realization, confusion, curiosity
+\item[disgust] disgust
+\item[neutral] neutral
+\end{description}
+Family scores are the sums of the member probabilities, normalised to a distribution.
+
+\section{Family centroids on the circumplex}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Family & Valence & Arousal \\
+\midrule
+joy & $+0.80$ & $0.60$ \\
+sadness & $-0.75$ & $0.30$ \\
+anger & $-0.70$ & $0.80$ \\
+fear & $-0.65$ & $0.75$ \\
+surprise & $+0.30$ & $0.80$ \\
+disgust & $-0.70$ & $0.60$ \\
+neutral & $0.00$ & $0.30$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Hand-set from the standard placement of the basic emotions on the circumplex; the minimum of Eq.~\ref{eq:va} over these points is $0.412$.
+
+\section{Readable expression words}
+A record is face-classified when the describer reports at least one person and its expression answer contains one of:
+\begin{quote}
+smile, smiling, happy, sad, angry, serious, surprised, surprise, calm, excited, crying, laughing, frowning, scared, shocked, worried, concentration, concentrating, grin, grinning, neutral, confused, determined, pensive, sleepy, sleeping.
+\end{quote}
+The people count is parsed from digits or number words (none, one, two, \dots, several, many, crowd, group, lots); a non-empty answer that is neither is read as one person present.
+
+\section{Name redaction procedure}
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item \textbf{Detect.} Candidates from three detectors: a given-name gazetteer (7,944 names), mid-sentence capitalised tokens absent from a 236k-word English dictionary, and naming phrases (``called X'', ``my friend X''). High recall by design, because most prompts are written entirely in lower case.
+\item \textbf{Review.} Every candidate has a recorded decision (redact or keep) with a reason and, for redactions, the record it applies to. The audit fails if any candidate is unreviewed or if a redaction entry matches nothing.
+\item \textbf{Apply.} At load time, per record, replacing the token with \texttt{[name]}; consecutive placeholders collapse to one. The files on disk are never modified. Illness, grief and place names are kept.
+\end{enumerate}
+
+\section{Single-coder check: coding instructions}
+The coder works from numbered contact sheets that show only the drawings, and fills four columns per drawing:
+\begin{description}\setlength{\itemsep}{1pt}
+\item[person] y / n --- is at least one person or face drawn?
+\item[face] y / n --- is there a face whose expression can be read? (n if no person)
+\item[valence] $+$ / $-$ / 0 --- the feeling the drawing gives: positive, negative, neither
+\item[family] joy / sadness / anger / fear / surprise / disgust / neutral
+\end{description}
+The sample is fixed by seed (120 drawings: 40 face-classified, 40 scene-classified with no people reported, and every record with a vague or word-only people answer, topped up equally from the first two strata). The prompt, the description and the model readings are not shown during coding.

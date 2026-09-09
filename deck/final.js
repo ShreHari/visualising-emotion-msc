@@ -124,7 +124,7 @@ const st=(x,big,lab,col)=>{s.addText(big,{x,y:1.95,w:2.85,h:0.72,isTextBox:true,
   body(s,lab,x,2.75,2.85,0.85,12.5);};
 const c6=cols(4,2.85);
 st(c6[0],"1,012","analysed records\n(13 pre-festival tests excluded)",NAVY);
-st(c6[1],"607 / 405","prompts carrying a feeling\nversus not — the specificity set",TEAL);
+st(c6[1],"607 / 405","prompts the text reader labels\nemotional versus neutral — the specificity set",TEAL);
 st(c6[2],"591 / 421","face-classified versus\nscene-classified drawings",TEAL);
 st(c6[3],"87","prompts drawn more than once,\ncovering 336 records",GOLD);
 card(s,M,3.85,CW2,2.7);
@@ -136,7 +136,7 @@ s.addText([{text:"Three incompatible filename schemes in one folder — a naive 
 card(s,X2,3.85,CW2,2.7);
 s.addText("Data pre-processing",{x:X2+0.32,y:4.02,w:CW2-0.64,h:0.32,isTextBox:true,margin:0,fontFace:BF,fontSize:13,bold:true,color:INK});
 s.addText([{text:"Eight records contained names of private individuals; these were replaced with a placeholder.",options:{bullet:true,breakLine:true}},
-{text:"Detection combined a 7,944-name gazetteer, a 236,000-word dictionary and naming phrases — 77% of the corpus is lower case, so capitalisation alone would miss most names.",options:{bullet:true,breakLine:true}},
+{text:"Detection combined a 7,944-name gazetteer, a 236,000-word dictionary and naming phrases — about 78% of the corpus is lower case, so capitalisation alone would miss most names.",options:{bullet:true,breakLine:true}},
 {text:"Verified inert: re-running the prompt reader changed no emotion label.",options:{bullet:true}}],
 {x:X2+0.32,y:4.42,w:CW2-0.64,h:1.95,isTextBox:true,margin:0,fontFace:BF,fontSize:12.5,color:MUTED,paraSpaceAfter:5});
 s.addNotes("[45s] A thousand and twenty-five real self-reports. Three things had to be solved before any analysis. Three different filename systems — a naive loader finds under a fifth of the files. Hidden C2PA signing timestamps inside each PNG, which let me identify thirteen images made before the festival: developer tests, excluded. And a pre-processing step: eight records contained real names, replaced with a placeholder, and I verified that redaction changed no emotion label at all.");
@@ -149,7 +149,7 @@ s.addText("Within each subset the image side is shuffled and re-paired against t
   {x:M+0.35,y:2.62,w:CW2-0.7,h:1.35,isTextBox:true,margin:0,fontFace:BF,fontSize:13,color:"C6D4DB",valign:"top"});
 card(s,X2,2.05,CW2,1.78,"16232C","33424D");
 s.addText("2 · A specificity check",{x:X2+0.35,y:2.2,w:CW2-0.7,h:0.34,isTextBox:true,margin:0,fontFace:BF,fontSize:13.5,bold:true,color:"7FC4BE"});
-s.addText("405 prompts carry no feeling — “pigs”, “mickey mouse”. On these the valence–arousal metric returns 76.6% against a null of 76.6%, z = +0.3. The pipeline reports agreement only where the prompt reader finds an emotion.",
+s.addText("405 prompts are labelled neutral by the text reader — “pigs”, “mickey mouse”. On these the valence–arousal metric returns 76.6% against a null of 76.6%, z = +0.3. The pipeline reports agreement only where the prompt reader finds an emotion.",
   {x:X2+0.35,y:2.62,w:CW2-0.7,h:1.35,isTextBox:true,margin:0,fontFace:BF,fontSize:13,color:"C6D4DB",valign:"top"});
 // the floor/chance ruler
 s.addText("And the scale does not start at zero",{x:M,y:4.45,w:8,h:0.36,isTextBox:true,margin:0,
@@ -170,19 +170,19 @@ s=slide(); head(s,"Results","Agreement is above chance, and strongest for face-c
 s.addTable([
  [{text:"Subset",options:{bold:true}},{text:"Valence-sign agreement",options:{bold:true}},
   {text:"Emotion-family agreement",options:{bold:true}},{text:"Verdict",options:{bold:true}}],
- ["Emotional prompts  (n=607)","64.0%   vs null 45.6%   z +11.1","53.1%   vs null 38.8%   z +10.3","Well above chance"],
+ ["Emotional prompts  (n=607)","64.0%   vs null 45.6%   z +11.1","53.0%   vs null 38.8%   z +10.3","Well above chance"],
  ["Face-classified  (n=402)","73.9%   vs null 53.5%   z +10.4","61.9%   vs null 45.8%   z +10.3","Strongest"],
  ["Scene-classified  (n=205)","42.9%   vs null 29.6%   z +5.8","35.6%   vs null 26.2%   z +4.4","Above chance, weaker"],
- ["Non-emotional  (n=405)","— degenerate by definition","— degenerate by definition","Specificity check"],
+ ["Neutral-labelled  (n=405)","— degenerate by definition","— degenerate by definition","Specificity check"],
 ],{x:M,y:2.06,w:CW,colW:[3.0,3.3,3.3,2.23],fontFace:BF,fontSize:12,color:INK,
    border:{type:"solid",color:RULE,pt:1},fill:{color:PAPER},align:"left",valign:"middle",rowH:0.42});
-const R=[["Repeated prompts","Given the same prompt text, the image reader returns the same emotion for 68.8% of drawings within a group, against a permutation null of 59.1% (z +4.9). The generator is not deterministic in what the reader recovers."],
-["Method comparison","Holding the prompt reader constant and varying only the image reader: describe-then-extract 49.3% family agreement against direct-CLIP 25.3%. Note the prompt reader here is BART-MNLI, not the GoEmotions reader used above."],
-["Robustness","Re-run on the 763 distinct prompts, the overall and face results hold (z +9 to +11). The scene result weakens substantially, to 37.3% (z +3.5)."]];
+const R=[["Repeated prompts","Given the same prompt text, the image reader returns the same emotion for 68.8% of drawings within a group, against a permutation null of 59.4% (z +4.5). More consistent than chance but far from fixed; the reading is not deterministic in what the reader recovers."],
+["Method comparison","Like for like — same GoEmotions prompt reader, same 607 records, only the image reader varied: describe-then-extract 53.0% family agreement against direct-CLIP 22.4%, +30.6 pp, p < 0.0001. The earlier 49.3% vs 25.3% used BART-MNLI on the prompt side, not the GoEmotions reader used above."],
+["Robustness","Re-run on the 763 distinct prompts, the overall and face results hold (z +8.4 to +10.8). The scene result weakens substantially, to 37.3% (z +3.5; family z +2.6)."]];
 R.forEach((r,i)=>{const y=4.58+i*0.8;
   s.addText(r[0],{x:M,y:y,w:2.55,h:0.72,isTextBox:true,margin:0,fontFace:BF,fontSize:12.5,bold:true,color:TEAL,valign:"top"});
   body(s,r[1],M+2.75,y,9.08,0.78,12.5);});
-foot(s,"No formal significance test of the face–scene difference has been run; both rates are reported against their own nulls instead.");
+foot(s,"The face–scene difference is significant: clustered permutation p = 0.0001, 95% CI +22.6 to +40.6 pp. Both rates are also reported against their own nulls.");
 s.addNotes("[70s] Agreement is well above chance overall — sixty-four per cent valence-sign against a null of forty-six, z over eleven. It is strongest for face-classified drawings at seventy-four per cent, and weaker but still above chance for scenes. On the non-emotional prompts the sign and family measures are degenerate by the subset's own definition, so I report only the valence-arousal specificity result there. Three further results. Repeated prompts: the reader recovers the same emotion sixty-nine per cent of the time against a fifty-nine per cent null. The method comparison favours describe-then-extract, roughly double, though I should note the prompt reader differs between the two arms. And on distinct prompts only, the face result holds while the scene result weakens substantially — I report that rather than claiming everything survives.");
 
 /* ============================== 9 DEMO ============================== */
@@ -214,7 +214,8 @@ s.addText([{text:"Prompt-reader and image-reader agreement is well above chance 
 card(s,X2,1.98,CW2,2.72,"FBF6EC",GOLD);
 s.addText("Not established",{x:X2+0.32,y:2.15,w:CW2-0.64,h:0.32,isTextBox:true,margin:0,fontFace:BF,fontSize:13,bold:true,color:GOLD});
 s.addText([{text:"What a human viewer perceives — both readers are automatic, and they disagree with each other.",options:{bullet:true,breakLine:true}},
-{text:"That the face–scene gap is statistically significant; no formal test has been run.",options:{bullet:true,breakLine:true}},
+{text:"That the face–scene split reflects faces as such — the gap is significant (p = 0.0001), but the split is the describer's own classification.",options:{bullet:true,breakLine:true}},
+{text:"That scene-classified drawings hold a feeling this reader can find: under a people-aware description their agreement sits at chance (z +1.6).",options:{bullet:true,breakLine:true}},
 {text:"Any effect of colour — the corpus is monochrome but there is no colour condition.",options:{bullet:true,breakLine:true}},
 {text:"Any positive-versus-negative direction; that claim was withdrawn.",options:{bullet:true}}],
 {x:X2+0.32,y:2.55,w:CW2-0.64,h:2.05,isTextBox:true,margin:0,fontFace:BF,fontSize:12.5,color:MUTED,paraSpaceAfter:4});

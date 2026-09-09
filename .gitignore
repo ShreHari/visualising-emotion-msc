@@ -2,13 +2,15 @@
 # Deliberately NOT in this repository
 #
 # 02AI_drawing_data/   the source corpus. It holds festival visitors' own words,
-#                      including 11 records with real names that are redacted at
+#                      including 8 records with real names that are redacted at
 #                      LOAD time rather than on disk (see emoviz/preprocess_names.py).
 #                      Uploading it would transfer identifiable personal data from a
 #                      public-engagement event to a third-party host. Keep it local
 #                      and back it up somewhere you control.
 # RESEARCH PAPERS/     97 copyrighted PDFs. references.bib is tracked instead.
 # emoviz/.venv/        1 GB, fully regenerable with `bash emoviz/setup.sh`.
+# emoviz/private/      the reviewed name-redaction decision table. It names the tokens it
+#                      redacts, so it travels with the dataset, never with the repository.
 # ---------------------------------------------------------------------------
 02AI_drawing_data/
 RESEARCH PAPERS/
@@ -16,6 +18,7 @@ RESEARCH PAPERS/
 !RESEARCH PAPERS/*.md
 
 emoviz/.venv/
+emoviz/private/
 deck/node_modules/
 deck/package-lock.json
 
@@ -34,3 +37,15 @@ emoviz/outputs/*.prename
 emoviz/outputs/*.nodedup
 .DS_Store
 **/~$*
+
+# LaTeX build artefacts (the PDF itself is tracked)
+report/*.bbl
+report/*.blg
+report/*.lof
+report/*.lot
+report/*.fls
+report/*.fdb_latexmk
+report/*.synctex.gz
+
+# regenerable contact sheets of the drawings (human_check.py sample); the coding CSV and sample.json stay tracked
+emoviz/outputs/human_check/sheet_*.png

@@ -1,0 +1,2469 @@
+{
+ "method": {
+  "selection": "emotional records (GoEmotions top-1 family != neutral) with prompt top-1 score >= 0.8 AND image top-1 score >= 0.8 AND differing top-1 families; pre-test ids 1-13 dropped",
+  "sampling": "census - the whole population is below the target sample size",
+  "target_sample": 40,
+  "n_strata": 4,
+  "seed": 7,
+  "auto_tags": {
+   "people_zero": "BLIP-VQA people-count answer parses to 0 (n_people from analysis_final.py)",
+   "bare_expression_word": "BLIP-VQA expression answer is a single token in EXPRESSION_WORDS or a family name",
+   "mixed_feeling_connective": "prompt contains but / although / though / yet (mixed feeling)",
+   "ambiguous_raw_label": "raw 28-label GoEmotions top label is curiosity, realization or confusion",
+   "short_prompt": "prompt is <= 2 words"
+  },
+  "failure_modes": {
+   "a": "describer hallucinated a face/expression where none exists",
+   "b": "describer read the expression wrongly",
+   "c": "reader mis-inferred from a correct description",
+   "d": "prompt is ambiguous or mixed",
+   "e": "genuine generator failure - the drawing does not depict the prompt",
+   "f": "prompt reader wrong"
+  },
+  "assignment": "one primary mode per record, assigned by a human after opening image_path and comparing the drawing with the prompt, the VQA answers, the description and the two readings; stored in MANUAL_MODES inside error_taxonomy.py"
+ },
+ "population": {
+  "n_emotional": 607,
+  "n_high_confidence_disagreements": 38,
+  "n_distinct_prompts": 37,
+  "cells": {
+   "joy->anger": 10,
+   "joy->surprise": 9,
+   "joy->sadness": 6,
+   "joy->neutral": 6,
+   "sadness->anger": 4,
+   "sadness->joy": 1,
+   "surprise->anger": 1,
+   "surprise->joy": 1
+  },
+  "strata": [
+   "joy->anger",
+   "joy->surprise",
+   "joy->sadness",
+   "joy->neutral"
+  ],
+  "n_in_strata": 31
+ },
+ "sample_size": 38,
+ "tag_counts": {
+  "people_zero": 13,
+  "bare_expression_word": 38,
+  "mixed_feeling_connective": 2,
+  "ambiguous_raw_label": 2,
+  "short_prompt": 8
+ },
+ "failure_mode_tally": {
+  "a": 9,
+  "b": 10,
+  "c": 5,
+  "d": 11,
+  "e": 2,
+  "f": 1
+ },
+ "failure_mode_exemplars": {
+  "a": [
+   18,
+   19,
+   242
+  ],
+  "b": [
+   39,
+   192,
+   202
+  ],
+  "c": [
+   89,
+   107,
+   231
+  ],
+  "d": [
+   65,
+   66,
+   93
+  ],
+  "e": [
+   137,
+   771
+  ],
+  "f": [
+   436
+  ]
+ },
+ "failure_mode_by_cell": {
+  "sadness->joy": {
+   "a": 1
+  },
+  "joy->anger": {
+   "a": 1,
+   "d": 4,
+   "e": 2,
+   "b": 3
+  },
+  "joy->sadness": {
+   "b": 1,
+   "d": 2,
+   "a": 3
+  },
+  "joy->neutral": {
+   "c": 5,
+   "a": 1
+  },
+  "sadness->anger": {
+   "d": 2,
+   "b": 2
+  },
+  "joy->surprise": {
+   "a": 2,
+   "f": 1,
+   "b": 4,
+   "d": 2
+  },
+  "surprise->anger": {
+   "d": 1
+  },
+  "surprise->joy": {
+   "a": 1
+  }
+ },
+ "tags_by_mode": {
+  "a": {
+   "people_zero": 7,
+   "bare_expression_word": 9,
+   "mixed_feeling_connective": 0,
+   "ambiguous_raw_label": 1,
+   "short_prompt": 3
+  },
+  "b": {
+   "people_zero": 1,
+   "bare_expression_word": 10,
+   "mixed_feeling_connective": 1,
+   "ambiguous_raw_label": 0,
+   "short_prompt": 2
+  },
+  "c": {
+   "people_zero": 2,
+   "bare_expression_word": 5,
+   "mixed_feeling_connective": 1,
+   "ambiguous_raw_label": 0,
+   "short_prompt": 1
+  },
+  "d": {
+   "people_zero": 1,
+   "bare_expression_word": 11,
+   "mixed_feeling_connective": 0,
+   "ambiguous_raw_label": 1,
+   "short_prompt": 2
+  },
+  "e": {
+   "people_zero": 1,
+   "bare_expression_word": 2,
+   "mixed_feeling_connective": 0,
+   "ambiguous_raw_label": 0,
+   "short_prompt": 0
+  },
+  "f": {
+   "people_zero": 1,
+   "bare_expression_word": 1,
+   "mixed_feeling_connective": 0,
+   "ambiguous_raw_label": 0,
+   "short_prompt": 0
+  }
+ },
+ "by_pipeline_stage": {
+  "describer (a+b)": 19,
+  "image reader (c)": 5,
+  "prompt side (d+f)": 12,
+  "generator (e)": 2
+ },
+ "unassigned_ids": [],
+ "observations": [
+  "The describer, not the generator, is where most high-confidence disagreements arise: modes (a)+(b) cover 19 of 38; the drawing shows a feeling other than the prompt's in only 2 of 38 (mode e).",
+  "people_zero is a usable predictor of mode (a): 7 of 9 records tagged (a) have a people-count of 0, against 6 of 29 in every other mode. When BLIP-VQA reports no people yet names an expression, the expression is being invented.",
+  "The joy->neutral cell is a single mechanism: 5 of 6 are mode (c), and in every one the describer answered 'calm' or 'smile' and the reader returned neutral. Low-arousal positive states (grateful, at peace, relaxed) have no family in the 7-way scheme, so 'calm' falls to neutral by construction; and the reader returned neutral for the two 'happy heart' records although the description names a smile twice.",
+  "bare_expression_word fires on 38 of 38: in this population it adds no information, because an image top-1 score >= 0.8 is only reached when the describer gives a one-word expression answer.",
+  "mixed_feeling_connective (but/although/though/yet) catches 0 of the 11 mode-(d) records; its 2 hits fall in other modes. Visitors list feelings without connectives ('tired proud happy', 'hopeful, slightly anxious, resigned'), so a list detector (3+ feeling words separated by commas or spaces) would serve better than a connective detector.",
+  "Across all 1012 analysed records, 107 share a byte-identical five-answer VQA dict with at least one other record (43 groups); ids 93 and 216 in this census are one such pair with visibly different drawings. The describer's answer vocabulary is coarse, and identical descriptions produce identical image readings."
+ ],
+ "sample": [
+  {
+   "id": 18,
+   "dedup_key": 14,
+   "cell": "sadness->joy",
+   "in_stratum": false,
+   "prompt": "I am feeling emotional about working at the pet rescue centre",
+   "prompt_words": 11,
+   "prompt_reading": [
+    [
+     "sadness",
+     0.8656
+    ],
+    [
+     "joy",
+     0.0516
+    ],
+    [
+     "neutral",
+     0.0295
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "sadness",
+    0.8901
+   ],
+   "image_reading": [
+    [
+     "joy",
+     0.9479
+    ],
+    [
+     "neutral",
+     0.0419
+    ],
+    [
+     "surprise",
+     0.0034
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "happy",
+    "action": "feeding dog",
+    "posture": "squatting",
+    "people": "5",
+    "scene": "dog and people"
+   },
+   "description": "A drawing of 5 showing dog and people. The person is feeding dog, squatting. The facial expression is happy.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00018.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "silhouette figures with no facial features in a rescue centre; describer reports 'happy' (5 people). Secondary: 'feeling emotional' is read as sadness 0.87, which a person would call ambiguous"
+  },
+  {
+   "id": 19,
+   "dedup_key": 15,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "My fingers tingle with the excitement of all the potential possibilities of creation through the medium of the keyboard",
+   "prompt_words": 19,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8752
+    ],
+    [
+     "neutral",
+     0.0567
+    ],
+    [
+     "surprise",
+     0.0391
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.8095
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.8942
+    ],
+    [
+     "disgust",
+     0.0989
+    ],
+    [
+     "surprise",
+     0.0035
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "typing",
+    "posture": "hands",
+    "people": "2",
+    "scene": "keyboard"
+   },
+   "description": "A drawing of 2 showing keyboard. The person is typing, hands. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00019.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "two hands on a keyboard, no face anywhere; describer reports 'angry', 2 people"
+  },
+  {
+   "id": 39,
+   "dedup_key": 30,
+   "cell": "joy->sadness",
+   "in_stratum": true,
+   "prompt": "feeling at peace as a women, sitting by the fire place reading a novel with my pet cat on my lap while listening to jazz on my speaker and a candle on the coffee table",
+   "prompt_words": 35,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8135
+    ],
+    [
+     "neutral",
+     0.1377
+    ],
+    [
+     "surprise",
+     0.0178
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.7225
+   ],
+   "image_reading": [
+    [
+     "sadness",
+     0.9581
+    ],
+    [
+     "surprise",
+     0.0212
+    ],
+    [
+     "fear",
+     0.0085
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "sad",
+    "action": "reading",
+    "posture": "sitting",
+    "people": "one",
+    "scene": "woman"
+   },
+   "description": "A drawing of one showing woman. The person is reading, sitting. The facial expression is sad.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00039.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "woman reading by the fire with a cat, eyes lowered, serene; describer calls the downcast reading face 'sad'"
+  },
+  {
+   "id": 65,
+   "dedup_key": 55,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "hopeful   slightly anxious    resigned     detached      appreciating the positives      persevering",
+   "prompt_words": 9,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9319
+    ],
+    [
+     "fear",
+     0.0177
+    ],
+    [
+     "surprise",
+     0.0148
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "optimism",
+    0.6912
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9295
+    ],
+    [
+     "disgust",
+     0.0577
+    ],
+    [
+     "surprise",
+     0.0093
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "listening",
+    "posture": "standing",
+    "people": "1",
+    "scene": "nine signs"
+   },
+   "description": "A drawing of 1 showing nine signs. The person is listening, standing. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00065.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "prompt lists hopeful / slightly anxious / resigned / detached; drawing is nine labelled head profiles with no expressions, so 'angry' is also hallucinated, but no single family could agree with this list"
+  },
+  {
+   "id": 66,
+   "dedup_key": 56,
+   "cell": "joy->sadness",
+   "in_stratum": true,
+   "prompt": "hopeful, slightly anxious, resigned, detached, appreciating the positives, persevering, calmness,",
+   "prompt_words": 10,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9468
+    ],
+    [
+     "surprise",
+     0.0143
+    ],
+    [
+     "neutral",
+     0.0114
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "optimism",
+    0.8589
+   ],
+   "image_reading": [
+    [
+     "sadness",
+     0.8905
+    ],
+    [
+     "surprise",
+     0.0686
+    ],
+    [
+     "fear",
+     0.0175
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "sad",
+    "action": "staring",
+    "posture": "bent",
+    "people": "1",
+    "scene": "woman"
+   },
+   "description": "A drawing of 1 showing woman. The person is staring, bent. The facial expression is sad.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00066.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "same mixed list as 65; drawing is a pensive woman with eyes closed and head bowed - 'sad' is a fair reading of the resigned/detached part; the joy reading comes from 'hopeful'"
+  },
+  {
+   "id": 89,
+   "dedup_key": 74,
+   "cell": "joy->neutral",
+   "in_stratum": true,
+   "prompt": "grateful",
+   "prompt_words": 1,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9585
+    ],
+    [
+     "neutral",
+     0.0174
+    ],
+    [
+     "anger",
+     0.0093
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "gratitude",
+    0.9702
+   ],
+   "image_reading": [
+    [
+     "neutral",
+     0.9498
+    ],
+    [
+     "joy",
+     0.0281
+    ],
+    [
+     "surprise",
+     0.007
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "calm",
+    "action": "sitting",
+    "posture": "sitting",
+    "people": "1",
+    "scene": "man sitting on mountain"
+   },
+   "description": "A drawing of 1 showing man sitting on mountain. The person is sitting, sitting. The facial expression is calm.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00089.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": true
+   },
+   "primary_mode": "c",
+   "primary_mode_label": "reader mis-inferred from a correct description",
+   "note": "'grateful' drawn as a meditating figure on a mountain; description 'calm, sitting' is true to the drawing; the reader maps calm to neutral because no family holds low-arousal positive states"
+  },
+  {
+   "id": 93,
+   "dedup_key": 79,
+   "cell": "sadness->anger",
+   "in_stratum": false,
+   "prompt": "celebratory anguish",
+   "prompt_words": 2,
+   "prompt_reading": [
+    [
+     "sadness",
+     0.8144
+    ],
+    [
+     "neutral",
+     0.0881
+    ],
+    [
+     "joy",
+     0.0421
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "sadness",
+    0.862
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9731
+    ],
+    [
+     "disgust",
+     0.0117
+    ],
+    [
+     "surprise",
+     0.0092
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "juggling",
+    "posture": "hands",
+    "people": "2",
+    "scene": "art"
+   },
+   "description": "A drawing of 2 showing art. The person is juggling, hands. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00093.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": true
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "'celebratory anguish' is an oxymoron; drawing is a split face, one half frowning, one half crying, with balloons and confetti - it depicts the mix exactly; 'angry' is a partial mis-read of the frown"
+  },
+  {
+   "id": 107,
+   "dedup_key": 91,
+   "cell": "joy->neutral",
+   "in_stratum": true,
+   "prompt": "Free from the stress of a bad situation and hopeful for the future.",
+   "prompt_words": 13,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9067
+    ],
+    [
+     "neutral",
+     0.042
+    ],
+    [
+     "sadness",
+     0.0204
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "optimism",
+    0.8802
+   ],
+   "image_reading": [
+    [
+     "neutral",
+     0.9584
+    ],
+    [
+     "joy",
+     0.0197
+    ],
+    [
+     "surprise",
+     0.0083
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "calm",
+    "action": "standing",
+    "posture": "standing",
+    "people": "one",
+    "scene": "person"
+   },
+   "description": "A drawing of one showing person. The person is standing, standing. The facial expression is calm.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00107.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "c",
+   "primary_mode_label": "reader mis-inferred from a correct description",
+   "note": "'free from stress, hopeful' drawn as a silhouette rising from broken chains; description 'standing, calm' is true to the drawing but drops the chains, and calm is mapped to neutral"
+  },
+  {
+   "id": 137,
+   "dedup_key": 120,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "i am excited",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8547
+    ],
+    [
+     "surprise",
+     0.0687
+    ],
+    [
+     "neutral",
+     0.0458
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.8119
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9901
+    ],
+    [
+     "surprise",
+     0.0043
+    ],
+    [
+     "disgust",
+     0.0025
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "angry",
+    "action": "yelling",
+    "posture": "mouth",
+    "people": "0",
+    "scene": "face"
+   },
+   "description": "A drawing of 0 showing face. The person is yelling, mouth. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00137.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "e",
+   "primary_mode_label": "genuine generator failure - the drawing does not depict the prompt",
+   "note": "'i am excited' drawn as a screaming face with bared teeth, furrowed brows and lightning; the describer's 'angry' is what the drawing shows (people-count 0 is wrong but the expression is not)"
+  },
+  {
+   "id": 192,
+   "dedup_key": 165,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "happy and tired",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8604
+    ],
+    [
+     "neutral",
+     0.072
+    ],
+    [
+     "sadness",
+     0.0304
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8066
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9497
+    ],
+    [
+     "joy",
+     0.0137
+    ],
+    [
+     "surprise",
+     0.009
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "smiling",
+    "posture": "face",
+    "people": "one",
+    "scene": "man"
+   },
+   "description": "A drawing of one showing man. The person is smiling, face. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_00192.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'happy and tired' drawn as a man lying back with a contented smile; describer answers action 'smiling' yet expression 'angry' - the description contradicts itself and the reader follows 'angry'"
+  },
+  {
+   "id": 202,
+   "dedup_key": 172,
+   "cell": "sadness->anger",
+   "in_stratum": false,
+   "prompt": "my tummy hurts",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "sadness",
+     0.8729
+    ],
+    [
+     "neutral",
+     0.042
+    ],
+    [
+     "joy",
+     0.0374
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "sadness",
+    0.8845
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9287
+    ],
+    [
+     "disgust",
+     0.0635
+    ],
+    [
+     "surprise",
+     0.0031
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "holding hands",
+    "posture": "bent",
+    "people": "one",
+    "scene": "monkey"
+   },
+   "description": "A drawing of one showing monkey. The person is holding hands, bent. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_202.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'my tummy hurts' drawn as a figure bent over clutching its stomach; the pain grimace is called 'angry' (scene 'monkey' is also wrong); pain itself has no family on either side"
+  },
+  {
+   "id": 214,
+   "dedup_key": 182,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "happy tired sleepy hungry craving caffein",
+   "prompt_words": 6,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9211
+    ],
+    [
+     "neutral",
+     0.0375
+    ],
+    [
+     "sadness",
+     0.0127
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.6675
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9376
+    ],
+    [
+     "disgust",
+     0.057
+    ],
+    [
+     "surprise",
+     0.0023
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "using laptop",
+    "posture": "squatting",
+    "people": "6",
+    "scene": "people"
+   },
+   "description": "A drawing of 6 showing people. The person is using laptop, squatting. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_214.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "prompt lists happy / tired / sleepy / hungry; drawing is a grid of twelve yawning, dozing, coffee-clutching figures - the tired part is drawn, 'angry' is a fair read of the grumpy ones, joy is the prompt's 'happy'"
+  },
+  {
+   "id": 216,
+   "dedup_key": 184,
+   "cell": "sadness->anger",
+   "in_stratum": false,
+   "prompt": "I am in pain everyday and since childhood and I've had enough of it",
+   "prompt_words": 14,
+   "prompt_reading": [
+    [
+     "sadness",
+     0.8752
+    ],
+    [
+     "joy",
+     0.0418
+    ],
+    [
+     "neutral",
+     0.0292
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "sadness",
+    0.8783
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9731
+    ],
+    [
+     "disgust",
+     0.0117
+    ],
+    [
+     "surprise",
+     0.0092
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "juggling",
+    "posture": "hands",
+    "people": "2",
+    "scene": "art"
+   },
+   "description": "A drawing of 2 showing art. The person is juggling, hands. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_216.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "'in pain every day ... had enough of it' mixes pain (sadness) with exasperation (anger); drawing is an abstract circle of straining silhouettes with a brain; both readings sit inside the prompt's mix"
+  },
+  {
+   "id": 231,
+   "dedup_key": 194,
+   "cell": "joy->neutral",
+   "in_stratum": true,
+   "prompt": "i have a happy heart",
+   "prompt_words": 5,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9342
+    ],
+    [
+     "neutral",
+     0.031
+    ],
+    [
+     "sadness",
+     0.0109
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8798
+   ],
+   "image_reading": [
+    [
+     "neutral",
+     0.9526
+    ],
+    [
+     "surprise",
+     0.0299
+    ],
+    [
+     "joy",
+     0.0077
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "smile",
+    "action": "smiling",
+    "posture": "bent",
+    "people": "none",
+    "scene": "heart"
+   },
+   "description": "A drawing of none showing heart. The person is smiling, bent. The facial expression is smile.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_231.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "c",
+   "primary_mode_label": "reader mis-inferred from a correct description",
+   "note": "'happy heart' drawn as a heart with a smiling face; description says 'smiling' and 'smile' but also 'a drawing of none'; the reader returns neutral 0.95 from a description that names a smile twice"
+  },
+  {
+   "id": 232,
+   "dedup_key": 194,
+   "cell": "joy->neutral",
+   "in_stratum": true,
+   "prompt": "i have a happy heart",
+   "prompt_words": 5,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9342
+    ],
+    [
+     "neutral",
+     0.031
+    ],
+    [
+     "sadness",
+     0.0109
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8798
+   ],
+   "image_reading": [
+    [
+     "neutral",
+     0.817
+    ],
+    [
+     "surprise",
+     0.0896
+    ],
+    [
+     "joy",
+     0.0652
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "smile",
+    "action": "smiling",
+    "posture": "heart",
+    "people": "none",
+    "scene": "heart"
+   },
+   "description": "A drawing of none showing heart. The person is smiling, heart. The facial expression is smile.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_232.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "c",
+   "primary_mode_label": "reader mis-inferred from a correct description",
+   "note": "second run of the same prompt: heart with a smiling face; description names 'smiling' and 'smile'; reader returns neutral 0.82"
+  },
+  {
+   "id": 242,
+   "dedup_key": 202,
+   "cell": "joy->sadness",
+   "in_stratum": true,
+   "prompt": "love",
+   "prompt_words": 1,
+   "prompt_reading": [
+    [
+     "joy",
+     0.939
+    ],
+    [
+     "neutral",
+     0.0303
+    ],
+    [
+     "anger",
+     0.0107
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "love",
+    0.9234
+   ],
+   "image_reading": [
+    [
+     "sadness",
+     0.8467
+    ],
+    [
+     "surprise",
+     0.087
+    ],
+    [
+     "disgust",
+     0.0299
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "sad",
+    "action": "no person",
+    "posture": "straight",
+    "people": "none",
+    "scene": "apple"
+   },
+   "description": "A drawing of none showing apple. The person is no person, straight. The facial expression is sad.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_242.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": true
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "'love' drawn as leaves forming a heart shape on black, no face; describer reports 'sad' with action 'no person'"
+  },
+  {
+   "id": 287,
+   "dedup_key": 233,
+   "cell": "joy->sadness",
+   "in_stratum": true,
+   "prompt": "happy mixed emotions",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9414
+    ],
+    [
+     "neutral",
+     0.0246
+    ],
+    [
+     "surprise",
+     0.0124
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8824
+   ],
+   "image_reading": [
+    [
+     "sadness",
+     0.9038
+    ],
+    [
+     "neutral",
+     0.0523
+    ],
+    [
+     "surprise",
+     0.0248
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "sad",
+    "action": "sitting",
+    "posture": "standing",
+    "people": "none",
+    "scene": "art"
+   },
+   "description": "A drawing of none showing art. The person is sitting, standing. The facial expression is sad.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_287.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "'happy mixed emotions' drawn as a large face built from dozens of small faces, most of them frowning, with rain clouds and tears; the drawing shows the mix with a sad tilt and 'sad' is a fair read of it"
+  },
+  {
+   "id": 295,
+   "dedup_key": 240,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "surprisingly energetic grateful and happy",
+   "prompt_words": 5,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9505
+    ],
+    [
+     "neutral",
+     0.0159
+    ],
+    [
+     "surprise",
+     0.0156
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.5731
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9737
+    ],
+    [
+     "disgust",
+     0.018
+    ],
+    [
+     "surprise",
+     0.0027
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "dancing",
+    "posture": "arms and legs",
+    "people": "1",
+    "scene": "woman"
+   },
+   "description": "A drawing of 1 showing woman. The person is dancing, arms and legs. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_295.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'energetic grateful and happy' drawn as a woman dancing with arms flung out and mouth open; the small open-mouthed face is called 'angry'"
+  },
+  {
+   "id": 363,
+   "dedup_key": 291,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "happy, relaxed, open minded, refreshed",
+   "prompt_words": 5,
+   "prompt_reading": [
+    [
+     "joy",
+     0.923
+    ],
+    [
+     "neutral",
+     0.0384
+    ],
+    [
+     "anger",
+     0.0136
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8771
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9768
+    ],
+    [
+     "fear",
+     0.0074
+    ],
+    [
+     "sadness",
+     0.0049
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "surprised",
+    "action": "no person",
+    "posture": "bent",
+    "people": "none",
+    "scene": "art"
+   },
+   "description": "A drawing of none showing art. The person is no person, bent. The facial expression is surprised.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_363.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "'happy, relaxed, open minded' drawn as abstract circles and dot patterns, no figure; describer reports 'surprised' with action 'no person'"
+  },
+  {
+   "id": 436,
+   "dedup_key": 342,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "an impressed baby in a bearsuit",
+   "prompt_words": 6,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9302
+    ],
+    [
+     "neutral",
+     0.046
+    ],
+    [
+     "surprise",
+     0.0118
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "admiration",
+    0.9242
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9008
+    ],
+    [
+     "fear",
+     0.0463
+    ],
+    [
+     "neutral",
+     0.0261
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "surprise",
+    "action": "waving",
+    "posture": "hands up",
+    "people": "none",
+    "scene": "bear"
+   },
+   "description": "A drawing of none showing bear. The person is waving, hands up. The facial expression is surprise.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_436.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "f",
+   "primary_mode_label": "prompt reader wrong",
+   "note": "'an impressed baby in a bearsuit' drawn as a baby in a bear suit with wide eyes and an O-shaped mouth; describer's 'surprise' is right; the prompt reader's raw label is admiration 0.92, which the 28-to-7 mapping sends to joy, whereas a person would accept surprise for 'impressed'"
+  },
+  {
+   "id": 547,
+   "dedup_key": 108,
+   "cell": "surprise->anger",
+   "in_stratum": false,
+   "prompt": "confused",
+   "prompt_words": 1,
+   "prompt_reading": [
+    [
+     "surprise",
+     0.8093
+    ],
+    [
+     "neutral",
+     0.0719
+    ],
+    [
+     "joy",
+     0.0622
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "confusion",
+    0.9246
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9634
+    ],
+    [
+     "disgust",
+     0.0321
+    ],
+    [
+     "surprise",
+     0.0023
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "drawing",
+    "posture": "standing",
+    "people": "one",
+    "scene": "face"
+   },
+   "description": "A drawing of one showing face. The person is drawing, standing. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_547.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": true,
+    "short_prompt": true
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "'confused' has no family: the raw label confusion 0.92 is mapped to surprise; drawing is scowling faces among question marks, so 'angry' has visible support; neither family is what a person would name"
+  },
+  {
+   "id": 594,
+   "dedup_key": 459,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "excited and happy",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9287
+    ],
+    [
+     "neutral",
+     0.0285
+    ],
+    [
+     "surprise",
+     0.0243
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.5824
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9482
+    ],
+    [
+     "joy",
+     0.0448
+    ],
+    [
+     "fear",
+     0.002
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "surprise",
+    "action": "singing",
+    "posture": "hands",
+    "people": "12",
+    "scene": "people"
+   },
+   "description": "A drawing of 12 showing people. The person is singing, hands. The facial expression is surprise.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_594.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'excited and happy' drawn as a crowd laughing with heads thrown back in falling snow; the laughing faces are called 'surprise'"
+  },
+  {
+   "id": 608,
+   "dedup_key": 149,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "excited",
+   "prompt_words": 1,
+   "prompt_reading": [
+    [
+     "joy",
+     0.842
+    ],
+    [
+     "surprise",
+     0.0696
+    ],
+    [
+     "neutral",
+     0.0601
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.7714
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.955
+    ],
+    [
+     "joy",
+     0.0381
+    ],
+    [
+     "fear",
+     0.0024
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "surprise",
+    "action": "singing",
+    "posture": "hands up",
+    "people": "many",
+    "scene": "people"
+   },
+   "description": "A drawing of many showing people. The person is singing, hands up. The facial expression is surprise.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_608.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": true
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'excited' drawn as a concert crowd looking up with open mouths and raised arms; describer picks 'surprise' for faces a person would call excited or awed - excitement and surprise share the open-mouth pattern"
+  },
+  {
+   "id": 627,
+   "dedup_key": 471,
+   "cell": "surprise->joy",
+   "in_stratum": false,
+   "prompt": "I am confused",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "surprise",
+     0.8183
+    ],
+    [
+     "joy",
+     0.0718
+    ],
+    [
+     "neutral",
+     0.0516
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "confusion",
+    0.9369
+   ],
+   "image_reading": [
+    [
+     "joy",
+     0.9035
+    ],
+    [
+     "neutral",
+     0.068
+    ],
+    [
+     "surprise",
+     0.0147
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "happy",
+    "action": "swimming",
+    "posture": "standing",
+    "people": "0",
+    "scene": "trees"
+   },
+   "description": "A drawing of 0 showing trees. The person is swimming, standing. The facial expression is happy.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_627.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": true,
+    "short_prompt": false
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "'I am confused' drawn as a landscape (palms beside a pine and a snowy peak), no people; describer reports 'happy' and 'swimming' with people 0. Secondary: the drawing shows no feeling at all"
+  },
+  {
+   "id": 640,
+   "dedup_key": 481,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "tired and happy but excited",
+   "prompt_words": 5,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8977
+    ],
+    [
+     "surprise",
+     0.0334
+    ],
+    [
+     "neutral",
+     0.0326
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.7647
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9677
+    ],
+    [
+     "disgust",
+     0.0207
+    ],
+    [
+     "surprise",
+     0.0062
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "angry",
+    "action": "watching something",
+    "posture": "standing",
+    "people": "0",
+    "scene": "art"
+   },
+   "description": "A drawing of 0 showing art. The person is watching something, standing. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_640.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": true,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'tired and happy but excited' drawn as a shouting profile with geometric shapes bursting from the head; 'angry' is a defensible read of the open mouth, so this is a soft call; the prompt is also mixed"
+  },
+  {
+   "id": 648,
+   "dedup_key": 488,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "tired elated hopeful and excited for Monday",
+   "prompt_words": 7,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8689
+    ],
+    [
+     "neutral",
+     0.0602
+    ],
+    [
+     "surprise",
+     0.0399
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.8321
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9715
+    ],
+    [
+     "disgust",
+     0.0244
+    ],
+    [
+     "surprise",
+     0.0014
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "eating",
+    "posture": "face down",
+    "people": "1",
+    "scene": "face"
+   },
+   "description": "A drawing of 1 showing face. The person is eating, face down. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_648.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "prompt lists tired / elated / hopeful / excited; drawing is a woman with head thrown back, eyes shut, fists clenched - the tired/exasperated part is drawn and 'angry' is a fair read of it"
+  },
+  {
+   "id": 677,
+   "dedup_key": 511,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "I am feeling ecstatic about my new tattoo. I love rodents and used to keep multiple mice when I was younger. This tattoo is for terry nibbles, a rat who joined me in my wonderful house last year and helped make the house a home!",
+   "prompt_words": 45,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9577
+    ],
+    [
+     "surprise",
+     0.0146
+    ],
+    [
+     "neutral",
+     0.0111
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "love",
+    0.8231
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9284
+    ],
+    [
+     "fear",
+     0.0323
+    ],
+    [
+     "disgust",
+     0.0152
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "surprised",
+    "action": "no person",
+    "posture": "bent",
+    "people": "none",
+    "scene": "mouse"
+   },
+   "description": "A drawing of none showing mouse. The person is no person, bent. The facial expression is surprised.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_677.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "'ecstatic about my new tattoo' drawn as a rat tattoo design with a name banner, no human face; describer reports 'surprised' with action 'no person'"
+  },
+  {
+   "id": 692,
+   "dedup_key": 523,
+   "cell": "joy->neutral",
+   "in_stratum": true,
+   "prompt": "calm but tired. Happy that it is the weekend",
+   "prompt_words": 9,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9343
+    ],
+    [
+     "neutral",
+     0.0281
+    ],
+    [
+     "surprise",
+     0.0162
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8644
+   ],
+   "image_reading": [
+    [
+     "neutral",
+     0.9046
+    ],
+    [
+     "joy",
+     0.0663
+    ],
+    [
+     "surprise",
+     0.0105
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "calm",
+    "action": "sunbathing",
+    "posture": "reclined",
+    "people": "one",
+    "scene": "chair"
+   },
+   "description": "A drawing of one showing chair. The person is sunbathing, reclined. The facial expression is calm.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_692.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": true,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "c",
+   "primary_mode_label": "reader mis-inferred from a correct description",
+   "note": "'calm but tired, happy it is the weekend' drawn as a man reclining in a deckchair by water; description 'sunbathing, reclined, calm' is true to the drawing; calm is mapped to neutral"
+  },
+  {
+   "id": 726,
+   "dedup_key": 208,
+   "cell": "joy->neutral",
+   "in_stratum": true,
+   "prompt": "good",
+   "prompt_words": 1,
+   "prompt_reading": [
+    [
+     "joy",
+     0.956
+    ],
+    [
+     "neutral",
+     0.0229
+    ],
+    [
+     "surprise",
+     0.0102
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "admiration",
+    0.9068
+   ],
+   "image_reading": [
+    [
+     "neutral",
+     0.905
+    ],
+    [
+     "joy",
+     0.0496
+    ],
+    [
+     "surprise",
+     0.0266
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "calm",
+    "action": "surfing",
+    "posture": "standing",
+    "people": "0",
+    "scene": "mountains"
+   },
+   "description": "A drawing of 0 showing mountains. The person is surfing, standing. The facial expression is calm.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_726.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": true
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "'good' drawn as a mountain-and-lake landscape with no people; describer reports 'surfing' and 'calm' with people 0. Secondary: a one-word prompt gave the generator no feeling to draw, so neutral would follow anyway"
+  },
+  {
+   "id": 729,
+   "dedup_key": 556,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "excited to discover new things",
+   "prompt_words": 5,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8429
+    ],
+    [
+     "surprise",
+     0.0865
+    ],
+    [
+     "neutral",
+     0.0458
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.7928
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9495
+    ],
+    [
+     "fear",
+     0.0346
+    ],
+    [
+     "sadness",
+     0.0093
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "surprise",
+    "action": "taking picture",
+    "posture": "hands",
+    "people": "many",
+    "scene": "people"
+   },
+   "description": "A drawing of many showing people. The person is taking picture, hands. The facial expression is surprise.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_729.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'excited to discover new things' drawn as a crowd with cameras and a magnifying glass, mouths open, brows raised; describer picks 'surprise' for faces that show discovery - the same excitement/surprise boundary as 608"
+  },
+  {
+   "id": 753,
+   "dedup_key": 573,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "tired. sleepy.  Chilled.  Slightly worried about new tyres for car.  Enjoying being back in sheffield.  Hungry",
+   "prompt_words": 16,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8191
+    ],
+    [
+     "fear",
+     0.071
+    ],
+    [
+     "sadness",
+     0.046
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.7562
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9436
+    ],
+    [
+     "sadness",
+     0.0157
+    ],
+    [
+     "fear",
+     0.0131
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "confused",
+    "action": "talking on phone",
+    "posture": "standing",
+    "people": "1",
+    "scene": "cars"
+   },
+   "description": "A drawing of 1 showing cars. The person is talking on phone, standing. The facial expression is confused.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_753.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "prompt lists tired / sleepy / chilled / slightly worried / enjoying / hungry; drawing is a man with hand on chin and thought bubbles labelled 'mild concerns' - the worried part is drawn; 'confused' is a fair read"
+  },
+  {
+   "id": 771,
+   "dedup_key": 588,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "excited to draw with the printer",
+   "prompt_words": 6,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8525
+    ],
+    [
+     "surprise",
+     0.0686
+    ],
+    [
+     "neutral",
+     0.0569
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.7756
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9698
+    ],
+    [
+     "disgust",
+     0.0253
+    ],
+    [
+     "surprise",
+     0.0014
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "playing guitar",
+    "posture": "hands",
+    "people": "one",
+    "scene": "man"
+   },
+   "description": "A drawing of one showing man. The person is playing guitar, hands. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_771.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "e",
+   "primary_mode_label": "genuine generator failure - the drawing does not depict the prompt",
+   "note": "'excited to draw with the printer' drawn as a man with bared teeth, clenched fists and pencils exploding around him; the face reads as rage, and the describer's 'angry' is what is drawn"
+  },
+  {
+   "id": 820,
+   "dedup_key": 623,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "overcharged excitement",
+   "prompt_words": 2,
+   "prompt_reading": [
+    [
+     "joy",
+     0.8724
+    ],
+    [
+     "neutral",
+     0.0496
+    ],
+    [
+     "surprise",
+     0.0493
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "excitement",
+    0.8174
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9472
+    ],
+    [
+     "fear",
+     0.0284
+    ],
+    [
+     "sadness",
+     0.0098
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "surprised",
+    "action": "listening",
+    "posture": "standing",
+    "people": "one",
+    "scene": "woman"
+   },
+   "description": "A drawing of one showing woman. The person is listening, standing. The facial expression is surprised.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_820.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": true
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'overcharged excitement' drawn as a shouting profile with shapes bursting outward; 'surprised' is the describer's word for an open-mouthed exclaiming face"
+  },
+  {
+   "id": 829,
+   "dedup_key": 632,
+   "cell": "joy->sadness",
+   "in_stratum": true,
+   "prompt": "good wierd",
+   "prompt_words": 2,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9274
+    ],
+    [
+     "neutral",
+     0.0411
+    ],
+    [
+     "anger",
+     0.0141
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "admiration",
+    0.9173
+   ],
+   "image_reading": [
+    [
+     "sadness",
+     0.9434
+    ],
+    [
+     "surprise",
+     0.0278
+    ],
+    [
+     "neutral",
+     0.0157
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "sad",
+    "action": "sitting",
+    "posture": "standing",
+    "people": "0",
+    "scene": "art"
+   },
+   "description": "A drawing of 0 showing art. The person is sitting, standing. The facial expression is sad.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_829.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": true
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "'good wierd' drawn as an abstract swirl with a single eye inside a circle, no face; describer reports 'sad' and 'sitting' with people 0"
+  },
+  {
+   "id": 970,
+   "dedup_key": 735,
+   "cell": "joy->sadness",
+   "in_stratum": true,
+   "prompt": "hope and care",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9048
+    ],
+    [
+     "neutral",
+     0.0656
+    ],
+    [
+     "anger",
+     0.0103
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "optimism",
+    0.6407
+   ],
+   "image_reading": [
+    [
+     "sadness",
+     0.9105
+    ],
+    [
+     "neutral",
+     0.0469
+    ],
+    [
+     "surprise",
+     0.0286
+    ]
+   ],
+   "face_classified": false,
+   "vqa": {
+    "expression": "sad",
+    "action": "holding hands",
+    "posture": "hands",
+    "people": "none",
+    "scene": "art"
+   },
+   "description": "A drawing of none showing art. The person is holding hands, hands. The facial expression is sad.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_970.PNG",
+   "tags": {
+    "people_zero": true,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "a",
+   "primary_mode_label": "describer hallucinated a face/expression where none exists",
+   "note": "'hope and care' drawn as two hands cradling a sprouting plant under a sun, no face; describer reports 'sad' with 'holding hands'"
+  },
+  {
+   "id": 988,
+   "dedup_key": 750,
+   "cell": "joy->anger",
+   "in_stratum": true,
+   "prompt": "tired proud happy",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9042
+    ],
+    [
+     "neutral",
+     0.0445
+    ],
+    [
+     "anger",
+     0.0195
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8439
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9492
+    ],
+    [
+     "disgust",
+     0.0436
+    ],
+    [
+     "surprise",
+     0.0033
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "talking on phone",
+    "posture": "standing",
+    "people": "3",
+    "scene": "three men"
+   },
+   "description": "A drawing of 3 showing three men. The person is talking on phone, standing. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_988.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "prompt lists tired / proud / happy; drawing is the same man three times, twice frowning with a hand on his head and once smiling - the tired part dominates and 'angry' is a fair read of the frowns"
+  },
+  {
+   "id": 1011,
+   "dedup_key": 761,
+   "cell": "joy->surprise",
+   "in_stratum": true,
+   "prompt": "proud happy tired",
+   "prompt_words": 3,
+   "prompt_reading": [
+    [
+     "joy",
+     0.9339
+    ],
+    [
+     "neutral",
+     0.0345
+    ],
+    [
+     "anger",
+     0.0116
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "joy",
+    0.8664
+   ],
+   "image_reading": [
+    [
+     "surprise",
+     0.9429
+    ],
+    [
+     "fear",
+     0.0313
+    ],
+    [
+     "anger",
+     0.0091
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "surprised",
+    "action": "sitting",
+    "posture": "hands up",
+    "people": "2",
+    "scene": "people"
+   },
+   "description": "A drawing of 2 showing people. The person is sitting, hands up. The facial expression is surprised.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_t1011.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "d",
+   "primary_mode_label": "prompt is ambiguous or mixed",
+   "note": "prompt lists proud / happy / tired; drawing is a sweat-soaked runner slumped with mouth open in a city - the tired part is drawn; 'surprised' is additionally a mis-read of a panting face"
+  },
+  {
+   "id": 1015,
+   "dedup_key": 764,
+   "cell": "sadness->anger",
+   "in_stratum": false,
+   "prompt": "I am feeling unhappy because I'm not getting my go on the virtual reality machine",
+   "prompt_words": 15,
+   "prompt_reading": [
+    [
+     "sadness",
+     0.8354
+    ],
+    [
+     "anger",
+     0.0682
+    ],
+    [
+     "neutral",
+     0.0383
+    ]
+   ],
+   "prompt_raw_goemotions_top": [
+    "sadness",
+    0.5227
+   ],
+   "image_reading": [
+    [
+     "anger",
+     0.9446
+    ],
+    [
+     "disgust",
+     0.0508
+    ],
+    [
+     "surprise",
+     0.0016
+    ]
+   ],
+   "face_classified": true,
+   "vqa": {
+    "expression": "angry",
+    "action": "watching tv",
+    "posture": "sitting",
+    "people": "2",
+    "scene": "two people"
+   },
+   "description": "A drawing of 2 showing two people. The person is watching tv, sitting. The facial expression is angry.",
+   "image_path": "/Users/shrehari/Desktop/FINAL YR DISSERTATION/02AI_drawing_data/imgs/img_t1015.PNG",
+   "tags": {
+    "people_zero": false,
+    "bare_expression_word": true,
+    "mixed_feeling_connective": false,
+    "ambiguous_raw_label": false,
+    "short_prompt": false
+   },
+   "primary_mode": "b",
+   "primary_mode_label": "describer read the expression wrongly",
+   "note": "'unhappy because I'm not getting my go on the VR machine' drawn as one figure in a headset with arms crossed and another sitting and crying loudly; the crying face is called 'angry' (the headset figure does look cross)"
+  }
+ ]
+}

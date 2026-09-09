@@ -20,21 +20,23 @@
 
 \begin{center}
 {\Huge\bfseries Visualising Emotion}\\[8pt]
-{\Large Does an AI drawing carry the feeling in the words that made it?}\\[14pt]
+{\Large How far does an automatic reading of an AI drawing agree with an automatic reading of the words that made it?}\\[14pt]
 {\color{soft}\large A complete explanation of the project}\\[10pt]
 {\color{soft}MSc Artificial Intelligence dissertation · Shre Hari Prem Anandh}\\
 {\color{soft}Supervisor: Dr Chaona Chen · University of Sheffield}\\[4pt]
-{\color{soft}\small Every figure in this document was verified against the analysis on 1 September 2026}
+{\color{soft}\small Every figure in this document was re-verified against the analysis on 9 September 2026}
 \end{center}
 \vspace{6pt}\hrule\vspace{12pt}
 
 \begin{key}
-\textbf{The project in one paragraph.} At the Festival of the Mind 2024, about a thousand members of
-the public typed a few words about how they were feeling, and DALL$\cdot$E drew each entry as a
-black-and-white line drawing. This project builds and validates a way to measure whether the drawing
-carries the feeling that was in the words. It finds that alignment is real and well above chance,
-that it is much stronger when the drawing contains a readable face than when it is a scene, that the
-generator is inconsistent with itself, and that the method used to measure it matters a great deal.
+\textbf{The project in one paragraph.} At the Festival of the Mind 2024, members of the public typed a
+few words about how they were feeling, and DALL$\cdot$E drew each entry as a black-and-white line
+drawing --- 1{,}025 records; the number of contributors is unknown. This project builds and validates a
+way to measure how far an automatic reading of the drawing agrees with an automatic reading of the
+words. It finds that agreement is real and well above chance where the describer reports a readable face
+--- and, once the description stops inventing an expression, at chance where it reports a scene ---
+that the same words do not reliably give the same reading, and that the method used to measure it
+matters a great deal.
 \end{key}
 
 \section{The question}
@@ -60,17 +62,18 @@ feeling. That distinction is carried honestly through everything that follows.
 
 \section{Why the question is open}
 
-97 papers were collected, read and triaged; 73 were kept as core evidence and organised into twelve
-themes. The literature establishes four things that, taken together, leave a gap.
+97 papers were collected, read and triaged; 24 were excluded and 73 kept as core evidence, organised
+into eight themes. The literature establishes four things that, taken together, leave a gap.
 
 \begin{itemize}
-\item \textbf{Emotion in text is well studied.} GoEmotions supplies a 27-category taxonomy, a large
-labelled corpus and an off-the-shelf classifier. But short, first-person self-report is the hardest
+\item \textbf{Emotion in text is well studied.} GoEmotions supplies a 28-label taxonomy (27 emotions plus
+neutral), a large labelled corpus and an off-the-shelf classifier. But short, first-person self-report is the hardest
 register for these tools, and free self-report resolves roughly 27 blended categories rather than a
 tidy handful.
-\item \textbf{Emotional image \emph{generation} is well studied.} Systems exist that deliberately
-make images carry a chosen emotion. Notably, the strongest evidence says lightness and chroma —
-not hue, and not shape — carry most of the emotional meaning in text-to-image output.
+\item \textbf{Emotional image \emph{generation} is well studied.} Systems exist that generate images
+towards a chosen target emotion. Alvarado (2025) finds that in text-to-image output lightness and
+chroma, rather than hue, are the principal colour carriers of emotional meaning; that study models
+colour features only, so it gives no evidence either way about whether form and line can do the same.
 \item \textbf{Text-to-image \emph{evaluation} is well studied, but for objects.} The metrics score
 whether the picture contains what the prompt named. Recent work shows these metrics are fragile
 enough to be flipped by small perturbations.
@@ -79,10 +82,12 @@ positively biased and order-sensitive readers of emotion.
 \end{itemize}
 
 \begin{key}
-\textbf{The gap.} Nobody has checked whether the feeling in a person's own unedited words survives
-the journey into a drawing. This dataset is unusually well suited to asking: the prompts are real,
-first-person, short and often mixed; and because the drawings are monochrome line art, the channel
-the literature says usually carries emotion — colour — is simply absent.
+\textbf{The gap.} Within the 73-paper corpus reviewed here, no work measures prompt-reader /
+image-reader agreement for short, unmediated, mixed-affect first-person self-reports rendered as
+monochrome line art, nor the stability of that reading under repeated prompts. This dataset is
+unusually well suited to asking: the prompts are real, first-person, short and often mixed; and
+because the drawings are monochrome line art, the channel the literature says usually carries
+emotion --- colour --- is simply absent.
 \end{key}
 
 \textbf{An important restraint.} The colour literature motivates why this dataset is a hard case. It
@@ -93,8 +98,11 @@ made about the effect of removing colour. Every finding applies within this mono
 
 \begin{center}\includegraphics[width=0.95\textwidth]{../figures/fig5_dataset.pdf}\end{center}
 
-1,025 text--image pairs. Median prompt length is about four words. Before any analysis, three
-properties had to be handled.
+1,025 prompt--drawing records. Median prompt length is about four words. Visitors were invited to
+describe how they were feeling but the interface accepted free text, so a substantial minority of
+entries are object or scene requests rather than self-report. Records are not linked to individuals
+and 249 repeat an earlier prompt, so the number of contributors is unknown and no greater than 763.
+Before any analysis, three properties had to be handled.
 
 \begin{itemize}
 \item \textbf{Three incompatible filename schemes} in one folder: \texttt{img\_00001.PNG} for ids
@@ -105,8 +113,8 @@ here resolves 100\%.
 RFC-3161 signing timestamp. Recovering it gave a creation time per image and revealed that
 \textbf{records 1--13 were generated before the festival} --- developer tests. They are processed but
 excluded from analysis, so nothing is silently dropped.
-\item \textbf{Repeated prompts.} 87 distinct prompts were drawn more than once, covering 336 records.
-This looked like a nuisance and became a finding.
+\item \textbf{Repeated prompts.} 87 distinct prompts were drawn more than once, covering 336 records
+(43 of the groups are pairs). This looked like a nuisance and became a finding.
 \end{itemize}
 
 \begin{center}
@@ -114,13 +122,13 @@ This looked like a nuisance and became a finding.
 \toprule
 \textbf{Dataset accounting} & \textbf{Records}\\
 \midrule
-Processed by the pipeline (0 failures) & 1{,}025\\
+Processed by the pipeline (no unhandled errors) & 1{,}025\\
 Pre-festival developer tests, excluded & 13\\
 \textbf{Analysed} & \textbf{1{,}012}\\
-\quad of which the words carry a feeling & 607\\
-\quad of which the words carry no feeling (the control) & 405\\
-\quad drawings with a readable face & 591\\
-\quad drawings with no readable face (scenes) & 421\\
+\quad prompts the text reader labels emotional & 607\\
+\quad prompts the text reader labels neutral (the specificity set) & 405\\
+\quad face-classified (describer reports a person and an expression) & 591\\
+\quad scene-classified & 421\\
 Distinct prompts (identity from pre-redaction text) & 763\\
 Records repeating an earlier prompt & 249\\
 \bottomrule
@@ -141,11 +149,13 @@ redaction, so the analysis, the figures and the demo app cannot diverge.
 \item \textbf{Describe.} BLIP-VQA is asked five fixed questions about the drawing: \say{What is the
 facial expression?}, \say{What is the person doing?}, \say{What is the body posture?}, \say{How many
 people are there?}, \say{What is in the picture?} The answers are assembled into one neutral
-sentence. \textbf{The word ``emotion'' never appears in any question.}
+sentence. \textbf{The word ``emotion'' never appears in any question} --- though the expression
+question returns a bare emotion word for 41\% of records, and where it does the next stage follows
+it 99.8\% of the time (see Limitations).
 \item \textbf{Extract, image side.} A zero-shot natural-language-inference model reads that
 description against the hypothesis template \say{This scene conveys \{\}.} across seven emotion
 families, returning a ranked distribution.
-\item \textbf{Extract, text side.} GoEmotions reads the person's own words, and its 27 categories are
+\item \textbf{Extract, text side.} GoEmotions reads the person's own words, and its 28 labels are
 collapsed onto the same seven families, so both sides live in one label space.
 \item \textbf{Compare.} Four similarity measures, each referenced to chance.
 \end{enumerate}
@@ -198,11 +208,12 @@ the reader collapses to \emph{surprise} for almost everything.\\
 BART-MNLI on the \emph{prompt} side & Over-reads \emph{surprise} on short first-person text: 333 of
 1{,}025 prompts came back as surprise. GoEmotions used instead.\\
 Qwen2.5-VL-3B as the describer & 7\,GB in half precision exceeded a 16\,GB laptop; thrashed into
-swap with \textbf{zero progress after 4.5 hours}. Never produced a description.\\
+swap with \textbf{zero progress after 4\,h\,45\,min}. Never produced a description.\\
 Florence-2 as the describer & Hard library incompatibility (\texttt{forced\_bos\_token\_id}) on
 transformers 5.14.\\
-Asking CLIP directly for the emotion & Beaten head-to-head (see Findings), and manual inspection
-found clear errors: arms-raised celebration read as \emph{anger} 0.73.\\
+Asking CLIP directly for the emotion & Agreed far less with the prompt reader in the like-for-like
+comparison (see Findings), and manual inspection found clear errors: arms-raised celebration read as
+\emph{anger} 0.73.\\
 \midrule
 \textbf{BLIP-VQA (chosen)} & $\sim$0.4B, roughly 1.5\,s per record, and its ``facial expression''
 answer supplies exactly the affective cue the next stage needs.\\
@@ -222,32 +233,54 @@ all four metrics are recomputed. This is repeated \textbf{300 times} with a fixe
 is the chance level; the spread gives a $z$-score. Every number reported in this project is quoted
 against its own null. A result counts only insofar as it beats chance.
 
-\subsection{A negative control that passes}
+\subsection{A specificity check}
 
-\begin{center}\includegraphics[width=0.78\textwidth]{../figures/fig3_validity_check.pdf}\end{center}
+\begin{center}\includegraphics[width=0.78\textwidth]{../figures/fig3_z_by_prompt_group.pdf}\end{center}
 
-405 of the 1{,}012 prompts contain no feeling at all --- \say{pigs}, \say{mickey mouse},
-\say{disney characters}. If the method were finding emotion that was not there, it would score above
-chance on these. It does not: valence--arousal similarity is 76.6\% against a null of 76.6\%,
-$z=+0.3$; emotion-family agreement sits exactly on its null.
+405 of the 1{,}012 prompts are labelled neutral by the text reader --- \say{pigs}, \say{mickey mouse},
+\say{disney characters}. If the method were finding agreement where the prompt side has no readable
+feeling, it would score above chance on these. Only the valence--arousal measure is informative here:
+76.6\% against a null of 76.6\%, $z=+0.3$. Valence-sign and family agreement are degenerate on this
+subset --- every prompt shares the neutral label, so permutation cannot change them and their $z$ is
+zero by construction, not by measurement. Two caveats: 68 of the 405 (16.8\%) contain a plain affect
+word (calm, content, tired, relaxed, stress), and two consist of a name alone; on the cleaned 335 the
+$z$ is $+0.04$, still at the null. The set is therefore better described as ``prompts the text reader
+could not read affect from'' than as prompts with no feeling.
 
 \begin{key}
-\textbf{Why this matters more than any single result.} A measurement instrument that reports a signal
-where there is none cannot be trusted anywhere. This control is the reason the other numbers can be
-believed.
+\textbf{Why this matters.} An instrument that reported a signal where the prompt side has none could
+not be trusted anywhere. This check, resting on one measure, is one reason --- not the only one ---
+that the other numbers can be read.
 \end{key}
 
 \subsection{A robustness check on repeated prompts}
 
 249 records repeat an earlier prompt, so treating all 1{,}012 as independent would overstate
-confidence. Every headline was re-run on the 763 distinct prompts only. All survive, at $z$ between
-$+9$ and $+11$.
+confidence. Every headline was re-run on the 763 distinct prompts (452 emotional). The overall and
+face results are essentially unchanged ($z$ $+9.3$ to $+10.8$; face valence-sign 71.8\%, $z{+}8.4$).
+The scene result weakens substantially (valence-sign 37.3\%, $z{+}3.5$; family 30.8\%, $z{+}2.6$, $n$
+falling from 205 to 133), and its family $z$ does not survive a Holm--Bonferroni correction across the
+36 non-degenerate $z$-scores (26 survive at family-wise 0.05).
 
-\subsection{Degenerate nulls are refused}
+\subsection{Degenerate nulls are refused --- automatically}
 
-Where a subset shares one label by construction --- for example the non-emotional records, which are
-all neutral --- shuffling cannot change the score, so the ``null'' is an identity rather than a
-baseline. These are detected automatically and no chance figure is reported for them.
+Where a subset shares one label by construction --- for example the neutral-labelled records ---
+shuffling cannot change the score, so the ``null'' is an identity rather than a baseline. The
+analysis detects this from the null's own spread (zero standard deviation) and prints no $z$ for such
+a measure: the sign measure on the single-valence subsets, the family measure on the positive-prompt
+subset, and both on the neutral-labelled subset. The negative-prompt family null is not degenerate.
+
+\subsection{Confidence intervals, and a test of the difference}
+
+Every reported rate carries a 95\% confidence interval from a clustered bootstrap (10{,}000 draws,
+resampling prompt groups rather than records, because 249 records repeat an earlier prompt). The
+face/scene difference is tested directly with a clustered permutation test (10{,}000 draws):
+$+30.9$\,pp [$+22.6$, $+40.6$] for valence sign and $+26.3$\,pp [$+18.4$, $+35.3$] for family,
+$p = 0.0001$ for both. Cohen's $\kappa$ for family agreement is 0.23 [0.18, 0.29] on the emotional
+prompts, 0.30 [0.23, 0.37] face-classified and 0.13 [0.06, 0.19] scene-classified --- fair, fair and
+slight. After a Holm--Bonferroni correction across all 36 non-degenerate $z$-scores, 26 survive; the
+ten that do not are the control cells, the single-valence valence--arousal and overlap cells, and the
+distinct-prompt scene family result.
 
 \section{Chance is not zero}
 
@@ -268,7 +301,7 @@ valence--arousal score is always shown against its measured chance line.
 
 \section{Findings}
 
-\subsection{Alignment is real, and much stronger for drawings containing a face}
+\subsection{Agreement is real, and much stronger where the describer reports a face}
 
 \begin{center}\includegraphics[width=0.9\textwidth]{../figures/fig1_face_vs_scene.pdf}\end{center}
 
@@ -280,36 +313,93 @@ valence--arousal score is always shown against its measured chance line.
 Face drawings ($n=402$)  & \textbf{73.9\%} ($z{+}10.4$) & \textbf{61.9\%} ($z{+}10.3$) & 53.4\% ($z{+}11.6$)\\
 Scene drawings ($n=205$) & 42.9\% ($z{+}5.8$) & 35.6\% ($z{+}4.4$) & 44.9\% ($z{+}4.9$)\\
 \midrule
-All emotional ($n=607$)  & 64.0\% ($z{+}11.1$) & 53.1\% ($z{+}10.3$) & 50.6\% ($z{+}11.6$)\\
+All emotional ($n=607$)  & 64.0\% ($z{+}11.1$) & 53.0\% ($z{+}10.3$) & 50.6\% ($z{+}11.6$)\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-Both beat chance. Face drawings align about \textbf{1.7 times better} on both sign and family. On
-distinct prompts only, the gap holds: face 71.8\% ($z{+}8.5$) against scene 37.3\% ($z{+}3.5$).
+Both are above their nulls (95\% intervals: face valence-sign [68.3, 79.2], scene [33.1, 51.1]).
+The difference is $+30.9$\,pp [$+22.6$, $+40.6$] for valence sign and $+26.3$\,pp [$+18.4$, $+35.3$]
+for family, clustered permutation $p = 0.0001$. No ratio is quoted, because the two nulls differ. On
+distinct prompts only the face result holds (71.8\%, $z{+}8.4$) while the scene result weakens
+(37.3\%, $z{+}3.5$).
 
-\textbf{Stated carefully:} the pipeline finds stronger prompt--image alignment for drawings it
-\emph{classifies} as containing a readable face. It is not evidence that faces inherently carry
-emotion, because the classification and the emotion reading share a source --- see Limitations.
+\textbf{Stated carefully:} the pipeline finds stronger prompt-reader / image-reader agreement for
+drawings it \emph{classifies} as containing a readable face. It is not evidence about faces as such,
+because the classification and the emotion reading share a source --- see Limitations. The template
+ablation below shows the scene rows were an artefact of that shared source: described honestly,
+scene-classified drawings give nothing above chance for this reader.
 
-\subsection{The generator is inconsistent with itself}
+\subsection{The same words do not reliably give the same reading}
 
 \begin{center}\includegraphics[width=0.92\textwidth]{../figures/fig4_consistency.pdf}\end{center}
 
 87 prompts were drawn between 2 and 42 times each, covering 336 records. Given \emph{identical}
-words, the drawings convey the same emotion only \textbf{68.8\%} of the time, and only
-\textbf{28 of the 87} repeated prompts are fully consistent across all their drawings. A single
-drawing is therefore one sample of the model's behaviour, not a fixed answer --- which is itself a
-caution for anyone evaluating generative models on single outputs.
+words, the image reader returns the same family for \textbf{68.8\%} of the drawings within a group,
+against a permutation null of 59.4\% ($z{+}4.5$, $p = 0.0001$; 10{,}000 draws), and \textbf{28 of
+the 87} groups are fully consistent against 14.5 by chance ($z{+}4.2$). Half the groups are pairs,
+whose modal agreement cannot fall below 50\%. The reading is more consistent than chance but far
+from fixed --- and it measures the whole prompt$\rightarrow$image$\rightarrow$reader chain, not the
+generator alone, since generation parameters were never recorded and the reader has no reliability
+estimate of its own. A single drawing is one sample, not a fixed answer.
 
-\subsection{The method matters, and the supervisor's architecture wins}
+\subsection{The method matters: describe-then-extract agrees far more closely}
 
 \begin{center}\includegraphics[width=0.88\textwidth]{../figures/fig2_method_comparison.pdf}\end{center}
 
-Head-to-head on the same records, with the prompt side held constant and only the image reader
-varied: describe-then-extract reaches \textbf{49.3\%} emotion-family agreement against
-\textbf{25.3\%} for asking CLIP directly, and 48.6\% against 22.8\% on top-3 overlap. The redirection
-was empirically justified rather than assumed.
+Like for like --- same GoEmotions prompt reader, same 607 emotional records, same measures, only the
+image reader varied: describe-then-extract reaches \textbf{53.0\%} emotion-family agreement against
+\textbf{22.4\%} for asking CLIP directly ($+30.6$\,pp; clustered 95\% interval [$+25.5$, $+35.6$];
+cluster-level $p < 0.0001$), 64.0\% against 31.1\% on valence sign, and 50.6\% against 26.4\% on
+top-3 overlap. Direct CLIP reads 283 of the 607 drawings as neutral. Neither reader has ground truth,
+so this ranks two image readers against a third model's labels: they disagree, and describe-then-extract
+is far closer to the text reader. The supervisor's redirection was supported rather than assumed. (The
+earlier figure of 49.3\% against 25.3\%, on 608 records with the NLI prompt reader, is kept only as
+the historical v1 record.)
+
+\subsection{Where the readers disagree}
+
+\begin{center}\includegraphics[width=0.8\textwidth]{../figures/fig6_confusion.pdf}\end{center}
+
+Three families are too rare on the prompt side to support family-level claims (fear $n=16$, anger
+$n=12$, disgust $n=1$), and the image reader never returns disgust and returns fear four times across
+all 1{,}012 records. Every high-confidence disagreement (both readers $\geq 0.8$, families differ: 38
+records) was examined against the drawing and assigned a primary failure mode: 19 trace to the
+describer (a face or expression invented, or read wrongly), 5 to the image reader, 12 to the prompt
+side (ambiguous or mixed feelings), and 2 to a drawing that does not depict its prompt.
+
+\subsection{What the reading rests on: the template ablation}
+
+\begin{center}\includegraphics[width=0.95\textwidth]{../figures/fig8_ablation.pdf}\end{center}
+
+Each record's five cached describer answers were re-composed under an altered description template
+and only the NLI stage re-run (\texttt{ablate\_nli.py}); a control re-run of the unmodified template
+reproduces every baseline number exactly (0 of 1{,}012 top-1 readings change), so every difference is
+a template effect. Removing the expression sentence collapses agreement --- all-emotional family
+53.0\% $\rightarrow$ 20.3\% (null 16.6\%, $z{+}3.8$), valence sign 64.0\% $\rightarrow$ 15.3\% (11.4\%,
+$z{+}5.1$); fixing the expression word to ``unclear'' gives the same collapse (family 21.3\%,
+$z{+}3.9$), and the reader's output falls to surprise or neutral (514 and 368 of 1{,}012). Removing
+the action, posture or scene clause moves the rates by 1--3\,pp. Removing the people count raises
+rates and nulls together (scene valence sign 63.5\% vs 50.9\%, $z{+}5.0$): the ``0'' token pulls
+scene readings toward neutral, and $z$ barely moves.
+
+\begin{key}
+Under a \textbf{people-aware template} --- \say{A drawing showing \{scene\}.} wherever the describer
+reports no person, every other record unchanged --- the face rows are unchanged by construction
+(73.9\% / 61.9\%) and \textbf{scene agreement falls to its null}: valence sign 4.7\% vs 3.4\%
+($z{+}1.6$), family 18.0\% vs 17.3\% ($z{+}0.6$); keeping the action and posture clauses gives 15.9\%
+vs 11.6\% ($z{+}2.7$) and 21.0\% vs 16.8\% ($z{+}2.2$). All-emotional under the people-aware
+template: sign 51.7\% vs 36.9\% ($z{+}10.1$), family 47.1\% vs 34.5\% ($z{+}8.8$).
+\end{key}
+
+Four readings follow. (1) The image reading rests on one word --- the describer's expression answer
+--- the same conclusion the 99.8\% copy rate reaches independently; in effect the pipeline is ``ask
+the describer for the facial expression and map that word to a family''. (2) The scene result in
+the headline table ($z{+}5.8$) was an artefact of the template asserting a person and an expression
+for drawings with none; under an honest description this reader finds nothing above chance in
+scene-classified drawings. (3) The face/scene contrast is therefore \emph{faces, and only faces, for
+this reader}, not ``faces more than scenes''. (4) Whether scene drawings hold a feeling a person can
+read is exactly what the human check tests; a scene-capable describer is the main further-work item.
 
 \section{The demo application}
 
@@ -323,11 +413,11 @@ floor of 41, the middle half of random pairings is bracketed, and the headline r
 $N$\% of random pairings}. Nothing a visitor types or uploads is stored, and the request log is
 suppressed so no visitor IP addresses are recorded.
 
-\section{Ethics and data handling}
+\section{Data handling and pre-processing}
 
-No human participants were involved and no new data was collected, so no ethics approval was
-required. A human-rating study was designed in full and deliberately \emph{not} run --- approval
-alone would have consumed a fortnight of the remaining time. It stands as the clear next study.
+No human participants were involved and no new data was collected. A human-rating study was designed
+in full and deliberately \emph{not} run for time; it stands as the clear next study. In its place a
+120-drawing blind single-coder check has been set up (sample and coding sheets drawn; coding pending).
 
 \subsection{Name redaction}
 
@@ -336,8 +426,8 @@ is not identifying on its own and is essential to the analysis, and document the
 three-stage pre-processing step was built.
 
 \begin{enumerate}
-\item \textbf{Detect}, with deliberately high recall. 77\% of the corpus is written entirely in lower
-case, so capitalisation alone would miss most names. Candidates come from a 7{,}944-name gazetteer,
+\item \textbf{Detect}, with deliberately high recall. About 78\% of the corpus is written entirely in
+lower case, so capitalisation alone would miss most names. Candidates come from a 7{,}944-name gazetteer,
 from mid-sentence capitalisation checked against a $\sim$236{,}000-word dictionary, and from naming
 phrases such as \say{called X} or \say{my friend X}.
 \item \textbf{Review.} Every candidate carries a recorded decision with a reason. Only names of
@@ -354,58 +444,82 @@ lessons are recorded because both were real errors caught by the audit:
 \say{woolly mammoth}, because those strings occur innocently elsewhere.
 \item \textbf{Redaction can forge duplicates.} Two records holding two \emph{different} people's full
 names both become \texttt{[name]}, which made the analysis count them as one prompt drawn twice.
-Duplicate identity is therefore decided on a key derived from the original text.
+Duplicate identity is therefore decided on a key derived from the original text. Those two records
+consist of a name alone after redaction; they carry no analysable content and are excluded from the
+cleaned specificity set.
 \end{itemize}
 
-\textbf{Redaction is analytically inert:} re-running the text-emotion model on the redacted prompts
-moves each probability by at most 0.012 and changes \textbf{zero} top-1 emotion families.
+Redaction changes no top-1 emotion family and moves no GoEmotions probability by more than 0.012, so
+the prompt-side labels are unaffected. The effect of redaction on the downstream similarity measures
+was not separately verified.
 
-Redaction is also a stronger position than withholding records. A hidden set is itself recoverable,
-because anyone can probe the public integer ids and read off which are missing. With names redacted,
-nothing needs hiding and all 1{,}012 records are shown.
+Records are redacted rather than withheld, following supervisor direction, so that the analysed corpus
+and the demonstrator show the same 1{,}012 records and cannot diverge; withholding would also have
+removed those records from the analysis. Redaction does not eliminate re-identification risk entirely,
+since the drawing and the residual prompt text remain.
 
 \section{Limitations --- stated plainly}
 
 \begin{enumerate}
 \item \textbf{This measures automated agreement, not human perception.} Both readers are models, and
 they disagree with each other in opposite directions: the CLIP baseline skews negative on line art,
-while the description model reports a happy or smiling expression for 57\% of the faces it can read.
-Only human ratings could adjudicate. This is the single most important limitation.
-\item \textbf{The face/scene split is partly circular.} It is defined by whether the description
-model reported an expression, and the emotion is read from that same description. Scene descriptions
-lack expression content, which mechanically lowers their scores. The effect survives the null and
-survives deduplication, but it is entangled with its own definition.
+while the description model reports a happy or smiling expression for 57\% of the faces it can read
+(337 of 591; 66\% of all expression answers). Only human ratings could adjudicate. This is the single
+most important limitation.
+\item \textbf{The describer invents expressions, and the reader relays them.} The description template
+asserts a person and an expression for every drawing: 414 of the 421 scene-classified records report
+no people, 406 of those still carry an expression word, and 332 answer smile, smiling or happy. Where
+the expression answer names an affective state (41\% of records) the image reader's top-1 family
+follows it 99.8\% of the time, so the ``describe, don't ask'' separation is weaker than it sounds.
+Of the 38 high-confidence disagreements, 19 trace to the describer.
+\item \textbf{The face/scene split is partly circular.} It is governed by the describer's people-count
+answer, and the emotion is read from that same description. Scenes score lower because the template
+asserts a person and an expression for a drawing with no person, so the image-side reading there is
+largely noise --- not because scene descriptions lack expression content (406 of 414 have it). The
+face rows survive the null, the clustered test, deduplication and the ablation; the scene rows do not
+survive the ablation (valence sign 4.7\% vs 3.4\%, $z{+}1.6$ under the people-aware template), so
+the contrast is faces, and only faces, for this reader.
 \item \textbf{The valence--arousal measure is a designed proxy}, built on hand-set emotion
 coordinates. It is not a continuous lexicon-based rating, and it cannot separate faces from scenes.
 \item \textbf{No claim is made about colour.} The corpus is monochrome, but there is no colour
 condition to compare against.
 \item \textbf{No positive-versus-negative direction is claimed.} An earlier claim was withdrawn: the
 single-valence subsets have degenerate nulls, and the two readers disagree about the direction.
-\item \textbf{Statistical strengthening is still outstanding.} Confidence intervals, a paired test
-for the method comparison, and clustered resampling that treats repeated prompts as non-independent
-would all strengthen the results chapter.
+\item \textbf{The specificity set is the text reader's own output.} 68 of its 405 prompts contain a
+plain affect word and two consist of a name alone; only one measure is informative on it.
+\item \textbf{Three families are too rare for family-level claims} (fear $n=16$, anger $n=12$, disgust
+$n=1$ on the prompt side; the reader never returns disgust). Claims are restricted to overall agreement
+and the face/scene contrast.
+\item \textbf{One generator, with unrecorded parameters.} The repeated-prompt groups pool text typed by
+different visitors and re-submissions by one; model version, seed and any system prompt are unknown.
+\item \textbf{No human anchor yet.} The 120-drawing single-coder check is drawn but not yet coded.
 \end{enumerate}
 
 \section{Reproducibility}
 
-All analysis is driven by scripts with a fixed random seed and no manual steps. An automated test
-suite of \textbf{28 checks} covers the environment, data integrity, every analysis, a live run of the
-pipeline on fresh images, the redaction procedure and figure regeneration. It currently passes 28/28.
-One known weakness is recorded honestly: the figure script contains its numbers literally rather than
-reading them from result files, so it cannot detect a change in the analysis on its own.
+All analysis is driven by scripts with a fixed random seed and no manual steps. Every reported number
+is written to \texttt{outputs/analysis\_final.json} and its sibling result files
+(\texttt{inference.json}, \texttt{consistency.json}, \texttt{method\_comparison.json},
+\texttt{audits.json}, \texttt{error\_taxonomy.json}); the figures (\texttt{make\_figures.py}) and
+the numeric tests (\texttt{test\_numeric.py}) read those files, so no number is typed by hand
+downstream and a change in the analysis fails the build. One definition of every measure lives in
+\texttt{emoviz/metrics.py}. The automated self-test (\texttt{test.sh}) covers the environment, data
+integrity, the redaction audit, every analysis script, a live run of the pipeline on fresh images,
+the pinned numeric values and figure regeneration.
 
 \section{What this contributes}
 
 \begin{key}
 The contribution is \textbf{not} a novel emotion classifier. It is: a question nobody had asked of
 real first-person self-report; a dataset that cannot be downloaded; an evaluation design with a
-working negative control and null baselines throughout; a demonstrated method comparison; a
-repeated-prompt consistency analysis that shows the generator is not deterministic in what it
-conveys; and a documented, tested data-protection procedure.
+specificity check, null baselines and clustered confidence intervals throughout; a like-for-like
+method comparison with a paired test; a repeated-prompt consistency analysis referenced to its own
+null; a template ablation showing what the image reading rests on; an error taxonomy of where the
+readers disagree; and a documented, tested name-redaction pre-processing step.
 \end{key}
 
 \vspace{6pt}\hrule\vspace{6pt}
 {\small\color{soft}All figures and numbers in this document were regenerated and verified against the
-analysis on 1 September 2026. Authoritative results file: \texttt{outputs/RESULTS\_final.md}.}
+analysis on 9 September 2026. Authoritative results file: \texttt{outputs/RESULTS\_final.md}.}
 
 \end{document}

@@ -1,3 +1,81 @@
-\chapter{Conclusions}
+\chapter{Discussion}
+\label{ch:discussion}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+% GUIDANCE (chapter target about 3,000 words; the "Quality of Evaluation" mark rests here: conclusions
+% with acumen, further work appropriate to the evaluation, relationships with other people's work).
+% Argue; do not re-list results. Every claim is bounded by what Chapter~\ref{ch:results} shows.
+
+\section{What the results establish}
+\label{sec:disc-establish}
+% GUIDANCE: Three things and no more. (i) The emotion two machine readers recover from words and from
+% the drawing made of them agree far more than chance on every rung of the ladder, and the effect
+% survives clustering, the distinct-prompt re-run and Holm. (ii) The agreement is concentrated in
+% drawings the describer reads as containing a face; where it reports a scene, agreement is weak and
+% fragile (does not survive Holm on distinct prompts for family). (iii) The instrument passes its
+% specificity check and the describe-then-extract reader agrees with the prompt reader far more than
+% a direct CLIP reader does, like for like. Frame (iii) carefully: neither reader has ground truth, so
+% this shows the two methods DISAGREE with describe-then-extract closer to the text reader — not that
+% it is more correct.
+
+\section{The describer is the weak link}
+\label{sec:disc-describer}
+% GUIDANCE: Bring together Sections~\ref{sec:results-describer}, \ref{sec:results-taxonomy} and
+% \ref{sec:results-ablation}. The template asserts a person and an expression for every drawing; the
+% describer obliges with "smiling" for \DescSceneSmile\ of \DescScenePeopleZero\ no-people drawings;
+% where its answer names an emotion, the reader copies it \DescCopyStrict\ of the time, so "describe,
+% do not ask" is a weaker separation than it sounds — the advantage over CLIP may lie in BLIP-VQA being
+% a better affective reader of line art rather than in the architecture; the taxonomy puts
+% \TaxDescriber\ of \TaxN\ high-confidence disagreements at the describer and only \TaxGenerator\ at
+% the generator. Then what the ablation says about which answers the reading depends on.
+% Relate to \cite{bhattacharyya2025evaluating} (positive-label bias) and \cite{gao2025eemo}.
+
+\section{Circularity of the face/scene split}
+\label{sec:disc-circularity}
+% GUIDANCE: The split is defined from the same description the image reader reads, and it is driven
+% almost entirely by the people-count answer (\DescScenePeopleZero\ of \DescSceneN). So the face/scene
+% result is a statement about the describer's output, not about faces. It is real (null, clustering,
+% permutation) but entangled with its own definition. The human check on the coder's split is the
+% only way out for the sample it covers; say what it shows if scored, or that it is the immediate next step.
+
+\section{What is not claimed}
+\label{sec:disc-not-claimed}
+% GUIDANCE: Four explicit non-claims, each with the reason. (1) No positive-versus-negative direction:
+% single-valence subsets have degenerate nulls, and the two image readers point in opposite directions.
+% (2) No statement about what a person would see: agreement is between two machine readers; the
+% registered title's "fidelity" is the question, not a result. (3) No claim about colour: there is no
+% colour condition; \cite{alvarado2025texttoimage} models colour features only and is silent on line.
+% (4) No claim about the generator alone from the consistency result: it bounds the whole chain.
+% Also: fear, disgust and surprise are recovered at very low rates by both readers on small subsets
+% ($n$ = \RecFearN, \RecDisgustN, \RecSurpriseN), and surprise is largely curiosity-mapped prompts, so
+% claims are restricted to overall agreement and the face/scene contrast.
+
+\section{Relation to prior work}
+\label{sec:disc-prior}
+% GUIDANCE: Theme by theme, in the order of Chapter~\ref{ch:lit}, one paragraph each: what this
+% project's numbers say next to theirs. Especially: \cite{lomas2024improved} (emotions on people rate
+% higher than on robots — the same direction as face vs scene, on templated prompts with human
+% raters); \cite{cowen2017self} (why near-misses are informative — the overlap and VA rungs);
+% \cite{demszky2020goemotions, yang2023context} (the prompt reader's weakness on this register is a
+% bound on everything downstream); \cite{zhang2025rethinking, lee2023holistic} (why every value is
+% nulled); \cite{bhattacharyya2025evaluating} (positive bias reproduced here as the smile rate);
+% \cite{hessel2021clipscore, lin2024evaluating} (why direct CLIP is the right baseline and why it fails
+% here). Kappa in the "fair" band (\KappaEmoBand) is comparable with inter-annotator figures reported
+% for emotion labelling of text — cite what you compare to.
+
+\section{Limitations}
+\label{sec:disc-limitations}
+% GUIDANCE: Numbered, each one sentence of consequence. (1) No human anchor except the single-coder
+% check. (2) The emotional/neutral split is the prompt reader's judgement; \CtrlFlaggedPct\ of the
+% control contains an affect word. (3) The face/scene split is circular. (4) The template defect.
+% (5) Seven families collapse low-arousal positive states to neutral. (6) Centroids are hand-set;
+% NRC-VAD means are the documented alternative \cite{mohammad2018obtaining}. (7) $z$ from 300
+% re-pairings is an ordering statistic. (8) Generation parameters unknown. (9) Redaction leaves the
+% drawing and residual text, so re-identification risk is reduced, not removed. (10) One machine,
+% one run: no second describer and no test--retest reliability for the readers.
+
+\section{Threats to validity}
+\label{sec:disc-threats}
+% GUIDANCE: Construct (agreement between readers is not affect as perceived), internal (leak from
+% describer to reader; circular split; pseudo-replication — addressed by clustering), external
+% (one generator, one festival, one language mostly, monochrome), statistical (multiple comparisons —
+% addressed by Holm; degenerate nulls — detected). Say which threats the design addressed and which remain.

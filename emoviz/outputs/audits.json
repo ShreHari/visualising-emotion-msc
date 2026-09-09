@@ -1,0 +1,1985 @@
+{
+ "meta": {
+  "script": "audits.py",
+  "inputs": [
+   "outputs/describe_extract.jsonl",
+   "outputs/prompt_emotions_goe.json"
+  ],
+  "analysed_ids": "14..1025 (1012 records; pre-test ids 1-13 dropped)",
+  "seed": 7,
+  "null_shuffles": 300,
+  "bootstrap_draws": 10000,
+  "central_quantity": "agreement between the prompt reader (GoEmotions) and the image reader (NLI over the BLIP-VQA description)"
+ },
+ "reference_check": {
+  "counts": {
+   "analysed": 1012,
+   "id_min": 14,
+   "id_max": 1025,
+   "emotional": 607,
+   "non_emotional": 405,
+   "face_all": 591,
+   "scene_all": 421,
+   "face_within_emotional": 402,
+   "scene_within_emotional": 205,
+   "distinct_prompts": 763,
+   "records_repeating_an_earlier_prompt": 249,
+   "prompts_drawn_2plus": 87,
+   "records_in_2plus_runs": 336
+  },
+  "counts_expected": {
+   "analysed": 1012,
+   "id_min": 14,
+   "id_max": 1025,
+   "emotional": 607,
+   "non_emotional": 405,
+   "face_all": 591,
+   "scene_all": 421,
+   "face_within_emotional": 402,
+   "scene_within_emotional": 205,
+   "distinct_prompts": 763,
+   "records_repeating_an_earlier_prompt": 249,
+   "prompts_drawn_2plus": 87,
+   "records_in_2plus_runs": 336
+  },
+  "count_mismatches": {},
+  "dedup_group_case_variants": {
+   "groups_with_differing_prompt_distribution": 12,
+   "group_keys": [
+    10,
+    43,
+    61,
+    104,
+    144,
+    149,
+    162,
+    181,
+    214,
+    289,
+    459,
+    471
+   ],
+   "groups_with_differing_top1": {
+    "104": {
+     "records": [
+      {
+       "id": 120,
+       "text": "Ok",
+       "prompt_top1": "joy",
+       "emotional": true
+      },
+      {
+       "id": 121,
+       "text": "Ok",
+       "prompt_top1": "joy",
+       "emotional": true
+      },
+      {
+       "id": 191,
+       "text": "ok",
+       "prompt_top1": "neutral",
+       "emotional": false
+      },
+      {
+       "id": 745,
+       "text": "ok",
+       "prompt_top1": "neutral",
+       "emotional": false
+      },
+      {
+       "id": 746,
+       "text": "ok",
+       "prompt_top1": "neutral",
+       "emotional": false
+      },
+      {
+       "id": 747,
+       "text": "ok",
+       "prompt_top1": "neutral",
+       "emotional": false
+      },
+      {
+       "id": 748,
+       "text": "ok",
+       "prompt_top1": "neutral",
+       "emotional": false
+      },
+      {
+       "id": 846,
+       "text": "ok",
+       "prompt_top1": "neutral",
+       "emotional": false
+      }
+     ]
+    },
+    "181": {
+     "records": [
+      {
+       "id": 212,
+       "text": "hopeful",
+       "prompt_top1": "joy",
+       "emotional": true
+      },
+      {
+       "id": 256,
+       "text": "hopeful",
+       "prompt_top1": "joy",
+       "emotional": true
+      },
+      {
+       "id": 379,
+       "text": "Hopeful",
+       "prompt_top1": "neutral",
+       "emotional": false
+      },
+      {
+       "id": 397,
+       "text": "hopeful",
+       "prompt_top1": "joy",
+       "emotional": true
+      }
+     ]
+    }
+   },
+   "note": "dedup_key is case-insensitive prompt identity; GoEmotions read the case-preserved text, so 'Ok' x2 (joy 0.52) sit in the emotional set while 'ok' x6 (neutral 0.92) sit in the control, and 'Hopeful' (id 379, neutral) sits in the control while 'hopeful' x3 (joy) are emotional. A prompt-reader case artefact; reported, not changed."
+  },
+  "record_level_null_reproduced": {
+   "emotional": {
+    "n": 607,
+    "va_similarity": {
+     "observed_pct": 83.8,
+     "null_mean_pct": 77.3,
+     "null_sd_pct": 0.53,
+     "z": 12.24
+    },
+    "valence_sign_agreement": {
+     "observed_pct": 64.0,
+     "null_mean_pct": 45.6,
+     "null_sd_pct": 1.65,
+     "z": 11.12
+    },
+    "family_agreement": {
+     "observed_pct": 53.0,
+     "null_mean_pct": 38.8,
+     "null_sd_pct": 1.38,
+     "z": 10.32
+    },
+    "top3_overlap": {
+     "observed_pct": 50.6,
+     "null_mean_pct": 39.4,
+     "null_sd_pct": 0.96,
+     "z": 11.6
+    }
+   },
+   "face": {
+    "n": 402,
+    "va_similarity": {
+     "observed_pct": 84.2,
+     "null_mean_pct": 76.4,
+     "null_sd_pct": 0.7,
+     "z": 11.2
+    },
+    "valence_sign_agreement": {
+     "observed_pct": 73.9,
+     "null_mean_pct": 53.5,
+     "null_sd_pct": 1.97,
+     "z": 10.39
+    },
+    "family_agreement": {
+     "observed_pct": 61.9,
+     "null_mean_pct": 45.8,
+     "null_sd_pct": 1.57,
+     "z": 10.27
+    },
+    "top3_overlap": {
+     "observed_pct": 53.4,
+     "null_mean_pct": 40.4,
+     "null_sd_pct": 1.12,
+     "z": 11.63
+    }
+   },
+   "scene": {
+    "n": 205,
+    "va_similarity": {
+     "observed_pct": 82.9,
+     "null_mean_pct": 79.1,
+     "null_sd_pct": 0.64,
+     "z": 5.98
+    },
+    "valence_sign_agreement": {
+     "observed_pct": 42.9,
+     "null_mean_pct": 29.6,
+     "null_sd_pct": 2.3,
+     "z": 5.81
+    },
+    "family_agreement": {
+     "observed_pct": 35.6,
+     "null_mean_pct": 26.2,
+     "null_sd_pct": 2.17,
+     "z": 4.35
+    },
+    "top3_overlap": {
+     "observed_pct": 44.9,
+     "null_mean_pct": 38.1,
+     "null_sd_pct": 1.39,
+     "z": 4.87
+    }
+   },
+   "positive": {
+    "n": 402,
+    "va_similarity": {
+     "observed_pct": 86.6,
+     "null_mean_pct": 85.9,
+     "null_sd_pct": 0.19,
+     "z": 3.87
+    },
+    "valence_sign_agreement": {
+     "observed_pct": 64.9,
+     "null_mean_pct": 64.9,
+     "null_sd_pct": 0.0,
+     "z": 0.0
+    },
+    "family_agreement": {
+     "observed_pct": 64.9,
+     "null_mean_pct": 64.9,
+     "null_sd_pct": 0.0,
+     "z": 0.0
+    },
+    "top3_overlap": {
+     "observed_pct": 57.4,
+     "null_mean_pct": 56.4,
+     "null_sd_pct": 0.46,
+     "z": 2.28
+    }
+   },
+   "negative": {
+    "n": 128,
+    "va_similarity": {
+     "observed_pct": 75.9,
+     "null_mean_pct": 74.5,
+     "null_sd_pct": 0.66,
+     "z": 2.11
+    },
+    "valence_sign_agreement": {
+     "observed_pct": 60.9,
+     "null_mean_pct": 60.9,
+     "null_sd_pct": 0.0,
+     "z": 0.0
+    },
+    "family_agreement": {
+     "observed_pct": 35.9,
+     "null_mean_pct": 31.0,
+     "null_sd_pct": 2.3,
+     "z": 2.15
+    },
+    "top3_overlap": {
+     "observed_pct": 35.4,
+     "null_mean_pct": 30.3,
+     "null_sd_pct": 1.68,
+     "z": 3.02
+    }
+   },
+   "non_emotional": {
+    "n": 405,
+    "va_similarity": {
+     "observed_pct": 76.6,
+     "null_mean_pct": 76.6,
+     "null_sd_pct": 0.16,
+     "z": 0.32
+    },
+    "valence_sign_agreement": {
+     "observed_pct": 0.0,
+     "null_mean_pct": 0.0,
+     "null_sd_pct": 0.0,
+     "z": 0.0
+    },
+    "family_agreement": {
+     "observed_pct": 28.6,
+     "null_mean_pct": 28.6,
+     "null_sd_pct": 0.0,
+     "z": 0.0
+    },
+    "top3_overlap": {
+     "observed_pct": 31.6,
+     "null_mean_pct": 31.6,
+     "null_sd_pct": 0.35,
+     "z": 0.01
+    }
+   }
+  },
+  "exact_fractions": {
+   "emotional_valence_sign_agreement": {
+    "numerator": 339,
+    "denominator": 530,
+    "pct_exact": 63.962
+   },
+   "emotional_family_agreement": {
+    "numerator": 322,
+    "denominator": 607,
+    "pct_exact": 53.048
+   },
+   "face_valence_sign_agreement": {
+    "numerator": 266,
+    "denominator": 360,
+    "pct_exact": 73.889
+   },
+   "scene_valence_sign_agreement": {
+    "numerator": 73,
+    "denominator": 170,
+    "pct_exact": 42.941
+   },
+   "face_family_agreement": {
+    "numerator": 249,
+    "denominator": 402,
+    "pct_exact": 61.94
+   },
+   "scene_family_agreement": {
+    "numerator": 73,
+    "denominator": 205,
+    "pct_exact": 35.61
+   }
+  },
+  "reference_value_mismatches": {},
+  "passed": true,
+  "note": "seed 7, 300 shuffles, with_null called in the same order as analysis_final.py (emotional, face, scene, positive, negative, non-emotional) so the null means are bit-identical; values compared to the quoted reference within 0.1. Family agreement on the 607 is exactly 322/607 = 53.048% (53.0% at 1 dp; the reference's 53.1% is a rounding slip, analysis_final.py prints 53%)."
+ },
+ "control_contamination": {
+  "definition": "non-emotional = GoEmotions top-1 family == 'neutral' (never human-checked)",
+  "n_control": 405,
+  "lexicon_size": 66,
+  "lexicon": [
+   "happy",
+   "sad",
+   "excited",
+   "tired",
+   "angry",
+   "worried",
+   "hopeful",
+   "content",
+   "ecstatic",
+   "delighted",
+   "lonely",
+   "anxious",
+   "scared",
+   "afraid",
+   "nervous",
+   "calm",
+   "relaxed",
+   "peaceful",
+   "joyful",
+   "jovial",
+   "cheerful",
+   "glad",
+   "proud",
+   "grateful",
+   "bored",
+   "stressed",
+   "stress",
+   "frustrated",
+   "upset",
+   "depressed",
+   "miserable",
+   "gloomy",
+   "morose",
+   "grumpy",
+   "moody",
+   "jealous",
+   "impatient",
+   "love",
+   "hate",
+   "fear",
+   "joy",
+   "anger",
+   "sadness",
+   "happiness",
+   "excitement",
+   "amazement",
+   "curious",
+   "confused",
+   "surprised",
+   "amazed",
+   "thrilled",
+   "disgusted",
+   "annoyed",
+   "furious",
+   "exhausted",
+   "sleepy",
+   "overwhelmed",
+   "hopeless",
+   "optimistic",
+   "nostalgic",
+   "melancholy",
+   "inspired",
+   "interested",
+   "anticipation",
+   "bemused",
+   "intrigued"
+  ],
+  "lexicon_rule": "exact word forms, case-insensitive, word-boundary search on the redacted prompt text; no stemming, no misspellings, no non-English words -> a LOWER bound on contamination",
+  "name_only_records": {
+   "ids": [
+    750,
+    751
+   ],
+   "n": 2,
+   "note": "text is exactly '[name]' after redaction: empty prompts, not non-emotional"
+  },
+  "lexicon_flagged": {
+   "n": 68,
+   "pct_of_control": 16.8,
+   "distinct_words_hit": 29,
+   "top20_words": [
+    {
+     "word": "calm",
+     "records": 10
+    },
+    {
+     "word": "content",
+     "records": 8
+    },
+    {
+     "word": "tired",
+     "records": 7
+    },
+    {
+     "word": "stress",
+     "records": 6
+    },
+    {
+     "word": "relaxed",
+     "records": 6
+    },
+    {
+     "word": "inspired",
+     "records": 4
+    },
+    {
+     "word": "sleepy",
+     "records": 4
+    },
+    {
+     "word": "interested",
+     "records": 3
+    },
+    {
+     "word": "anticipation",
+     "records": 3
+    },
+    {
+     "word": "nostalgic",
+     "records": 3
+    },
+    {
+     "word": "grumpy",
+     "records": 2
+    },
+    {
+     "word": "hopeful",
+     "records": 2
+    },
+    {
+     "word": "optimistic",
+     "records": 2
+    },
+    {
+     "word": "jovial",
+     "records": 1
+    },
+    {
+     "word": "ecstatic",
+     "records": 1
+    },
+    {
+     "word": "bemused",
+     "records": 1
+    },
+    {
+     "word": "intrigued",
+     "records": 1
+    },
+    {
+     "word": "delighted",
+     "records": 1
+    },
+    {
+     "word": "morose",
+     "records": 1
+    },
+    {
+     "word": "jealous",
+     "records": 1
+    }
+   ],
+   "records": [
+    {
+     "id": 24,
+     "text": "je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",
+     "words": [
+      "stress"
+     ]
+    },
+    {
+     "id": 25,
+     "text": "je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",
+     "words": [
+      "stress"
+     ]
+    },
+    {
+     "id": 26,
+     "text": "je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",
+     "words": [
+      "stress"
+     ]
+    },
+    {
+     "id": 27,
+     "text": "je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",
+     "words": [
+      "stress"
+     ]
+    },
+    {
+     "id": 28,
+     "text": "je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",
+     "words": [
+      "stress"
+     ]
+    },
+    {
+     "id": 29,
+     "text": "je me je me sems un peu stress ,entre l'exitation et la joie mais toujour cupable",
+     "words": [
+      "stress"
+     ]
+    },
+    {
+     "id": 117,
+     "text": "calm",
+     "words": [
+      "calm"
+     ]
+    },
+    {
+     "id": 141,
+     "text": "tired, hungry",
+     "words": [
+      "tired"
+     ]
+    },
+    {
+     "id": 144,
+     "text": "jovial",
+     "words": [
+      "jovial"
+     ]
+    },
+    {
+     "id": 152,
+     "text": "content",
+     "words": [
+      "content"
+     ]
+    },
+    {
+     "id": 164,
+     "text": "ecstatic",
+     "words": [
+      "ecstatic"
+     ]
+    },
+    {
+     "id": 165,
+     "text": "bemused intrigued",
+     "words": [
+      "bemused",
+      "intrigued"
+     ]
+    },
+    {
+     "id": 167,
+     "text": "delighted but tired",
+     "words": [
+      "tired",
+      "delighted"
+     ]
+    },
+    {
+     "id": 169,
+     "text": "hungry, interested",
+     "words": [
+      "interested"
+     ]
+    },
+    {
+     "id": 172,
+     "text": "anticipation",
+     "words": [
+      "anticipation"
+     ]
+    },
+    {
+     "id": 174,
+     "text": "Morose",
+     "words": [
+      "morose"
+     ]
+    },
+    {
+     "id": 176,
+     "text": "inspired",
+     "words": [
+      "inspired"
+     ]
+    },
+    {
+     "id": 187,
+     "text": "calm",
+     "words": [
+      "calm"
+     ]
+    },
+    {
+     "id": 246,
+     "text": "grumpy old man",
+     "words": [
+      "grumpy"
+     ]
+    },
+    {
+     "id": 275,
+     "text": "nostalgic over a reality you never got to experience",
+     "words": [
+      "nostalgic"
+     ]
+    },
+    {
+     "id": 276,
+     "text": "nostalgic over a reality you never got to experience",
+     "words": [
+      "nostalgic"
+     ]
+    },
+    {
+     "id": 296,
+     "text": "inquisitive and alwasy inspired a bit home sick",
+     "words": [
+      "inspired"
+     ]
+    },
+    {
+     "id": 323,
+     "text": "relaxed but with menopausal hot flashes",
+     "words": [
+      "relaxed"
+     ]
+    },
+    {
+     "id": 324,
+     "text": "relaxed but with menopausal hot flashes",
+     "words": [
+      "relaxed"
+     ]
+    },
+    {
+     "id": 325,
+     "text": "relaxed but with menopausal hot flashes",
+     "words": [
+      "relaxed"
+     ]
+    },
+    {
+     "id": 326,
+     "text": "relaxed but with menopausal hot flashes",
+     "words": [
+      "relaxed"
+     ]
+    },
+    {
+     "id": 374,
+     "text": "content",
+     "words": [
+      "content"
+     ]
+    },
+    {
+     "id": 379,
+     "text": "Hopeful",
+     "words": [
+      "hopeful"
+     ]
+    },
+    {
+     "id": 380,
+     "text": "Jealous",
+     "words": [
+      "jealous"
+     ]
+    },
+    {
+     "id": 381,
+     "text": "impatient as I am waiting for an employer to confirm my new contract",
+     "words": [
+      "impatient"
+     ]
+    },
+    {
+     "id": 398,
+     "text": "stuffed full with pancakes but content",
+     "words": [
+      "content"
+     ]
+    },
+    {
+     "id": 405,
+     "text": "nostalgic, inspired and a bit hungry",
+     "words": [
+      "nostalgic",
+      "inspired"
+     ]
+    },
+    {
+     "id": 410,
+     "text": "unconditional love, fate, communication, openness, travel, future, caring, grounded, support, guidance, partner for life",
+     "words": [
+      "love"
+     ]
+    },
+    {
+     "id": 426,
+     "text": "anticipation",
+     "words": [
+      "anticipation"
+     ]
+    },
+    {
+     "id": 427,
+     "text": "anticipation",
+     "words": [
+      "anticipation"
+     ]
+    },
+    {
+     "id": 429,
+     "text": "amazement",
+     "words": [
+      "amazement"
+     ]
+    },
+    {
+     "id": 497,
+     "text": "content",
+     "words": [
+      "content"
+     ]
+    },
+    {
+     "id": 506,
+     "text": "discombobulation inspired",
+     "words": [
+      "inspired"
+     ]
+    },
+    {
+     "id": 525,
+     "text": "injured nervous",
+     "words": [
+      "nervous"
+     ]
+    },
+    {
+     "id": 560,
+     "text": "moody",
+     "words": [
+      "moody"
+     ]
+    },
+    {
+     "id": 564,
+     "text": "content and relief from constant routine",
+     "words": [
+      "content"
+     ]
+    },
+    {
+     "id": 580,
+     "text": "slightly tired",
+     "words": [
+      "tired"
+     ]
+    },
+    {
+     "id": 610,
+     "text": "optimistic",
+     "words": [
+      "optimistic"
+     ]
+    },
+    {
+     "id": 645,
+     "text": "full open interested light calm",
+     "words": [
+      "calm",
+      "interested"
+     ]
+    },
+    {
+     "id": 663,
+     "text": "i am feeling sleepy",
+     "words": [
+      "sleepy"
+     ]
+    },
+    {
+     "id": 691,
+     "text": "hungry sleepy horny",
+     "words": [
+      "sleepy"
+     ]
+    },
+    {
+     "id": 730,
+     "text": "calm",
+     "words": [
+      "calm"
+     ]
+    },
+    {
+     "id": 731,
+     "text": "calm",
+     "words": [
+      "calm"
+     ]
+    },
+    {
+     "id": 740,
+     "text": "relaxed",
+     "words": [
+      "relaxed"
+     ]
+    },
+    {
+     "id": 768,
+     "text": "optimistic",
+     "words": [
+      "optimistic"
+     ]
+    },
+    {
+     "id": 792,
+     "text": "angry and comfused",
+     "words": [
+      "angry"
+     ]
+    },
+    {
+     "id": 794,
+     "text": "calm and tired",
+     "words": [
+      "tired",
+      "calm"
+     ]
+    },
+    {
+     "id": 797,
+     "text": "relaxed",
+     "words": [
+      "relaxed"
+     ]
+    },
+    {
+     "id": 805,
+     "text": "creative peaceful",
+     "words": [
+      "peaceful"
+     ]
+    },
+    {
+     "id": 826,
+     "text": "a bored nine year old boy in school writing",
+     "words": [
+      "bored"
+     ]
+    },
+    {
+     "id": 830,
+     "text": "content inquisative",
+     "words": [
+      "content"
+     ]
+    },
+    {
+     "id": 836,
+     "text": "stressed to buggery",
+     "words": [
+      "stressed"
+     ]
+    },
+    {
+     "id": 843,
+     "text": "autumnal active calm",
+     "words": [
+      "calm"
+     ]
+    },
+    {
+     "id": 876,
+     "text": "tired and a bit warm",
+     "words": [
+      "tired"
+     ]
+    },
+    {
+     "id": 878,
+     "text": "tired but invigorated",
+     "words": [
+      "tired"
+     ]
+    },
+    {
+     "id": 927,
+     "text": "warm caffeinated contented hopeful",
+     "words": [
+      "hopeful"
+     ]
+    },
+    {
+     "id": 931,
+     "text": "hangover sleepy chill",
+     "words": [
+      "sleepy"
+     ]
+    },
+    {
+     "id": 933,
+     "text": "content",
+     "words": [
+      "content"
+     ]
+    },
+    {
+     "id": 942,
+     "text": "content calm meditative",
+     "words": [
+      "content",
+      "calm"
+     ]
+    },
+    {
+     "id": 949,
+     "text": "drained overrked sleepy",
+     "words": [
+      "sleepy"
+     ]
+    },
+    {
+     "id": 958,
+     "text": "tired,, pensive, engaged, interested, quite calm, thinking about the future, thinking about possibilities, reflecting on the past",
+     "words": [
+      "tired",
+      "calm",
+      "interested"
+     ]
+    },
+    {
+     "id": 974,
+     "text": "calm",
+     "words": [
+      "calm"
+     ]
+    },
+    {
+     "id": 979,
+     "text": "old, grumpy, unsettled",
+     "words": [
+      "grumpy"
+     ]
+    }
+   ]
+  },
+  "overlap_name_only_and_flagged": [],
+  "n_removed": 70,
+  "n_cleaned": 335,
+  "notes": [
+   "'content' hits (8) were checked by eye: all use the affective sense ('content', 'stuffed full with pancakes but content', 'content calm meditative').",
+   "Non-English affect prompts exist in the control (French 'stress ... joie' x6 — caught only via the English word 'stress'; Italian 'ansiosa', 'preoccupato'; German 'neugierig') and misspelt English affect words ('ecited', 'curios', 'thrillled', 'comfused') — not counted by the lexicon.",
+   "Contamination changes what the 405 are, not the pipeline's result on them: agreement is at its null before and after cleaning (see specificity)."
+  ],
+  "specificity": {
+   "full_control_405": {
+    "label": "all 405 non-emotional prompts (reference procedure, fresh seed 7)",
+    "n": 405,
+    "n_prompt_groups": 313,
+    "record_level_null": {
+     "va_similarity": {
+      "observed_pct": 76.6,
+      "null_mean_pct": 76.5,
+      "null_sd_pct": 0.15,
+      "z": 0.54
+     },
+     "valence_sign_agreement": {
+      "observed_pct": 0.0,
+      "null_mean_pct": 0.0,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "family_agreement": {
+      "observed_pct": 28.6,
+      "null_mean_pct": 28.6,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "top3_overlap": {
+      "observed_pct": 31.6,
+      "null_mean_pct": 31.5,
+      "null_sd_pct": 0.36,
+      "z": 0.23
+     }
+    },
+    "clustered_null": {
+     "va_similarity": {
+      "observed_pct": 76.6,
+      "null_mean_pct": 76.6,
+      "null_sd_pct": 0.23,
+      "z": -0.07
+     },
+     "valence_sign_agreement": {
+      "observed_pct": 0.0,
+      "null_mean_pct": 0.0,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "family_agreement": {
+      "observed_pct": 28.6,
+      "null_mean_pct": 28.6,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "top3_overlap": {
+      "observed_pct": 31.6,
+      "null_mean_pct": 31.9,
+      "null_sd_pct": 0.51,
+      "z": -0.47
+     }
+    },
+    "va_sits_at_null": true
+   },
+   "cleaned_control": {
+    "label": "cleaned control: minus '[name]' records and lexicon-flagged records",
+    "n": 335,
+    "n_prompt_groups": 263,
+    "record_level_null": {
+     "va_similarity": {
+      "observed_pct": 76.6,
+      "null_mean_pct": 76.6,
+      "null_sd_pct": 0.15,
+      "z": 0.04
+     },
+     "valence_sign_agreement": {
+      "observed_pct": 0.0,
+      "null_mean_pct": 0.0,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "family_agreement": {
+      "observed_pct": 28.7,
+      "null_mean_pct": 28.7,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "top3_overlap": {
+      "observed_pct": 31.3,
+      "null_mean_pct": 31.4,
+      "null_sd_pct": 0.33,
+      "z": -0.31
+     }
+    },
+    "clustered_null": {
+     "va_similarity": {
+      "observed_pct": 76.6,
+      "null_mean_pct": 76.7,
+      "null_sd_pct": 0.2,
+      "z": -0.57
+     },
+     "valence_sign_agreement": {
+      "observed_pct": 0.0,
+      "null_mean_pct": 0.0,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "family_agreement": {
+      "observed_pct": 28.7,
+      "null_mean_pct": 28.7,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "top3_overlap": {
+      "observed_pct": 31.3,
+      "null_mean_pct": 31.7,
+      "null_sd_pct": 0.48,
+      "z": -0.92
+     }
+    },
+    "va_sits_at_null": true
+   },
+   "flagged_subset": {
+    "label": "the lexicon-flagged records alone (do they show agreement?)",
+    "n": 68,
+    "n_prompt_groups": 48,
+    "record_level_null": {
+     "va_similarity": {
+      "observed_pct": 76.9,
+      "null_mean_pct": 76.4,
+      "null_sd_pct": 0.54,
+      "z": 0.82
+     },
+     "valence_sign_agreement": {
+      "observed_pct": 0.0,
+      "null_mean_pct": 0.0,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "family_agreement": {
+      "observed_pct": 29.4,
+      "null_mean_pct": 29.4,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "top3_overlap": {
+      "observed_pct": 33.8,
+      "null_mean_pct": 32.9,
+      "null_sd_pct": 1.15,
+      "z": 0.76
+     }
+    },
+    "clustered_null": {
+     "va_similarity": {
+      "observed_pct": 76.9,
+      "null_mean_pct": 76.5,
+      "null_sd_pct": 0.84,
+      "z": 0.38
+     },
+     "valence_sign_agreement": {
+      "observed_pct": 0.0,
+      "null_mean_pct": 0.0,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "family_agreement": {
+      "observed_pct": 29.4,
+      "null_mean_pct": 29.4,
+      "null_sd_pct": 0.0,
+      "z": 0.0
+     },
+     "top3_overlap": {
+      "observed_pct": 33.8,
+      "null_mean_pct": 33.7,
+      "null_sd_pct": 1.77,
+      "z": 0.04
+     }
+    },
+    "va_sits_at_null": true
+   }
+  }
+ },
+ "describer_leak": {
+  "definition": "people-count via n_people() and expression word via EXPRESSION_WORDS, both copied from analysis_final.py; face = people>=1 AND expression word; scene = everything else",
+  "two_by_two_all_1012": {
+   "people_ge1|expression_word_present": 591,
+   "people_ge1|expression_word_absent": 7,
+   "people_0|expression_word_present": 406,
+   "people_0|expression_word_absent": 8
+  },
+  "scene_classified": {
+   "n": 421,
+   "people_0": 414,
+   "people_0_with_expression_word": 406,
+   "people_0_answer_smile_smiling_happy": 332,
+   "people_0_answer_smile_smiling_happy_pct_of_people_0": 80.2,
+   "people_0_expression_answers": {
+    "smile": 161,
+    "smiling": 92,
+    "happy": 79,
+    "angry": 31,
+    "sad": 20,
+    "surprised": 11,
+    "calm": 5,
+    "none": 5,
+    "serious": 4,
+    "mouth": 1,
+    "horse": 1,
+    "surprise": 1,
+    "confused": 1,
+    "skull": 1,
+    "sleeping": 1
+   },
+   "people_ge1_but_no_expression_word": [
+    {
+     "id": 46,
+     "people": "1",
+     "expression": "anger"
+    },
+    {
+     "id": 50,
+     "people": "1",
+     "expression": "anger"
+    },
+    {
+     "id": 169,
+     "people": "one",
+     "expression": "silly"
+    },
+    {
+     "id": 496,
+     "people": "2",
+     "expression": "kiss"
+    },
+    {
+     "id": 925,
+     "people": "one",
+     "expression": "mustache"
+    },
+    {
+     "id": 977,
+     "people": "one",
+     "expression": "silly"
+    },
+    {
+     "id": 989,
+     "people": "2",
+     "expression": "nose to nose"
+    }
+   ],
+   "note": "ids 46 and 50 answer 'anger' with 1 person: 'anger' is not in EXPRESSION_WORDS (only 'angry'), so the frozen rule files them as scene. Reported, not changed."
+  },
+  "bare_expression_word_corpus_wide": {
+   "definition_broad": "expression answer is a single token in EXPRESSION_FAMILY (facial actions such as 'smile' included)",
+   "definition_strict": "expression answer is a single token in NAMED_EMOTION_WORDS (names an affective state)",
+   "expression_family_map": {
+    "smile": "joy",
+    "smiling": "joy",
+    "happy": "joy",
+    "laughing": "joy",
+    "excited": "joy",
+    "grin": "joy",
+    "grinning": "joy",
+    "sad": "sadness",
+    "crying": "sadness",
+    "frowning": "sadness",
+    "angry": "anger",
+    "anger": "anger",
+    "scared": "fear",
+    "worried": "fear",
+    "surprised": "surprise",
+    "surprise": "surprise",
+    "shocked": "surprise",
+    "confused": "surprise",
+    "disgusted": "disgust",
+    "neutral": "neutral",
+    "calm": "neutral",
+    "serious": "neutral",
+    "concentration": "neutral",
+    "concentrating": "neutral",
+    "determined": "neutral",
+    "pensive": "neutral",
+    "sleepy": "neutral",
+    "sleeping": "neutral"
+   },
+   "named_emotion_words": [
+    "anger",
+    "angry",
+    "calm",
+    "confused",
+    "disgusted",
+    "excited",
+    "happy",
+    "neutral",
+    "sad",
+    "scared",
+    "shocked",
+    "surprise",
+    "surprised",
+    "worried"
+   ],
+   "broad": {
+    "n": 997,
+    "rate_pct": 98.5
+   },
+   "strict": {
+    "n": 418,
+    "rate_pct": 41.3
+   }
+  },
+  "copy_rate": {
+   "definition": "share of records where the image reader's top-1 family == the family implied by the bare expression word",
+   "broad": {
+    "n": 997,
+    "copied": 684,
+    "copy_rate_pct": 68.6,
+    "by_implied_family": {
+     "joy": {
+      "n": 674,
+      "copied": 459,
+      "copy_rate_pct": 68.1
+     },
+     "neutral": {
+      "n": 146,
+      "copied": 48,
+      "copy_rate_pct": 32.9
+     },
+     "anger": {
+      "n": 74,
+      "copied": 74,
+      "copy_rate_pct": 100.0
+     },
+     "sadness": {
+      "n": 69,
+      "copied": 69,
+      "copy_rate_pct": 100.0
+     },
+     "surprise": {
+      "n": 34,
+      "copied": 34,
+      "copy_rate_pct": 100.0
+     }
+    }
+   },
+   "strict": {
+    "n": 418,
+    "copied": 417,
+    "copy_rate_pct": 99.8,
+    "by_implied_family": {
+     "joy": {
+      "n": 208,
+      "copied": 207,
+      "copy_rate_pct": 99.5
+     },
+     "anger": {
+      "n": 74,
+      "copied": 74,
+      "copy_rate_pct": 100.0
+     },
+     "sadness": {
+      "n": 69,
+      "copied": 69,
+      "copy_rate_pct": 100.0
+     },
+     "surprise": {
+      "n": 34,
+      "copied": 34,
+      "copy_rate_pct": 100.0
+     },
+     "neutral": {
+      "n": 33,
+      "copied": 33,
+      "copy_rate_pct": 100.0
+     }
+    }
+   },
+   "broad_within_people_0": {
+    "n": 406,
+    "copied": 198,
+    "copy_rate_pct": 48.8,
+    "by_implied_family": {
+     "joy": {
+      "n": 332,
+      "copied": 125,
+      "copy_rate_pct": 37.7
+     },
+     "anger": {
+      "n": 31,
+      "copied": 31,
+      "copy_rate_pct": 100.0
+     },
+     "sadness": {
+      "n": 20,
+      "copied": 20,
+      "copy_rate_pct": 100.0
+     },
+     "surprise": {
+      "n": 13,
+      "copied": 13,
+      "copy_rate_pct": 100.0
+     },
+     "neutral": {
+      "n": 10,
+      "copied": 9,
+      "copy_rate_pct": 90.0
+     }
+    }
+   },
+   "broad_within_people_ge1": {
+    "n": 591,
+    "copied": 486,
+    "copy_rate_pct": 82.2,
+    "by_implied_family": {
+     "joy": {
+      "n": 342,
+      "copied": 334,
+      "copy_rate_pct": 97.7
+     },
+     "neutral": {
+      "n": 136,
+      "copied": 39,
+      "copy_rate_pct": 28.7
+     },
+     "sadness": {
+      "n": 49,
+      "copied": 49,
+      "copy_rate_pct": 100.0
+     },
+     "anger": {
+      "n": 43,
+      "copied": 43,
+      "copy_rate_pct": 100.0
+     },
+     "surprise": {
+      "n": 21,
+      "copied": 21,
+      "copy_rate_pct": 100.0
+     }
+    }
+   },
+   "broad_affect_families_only": {
+    "n": 851,
+    "copied": 636,
+    "copy_rate_pct": 74.7,
+    "by_implied_family": {
+     "joy": {
+      "n": 674,
+      "copied": 459,
+      "copy_rate_pct": 68.1
+     },
+     "anger": {
+      "n": 74,
+      "copied": 74,
+      "copy_rate_pct": 100.0
+     },
+     "sadness": {
+      "n": 69,
+      "copied": 69,
+      "copy_rate_pct": 100.0
+     },
+     "surprise": {
+      "n": 34,
+      "copied": 34,
+      "copy_rate_pct": 100.0
+     }
+    }
+   },
+   "context_image_top1_marginal_all_1012_pct": {
+    "joy": 45.6,
+    "sadness": 13.9,
+    "anger": 8.8,
+    "fear": 0.4,
+    "surprise": 10.7,
+    "disgust": 0.0,
+    "neutral": 20.7
+   },
+   "context_records_without_bare_word": {
+    "n": 15,
+    "image_top1": {
+     "surprise": 7,
+     "neutral": 6,
+     "joy": 2
+    }
+   }
+  },
+  "per_answer_table": [
+   {
+    "answer": "smile",
+    "n": 299,
+    "implied_family": "joy",
+    "image_top1": {
+     "joy": 166,
+     "neutral": 97,
+     "surprise": 36
+    },
+    "copy_rate_pct": 55.5
+   },
+   {
+    "answer": "happy",
+    "n": 205,
+    "implied_family": "joy",
+    "image_top1": {
+     "joy": 204,
+     "neutral": 1
+    },
+    "copy_rate_pct": 99.5
+   },
+   {
+    "answer": "smiling",
+    "n": 165,
+    "implied_family": "joy",
+    "image_top1": {
+     "joy": 84,
+     "neutral": 57,
+     "surprise": 24
+    },
+    "copy_rate_pct": 50.9
+   },
+   {
+    "answer": "serious",
+    "n": 103,
+    "implied_family": "neutral",
+    "image_top1": {
+     "sadness": 71,
+     "anger": 15,
+     "neutral": 8,
+     "surprise": 5,
+     "fear": 4
+    },
+    "copy_rate_pct": 7.8
+   },
+   {
+    "answer": "angry",
+    "n": 72,
+    "implied_family": "anger",
+    "image_top1": {
+     "anger": 72
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "sad",
+    "n": 69,
+    "implied_family": "sadness",
+    "image_top1": {
+     "sadness": 69
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "calm",
+    "n": 32,
+    "implied_family": "neutral",
+    "image_top1": {
+     "neutral": 32
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "surprised",
+    "n": 25,
+    "implied_family": "surprise",
+    "image_top1": {
+     "surprise": 25
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "surprise",
+    "n": 6,
+    "implied_family": "surprise",
+    "image_top1": {
+     "surprise": 6
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "concentration",
+    "n": 5,
+    "implied_family": "neutral",
+    "image_top1": {
+     "neutral": 5
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "none",
+    "n": 5,
+    "implied_family": null,
+    "image_top1": {
+     "neutral": 4,
+     "surprise": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "excited",
+    "n": 3,
+    "implied_family": "joy",
+    "image_top1": {
+     "joy": 3
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "confused",
+    "n": 3,
+    "implied_family": "surprise",
+    "image_top1": {
+     "surprise": 3
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "laughing",
+    "n": 2,
+    "implied_family": "joy",
+    "image_top1": {
+     "joy": 2
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "anger",
+    "n": 2,
+    "implied_family": "anger",
+    "image_top1": {
+     "anger": 2
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "silly",
+    "n": 2,
+    "implied_family": null,
+    "image_top1": {
+     "surprise": 2
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "determined",
+    "n": 2,
+    "implied_family": "neutral",
+    "image_top1": {
+     "surprise": 2
+    },
+    "copy_rate_pct": 0.0
+   },
+   {
+    "answer": "mouth",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "surprise": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "man is smiling",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "joy": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "neutral",
+    "n": 1,
+    "implied_family": "neutral",
+    "image_top1": {
+     "neutral": 1
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "woman is smiling",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "joy": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "horse",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "neutral": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "kiss",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "surprise": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "pensive",
+    "n": 1,
+    "implied_family": "neutral",
+    "image_top1": {
+     "sadness": 1
+    },
+    "copy_rate_pct": 0.0
+   },
+   {
+    "answer": "skull",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "neutral": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "sleeping",
+    "n": 1,
+    "implied_family": "neutral",
+    "image_top1": {
+     "neutral": 1
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "mustache",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "surprise": 1
+    },
+    "copy_rate_pct": null
+   },
+   {
+    "answer": "sleepy",
+    "n": 1,
+    "implied_family": "neutral",
+    "image_top1": {
+     "neutral": 1
+    },
+    "copy_rate_pct": 100.0
+   },
+   {
+    "answer": "nose to nose",
+    "n": 1,
+    "implied_family": null,
+    "image_top1": {
+     "surprise": 1
+    },
+    "copy_rate_pct": null
+   }
+  ],
+  "smile_share": {
+   "all_1012": {
+    "smile_smiling_happy": 669,
+    "n": 1012,
+    "pct": 66.1
+   },
+   "face_classified_591": {
+    "smile_smiling_happy": 337,
+    "n": 591,
+    "pct": 57.0
+   },
+   "people_ge1_598": {
+    "smile_smiling_happy": 337,
+    "n": 598,
+    "pct": 56.4
+   },
+   "scene_people_0_414": {
+    "smile_smiling_happy": 332,
+    "n": 414,
+    "pct": 80.2
+   },
+   "note": "RESULTS_final.md says BLIP-VQA 'reads ~66% of faces as smiling': 66% is the corpus-wide share of smile/smiling/happy answers over all 1,012 records (people or not); within the 591 face-classified records the share is lower (see face_classified_591)."
+  },
+  "notes": [
+   "Strict tier: whenever BLIP-VQA names an affective state (happy, sad, angry, surprised, calm, ...), the image reader's top-1 family is that state in 417 of 418 records — the NLI stage reproduces the describer's word rather than adding a reading of its own.",
+   "'serious' (103 answers) is mapped a priori to neutral, but the reader returns sadness 71 / anger 15 / neutral 8 / surprise 5 / fear 4 — it reads 'serious' as negative valence. Counted as non-copy here; under a 'serious -> sadness' mapping the broad copy rate would be higher, not lower.",
+   "Facial-action words ('smile' 299, 'smiling' 165) are read as joy only ~53% of the time, and only 37.7% when the description also says there are no people ('A drawing of none ...'); the remainder go to neutral or surprise. This is the leak into the scene group: 332 of the 414 people=0 scene records still say smile/smiling/happy, and the reader returns joy for 125 of them."
+  ]
+ },
+ "per_family": {
+  "n": 607,
+  "confusion_prompt_family_x_image_family": {
+   "joy": {
+    "joy": 261,
+    "sadness": 26,
+    "anger": 18,
+    "fear": 1,
+    "surprise": 33,
+    "disgust": 0,
+    "neutral": 63
+   },
+   "sadness": {
+    "joy": 27,
+    "sadness": 40,
+    "anger": 20,
+    "fear": 1,
+    "surprise": 5,
+    "disgust": 0,
+    "neutral": 6
+   },
+   "anger": {
+    "joy": 1,
+    "sadness": 2,
+    "anger": 6,
+    "fear": 0,
+    "surprise": 1,
+    "disgust": 0,
+    "neutral": 2
+   },
+   "fear": {
+    "joy": 0,
+    "sadness": 6,
+    "anger": 3,
+    "fear": 0,
+    "surprise": 3,
+    "disgust": 0,
+    "neutral": 4
+   },
+   "surprise": {
+    "joy": 32,
+    "sadness": 9,
+    "anger": 3,
+    "fear": 0,
+    "surprise": 15,
+    "disgust": 0,
+    "neutral": 18
+   },
+   "disgust": {
+    "joy": 0,
+    "sadness": 0,
+    "anger": 0,
+    "fear": 0,
+    "surprise": 1,
+    "disgust": 0,
+    "neutral": 0
+   },
+   "neutral": {
+    "joy": 0,
+    "sadness": 0,
+    "anger": 0,
+    "fear": 0,
+    "surprise": 0,
+    "disgust": 0,
+    "neutral": 0
+   }
+  },
+  "row_totals_prompt_family": {
+   "joy": 402,
+   "sadness": 99,
+   "anger": 12,
+   "fear": 16,
+   "surprise": 77,
+   "disgust": 1,
+   "neutral": 0
+  },
+  "column_totals_image_family": {
+   "joy": 321,
+   "sadness": 83,
+   "anger": 50,
+   "fear": 2,
+   "surprise": 58,
+   "disgust": 0,
+   "neutral": 93
+  },
+  "trace": 322,
+  "family_agreement_pct": 53.0,
+  "recall_by_prompt_family": {
+   "joy": {
+    "n_prompts": 402,
+    "agreed": 261,
+    "recall_pct": 64.9,
+    "ci95_pct": [
+     58.7,
+     70.3
+    ],
+    "bootstrap_draws_with_family_present": 10000
+   },
+   "sadness": {
+    "n_prompts": 99,
+    "agreed": 40,
+    "recall_pct": 40.4,
+    "ci95_pct": [
+     30.9,
+     51.2
+    ],
+    "bootstrap_draws_with_family_present": 10000
+   },
+   "anger": {
+    "n_prompts": 12,
+    "agreed": 6,
+    "recall_pct": 50.0,
+    "ci95_pct": [
+     22.2,
+     77.8
+    ],
+    "bootstrap_draws_with_family_present": 10000
+   },
+   "fear": {
+    "n_prompts": 16,
+    "agreed": 0,
+    "recall_pct": 0.0,
+    "ci95_pct": [
+     0.0,
+     0.0
+    ],
+    "bootstrap_draws_with_family_present": 10000
+   },
+   "surprise": {
+    "n_prompts": 77,
+    "agreed": 15,
+    "recall_pct": 19.5,
+    "ci95_pct": [
+     11.4,
+     28.1
+    ],
+    "bootstrap_draws_with_family_present": 10000
+   },
+   "disgust": {
+    "n_prompts": 1,
+    "agreed": 0,
+    "recall_pct": 0.0,
+    "ci95_pct": [
+     0.0,
+     0.0
+    ],
+    "bootstrap_draws_with_family_present": 6411
+   },
+   "neutral": {
+    "n_prompts": 0,
+    "agreed": 0,
+    "recall_pct": null,
+    "ci95_pct": null,
+    "bootstrap_draws_with_family_present": 0
+   }
+  },
+  "bootstrap": "clustered on dedup_key: 452 prompt groups resampled with replacement, B=10000, seed 7; percentile 95% CI (same convention as significance.py)",
+  "image_reader_marginals": {
+   "all_1012": {
+    "joy": 461,
+    "sadness": 141,
+    "anger": 89,
+    "fear": 4,
+    "surprise": 108,
+    "disgust": 0,
+    "neutral": 209
+   },
+   "emotional_607": {
+    "joy": 321,
+    "sadness": 83,
+    "anger": 50,
+    "fear": 2,
+    "surprise": 58,
+    "disgust": 0,
+    "neutral": 93
+   },
+   "never_or_almost_never_returned": {
+    "fear": 4,
+    "disgust": 0
+   }
+  },
+  "prompt_reader_marginals_all_1012": {
+   "joy": 402,
+   "sadness": 99,
+   "anger": 12,
+   "fear": 16,
+   "surprise": 77,
+   "disgust": 1,
+   "neutral": 405
+  },
+  "notes": [
+   "the 'neutral' row is empty by construction (emotional = prompt top-1 != neutral).",
+   "fear (16 prompts) and disgust (1 prompt) have 0 agreed records; the image reader returns fear 4 times and disgust 0 times across all 1,012 records, so those families cannot agree."
+  ]
+ }
+}

@@ -14,6 +14,8 @@ scene rates had never been tested **against each other**.
 95% confidence intervals from a clustered bootstrap, 10,000 draws.
 Clustered permutation test, 10,000 draws: **p = 0.0001** for both metrics.
 
+`inference.py` (9 September), which resamples each subset within itself rather than splitting inside each draw, gives [68.3, 79.2] and [33.1, 51.1] for valence sign and [55.8, 68.1] and [26.4, 44.1] for family — the same intervals to within 0.3 points. Cohen's kappa for family agreement: face 0.30 [0.23, 0.37], scene 0.13 [0.06, 0.19].
+
 ## Why the resampling is clustered
 
 249 of the 1,012 analysed records repeat an earlier prompt, so records are **not independent**. Both
@@ -44,7 +46,6 @@ word. The split is governed by the people-count answer, not by absent expression
 
 ## Replaces
 
-Wherever the documents or the deck say *"no formal significance test of the face–scene difference has
-been run"*, that is now superseded. The deck's slide 8 footnote and slide 10's "not established"
-column should be updated when the dissertation is written — but **not tonight**, and the honest
-version remains true either way, because the circularity caveat still stands.
+Wherever the documents or the deck said *"no formal significance test of the face–scene difference has
+been run"*, that is superseded. The deck was presented on 4 September with the spoken correction; the
+project documents have since been updated (9 September). The circularity caveat still stands.

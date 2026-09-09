@@ -5,7 +5,90 @@
  "emotional": 607,
  "runs": 87,
  "records_in_runs": 336,
+ "pair_groups": 43,
  "mean_emotion_consistency": 0.688,
  "mean_valence_consistency": 0.745,
- "fully_consistent_runs": 28
+ "fully_consistent_runs": 28,
+ "null": {
+  "draws": 10000,
+  "seed": 7,
+  "method": "image top-1 readings shuffled across all analysed records, re-cut into the same 87 groups",
+  "mean_emotion_consistency": {
+   "obs": 0.6877,
+   "null_mean": 0.5937,
+   "null_sd": 0.0209,
+   "z": 4.4974,
+   "p_perm": 0.0001
+  },
+  "mean_valence_consistency": {
+   "obs": 0.7449,
+   "null_mean": 0.6367,
+   "null_sd": 0.0215,
+   "z": 5.0259,
+   "p_perm": 0.0001
+  },
+  "fully_consistent_runs": {
+   "obs": 28,
+   "null_mean": 14.4817,
+   "null_sd": 3.2483,
+   "z": 4.1616,
+   "p_perm": 0.0002
+  }
+ },
+ "largest_groups": [
+  {
+   "text": "happy",
+   "n": 42,
+   "image_top1": {
+    "joy": 34,
+    "neutral": 7,
+    "surprise": 1
+   }
+  },
+  {
+   "text": "curious",
+   "n": 12,
+   "image_top1": {
+    "neutral": 5,
+    "joy": 4,
+    "surprise": 2,
+    "anger": 1
+   }
+  },
+  {
+   "text": "Ok",
+   "n": 8,
+   "image_top1": {
+    "neutral": 4,
+    "joy": 3,
+    "surprise": 1
+   }
+  },
+  {
+   "text": "Excited",
+   "n": 8,
+   "image_top1": {
+    "joy": 6,
+    "neutral": 1,
+    "surprise": 1
+   }
+  },
+  {
+   "text": "pigs",
+   "n": 8,
+   "image_top1": {
+    "joy": 3,
+    "surprise": 3,
+    "anger": 2
+   }
+  },
+  {
+   "text": "Excited for the cold and Christmas",
+   "n": 8,
+   "image_top1": {
+    "joy": 7,
+    "neutral": 1
+   }
+  }
+ ]
 }

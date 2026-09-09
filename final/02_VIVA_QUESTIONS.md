@@ -1,13 +1,13 @@
 # Viva / Marker Question Bank
 
-**28 questions across eight areas, with sayable answers.** Every figure below is one the project actually reports. Where a question is hostile, the answer concedes first and bounds second — that is the pattern that earns marks.
+**29 questions across eight areas, with sayable answers.** Every figure below is one the project actually reports. Where a question is hostile, the answer concedes first and bounds second — that is the pattern that earns marks.
 
 ### Ground rules for answering out loud
 
 - Always name **both readers**: "prompt-reader / image-reader agreement". Never say the drawing *shows* or *communicates* an emotion — you have no human data.
 - Reserve **"similarity"** for the valence-arousal metric, which is a graded distance. Say **"valence-sign agreement"**, never "mood direction".
 - Never quote a raw percentage without its null. `68.8%` bare is the single most dangerous number in the project.
-- When you don't have something — a significance test, an interval, a human rating — say "I have not done that" in the first six words, then say what you *do* have.
+- When you don't have something — a human rating, a second coder — say "I have not done that" in the first six words, then say what you *do* have.
 
 ---
 
@@ -31,7 +31,7 @@
 
 ### Q3. "Isn't 'similarity not matching' just a softer scoring rule that inflates your numbers?"
 
-**Answer.** It would be, if I reported the raw rate alone. I don't. Every graded metric is scored against a null built by re-shuffling prompt-image pairings 300 times *within the same subset*, so the loosening applies identically to the null and cancels. Family agreement on emotional prompts is 53.1% against a 38.8% null, z+10.3; valence-arousal similarity is 83.8% against a 77.3% null, z+12.2. The looser metric lifts both numbers; the claim is the gap. And on non-emotional prompts the gap disappears entirely — 76.6% against a 76.6% null, z+0.3 — which a purely inflationary metric would not do.
+**Answer.** It would be, if I reported the raw rate alone. I don't. Every graded metric is scored against a null built by re-shuffling prompt-image pairings 300 times *within the same subset*, so the loosening applies identically to the null and cancels. Family agreement on emotional prompts is 53.0% against a 38.8% null, z+10.3; valence-arousal similarity is 83.8% against a 77.3% null, z+12.2. The looser metric lifts both numbers; the claim is the gap. And on prompts the text reader labels neutral the gap disappears — 76.6% against a 76.6% null, z+0.3 — which a purely inflationary metric would not do.
 
 ---
 
@@ -61,7 +61,7 @@
 
 ### Q7. "Why describe-then-extract? Why not ask a vision-language model for the emotion directly?"
 
-**Answer.** Two reasons. My supervisor's: don't force CLIP to output emotion — it is trained on real colour photographs and is good at objects, not affect. And a design reason: describing the image first makes both sides of the comparison text, so I compare like with like instead of crossing a modality gap inside one embedding space. I tested the alternative. On the 608 records both pipelines cover, describe-then-extract reaches 49.3% family agreement against direct-CLIP's 25.3%, and 48.6% top-3 overlap against 22.8%. Manual inspection found CLIP reading an arms-raised celebration as anger at 0.73.
+**Answer.** Two reasons. My supervisor's: don't force CLIP to output emotion — it is trained on real colour photographs and is good at objects, not affect. And a design reason: describing the image first makes both sides of the comparison text, so I compare like with like instead of crossing a modality gap inside one embedding space. I tested the alternative like for like: same GoEmotions prompt reader, same 607 emotional records, same measures, only the image reader varied. Describe-then-extract reaches 53.0% family agreement against direct CLIP's 22.4% — a difference of 30.6 points, clustered 95% interval +25.5 to +35.6, cluster-level p below 0.0001 — and 64.0% valence-sign agreement against 31.1%. Manual inspection found CLIP reading an arms-raised celebration as anger at 0.73.
 
 ---
 
@@ -69,7 +69,7 @@
 
 **Answer.** I tried a single BLIP caption first and it failed: the captions were too terse and the emotion reader collapsed almost everything to surprise. The five questions are chosen to be factual and answerable rather than affective — expression, action, posture, people count, scene content — so the describer commits to the specific visual facts the emotion reader needs. Holding the same five constant across all 1,012 records makes the description stage an instrument rather than a per-image judgement. I present it as a designed instrument, and I accept that a different question set would produce different descriptions.
 
-*If pressed further:* the question set was fixed for the whole corpus and never tuned per subset, but I have not run an ablation, so I cannot quantify what each question contributes.
+*If pressed further:* the question set was fixed for the whole corpus and never tuned per subset. An ablation of the description template — each answer dropped in turn, the expression word fixed, and a people-aware template — was run by re-composing the cached answers and re-running only the NLI stage. It shows the reading rests on one word: removing the expression sentence collapses family agreement from 53.0% to 20.3%, while removing action, posture or scene moves it by one to three points. In effect the pipeline asks the describer for the facial expression and maps that word to a family.
 
 ---
 
@@ -105,13 +105,13 @@
 
 ### Q13. "Why should I believe 49% beats 25% when you changed the prompt reader between the two?"
 
-**Answer.** Because the change is applied to *both* arms, not between them. In the method comparison the prompt reader is held constant as BART-MNLI for both describe-then-extract and direct-CLIP, so the only thing varying is the image side, which is the question being asked. What it does cost me is comparability outward: 49.3% is not on the same scale as my headline 53.1%, because the headline uses GoEmotions on the prompt side. The comparison's 608 records also come from an earlier v1 lexicon rule for selecting emotional prompts, not the rule used in the main analysis. Both caveats are stated.
+**Answer.** That 49.3-against-25.3 figure is the historical v1 comparison, and I no longer lead with it, for exactly the reason in the question: it held the prompt side at BART-MNLI on a 608-record subset from an older lexicon rule. The like-for-like re-run holds the GoEmotions prompt reader, the 607 emotional records and the same overlap formula constant and varies only the image reader: 53.0% against 22.4% family agreement, +30.6 points, clustered 95% interval +25.5 to +35.6, cluster-level p below 0.0001. Neither reader has ground truth, so what this shows is that the two image readers disagree, with describe-then-extract far closer to the text reader — not that it is more accurate.
 
 ---
 
 ### Q14. "Your non-emotional control set is defined by the same classifier you are testing. Isn't that circular?"
 
-**Answer.** Yes, in the sense that matters, and I say so in the write-up. The split is the prompt reader's own output — top-1 label not equal to neutral — and no human ever validated it. So the control is not "prompts a person would call unemotional"; it is "prompts GoEmotions calls neutral". What it can still do is bound the *metric*: if valence-arousal similarity were returning a high number regardless of input, it would return one here too, and it does not — 76.6% against a 76.6% null, z+0.3. It is a specificity check on the instrument, not an independent human-defined control condition.
+**Answer.** Yes, in the sense that matters, and I say so in the write-up. The split is the prompt reader's own output — top-1 label not equal to neutral — and no human ever validated it. So the control is not "prompts a person would call unemotional"; it is "prompts GoEmotions calls neutral" — 68 of the 405 contain a plain affect word such as calm, content or tired, and two consist of a name alone. What it can still do is bound the *metric*: if valence-arousal similarity were returning a high number regardless of input, it would return one here too, and it does not — 76.6% against a 76.6% null, z+0.3, and z+0.04 on the 335 records left after removing the affect-word and name-only prompts. It is a specificity check on the instrument, not an independent human-defined control condition.
 
 *If pressed further:* only the valence-arousal metric is informative on that subset. Valence-sign and family agreement are degenerate there by the subset's own definition, since almost everything is neutral, so I do not present them as a passing control.
 
@@ -119,21 +119,21 @@
 
 ### Q15. "Is the face-versus-scene difference statistically significant?"
 
-**Answer.** I have not tested it, and I will not claim it. What I report is each subset against its own shuffle null. Face-classified records, n=402, reach 73.9% valence-sign agreement against a 53.5% null, z+10.4, and 61.9% family agreement against 45.8%, z+10.3. Scene-classified records, n=205, reach 42.9% against 29.6%, z+5.8, and 35.6% against 26.2%, z+4.4. Both subsets clear their own nulls. The difference between them is a description, not a tested contrast — the nulls differ, so the rates are not directly subtractable. A formal test is outstanding and named as such.
+**Answer.** Yes. Face-classified records, n=402, reach 73.9% valence-sign agreement against a 53.5% null, z+10.4, and 61.9% family agreement against 45.8%, z+10.3. Scene-classified records, n=205, reach 42.9% against 29.6%, z+5.8, and 35.6% against 26.2%, z+4.4. The difference is +30.9 points for valence sign, 95% interval +22.6 to +40.6, and +26.3 points for family, interval +18.4 to +35.3; a clustered permutation test gives p = 0.0001 for both. I clustered on prompt identity because 249 records repeat an earlier prompt, so records are not independent. What that establishes is that the gap is not sampling noise. It does not remove the circularity: the split is the describer's own classification. And the template ablation changes what the contrast means: under a people-aware description — no person or expression clause where the describer reports no person — the scene rows fall to their null, valence sign 4.7% against 3.4%, z +1.6. So for this reader it is faces, and only faces, not faces more than scenes.
 
-*If pressed further:* the test I would want is a permutation test on the difference of standardised gaps, or a mixed model with prompt as a random effect, since 249 records repeat an earlier prompt and the observations are not independent.
+*If pressed further:* the scene result is the fragile one — on distinct prompts its family z falls to +2.6 and does not survive a Holm correction across the 36 non-degenerate tests.
 
 ---
 
-### Q16. "You report z-scores everywhere but no confidence intervals. Why not?"
+### Q16. "You report z-scores everywhere. Where are the confidence intervals?"
 
-**Answer.** Because I have not computed them, and I would rather say that than let a z stand in for one. The z is a position within a 300-shuffle null distribution: it tells you the observed value is far from the re-paired baseline, not how precisely the underlying rate is estimated. Proper intervals need a bootstrap over records, clustered on prompt because 249 records repeat an earlier one. I would expect the scene subsets to widen most, at n=205. It sits on the not-done list alongside the face/scene test and human validation.
+**Answer.** I do report them — every rate carries a clustered-bootstrap 95% interval, 10,000 draws resampling prompt groups because 249 records repeat an earlier prompt. Emotional valence-sign 64.0% [58.6, 68.8]; face 73.9% [68.3, 79.2]; scene 42.9% [33.1, 51.1]. The scene interval is the widest, as expected at n=205. The z is something different: a position within a 300-shuffle null distribution, which says how far the observed value sits from re-paired chance, not how precisely the rate is estimated. Across seeds 1 to 5 the headline z moves between +11.2 and +12.2, so I treat it as an ordering statistic; the intervals carry the inference about the rate.
 
 ---
 
 ### Q17. "How do you know your nulls are meaningful in every subset you report?"
 
-**Answer.** I don't, uniformly, and this is a limitation I flag by hand rather than one the code catches. Degeneracy is a hand-passed flag in the analysis script; it is not auto-detected. Two families of subset are degenerate for the valence-sign and family metrics: any single-valence subset, where re-pairing cannot move the sign because almost everything shares it, and the non-emotional subset, where almost everything is neutral. In those cases I either report only the valence-arousal metric or withdraw the claim. Automatic degeneracy detection is a straightforward fix I have not implemented.
+**Answer.** The code checks it. A null is degenerate when shuffling cannot change the score — every prompt in the subset shares one label — and the analysis detects that from the null's own spread: zero standard deviation means no z is printed. Two families of subset trip it for the valence-sign and family metrics: the single-valence subsets, where re-pairing cannot move the sign, and the neutral-labelled subset, where every prompt family is neutral. The negative-prompt family null is not degenerate, and the code correctly leaves it in. In the degenerate cases I report only the valence-arousal metric or withdraw the claim.
 
 ---
 
@@ -141,27 +141,27 @@
 
 ### Q18. "Give me your headline result."
 
-**Answer.** On the 607 emotional prompts, prompt-reader / image-reader agreement is clearly above the shuffle null on all four metrics: valence-sign 64.0% against a 45.6% null, z+11.1; family 53.1% against 38.8%, z+10.3; top-3 overlap 50.6% against 39.4%, z+11.6; valence-arousal similarity 83.8% against 77.3%, z+12.2. The effect concentrates where a figure is drawn: face-classified records reach 73.9% valence-sign agreement against a 53.5% null, z+10.4. On the 405 non-emotional prompts the valence-arousal metric sits flat on its null, z+0.3. That is a consistent, well-above-chance agreement between two automatic readers.
+**Answer.** On the 607 emotional prompts, prompt-reader / image-reader agreement is clearly above the shuffle null on all four metrics: valence-sign 64.0% against a 45.6% null, z+11.1; family 53.0% against 38.8%, z+10.3; top-3 overlap 50.6% against 39.4%, z+11.6; valence-arousal similarity 83.8% against 77.3%, z+12.2. The effect concentrates where a figure is drawn: face-classified records reach 73.9% valence-sign agreement against a 53.5% null, z+10.4. On the 405 prompts the text reader labels neutral the valence-arousal metric sits flat on its null, z+0.3. That is a consistent, well-above-chance agreement between two automatic readers.
 
 ---
 
 ### Q19. "Your face/scene split is circular, isn't it?"
 
-**Answer.** Yes, and the mechanism is worse than it first appears, so let me state it exactly. The split is **not** an expression detector. 414 of the 421 scene-classified records — 98.3% — are ones where the describer answered that no people are present, so it is the people-count answer that drives the label. And 406 of those 414 descriptions still contain an expression word. The real circularity is that the same describer output supplies both the split variable and the text the emotion reader then reads. So face-versus-scene is a property of the describer's output, not an independent visual category.
+**Answer.** Yes, and the mechanism is worse than it first appears, so let me state it exactly. The split is **not** an expression detector. 414 of the 421 scene-classified records — 98.3% — are ones where the describer answered that no people are present, so it is the people-count answer that drives the label. And 406 of those 414 descriptions still contain an expression word. The real circularity is that the same describer output supplies both the split variable and the text the emotion reader then reads — and where the expression answer names an affective state, the reader's top-1 family follows it 99.8% of the time. So face-versus-scene is a property of the describer's output, not an independent visual category. The ablation makes the cost concrete: the scene result in the headline table was agreement between the prompt and an expression the describer invented for a drawing with no person; describe those drawings honestly and this reader finds nothing above chance in them.
 
-*If pressed further:* the honest fix is to derive the split from outside the pipeline — a face detector run on the image, or human labels — and re-run. I have not done that.
+*If pressed further:* the honest fix is to derive the split from outside the pipeline — a face detector run on the image, or human labels — and re-run. A 120-drawing blind coding sample is drawn for exactly that; the full re-run is not done.
 
 ---
 
 ### Q20. "Do your headline results survive removing repeated prompts?"
 
-**Answer.** Partly, and I will not claim they all hold equally. On the 763 distinct prompts, every all-emotional metric stays strongly above its null, z+9 to +11, and face-classified valence-sign agreement holds at 71.8%, z around +9. The scene result does not hold: it weakens substantially, to 37.3% at z+3.5. That is the honest picture — the face effect survives de-duplication, the scene effect is much thinner and depends partly on repeated prompts. I report the weakening explicitly rather than the pooled figure, because the pooled scene number would overstate what is there.
+**Answer.** Partly, and I will not claim they all hold equally. On the 763 distinct prompts, every all-emotional metric stays strongly above its null, z+9.3 to +10.8, and face-classified valence-sign agreement holds at 71.8%, z+8.4. The scene result does not hold: it weakens substantially, to 37.3% at z+3.5 on valence sign and 30.8% at z+2.6 on family, and that family result does not survive a Holm correction. That is the honest picture — the face effect survives de-duplication, the scene effect is much thinner and depends partly on repeated prompts. I report the weakening explicitly rather than the pooled figure, because the pooled scene number would overstate what is there.
 
 ---
 
 ### Q21. "You have 87 prompts drawn more than once. What does that tell you?"
 
-**Answer.** It gives a stability check on the generator-plus-reader chain. Across the 336 records in those groups, the image reader returns the same emotion family for 68.8% of drawings within a group, against a permutation null of 59.1%, z+4.9. I quote both numbers together deliberately: 68.8% on its own looks like a reliability coefficient, and it is not — within-group repetition has a high baseline because the family priors are skewed. What it shows is that the same prompt tends to yield drawings the reader reads alike, above what re-shuffling group membership gives. It says nothing about correctness.
+**Answer.** It gives a stability check on the generator-plus-reader chain. Across the 336 records in those groups, the image reader returns the same emotion family for 68.8% of drawings within a group, against a permutation null of 59.4%, z+4.5, p = 0.0001; 28 of the 87 groups are fully consistent against 14.5 by chance. I quote both numbers together deliberately: 68.8% on its own looks like a reliability coefficient, and it is not — half the groups are pairs, whose modal agreement cannot fall below 50%, and the family priors are skewed. What it shows is that the same prompt tends to yield drawings the reader reads alike, above what re-shuffling group membership gives. It says nothing about correctness.
 
 ---
 
@@ -177,7 +177,7 @@
 
 ### Q23. "Why didn't you validate with human ratings?"
 
-**Answer.** Time and scope, and I will not dress it up — it sits on the not-done list with the face/scene test and confidence intervals. It is also the highest-value missing piece, so I have specified it rather than just naming it: a sample of drawings stratified by face/scene and by emotion family, rated on valence and arousal by multiple raters, with inter-rater agreement reported *first*, because if humans disagree with one another then their disagreement sets the ceiling on any automatic reader. That design also demonstrates my supervisor's point — human disagreement is exactly why graded similarity is the right frame rather than a correctness score.
+**Answer.** Time and scope, and I will not dress it up — it is the single largest item on the not-done list. It is also the highest-value missing piece, so I have specified it rather than just naming it, and drawn a 120-drawing blind single-coder sample as the first step: a sample of drawings stratified by face/scene and by emotion family, rated on valence and arousal by multiple raters, with inter-rater agreement reported *first*, because if humans disagree with one another then their disagreement sets the ceiling on any automatic reader. That design also demonstrates my supervisor's point — human disagreement is exactly why graded similarity is the right frame rather than a correctness score.
 
 ---
 
@@ -189,15 +189,15 @@
 
 ## 7. Technical implementation
 
-### Q25. "You report zero failures across 1,012 records. Isn't that suspiciously good?"
+### Q25. "You report no failures across 1,025 records. Isn't that suspiciously good?"
 
-**Answer.** It would be, if it meant accuracy. It does not. "Zero failures" means zero unhandled exceptions: every record passed through the describer, both readers and the metric code without crashing or emitting a malformed output. It is a robustness statement about the pipeline, not a correctness statement about emotions. I make no accuracy claim at all, because there is no ground truth to be accurate against — that is the premise of the whole design. I flag this explicitly in the write-up precisely because "0 failures" is the phrase a reader is most likely to over-interpret.
+**Answer.** It would be, if it meant accuracy. It does not. "No unhandled errors" means exactly that: every record passed through the describer, both readers and the metric code without crashing or emitting a malformed output. It is a robustness statement about the pipeline, not a correctness statement about emotions. I make no accuracy claim at all, because there is no ground truth to be accurate against — that is the premise of the whole design. I flag this explicitly in the write-up precisely because it is the phrase a reader is most likely to over-interpret — the describer returns an expression answer for 406 of the 414 drawings in which it reports no people, and none of that counts as a failure.
 
 ---
 
 ### Q26. "Tell me about your test suite."
 
-**Answer.** It is 29 smoke assertions. They check that the pipeline runs end to end, that outputs have the expected shape, and that the code paths execute without error. **None of them asserts a numeric result** — no test says family agreement should be 53.1%, or that any metric should exceed its null. So the suite protects against silent breakage when I change code; it is not evidence that any reported figure is correct. What supports the figures is the fixed seed, the pinned frozen models, and re-executability. I keep that distinction sharp rather than letting "the tests pass" stand in for validation.
+**Answer.** Two layers. A shell self-test checks the environment, the data counts, the redaction audit, a live three-image run of the pipeline and that every analysis script runs. A numeric layer, `test_numeric.py`, pins each headline figure to the result file that produces it — family agreement 53.0% on the 607, the consistency null, the like-for-like difference — and unit-tests the metric functions, including the 0.412 floor of the valence-arousal measure. The figures read the same result files. So a change in the analysis fails the build rather than drifting silently. That protects reproducibility; it is not evidence that any figure is *correct*, because there is no ground truth to be correct against.
 
 ---
 
@@ -211,7 +211,7 @@
 
 ### Q28. "What is the single next study you would run, and what would you do with six more months?"
 
-**Answer.** Human ratings first, because everything else is bounded by their absence: a stratified sample rated on valence and arousal by multiple raters, reporting inter-rater agreement before placing either automatic reader against the human distribution. Second, and cheap, the two statistical gaps — a permutation test of the face-versus-scene difference and bootstrap intervals clustered on prompt. Third, replace the describer with a sketch-trained or drawing-specific model, since the describer is the component every result rests on, and derive the face/scene split from outside the pipeline so it stops being circular.
+**Answer.** Human ratings first, because everything else is bounded by their absence: a stratified sample rated on valence and arousal by multiple raters, reporting inter-rater agreement before placing either automatic reader against the human distribution. Second, a scene-capable describer: the people-aware ablation shows this reader finds nothing above chance in scene-classified drawings once the invented expression clause is removed, so whether those drawings hold a readable feeling — which the human check tests — needs a describer that reads affect from composition, posture and setting rather than from a facial-expression word. Third, replace the describer with a sketch-trained or drawing-specific model, since the describer is the component every result rests on, and derive the face/scene split from outside the pipeline so it stops being circular.
 
 ---
 

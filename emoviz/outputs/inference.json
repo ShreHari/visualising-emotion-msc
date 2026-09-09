@@ -1,0 +1,3028 @@
+{
+ "script": "inference.py",
+ "generated": "2026-09-09T13:51:15",
+ "seed": 7,
+ "bootstrap_draws": 10000,
+ "permutation_draws": 1000,
+ "null_shuffles": 300,
+ "runtime_s": 27.9,
+ "quantity": "agreement between the prompt reader (GoEmotions on the self-report) and the image reader (zero-shot NLI on the BLIP-VQA description) \u2014 nothing here is a statement about what a person would see",
+ "clustering": "every resample and permutation clusters on dedup_key (prompt identity): 249 of the 1,012 analysed records repeat an earlier prompt",
+ "data": {
+  "analysed": 1012,
+  "id_min": 14,
+  "id_max": 1025,
+  "emotional": 607,
+  "non_emotional": 405,
+  "face_all": 591,
+  "scene_all": 421,
+  "face_within_emotional": 402,
+  "scene_within_emotional": 205,
+  "distinct_prompts": 763,
+  "records_repeating_an_earlier_prompt": 249,
+  "distinct_emotional": 452,
+  "distinct_face": 319,
+  "distinct_scene": 133
+ },
+ "reference_cross_checks": [
+  {
+   "check": "data.analysed",
+   "observed": 1012,
+   "expected": 1012,
+   "ok": true
+  },
+  {
+   "check": "data.id_min",
+   "observed": 14,
+   "expected": 14,
+   "ok": true
+  },
+  {
+   "check": "data.id_max",
+   "observed": 1025,
+   "expected": 1025,
+   "ok": true
+  },
+  {
+   "check": "data.emotional",
+   "observed": 607,
+   "expected": 607,
+   "ok": true
+  },
+  {
+   "check": "data.non_emotional",
+   "observed": 405,
+   "expected": 405,
+   "ok": true
+  },
+  {
+   "check": "data.face_all",
+   "observed": 591,
+   "expected": 591,
+   "ok": true
+  },
+  {
+   "check": "data.scene_all",
+   "observed": 421,
+   "expected": 421,
+   "ok": true
+  },
+  {
+   "check": "data.face_within_emotional",
+   "observed": 402,
+   "expected": 402,
+   "ok": true
+  },
+  {
+   "check": "data.scene_within_emotional",
+   "observed": 205,
+   "expected": 205,
+   "ok": true
+  },
+  {
+   "check": "data.distinct_prompts",
+   "observed": 763,
+   "expected": 763,
+   "ok": true
+  },
+  {
+   "check": "data.records_repeating_an_earlier_prompt",
+   "observed": 249,
+   "expected": 249,
+   "ok": true
+  },
+  {
+   "check": "point.emotional.vsign",
+   "observed": 0.6396,
+   "expected": 0.64,
+   "ok": true
+  },
+  {
+   "check": "point.emotional.family",
+   "observed": 0.5305,
+   "expected": 0.531,
+   "ok": true
+  },
+  {
+   "check": "point.emotional.va",
+   "observed": 0.8379,
+   "expected": 0.838,
+   "ok": true
+  },
+  {
+   "check": "point.emotional.overlap",
+   "observed": 0.5056,
+   "expected": 0.506,
+   "ok": true
+  },
+  {
+   "check": "point.face.vsign",
+   "observed": 0.7389,
+   "expected": 0.739,
+   "ok": true
+  },
+  {
+   "check": "point.face.family",
+   "observed": 0.6194,
+   "expected": 0.619,
+   "ok": true
+  },
+  {
+   "check": "point.scene.vsign",
+   "observed": 0.4294,
+   "expected": 0.429,
+   "ok": true
+  },
+  {
+   "check": "point.scene.family",
+   "observed": 0.3561,
+   "expected": 0.356,
+   "ok": true
+  },
+  {
+   "check": "point.non_emotional.va",
+   "observed": 0.7662,
+   "expected": 0.766,
+   "ok": true
+  },
+  {
+   "check": "consistency.groups_ge2",
+   "observed": 87,
+   "expected": 87,
+   "ok": true
+  },
+  {
+   "check": "consistency.records_in_groups",
+   "observed": 336,
+   "expected": 336,
+   "ok": true
+  },
+  {
+   "check": "consistency.modal_family_fraction",
+   "observed": 0.6877,
+   "expected": 0.688,
+   "ok": true
+  },
+  {
+   "check": "consistency.modal_valence_fraction",
+   "observed": 0.7449,
+   "expected": 0.745,
+   "ok": true
+  },
+  {
+   "check": "null.emotional.vsign.null_mean",
+   "observed": 0.4561,
+   "expected": 0.456,
+   "ok": true
+  },
+  {
+   "check": "null.emotional.family.null_mean",
+   "observed": 0.3877,
+   "expected": 0.388,
+   "ok": true
+  },
+  {
+   "check": "null.emotional.overlap.null_mean",
+   "observed": 0.3944,
+   "expected": 0.394,
+   "ok": true
+  },
+  {
+   "check": "null.emotional.va.null_mean",
+   "observed": 0.7732,
+   "expected": 0.773,
+   "ok": true
+  },
+  {
+   "check": "null.face.vsign.null_mean",
+   "observed": 0.5346,
+   "expected": 0.535,
+   "ok": true
+  },
+  {
+   "check": "null.face.family.null_mean",
+   "observed": 0.4581,
+   "expected": 0.458,
+   "ok": true
+  },
+  {
+   "check": "null.scene.vsign.null_mean",
+   "observed": 0.2958,
+   "expected": 0.296,
+   "ok": true
+  },
+  {
+   "check": "null.scene.family.null_mean",
+   "observed": 0.2616,
+   "expected": 0.262,
+   "ok": true
+  },
+  {
+   "check": "null.non_emotional.va.null_mean",
+   "observed": 0.7656,
+   "expected": 0.766,
+   "ok": true
+  },
+  {
+   "check": "ztable.printed_z_reproduced_of_48",
+   "observed": 48,
+   "expected": 48,
+   "ok": true
+  }
+ ],
+ "published_rounding_discrepancies": [
+  {
+   "quantity": "emotional prompts (n=607), family agreement",
+   "exact": 0.5305,
+   "count": "322/607",
+   "prints_as": "53.0%",
+   "published_as": "53.1%",
+   "where": "final/01_PROJECT_A_TO_Z.md, 02_VIVA_QUESTIONS.md, 06_MOCK_VIVA.md, CLAUDE_DESIGN_PROMPT.md",
+   "note": "0.05 pp rounding slip; rerun_af.log and the earlier analysis_final.log both print 53% / 53.0%. Every other published rate and null mean matches to the quoted digit."
+  }
+ ],
+ "bootstrap_ci95_clustered": {
+  "emotional": {
+   "n": 607,
+   "groups": 452,
+   "draws": 10000,
+   "seed": 7,
+   "note": "analysed records whose GoEmotions top-1 family != neutral",
+   "va": {
+    "observed": 0.8379,
+    "ci95": [
+     0.8203,
+     0.8551
+    ],
+    "boot_mean": 0.8376,
+    "boot_sd": 0.0089
+   },
+   "vsign": {
+    "observed": 0.6396,
+    "ci95": [
+     0.5856,
+     0.6877
+    ],
+    "boot_mean": 0.6389,
+    "boot_sd": 0.0261
+   },
+   "family": {
+    "observed": 0.5305,
+    "ci95": [
+     0.4733,
+     0.5874
+    ],
+    "boot_mean": 0.5296,
+    "boot_sd": 0.0294
+   },
+   "overlap": {
+    "observed": 0.5056,
+    "ci95": [
+     0.4651,
+     0.5468
+    ],
+    "boot_mean": 0.5048,
+    "boot_sd": 0.0211
+   }
+  },
+  "face": {
+   "n": 402,
+   "groups": 328,
+   "draws": 10000,
+   "seed": 7,
+   "note": "emotional records where BLIP-VQA reports >=1 person AND an expression word",
+   "va": {
+    "observed": 0.8423,
+    "ci95": [
+     0.8229,
+     0.8612
+    ],
+    "boot_mean": 0.842,
+    "boot_sd": 0.0097
+   },
+   "vsign": {
+    "observed": 0.7389,
+    "ci95": [
+     0.6829,
+     0.7922
+    ],
+    "boot_mean": 0.7379,
+    "boot_sd": 0.0279
+   },
+   "family": {
+    "observed": 0.6194,
+    "ci95": [
+     0.5582,
+     0.6805
+    ],
+    "boot_mean": 0.6186,
+    "boot_sd": 0.0311
+   },
+   "overlap": {
+    "observed": 0.5344,
+    "ci95": [
+     0.4919,
+     0.5766
+    ],
+    "boot_mean": 0.5338,
+    "boot_sd": 0.0216
+   }
+  },
+  "scene": {
+   "n": 205,
+   "groups": 150,
+   "draws": 10000,
+   "seed": 7,
+   "note": "emotional records not face-classified",
+   "va": {
+    "observed": 0.8293,
+    "ci95": [
+     0.8041,
+     0.8519
+    ],
+    "boot_mean": 0.8282,
+    "boot_sd": 0.0122
+   },
+   "vsign": {
+    "observed": 0.4294,
+    "ci95": [
+     0.3313,
+     0.5108
+    ],
+    "boot_mean": 0.4255,
+    "boot_sd": 0.046
+   },
+   "family": {
+    "observed": 0.3561,
+    "ci95": [
+     0.2644,
+     0.4413
+    ],
+    "boot_mean": 0.3528,
+    "boot_sd": 0.0452
+   },
+   "overlap": {
+    "observed": 0.4489,
+    "ci95": [
+     0.3873,
+     0.5103
+    ],
+    "boot_mean": 0.4462,
+    "boot_sd": 0.0317
+   }
+  },
+  "non_emotional": {
+   "n": 405,
+   "groups": 313,
+   "draws": 10000,
+   "seed": 7,
+   "note": "analysed records whose GoEmotions top-1 family == neutral (va only; vsign and family are degenerate: every prompt sign is 0 and every prompt family is neutral, so neither can vary under resampling)",
+   "va": {
+    "observed": 0.7662,
+    "ci95": [
+     0.7557,
+     0.7763
+    ],
+    "boot_mean": 0.7662,
+    "boot_sd": 0.0053
+   },
+   "vsign": "degenerate on this subset (prompt sign is 0 and prompt family is neutral for every record); not reported",
+   "family": "degenerate on this subset (prompt sign is 0 and prompt family is neutral for every record); not reported"
+  },
+  "all_analysed": {
+   "n": 1012,
+   "groups": 763,
+   "draws": 10000,
+   "seed": 7,
+   "note": "all 1,012 analysed records (ids 14..1025); vsign denominator = records with a signed prompt family",
+   "va": {
+    "observed": 0.8092,
+    "ci95": [
+     0.7964,
+     0.8229
+    ],
+    "boot_mean": 0.8091,
+    "boot_sd": 0.0068
+   },
+   "vsign": {
+    "observed": 0.6396,
+    "ci95": [
+     0.5863,
+     0.6873
+    ],
+    "boot_mean": 0.6387,
+    "boot_sd": 0.0257
+   },
+   "family": {
+    "observed": 0.4328,
+    "ci95": [
+     0.3879,
+     0.4793
+    ],
+    "boot_mean": 0.4325,
+    "boot_sd": 0.0234
+   },
+   "overlap": {
+    "observed": 0.4298,
+    "ci95": [
+     0.3985,
+     0.4643
+    ],
+    "boot_mean": 0.4295,
+    "boot_sd": 0.0168
+   }
+  },
+  "distinct_emotional": {
+   "n": 452,
+   "groups": 452,
+   "draws": 10000,
+   "seed": 7,
+   "note": "emotional, first record per dedup_key only",
+   "va": {
+    "observed": 0.8297,
+    "ci95": [
+     0.8152,
+     0.8437
+    ],
+    "boot_mean": 0.8297,
+    "boot_sd": 0.0072
+   },
+   "vsign": {
+    "observed": 0.6218,
+    "ci95": [
+     0.5718,
+     0.67
+    ],
+    "boot_mean": 0.622,
+    "boot_sd": 0.0249
+   },
+   "family": {
+    "observed": 0.5133,
+    "ci95": [
+     0.4668,
+     0.5597
+    ],
+    "boot_mean": 0.5134,
+    "boot_sd": 0.0238
+   },
+   "overlap": {
+    "observed": 0.4886,
+    "ci95": [
+     0.4592,
+     0.5192
+    ],
+    "boot_mean": 0.4887,
+    "boot_sd": 0.0153
+   }
+  },
+  "distinct_face": {
+   "n": 319,
+   "groups": 319,
+   "draws": 10000,
+   "seed": 7,
+   "note": "face, first record per dedup_key only",
+   "va": {
+    "observed": 0.8348,
+    "ci95": [
+     0.8169,
+     0.8517
+    ],
+    "boot_mean": 0.8346,
+    "boot_sd": 0.009
+   },
+   "vsign": {
+    "observed": 0.7183,
+    "ci95": [
+     0.6644,
+     0.7698
+    ],
+    "boot_mean": 0.7178,
+    "boot_sd": 0.0269
+   },
+   "family": {
+    "observed": 0.5987,
+    "ci95": [
+     0.5423,
+     0.652
+    ],
+    "boot_mean": 0.5983,
+    "boot_sd": 0.0275
+   },
+   "overlap": {
+    "observed": 0.5183,
+    "ci95": [
+     0.4814,
+     0.5539
+    ],
+    "boot_mean": 0.518,
+    "boot_sd": 0.0187
+   }
+  },
+  "distinct_scene": {
+   "n": 133,
+   "groups": 133,
+   "draws": 10000,
+   "seed": 7,
+   "note": "scene, first record per dedup_key only",
+   "va": {
+    "observed": 0.8176,
+    "ci95": [
+     0.7951,
+     0.8384
+    ],
+    "boot_mean": 0.8174,
+    "boot_sd": 0.0112
+   },
+   "vsign": {
+    "observed": 0.3727,
+    "ci95": [
+     0.2807,
+     0.4623
+    ],
+    "boot_mean": 0.3723,
+    "boot_sd": 0.0464
+   },
+   "family": {
+    "observed": 0.3083,
+    "ci95": [
+     0.2331,
+     0.3835
+    ],
+    "boot_mean": 0.3078,
+    "boot_sd": 0.04
+   },
+   "overlap": {
+    "observed": 0.4173,
+    "ci95": [
+     0.3694,
+     0.465
+    ],
+    "boot_mean": 0.417,
+    "boot_sd": 0.0244
+   }
+  }
+ },
+ "bootstrap_vs_significance_py": {
+  "note": "significance.py resamples emotional prompt groups and splits face/scene inside each draw; here each subset is resampled within itself. Intervals agree to within the stated pp.",
+  "rows": [
+   {
+    "subset": "face",
+    "metric": "vsign",
+    "this_ci95": [
+     0.6829,
+     0.7922
+    ],
+    "significance_py_ci95": [
+     0.682,
+     0.792
+    ],
+    "max_abs_diff_pp": 0.09
+   },
+   {
+    "subset": "scene",
+    "metric": "vsign",
+    "this_ci95": [
+     0.3313,
+     0.5108
+    ],
+    "significance_py_ci95": [
+     0.333,
+     0.511
+    ],
+    "max_abs_diff_pp": 0.17
+   },
+   {
+    "subset": "face",
+    "metric": "family",
+    "this_ci95": [
+     0.5582,
+     0.6805
+    ],
+    "significance_py_ci95": [
+     0.557,
+     0.68
+    ],
+    "max_abs_diff_pp": 0.12
+   },
+   {
+    "subset": "scene",
+    "metric": "family",
+    "this_ci95": [
+     0.2644,
+     0.4413
+    ],
+    "significance_py_ci95": [
+     0.267,
+     0.441
+    ],
+    "max_abs_diff_pp": 0.26
+   }
+  ]
+ },
+ "consistency_repeated_prompts": {
+  "definition": "within-group agreement of the image reader across repeated prompts: for each dedup_key group with >=2 analysed records, the fraction of records sharing the group's modal image family; reported as the mean over groups (each group weighted once, as data_audit_consistency.py does)",
+  "groups_ge2": 87,
+  "records_in_groups": 336,
+  "analysed": 1012,
+  "modal_family_fraction": 0.6877,
+  "fully_consistent_groups": 28,
+  "bootstrap_ci95_over_groups": {
+   "draws": 10000,
+   "seed": 7,
+   "ci95": [
+    0.6378,
+    0.7389
+   ],
+   "boot_mean": 0.6878,
+   "boot_sd": 0.0259
+  },
+  "permutation_null_shuffle_all_1012": {
+   "draws": 1000,
+   "mean": 0.5932,
+   "sd": 0.021,
+   "z": 4.4991,
+   "mean_as_quoted": "59.3%",
+   "z_as_quoted": "+4.5",
+   "p_perm_one_sided": 0.001,
+   "null_min": 0.5337,
+   "null_max": 0.6746,
+   "seed": 7,
+   "procedure": "image top-1 family shuffled across all 1,012 analysed records (random.Random(7).shuffle), records regrouped on their fixed dedup_key, mean modal-family fraction over the same 87 groups recomputed"
+  },
+  "permutation_null_shuffle_within_336": {
+   "draws": 1000,
+   "mean": 0.6067,
+   "sd": 0.018,
+   "z": 4.4912,
+   "mean_as_quoted": "60.7%",
+   "z_as_quoted": "+4.5",
+   "p_perm_one_sided": 0.001,
+   "null_min": 0.5501,
+   "null_max": 0.6708,
+   "seed": 7,
+   "procedure": "same, but the shuffle is restricted to the 336 records inside the 87 groups (secondary check)"
+  },
+  "permutation_null_shuffle_all_1012_300_draws": {
+   "draws": 300,
+   "mean": 0.5915,
+   "sd": 0.0195,
+   "z": 4.9429,
+   "mean_as_quoted": "59.1%",
+   "z_as_quoted": "+4.9",
+   "p_perm_one_sided": 0.0033,
+   "null_min": 0.5475,
+   "null_max": 0.6412,
+   "seed": 7,
+   "procedure": "identical to the 1,000-draw null but with the 300-shuffle convention of analysis_final.py \u2014 this is the procedure behind the published 59.1% / z+4.9"
+  },
+  "permutation_null_seed_sensitivity_1000_draws": [
+   {
+    "seed": 1,
+    "draws": 1000,
+    "null_mean": 0.5938,
+    "null_sd": 0.0218,
+    "z": 4.31
+   },
+   {
+    "seed": 2,
+    "draws": 1000,
+    "null_mean": 0.5925,
+    "null_sd": 0.0209,
+    "z": 4.56
+   },
+   {
+    "seed": 3,
+    "draws": 1000,
+    "null_mean": 0.5937,
+    "null_sd": 0.0212,
+    "z": 4.43
+   },
+   {
+    "seed": 4,
+    "draws": 1000,
+    "null_mean": 0.5924,
+    "null_sd": 0.0204,
+    "z": 4.68
+   },
+   {
+    "seed": 5,
+    "draws": 1000,
+    "null_mean": 0.594,
+    "null_sd": 0.0212,
+    "z": 4.42
+   }
+  ],
+  "modal_valence_fraction": 0.7449,
+  "valence_permutation_null_shuffle_all_1012": {
+   "draws": 1000,
+   "mean": 0.6359,
+   "sd": 0.0215,
+   "z": 5.0673,
+   "mean_as_quoted": "63.6%",
+   "z_as_quoted": "+5.1",
+   "p_perm_one_sided": 0.001,
+   "null_min": 0.5697,
+   "null_max": 0.7089,
+   "seed": 7
+  },
+  "published_value_to_reconcile": {
+   "null": 0.591,
+   "z": 4.9,
+   "where": "final/01_PROJECT_A_TO_Z.md \u00a715-16, 02_VIVA_QUESTIONS.md, 03_REVISION_SHEET.md, 06_MOCK_VIVA.md \u2014 no script in the repository produced it"
+  },
+  "published_pair_reproduced_at_300_draws_seed_7": true,
+  "reconciliation": "The published pair (null 59.1%, z+4.9) is reproduced exactly by the same procedure at 300 draws, seed 7: null mean 59.1% (0.5915), sd 0.0195, z+4.9 (+4.94). At the 1,000 draws specified for this script the null mean is 0.5932 (sd 0.0210) and z+4.50; across seeds 1..5 at 1,000 draws z ranges +4.31 to +4.68. The null MEAN is stable; the published z+4.9 sits at the top of the seed range because the 300-draw estimate of the null sd happened to be low (0.0195 vs 0.0210). Quote: modal-family fraction 68.8% against a permutation null of 59.3% (1,000 draws), z+4.5, permutation p = 0.001, clustered bootstrap CI [63.8%, 73.9%], which excludes the null mean."
+ },
+ "cohens_kappa_family_agreement": {
+  "emotional": {
+   "n": 607,
+   "groups": 452,
+   "kappa": 0.2348,
+   "ci95": [
+    0.1811,
+    0.2857
+   ],
+   "boot_mean": 0.2338,
+   "boot_sd": 0.0266,
+   "observed_agreement_po": 0.5305,
+   "chance_agreement_pe": 0.3864,
+   "confusion_7x7_prompt_rows_image_cols": [
+    [
+     261,
+     26,
+     18,
+     1,
+     33,
+     0,
+     63
+    ],
+    [
+     27,
+     40,
+     20,
+     1,
+     5,
+     0,
+     6
+    ],
+    [
+     1,
+     2,
+     6,
+     0,
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     6,
+     3,
+     0,
+     3,
+     0,
+     4
+    ],
+    [
+     32,
+     9,
+     3,
+     0,
+     15,
+     0,
+     18
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "face": {
+   "n": 402,
+   "groups": 328,
+   "kappa": 0.2993,
+   "ci95": [
+    0.2251,
+    0.3714
+   ],
+   "boot_mean": 0.2981,
+   "boot_sd": 0.0369,
+   "observed_agreement_po": 0.6194,
+   "chance_agreement_pe": 0.4568,
+   "confusion_7x7_prompt_rows_image_cols": [
+    [
+     204,
+     20,
+     15,
+     1,
+     12,
+     0,
+     17
+    ],
+    [
+     24,
+     34,
+     15,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     4,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     5,
+     2,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     23,
+     7,
+     2,
+     0,
+     7,
+     0,
+     3
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "scene": {
+   "n": 205,
+   "groups": 150,
+   "kappa": 0.1285,
+   "ci95": [
+    0.0577,
+    0.1897
+   ],
+   "boot_mean": 0.1248,
+   "boot_sd": 0.0335,
+   "observed_agreement_po": 0.3561,
+   "chance_agreement_pe": 0.2612,
+   "confusion_7x7_prompt_rows_image_cols": [
+    [
+     57,
+     6,
+     3,
+     0,
+     21,
+     0,
+     46
+    ],
+    [
+     3,
+     6,
+     5,
+     0,
+     3,
+     0,
+     6
+    ],
+    [
+     1,
+     1,
+     2,
+     0,
+     1,
+     0,
+     1
+    ],
+    [
+     0,
+     1,
+     1,
+     0,
+     1,
+     0,
+     4
+    ],
+    [
+     9,
+     2,
+     1,
+     0,
+     8,
+     0,
+     15
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "non_emotional": {
+   "n": 405,
+   "kappa": 0.0,
+   "note": "degenerate: every prompt family is neutral, so observed agreement equals chance agreement and kappa is 0 by construction; not a result"
+  },
+  "all_analysed": {
+   "n": 1012,
+   "groups": 763,
+   "kappa": 0.2051,
+   "ci95": [
+    0.1598,
+    0.2487
+   ],
+   "boot_mean": 0.2044,
+   "boot_sd": 0.0225,
+   "observed_agreement_po": 0.4328,
+   "chance_agreement_pe": 0.2865,
+   "confusion_7x7_prompt_rows_image_cols": [
+    [
+     261,
+     26,
+     18,
+     1,
+     33,
+     0,
+     63
+    ],
+    [
+     27,
+     40,
+     20,
+     1,
+     5,
+     0,
+     6
+    ],
+    [
+     1,
+     2,
+     6,
+     0,
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     6,
+     3,
+     0,
+     3,
+     0,
+     4
+    ],
+    [
+     32,
+     9,
+     3,
+     0,
+     15,
+     0,
+     18
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     140,
+     58,
+     39,
+     2,
+     50,
+     0,
+     116
+    ]
+   ]
+  },
+  "distinct_emotional": {
+   "n": 452,
+   "groups": 452,
+   "kappa": 0.2263,
+   "ci95": [
+    0.1671,
+    0.2857
+   ],
+   "boot_mean": 0.2263,
+   "boot_sd": 0.0303,
+   "observed_agreement_po": 0.5133,
+   "chance_agreement_pe": 0.3709,
+   "confusion_7x7_prompt_rows_image_cols": [
+    [
+     182,
+     21,
+     17,
+     1,
+     27,
+     0,
+     45
+    ],
+    [
+     22,
+     34,
+     15,
+     0,
+     3,
+     0,
+     2
+    ],
+    [
+     1,
+     2,
+     5,
+     0,
+     1,
+     0,
+     2
+    ],
+    [
+     0,
+     5,
+     2,
+     0,
+     2,
+     0,
+     4
+    ],
+    [
+     25,
+     8,
+     1,
+     0,
+     11,
+     0,
+     13
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "distinct_face": {
+   "n": 319,
+   "groups": 319,
+   "kappa": 0.2947,
+   "ci95": [
+    0.2144,
+    0.3713
+   ],
+   "boot_mean": 0.2935,
+   "boot_sd": 0.0397,
+   "observed_agreement_po": 0.5987,
+   "chance_agreement_pe": 0.4311,
+   "confusion_7x7_prompt_rows_image_cols": [
+    [
+     151,
+     17,
+     14,
+     1,
+     11,
+     0,
+     14
+    ],
+    [
+     19,
+     30,
+     12,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     1,
+     4,
+     0,
+     0,
+     0,
+     1
+    ],
+    [
+     0,
+     5,
+     1,
+     0,
+     2,
+     0,
+     0
+    ],
+    [
+     19,
+     6,
+     1,
+     0,
+     6,
+     0,
+     3
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "distinct_scene": {
+   "n": 133,
+   "groups": 133,
+   "kappa": 0.0892,
+   "ci95": [
+    0.012,
+    0.1691
+   ],
+   "boot_mean": 0.0888,
+   "boot_sd": 0.0399,
+   "observed_agreement_po": 0.3083,
+   "chance_agreement_pe": 0.2405,
+   "confusion_7x7_prompt_rows_image_cols": [
+    [
+     31,
+     4,
+     3,
+     0,
+     16,
+     0,
+     31
+    ],
+    [
+     3,
+     4,
+     3,
+     0,
+     2,
+     0,
+     2
+    ],
+    [
+     1,
+     1,
+     1,
+     0,
+     1,
+     0,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     0,
+     0,
+     0,
+     4
+    ],
+    [
+     6,
+     2,
+     0,
+     0,
+     5,
+     0,
+     10
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ]
+  },
+  "_families": [
+   "joy",
+   "sadness",
+   "anger",
+   "fear",
+   "surprise",
+   "disgust",
+   "neutral"
+  ],
+  "_note": "Cohen's kappa on the 7x7 prompt-family x image-family confusion matrix. pe is chance agreement from the two readers' marginals \u2014 the quantity the 300-shuffle random-pairing null estimates for the family metric \u2014 so kappa ~= (observed - null) / (1 - null). CIs are percentile intervals from the same clustered bootstrap as section (1)."
+ },
+ "holm_bonferroni": {
+  "assumption": "Each z is converted to a two-sided p by the normal approximation p = erfc(|z|/sqrt(2)), i.e. the 300-shuffle null is treated as normal with its sample sd taken as known. For z above ~5 the p is nominal (the sd is estimated from 300 draws), but the ordering, and the Holm decisions, do not depend on it.",
+  "printed_z_values": 48,
+  "flagged_degenerate_excluded": 12,
+  "tested": 36,
+  "degenerate_excluded_list": [
+   "FULL positive prompts vsign (z+0.0; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy))",
+   "FULL positive prompts family (z+0.0; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy))",
+   "FULL negative prompts vsign (z+0.0; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -))",
+   "FULL negative prompts family (z+2.1; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -))",
+   "FULL non-emotional vsign (z+0.0; every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction))",
+   "FULL non-emotional family (z+0.0; every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction))",
+   "DISTINCT positive prompts vsign (z+0.0; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy))",
+   "DISTINCT positive prompts family (z+0.0; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy))",
+   "DISTINCT negative prompts vsign (z+0.0; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -))",
+   "DISTINCT negative prompts family (z+2.1; single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -))",
+   "DISTINCT non-emotional vsign (z+0.0; every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction))",
+   "DISTINCT non-emotional family (z+0.0; every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction))"
+  ],
+  "family_wise_alpha": 0.05,
+  "primary_family_all_non_degenerate": {
+   "m": 36,
+   "bonferroni_z_for_smallest_rank": 3.2,
+   "holm_n_survive": 26,
+   "holm_n_do_not_survive": 10,
+   "survive": [
+    "FULL ALL emotional va z+12.2",
+    "FULL face images overlap z+11.6",
+    "FULL ALL emotional overlap z+11.6",
+    "FULL face images va z+11.2",
+    "FULL ALL emotional vsign z+11.1",
+    "DISTINCT ALL emotional overlap z+10.8",
+    "DISTINCT ALL emotional va z+10.6",
+    "FULL face images vsign z+10.4",
+    "FULL ALL emotional family z+10.3",
+    "FULL face images family z+10.3",
+    "DISTINCT ALL emotional vsign z+9.9",
+    "DISTINCT face images overlap z+9.7",
+    "DISTINCT face images va z+9.7",
+    "DISTINCT ALL emotional family z+9.3",
+    "DISTINCT face images vsign z+8.4",
+    "DISTINCT face images family z+8.1",
+    "FULL scene images va z+6.0",
+    "FULL scene images vsign z+5.8",
+    "FULL scene images overlap z+4.9",
+    "FULL scene images family z+4.4",
+    "FULL positive prompts va z+3.9",
+    "DISTINCT scene images va z+3.6",
+    "DISTINCT scene images vsign z+3.5",
+    "DISTINCT positive prompts va z+3.3",
+    "DISTINCT scene images overlap z+3.1",
+    "FULL negative prompts overlap z+3.0"
+   ],
+   "do_not_survive": [
+    "DISTINCT negative prompts overlap z+2.7",
+    "DISTINCT scene images family z+2.6",
+    "FULL positive prompts overlap z+2.3",
+    "FULL negative prompts va z+2.1",
+    "DISTINCT positive prompts overlap z+1.9",
+    "DISTINCT negative prompts va z+1.6",
+    "DISTINCT non-emotional va z+1.1",
+    "DISTINCT non-emotional overlap z+0.8",
+    "FULL non-emotional va z+0.3",
+    "FULL non-emotional overlap z+0.0"
+   ],
+   "bonferroni_n_survive": 24,
+   "bonferroni_do_not_survive": [
+    "DISTINCT scene images overlap z+3.1",
+    "FULL negative prompts overlap z+3.0",
+    "DISTINCT negative prompts overlap z+2.7",
+    "DISTINCT scene images family z+2.6",
+    "FULL positive prompts overlap z+2.3",
+    "FULL negative prompts va z+2.1",
+    "DISTINCT positive prompts overlap z+1.9",
+    "DISTINCT negative prompts va z+1.6",
+    "DISTINCT non-emotional va z+1.1",
+    "DISTINCT non-emotional overlap z+0.8",
+    "FULL non-emotional va z+0.3",
+    "FULL non-emotional overlap z+0.0"
+   ],
+   "table": [
+    {
+     "rank": 1,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "va",
+     "z": 12.242,
+     "p": 1.848e-34,
+     "holm_threshold": 0.001389,
+     "holm_threshold_as_z": 3.2,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 2,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "overlap",
+     "z": 11.632,
+     "p": 2.819e-31,
+     "holm_threshold": 0.001429,
+     "holm_threshold_as_z": 3.19,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 3,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "overlap",
+     "z": 11.604,
+     "p": 3.93e-31,
+     "holm_threshold": 0.001471,
+     "holm_threshold_as_z": 3.18,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 4,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "va",
+     "z": 11.197,
+     "p": 4.216e-29,
+     "holm_threshold": 0.001515,
+     "holm_threshold_as_z": 3.17,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 5,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "vsign",
+     "z": 11.118,
+     "p": 1.028e-28,
+     "holm_threshold": 0.001563,
+     "holm_threshold_as_z": 3.16,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 6,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "overlap",
+     "z": 10.847,
+     "p": 2.067e-27,
+     "holm_threshold": 0.001613,
+     "holm_threshold_as_z": 3.15,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 7,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "va",
+     "z": 10.608,
+     "p": 2.74e-26,
+     "holm_threshold": 0.001667,
+     "holm_threshold_as_z": 3.14,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 8,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "vsign",
+     "z": 10.388,
+     "p": 2.808e-25,
+     "holm_threshold": 0.001724,
+     "holm_threshold_as_z": 3.13,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 9,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "family",
+     "z": 10.324,
+     "p": 5.511e-25,
+     "holm_threshold": 0.001786,
+     "holm_threshold_as_z": 3.12,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 10,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "family",
+     "z": 10.274,
+     "p": 9.218e-25,
+     "holm_threshold": 0.001852,
+     "holm_threshold_as_z": 3.11,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 11,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "vsign",
+     "z": 9.926,
+     "p": 3.225e-23,
+     "holm_threshold": 0.001923,
+     "holm_threshold_as_z": 3.1,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 12,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "overlap",
+     "z": 9.722,
+     "p": 2.433e-22,
+     "holm_threshold": 0.002,
+     "holm_threshold_as_z": 3.09,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 13,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "va",
+     "z": 9.666,
+     "p": 4.208e-22,
+     "holm_threshold": 0.002083,
+     "holm_threshold_as_z": 3.08,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 14,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "family",
+     "z": 9.306,
+     "p": 1.322e-20,
+     "holm_threshold": 0.002174,
+     "holm_threshold_as_z": 3.07,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 15,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "vsign",
+     "z": 8.448,
+     "p": 2.954e-17,
+     "holm_threshold": 0.002273,
+     "holm_threshold_as_z": 3.05,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 16,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "family",
+     "z": 8.122,
+     "p": 4.571e-16,
+     "holm_threshold": 0.002381,
+     "holm_threshold_as_z": 3.04,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 17,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "va",
+     "z": 5.975,
+     "p": 2.3e-09,
+     "holm_threshold": 0.0025,
+     "holm_threshold_as_z": 3.02,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 18,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "vsign",
+     "z": 5.812,
+     "p": 6.164e-09,
+     "holm_threshold": 0.002632,
+     "holm_threshold_as_z": 3.01,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 19,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "overlap",
+     "z": 4.865,
+     "p": 1.143e-06,
+     "holm_threshold": 0.002778,
+     "holm_threshold_as_z": 2.99,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 20,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "family",
+     "z": 4.352,
+     "p": 1.346e-05,
+     "holm_threshold": 0.002941,
+     "holm_threshold_as_z": 2.97,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 21,
+     "block": "FULL",
+     "subset": "positive prompts",
+     "metric": "va",
+     "z": 3.868,
+     "p": 0.0001097,
+     "holm_threshold": 0.003125,
+     "holm_threshold_as_z": 2.96,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 22,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "va",
+     "z": 3.612,
+     "p": 0.0003034,
+     "holm_threshold": 0.003333,
+     "holm_threshold_as_z": 2.94,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 23,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "vsign",
+     "z": 3.467,
+     "p": 0.0005262,
+     "holm_threshold": 0.003571,
+     "holm_threshold_as_z": 2.91,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 24,
+     "block": "DISTINCT",
+     "subset": "positive prompts",
+     "metric": "va",
+     "z": 3.253,
+     "p": 0.001143,
+     "holm_threshold": 0.003846,
+     "holm_threshold_as_z": 2.89,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 25,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "overlap",
+     "z": 3.081,
+     "p": 0.002065,
+     "holm_threshold": 0.004167,
+     "holm_threshold_as_z": 2.87,
+     "survives": true,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 26,
+     "block": "FULL",
+     "subset": "negative prompts",
+     "metric": "overlap",
+     "z": 3.02,
+     "p": 0.002529,
+     "holm_threshold": 0.004545,
+     "holm_threshold_as_z": 2.84,
+     "survives": true,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 27,
+     "block": "DISTINCT",
+     "subset": "negative prompts",
+     "metric": "overlap",
+     "z": 2.715,
+     "p": 0.006622,
+     "holm_threshold": 0.005,
+     "holm_threshold_as_z": 2.81,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 28,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "family",
+     "z": 2.559,
+     "p": 0.01048,
+     "holm_threshold": 0.005556,
+     "holm_threshold_as_z": 2.77,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 29,
+     "block": "FULL",
+     "subset": "positive prompts",
+     "metric": "overlap",
+     "z": 2.277,
+     "p": 0.02276,
+     "holm_threshold": 0.00625,
+     "holm_threshold_as_z": 2.73,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 30,
+     "block": "FULL",
+     "subset": "negative prompts",
+     "metric": "va",
+     "z": 2.105,
+     "p": 0.03529,
+     "holm_threshold": 0.007143,
+     "holm_threshold_as_z": 2.69,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 31,
+     "block": "DISTINCT",
+     "subset": "positive prompts",
+     "metric": "overlap",
+     "z": 1.912,
+     "p": 0.05584,
+     "holm_threshold": 0.008333,
+     "holm_threshold_as_z": 2.64,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 32,
+     "block": "DISTINCT",
+     "subset": "negative prompts",
+     "metric": "va",
+     "z": 1.607,
+     "p": 0.108,
+     "holm_threshold": 0.01,
+     "holm_threshold_as_z": 2.58,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 33,
+     "block": "DISTINCT",
+     "subset": "non-emotional",
+     "metric": "va",
+     "z": 1.139,
+     "p": 0.2549,
+     "holm_threshold": 0.0125,
+     "holm_threshold_as_z": 2.5,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 34,
+     "block": "DISTINCT",
+     "subset": "non-emotional",
+     "metric": "overlap",
+     "z": 0.827,
+     "p": 0.4085,
+     "holm_threshold": 0.01667,
+     "holm_threshold_as_z": 2.39,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 35,
+     "block": "FULL",
+     "subset": "non-emotional",
+     "metric": "va",
+     "z": 0.319,
+     "p": 0.7497,
+     "holm_threshold": 0.025,
+     "holm_threshold_as_z": 2.24,
+     "survives": false,
+     "bonferroni_survives": false
+    },
+    {
+     "rank": 36,
+     "block": "FULL",
+     "subset": "non-emotional",
+     "metric": "overlap",
+     "z": 0.005,
+     "p": 0.9956,
+     "holm_threshold": 0.05,
+     "holm_threshold_as_z": 1.96,
+     "survives": false,
+     "bonferroni_survives": false
+    }
+   ]
+  },
+  "secondary_family_main_table_only": {
+   "definition": "emotional / face / scene x four metrics x FULL and DISTINCT blocks",
+   "m": 24,
+   "bonferroni_z_for_smallest_rank": 3.08,
+   "holm_n_survive": 24,
+   "holm_n_do_not_survive": 0,
+   "survive": [
+    "FULL ALL emotional va z+12.2",
+    "FULL face images overlap z+11.6",
+    "FULL ALL emotional overlap z+11.6",
+    "FULL face images va z+11.2",
+    "FULL ALL emotional vsign z+11.1",
+    "DISTINCT ALL emotional overlap z+10.8",
+    "DISTINCT ALL emotional va z+10.6",
+    "FULL face images vsign z+10.4",
+    "FULL ALL emotional family z+10.3",
+    "FULL face images family z+10.3",
+    "DISTINCT ALL emotional vsign z+9.9",
+    "DISTINCT face images overlap z+9.7",
+    "DISTINCT face images va z+9.7",
+    "DISTINCT ALL emotional family z+9.3",
+    "DISTINCT face images vsign z+8.4",
+    "DISTINCT face images family z+8.1",
+    "FULL scene images va z+6.0",
+    "FULL scene images vsign z+5.8",
+    "FULL scene images overlap z+4.9",
+    "FULL scene images family z+4.4",
+    "DISTINCT scene images va z+3.6",
+    "DISTINCT scene images vsign z+3.5",
+    "DISTINCT scene images overlap z+3.1",
+    "DISTINCT scene images family z+2.6"
+   ],
+   "do_not_survive": [],
+   "bonferroni_n_survive": 23,
+   "bonferroni_do_not_survive": [
+    "DISTINCT scene images family z+2.6"
+   ],
+   "table": [
+    {
+     "rank": 1,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "va",
+     "z": 12.242,
+     "p": 1.848e-34,
+     "holm_threshold": 0.002083,
+     "holm_threshold_as_z": 3.08,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 2,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "overlap",
+     "z": 11.632,
+     "p": 2.819e-31,
+     "holm_threshold": 0.002174,
+     "holm_threshold_as_z": 3.07,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 3,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "overlap",
+     "z": 11.604,
+     "p": 3.93e-31,
+     "holm_threshold": 0.002273,
+     "holm_threshold_as_z": 3.05,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 4,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "va",
+     "z": 11.197,
+     "p": 4.216e-29,
+     "holm_threshold": 0.002381,
+     "holm_threshold_as_z": 3.04,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 5,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "vsign",
+     "z": 11.118,
+     "p": 1.028e-28,
+     "holm_threshold": 0.0025,
+     "holm_threshold_as_z": 3.02,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 6,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "overlap",
+     "z": 10.847,
+     "p": 2.067e-27,
+     "holm_threshold": 0.002632,
+     "holm_threshold_as_z": 3.01,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 7,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "va",
+     "z": 10.608,
+     "p": 2.74e-26,
+     "holm_threshold": 0.002778,
+     "holm_threshold_as_z": 2.99,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 8,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "vsign",
+     "z": 10.388,
+     "p": 2.808e-25,
+     "holm_threshold": 0.002941,
+     "holm_threshold_as_z": 2.97,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 9,
+     "block": "FULL",
+     "subset": "ALL emotional",
+     "metric": "family",
+     "z": 10.324,
+     "p": 5.511e-25,
+     "holm_threshold": 0.003125,
+     "holm_threshold_as_z": 2.96,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 10,
+     "block": "FULL",
+     "subset": "face images",
+     "metric": "family",
+     "z": 10.274,
+     "p": 9.218e-25,
+     "holm_threshold": 0.003333,
+     "holm_threshold_as_z": 2.94,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 11,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "vsign",
+     "z": 9.926,
+     "p": 3.225e-23,
+     "holm_threshold": 0.003571,
+     "holm_threshold_as_z": 2.91,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 12,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "overlap",
+     "z": 9.722,
+     "p": 2.433e-22,
+     "holm_threshold": 0.003846,
+     "holm_threshold_as_z": 2.89,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 13,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "va",
+     "z": 9.666,
+     "p": 4.208e-22,
+     "holm_threshold": 0.004167,
+     "holm_threshold_as_z": 2.87,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 14,
+     "block": "DISTINCT",
+     "subset": "ALL emotional",
+     "metric": "family",
+     "z": 9.306,
+     "p": 1.322e-20,
+     "holm_threshold": 0.004545,
+     "holm_threshold_as_z": 2.84,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 15,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "vsign",
+     "z": 8.448,
+     "p": 2.954e-17,
+     "holm_threshold": 0.005,
+     "holm_threshold_as_z": 2.81,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 16,
+     "block": "DISTINCT",
+     "subset": "face images",
+     "metric": "family",
+     "z": 8.122,
+     "p": 4.571e-16,
+     "holm_threshold": 0.005556,
+     "holm_threshold_as_z": 2.77,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 17,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "va",
+     "z": 5.975,
+     "p": 2.3e-09,
+     "holm_threshold": 0.00625,
+     "holm_threshold_as_z": 2.73,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 18,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "vsign",
+     "z": 5.812,
+     "p": 6.164e-09,
+     "holm_threshold": 0.007143,
+     "holm_threshold_as_z": 2.69,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 19,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "overlap",
+     "z": 4.865,
+     "p": 1.143e-06,
+     "holm_threshold": 0.008333,
+     "holm_threshold_as_z": 2.64,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 20,
+     "block": "FULL",
+     "subset": "scene images",
+     "metric": "family",
+     "z": 4.352,
+     "p": 1.346e-05,
+     "holm_threshold": 0.01,
+     "holm_threshold_as_z": 2.58,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 21,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "va",
+     "z": 3.612,
+     "p": 0.0003034,
+     "holm_threshold": 0.0125,
+     "holm_threshold_as_z": 2.5,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 22,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "vsign",
+     "z": 3.467,
+     "p": 0.0005262,
+     "holm_threshold": 0.01667,
+     "holm_threshold_as_z": 2.39,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 23,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "overlap",
+     "z": 3.081,
+     "p": 0.002065,
+     "holm_threshold": 0.025,
+     "holm_threshold_as_z": 2.24,
+     "survives": true,
+     "bonferroni_survives": true
+    },
+    {
+     "rank": 24,
+     "block": "DISTINCT",
+     "subset": "scene images",
+     "metric": "family",
+     "z": 2.559,
+     "p": 0.01048,
+     "holm_threshold": 0.05,
+     "holm_threshold_as_z": 1.96,
+     "survives": true,
+     "bonferroni_survives": false
+    }
+   ]
+  },
+  "z_table": [
+   {
+    "block": "FULL",
+    "subset": "ALL emotional",
+    "n": 607,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8379,
+    "null_mean": 0.7732,
+    "null_sd": 0.0053,
+    "z": 12.242,
+    "z_printed_by_analysis_final": 12.2,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.848e-34,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "ALL emotional",
+    "n": 607,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.6396,
+    "null_mean": 0.4561,
+    "null_sd": 0.0165,
+    "z": 11.118,
+    "z_printed_by_analysis_final": 11.1,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.028e-28,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "ALL emotional",
+    "n": 607,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.5305,
+    "null_mean": 0.3877,
+    "null_sd": 0.0138,
+    "z": 10.324,
+    "z_printed_by_analysis_final": 10.3,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 5.511e-25,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "ALL emotional",
+    "n": 607,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.5056,
+    "null_mean": 0.3944,
+    "null_sd": 0.0096,
+    "z": 11.604,
+    "z_printed_by_analysis_final": 11.6,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 3.93e-31,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "face images",
+    "n": 402,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8423,
+    "null_mean": 0.7638,
+    "null_sd": 0.007,
+    "z": 11.197,
+    "z_printed_by_analysis_final": 11.2,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 4.216e-29,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "face images",
+    "n": 402,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.7389,
+    "null_mean": 0.5346,
+    "null_sd": 0.0197,
+    "z": 10.388,
+    "z_printed_by_analysis_final": 10.4,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 2.808e-25,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "face images",
+    "n": 402,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.6194,
+    "null_mean": 0.4581,
+    "null_sd": 0.0157,
+    "z": 10.274,
+    "z_printed_by_analysis_final": 10.3,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 9.218e-25,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "face images",
+    "n": 402,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.5344,
+    "null_mean": 0.4038,
+    "null_sd": 0.0112,
+    "z": 11.632,
+    "z_printed_by_analysis_final": 11.6,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 2.819e-31,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "scene images",
+    "n": 205,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8293,
+    "null_mean": 0.7908,
+    "null_sd": 0.0064,
+    "z": 5.975,
+    "z_printed_by_analysis_final": 6.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 2.3e-09,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "scene images",
+    "n": 205,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.4294,
+    "null_mean": 0.2958,
+    "null_sd": 0.023,
+    "z": 5.812,
+    "z_printed_by_analysis_final": 5.8,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 6.164e-09,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "scene images",
+    "n": 205,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.3561,
+    "null_mean": 0.2616,
+    "null_sd": 0.0217,
+    "z": 4.352,
+    "z_printed_by_analysis_final": 4.4,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.346e-05,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "scene images",
+    "n": 205,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.4489,
+    "null_mean": 0.3814,
+    "null_sd": 0.0139,
+    "z": 4.865,
+    "z_printed_by_analysis_final": 4.9,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.143e-06,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "FULL",
+    "subset": "positive prompts",
+    "n": 402,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8663,
+    "null_mean": 0.859,
+    "null_sd": 0.0019,
+    "z": 3.868,
+    "z_printed_by_analysis_final": 3.9,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.0001097,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "positive prompts",
+    "n": 402,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.6493,
+    "null_mean": 0.6493,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy)",
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "positive prompts",
+    "n": 402,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.6493,
+    "null_mean": 0.6493,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy)",
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "positive prompts",
+    "n": 402,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.5741,
+    "null_mean": 0.5637,
+    "null_sd": 0.0046,
+    "z": 2.277,
+    "z_printed_by_analysis_final": 2.3,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.02276,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "negative prompts",
+    "n": 128,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.7592,
+    "null_mean": 0.7454,
+    "null_sd": 0.0066,
+    "z": 2.105,
+    "z_printed_by_analysis_final": 2.1,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.03529,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "negative prompts",
+    "n": 128,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.6094,
+    "null_mean": 0.6094,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -)",
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "negative prompts",
+    "n": 128,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.3594,
+    "null_mean": 0.31,
+    "null_sd": 0.023,
+    "z": 2.149,
+    "z_printed_by_analysis_final": 2.1,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.0316,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -)",
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "negative prompts",
+    "n": 128,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.3537,
+    "null_mean": 0.3029,
+    "null_sd": 0.0168,
+    "z": 3.02,
+    "z_printed_by_analysis_final": 3.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.002529,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "non-emotional",
+    "n": 405,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.7662,
+    "null_mean": 0.7656,
+    "null_sd": 0.0016,
+    "z": 0.319,
+    "z_printed_by_analysis_final": 0.3,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.7497,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "non-emotional",
+    "n": 405,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.0,
+    "null_mean": 0.0,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction)",
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "non-emotional",
+    "n": 405,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.2864,
+    "null_mean": 0.2864,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction)",
+    "in_main_table": false
+   },
+   {
+    "block": "FULL",
+    "subset": "non-emotional",
+    "n": 405,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.3162,
+    "null_mean": 0.3162,
+    "null_sd": 0.0035,
+    "z": 0.005,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.9956,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "ALL emotional",
+    "n": 452,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8297,
+    "null_mean": 0.7654,
+    "null_sd": 0.0061,
+    "z": 10.608,
+    "z_printed_by_analysis_final": 10.6,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 2.74e-26,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "ALL emotional",
+    "n": 452,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.6218,
+    "null_mean": 0.4435,
+    "null_sd": 0.018,
+    "z": 9.926,
+    "z_printed_by_analysis_final": 9.9,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 3.225e-23,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "ALL emotional",
+    "n": 452,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.5133,
+    "null_mean": 0.3723,
+    "null_sd": 0.0151,
+    "z": 9.306,
+    "z_printed_by_analysis_final": 9.3,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.322e-20,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "ALL emotional",
+    "n": 452,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.4886,
+    "null_mean": 0.3765,
+    "null_sd": 0.0103,
+    "z": 10.847,
+    "z_printed_by_analysis_final": 10.8,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 2.067e-27,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "face images",
+    "n": 319,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8348,
+    "null_mean": 0.7555,
+    "null_sd": 0.0082,
+    "z": 9.666,
+    "z_printed_by_analysis_final": 9.7,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 4.208e-22,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "face images",
+    "n": 319,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.7183,
+    "null_mean": 0.5101,
+    "null_sd": 0.0246,
+    "z": 8.448,
+    "z_printed_by_analysis_final": 8.4,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 2.954e-17,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "face images",
+    "n": 319,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.5987,
+    "null_mean": 0.4304,
+    "null_sd": 0.0207,
+    "z": 8.122,
+    "z_printed_by_analysis_final": 8.1,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 4.571e-16,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "face images",
+    "n": 319,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.5183,
+    "null_mean": 0.384,
+    "null_sd": 0.0138,
+    "z": 9.722,
+    "z_printed_by_analysis_final": 9.7,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 2.433e-22,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "scene images",
+    "n": 133,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8176,
+    "null_mean": 0.7886,
+    "null_sd": 0.008,
+    "z": 3.612,
+    "z_printed_by_analysis_final": 3.6,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.0003034,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "scene images",
+    "n": 133,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.3727,
+    "null_mean": 0.2715,
+    "null_sd": 0.0292,
+    "z": 3.467,
+    "z_printed_by_analysis_final": 3.5,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.0005262,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "scene images",
+    "n": 133,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.3083,
+    "null_mean": 0.2411,
+    "null_sd": 0.0262,
+    "z": 2.559,
+    "z_printed_by_analysis_final": 2.6,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.01048,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "scene images",
+    "n": 133,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.4173,
+    "null_mean": 0.3671,
+    "null_sd": 0.0163,
+    "z": 3.081,
+    "z_printed_by_analysis_final": 3.1,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.002065,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": true
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "positive prompts",
+    "n": 293,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.8553,
+    "null_mean": 0.8481,
+    "null_sd": 0.0022,
+    "z": 3.253,
+    "z_printed_by_analysis_final": 3.3,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.001143,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "positive prompts",
+    "n": 293,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.6212,
+    "null_mean": 0.6212,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy)",
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "positive prompts",
+    "n": 293,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.6212,
+    "null_mean": 0.6212,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is +; every prompt family is joy)",
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "positive prompts",
+    "n": 293,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.546,
+    "null_mean": 0.5359,
+    "null_sd": 0.0053,
+    "z": 1.912,
+    "z_printed_by_analysis_final": 1.9,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.05584,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "negative prompts",
+    "n": 101,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.7617,
+    "null_mean": 0.748,
+    "null_sd": 0.0085,
+    "z": 1.607,
+    "z_printed_by_analysis_final": 1.6,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.108,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "negative prompts",
+    "n": 101,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.6238,
+    "null_mean": 0.6238,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -)",
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "negative prompts",
+    "n": 101,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.3861,
+    "null_mean": 0.3295,
+    "null_sd": 0.0272,
+    "z": 2.08,
+    "z_printed_by_analysis_final": 2.1,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.03755,
+    "degenerate": true,
+    "degenerate_reason": "single-sign subset: analysis_final.py flags sign/family nulls DEGENERATE (every prompt sign is -)",
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "negative prompts",
+    "n": 101,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.3673,
+    "null_mean": 0.3099,
+    "null_sd": 0.0211,
+    "z": 2.715,
+    "z_printed_by_analysis_final": 2.7,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.006622,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "non-emotional",
+    "n": 311,
+    "metric": "va",
+    "metric_name": "valence-arousal similarity",
+    "observed": 0.7658,
+    "null_mean": 0.7638,
+    "null_sd": 0.0018,
+    "z": 1.139,
+    "z_printed_by_analysis_final": 1.1,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.2549,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "non-emotional",
+    "n": 311,
+    "metric": "vsign",
+    "metric_name": "valence-sign agreement",
+    "observed": 0.0,
+    "null_mean": 0.0,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction)",
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "non-emotional",
+    "n": 311,
+    "metric": "family",
+    "metric_name": "family agreement",
+    "observed": 0.2765,
+    "null_mean": 0.2765,
+    "null_sd": 0.0,
+    "z": 0.0,
+    "z_printed_by_analysis_final": 0.0,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 1.0,
+    "degenerate": true,
+    "degenerate_reason": "every prompt sign is 0 and every prompt family is neutral: sign and family cannot vary under shuffling (z is 0 by construction)",
+    "in_main_table": false
+   },
+   {
+    "block": "DISTINCT",
+    "subset": "non-emotional",
+    "n": 311,
+    "metric": "overlap",
+    "metric_name": "top-3 overlap agreement",
+    "observed": 0.3142,
+    "null_mean": 0.3112,
+    "null_sd": 0.0037,
+    "z": 0.827,
+    "z_printed_by_analysis_final": 0.8,
+    "reproduced_to_printed_digit": true,
+    "p_two_sided_normal": 0.4085,
+    "degenerate": false,
+    "degenerate_reason": null,
+    "in_main_table": false
+   }
+  ],
+  "distinct_scene_family": {
+   "z": 2.559,
+   "p_two_sided": 0.01048,
+   "holm_all_36_survives": false,
+   "bonferroni_all_36_survives": false,
+   "holm_main_24_survives": true,
+   "bonferroni_main_24_survives": false,
+   "reading": "the weakest of the main-table z-values; it fails Holm over all 36 tested z (the step-down stops at DISTINCT negative-prompt overlap z+2.7 before reaching it) and fails plain Bonferroni in both families; it survives only Holm restricted to the 24 main-table tests, where as the last-ranked test it faces the uncorrected 0.05 threshold \u2014 report it as not robust to multiplicity"
+  }
+ },
+ "z_seed_stability": {
+  "metric": "valence-sign agreement, emotional prompts (n=607), 300 shuffles per seed",
+  "seed_7_first_call_reference": {
+   "z": 11.12,
+   "null_mean": 0.4561,
+   "null_sd": 0.0165
+  },
+  "seeds_1_to_5": [
+   {
+    "seed": 1,
+    "shuffles": 300,
+    "observed_vsign": 0.6396,
+    "null_mean": 0.455,
+    "null_sd": 0.016,
+    "z": 11.56
+   },
+   {
+    "seed": 2,
+    "shuffles": 300,
+    "observed_vsign": 0.6396,
+    "null_mean": 0.4555,
+    "null_sd": 0.0165,
+    "z": 11.19
+   },
+   {
+    "seed": 3,
+    "shuffles": 300,
+    "observed_vsign": 0.6396,
+    "null_mean": 0.4553,
+    "null_sd": 0.0151,
+    "z": 12.19
+   },
+   {
+    "seed": 4,
+    "shuffles": 300,
+    "observed_vsign": 0.6396,
+    "null_mean": 0.4545,
+    "null_sd": 0.0155,
+    "z": 11.94
+   },
+   {
+    "seed": 5,
+    "shuffles": 300,
+    "observed_vsign": 0.6396,
+    "null_mean": 0.4552,
+    "null_sd": 0.0163,
+    "z": 11.35
+   }
+  ],
+  "z_min": 11.19,
+  "z_max": 12.19,
+  "z_range_width": 1.0,
+  "null_mean_min": 0.4545,
+  "null_mean_max": 0.4555,
+  "null_sd_min": 0.0151,
+  "null_sd_max": 0.0165,
+  "reading": "the null MEAN is stable to a fraction of a point across seeds; the z moves with the 300-draw estimate of the null sd, so z is an ordering statistic here, not a precise quantity"
+ }
+}

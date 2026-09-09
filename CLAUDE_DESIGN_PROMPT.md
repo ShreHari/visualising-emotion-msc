@@ -146,7 +146,7 @@ EYEBROW: Data
 
 Four figures across the top:
 - **1,012** — analysed records (13 pre-festival tests excluded)
-- **607 / 405** — prompts carrying a feeling versus not — the specificity set
+- **607 / 405** — prompts the text reader labels emotional versus neutral — the specificity set
 - **591 / 421** — face-classified versus scene-classified drawings
 - **87** — prompts drawn more than once, covering 336 records
 
@@ -159,7 +159,7 @@ Two panels beneath:
 
 **Data pre-processing**
 - Eight records contained names of private individuals; these were replaced with a placeholder.
-- Detection combined a 7,944-name gazetteer, a 236,000-word dictionary and naming phrases — 77% of the corpus is lower case, so capitalisation alone would miss most names.
+- Detection combined a 7,944-name gazetteer, a 236,000-word dictionary and naming phrases — about 78% of the corpus is lower case, so capitalisation alone would miss most names.
 - Verified inert: re-running the prompt reader changed no emotion label.
 
 ---
@@ -172,7 +172,7 @@ Two panels:
 
 **1 · A random-pairing null** — Within each subset the image side is shuffled and re-paired against the untouched prompts, 300 times, with a fixed seed. Every figure I report is quoted against its own null, so a result counts only insofar as it exceeds chance.
 
-**2 · A specificity check** — 405 prompts carry no feeling — "pigs", "mickey mouse". On these the valence-arousal metric returns 76.6% against a null of 76.6%, z = +0.3. The pipeline reports agreement only where the prompt reader finds an emotion.
+**2 · A specificity check** — 405 prompts are labelled neutral by the text reader — "pigs", "mickey mouse". On these the valence-arousal metric returns 76.6% against a null of 76.6%, z = +0.3. The pipeline reports agreement only where the prompt reader finds an emotion.
 
 Then, with a heading **"And the scale does not start at zero"**, the 41 / 76 / 84 scale graphic described above.
 
@@ -186,20 +186,20 @@ EYEBROW: Results
 
 Table — four columns: Subset | Valence-sign agreement | Emotion-family agreement | Verdict
 
-| Emotional prompts (n=607) | 64.0% vs null 45.6% z +11.1 | 53.1% vs null 38.8% z +10.3 | Well above chance |
+| Emotional prompts (n=607) | 64.0% vs null 45.6% z +11.1 | 53.0% vs null 38.8% z +10.3 | Well above chance |
 | Face-classified (n=402) | 73.9% vs null 53.5% z +10.4 | 61.9% vs null 45.8% z +10.3 | Strongest |
 | Scene-classified (n=205) | 42.9% vs null 29.6% z +5.8 | 35.6% vs null 26.2% z +4.4 | Above chance, weaker |
-| Non-emotional (n=405) | — degenerate by definition | — degenerate by definition | Specificity check |
+| Neutral-labelled (n=405) | — degenerate by definition | — degenerate by definition | Specificity check |
 
 Three labelled rows beneath:
 
-**Repeated prompts** — Given the same prompt text, the image reader returns the same emotion for 68.8% of drawings within a group, against a permutation null of 59.1% (z +4.9). The generator is not deterministic in what the reader recovers.
+**Repeated prompts** — Given the same prompt text, the image reader returns the same emotion for 68.8% of drawings within a group, against a permutation null of 59.4% (z +4.5). More consistent than chance but far from fixed; this measures the whole prompt→image→reader chain, and the reading is not deterministic in what the reader recovers.
 
-**Method comparison** — Holding the prompt reader constant and varying only the image reader: describe-then-extract 49.3% family agreement against direct-CLIP 25.3%. Note the prompt reader here is BART-MNLI, not the GoEmotions reader used above.
+**Method comparison** — Like for like (same GoEmotions prompt reader, same 607 records, only the image reader varied): describe-then-extract 53.0% family agreement against direct-CLIP 22.4%, +30.6 pp, clustered 95% CI +25.5 to +35.6, p < 0.0001. The earlier 49.3% vs 25.3% figure (608 records) used BART-MNLI on the prompt side, not the GoEmotions reader used above.
 
-**Robustness** — Re-run on the 763 distinct prompts, the overall and face results hold (z +9 to +11). The scene result weakens substantially, to 37.3% (z +3.5).
+**Robustness** — Re-run on the 763 distinct prompts, the overall and face results hold (z +8.4 to +10.8). The scene result weakens substantially, to 37.3% (z +3.5; family z +2.6).
 
-FOOTNOTE: No formal significance test of the face–scene difference has been run; both rates are reported against their own nulls instead.
+FOOTNOTE: The face–scene difference is significant: clustered permutation p = 0.0001; 95% CI on the difference +22.6 to +40.6 pp (valence sign). Both rates are also reported against their own nulls.
 
 ---
 
@@ -232,7 +232,8 @@ Two contrasting panels — the first affirmative, the second in the reserved con
 
 **Not established**
 - What a human viewer perceives — both readers are automatic, and they disagree with each other.
-- That the face–scene gap is statistically significant; no formal test has been run.
+- That the face–scene split reflects faces as such — the gap is significant (p = 0.0001), but the split is the describer's own classification.
+- That scene-classified drawings hold a feeling this reader can find: under a people-aware description their agreement sits at chance (z +1.6).
 - Any effect of colour — the corpus is monochrome but there is no colour condition.
 - Any positive-versus-negative direction; that claim was withdrawn.
 

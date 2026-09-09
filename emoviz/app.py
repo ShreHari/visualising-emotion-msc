@@ -34,17 +34,10 @@ app.config["MAX_CONTENT_LENGTH"] = 8 * 1024 * 1024   # 8 MB upload cap
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 # ---------------------------------------------------------------- science config (parity with analysis)
-LABELS = ["joy", "sadness", "anger", "fear", "surprise", "disgust", "neutral"]
-CEN = {"joy": (0.8, 0.6), "sadness": (-0.75, 0.3), "anger": (-0.7, 0.8), "fear": (-0.65, 0.75),
-       "surprise": (0.3, 0.8), "disgust": (-0.7, 0.6), "neutral": (0.0, 0.3)}
-POS, NEG = {"joy"}, {"sadness", "anger", "fear", "disgust"}
-G2F = {**dict.fromkeys(["admiration", "amusement", "approval", "caring", "desire", "excitement",
-                        "gratitude", "joy", "love", "optimism", "pride", "relief"], "joy"),
-       **dict.fromkeys(["disappointment", "embarrassment", "grief", "remorse", "sadness"], "sadness"),
-       **dict.fromkeys(["anger", "annoyance", "disapproval"], "anger"),
-       **dict.fromkeys(["fear", "nervousness"], "fear"),
-       **dict.fromkeys(["surprise", "realization", "confusion", "curiosity"], "surprise"),
-       "disgust": "disgust", "neutral": "neutral"}
+# every constant and measure comes from emoviz/metrics.py — the same module analysis_final.py,
+# significance.py and test_numeric.py import — so the demo cannot drift from the analysis
+import sys; sys.path.insert(0, ROOT)
+from emoviz.metrics import (FAMILIES as LABELS, CEN, POS, NEG, G2F, sign, va_point, va_sim, soft)
 QUESTIONS = [("expression", "What is the facial expression?"), ("action", "What is the person doing?"),
              ("posture", "What is the body posture?"), ("people", "How many people are there?"),
              ("scene", "What is in the picture?")]
@@ -56,8 +49,6 @@ QUESTIONS = [("expression", "What is the facial expression?"), ("action", "What 
 # the decoy records this app used to serve are gone too.
 # Escape hatch: put ids here to withhold them again; the 404 text stays deliberately uninformative.
 WITHHELD_IDS: set[int] = set()
-
-def sign(l): return "+" if l in POS else "-" if l in NEG else "0"
 
 # ---------------------------------------------------------------- models: lazy, fp16, lock-guarded
 _M: dict = {}
@@ -150,18 +141,9 @@ def emotion_from_prompt(text, record_id=None):
     f = {k: v / tot for k, v in f.items()}
     return [[l, round(float(s), 4)] for l, s in sorted(f.items(), key=lambda x: -x[1])[:3]]
 
-def va_point(t3):
-    tot = sum(s for _, s in t3) or 1.0
-    return (sum(CEN[l][0] * s for l, s in t3) / tot, sum(CEN[l][1] * s for l, s in t3) / tot)
-
 def similarity(pe, ie):
     p, q = va_point(pe), va_point(ie)
-    va = 1 - math.hypot(((p[0] + 1) / 2) - ((q[0] + 1) / 2), p[1] - q[1]) / math.sqrt(2)
-    sa = sum(s for _, s in pe) or 1.0
-    sb = sum(s for _, s in ie) or 1.0
-    da = {l: s / sa for l, s in pe}
-    db = {l: s / sb for l, s in ie}
-    overlap = sum(min(da.get(l, 0), db.get(l, 0)) for l in set(da) | set(db))
+    va = va_sim(p, q); overlap = soft(pe, ie)          # the analysis's own functions, unchanged
     return {"va": round(va, 3), "overlap": round(overlap, 3),
             "family_match": pe[0][0] == ie[0][0],
             "valence_match": sign(pe[0][0]) != "0" and sign(pe[0][0]) == sign(ie[0][0]),

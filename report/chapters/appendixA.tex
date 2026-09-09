@@ -1,3 +1,48 @@
-\chapter{An Appendix of Some Kind}
+\chapter{Reproducibility}
+\label{app:repro}
 
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc.
+% Factual listing; no prose needed beyond a sentence introducing each list.
+\begin{sloppypar}
+
+\section{Repository layout}
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item \texttt{emoviz/emoviz/metrics.py} --- the single definition of every measure, split rule, centroid and the random-pairing null; imported by every script.
+\item \texttt{emoviz/emoviz/data.py} --- the loader: filename schemes, timestamps, prompt groups, name redaction at load time.
+\item \texttt{emoviz/preprocess\_names.py} --- the three-stage redaction procedure; the decision table travels with the dataset.
+\item \texttt{emoviz/describe\_extract.py} --- the pipeline (BLIP-VQA $\to$ template $\to$ BART-MNLI); crash-safe, resumable.
+\item \texttt{emoviz/analysis\_final.py} --- splits, ladder, nulls, distinct-prompt re-run; writes \texttt{outputs/analysis\_final.json}.
+\item \texttt{emoviz/significance.py} --- clustered bootstrap and clustered permutation test of the face/scene difference.
+\item \texttt{emoviz/inference.py} --- clustered CIs for every subset, Cohen's $\kappa$, Holm--Bonferroni, seed stability.
+\item \texttt{emoviz/method\_comparison.py} --- like-for-like image-reader comparison with paired tests.
+\item \texttt{emoviz/data\_audit\_consistency.py} --- data accounting and the repeated-prompt consistency with its permutation null.
+\item \texttt{emoviz/audits.py} --- control contamination, describer leak and copy rate, per-family recall.
+\item \texttt{emoviz/error\_taxonomy.py} --- the high-confidence disagreement census and failure modes.
+\item \texttt{emoviz/ablate\_nli.py} --- description-template ablation (NLI stage only).
+\item \texttt{emoviz/human\_check.py} --- the single-coder sample, contact sheets and scoring.
+\item \texttt{emoviz/make\_figures.py} and \texttt{emoviz/export\_tex.py} --- every figure and every number in this document, generated from the JSON result files.
+\item \texttt{emoviz/app.py} and \texttt{emoviz/web/} --- the demonstrator.
+\item \texttt{emoviz/test.sh} and \texttt{emoviz/test\_numeric.py} --- the smoke suite and the pinned numeric checks.
+\item \texttt{emoviz/outputs/} --- cached model outputs, result JSON, figures, the frozen direct-CLIP baseline.
+\end{itemize}
+
+\section{Run order}
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item \texttt{bash emoviz/setup.sh} --- creates the environment from the pinned \texttt{requirements.txt}.
+\item \texttt{describe\_extract.py} --- the pipeline over all images (cached; re-run only to regenerate).
+\item \texttt{analysis\_final.py} --- the main analysis (seconds; uses the cached outputs).
+\item \texttt{significance.py}, \texttt{inference.py}, \texttt{method\_comparison.py}
+\item \texttt{data\_audit\_consistency.py}, \texttt{audits.py}, \texttt{error\_taxonomy.py}, \texttt{ablate\_nli.py}
+\item \texttt{human\_check.py sample}; code \texttt{outputs/human\_check/labels.csv}; \texttt{human\_check.py score}
+\item \texttt{make\_figures.py}; \texttt{export\_tex.py}; then build this document (\texttt{pdflatex}, \texttt{bibtex}, \texttt{pdflatex} twice).
+\item \texttt{bash emoviz/test.sh} --- runs everything above that is fast, plus \texttt{test\_numeric.py}.
+\end{enumerate}
+All scripts are run with \texttt{emoviz/.venv/bin/python} from the \texttt{emoviz/} directory.
+
+\section{Environment}
+% GUIDANCE: Python 3.12; torch, transformers and open\_clip versions from requirements.txt; Apple MPS
+% in float16 for the models; models and their parameter counts: Salesforce/blip-vqa-base,
+% facebook/bart-large-mnli, SamLowe/roberta-base-go\_emotions, OpenCLIP ViT-B/32; total download
+% about 3.5 GB; the pipeline processed \nTotal\ images with no unhandled error (a robustness
+% statement, not a correctness one).
+
+\end{sloppypar}

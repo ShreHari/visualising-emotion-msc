@@ -1,0 +1,826 @@
+{
+ "meta": {
+  "script": "method_comparison.py",
+  "purpose": "like-for-like comparison of the two image readers (describe-then-extract vs direct-CLIP) against the SAME prompt reader, subset, overlap formula and null as analysis_final.py; the central quantity is agreement between the prompt reader and the image reader",
+  "prompt_reader": "GoEmotions (SamLowe/roberta-base-go_emotions) 28 -> 7 Ekman families, cached in outputs/prompt_emotions_goe.json",
+  "analysed_ids": "14..1025 (pre-test ids 1-13 dropped)",
+  "n_analysed": 1012,
+  "n_emotional": 607,
+  "n_non_emotional": 405,
+  "emotional_rule": "GoEmotions top-1 family != 'neutral'",
+  "face_rule": "BLIP-VQA people-count >= 1 AND an EXPRESSION_WORDS token in the expression answer (analysis_final.is_face)",
+  "n_face": 591,
+  "n_scene": 421,
+  "n_face_emotional": 402,
+  "n_scene_emotional": 205,
+  "n_distinct_dedup_keys": 763,
+  "n_records_repeating_an_earlier_prompt": 249,
+  "null": "300 random re-pairings of images to prompts; random.seed(7) set once per reader, subsets scored in analysis_final.py's order (all, face, scene, positive, negative, non-emotional) so both readers see identical shuffles and the describe-then-extract figures equal the published ones",
+  "families": [
+   "joy",
+   "sadness",
+   "anger",
+   "fear",
+   "surprise",
+   "disgust",
+   "neutral"
+  ],
+  "sign_rule": "joy=+ ; sadness/anger/fear/disgust=- ; surprise/neutral=0 (records with prompt sign 0 are excluded from valence-sign)",
+  "metric_functions": "sign, va_point, va_sim, soft, metrics, with_null, is_face copied verbatim from analysis_final.py",
+  "image_readers": {
+   "describe_then_extract": "outputs/describe_extract.jsonl 'image_emotions' (BLIP-VQA description -> BART-MNLI zero-shot, top-3 of 7 families)",
+   "direct_clip": "outputs/results_clip_v2_baseline.json rows[].img_scores (CLIP zero-shot softmax over 7 labels, rounded to 3 dp); label map {\"happiness\": \"joy\", \"sadness\": \"sadness\", \"anger\": \"anger\", \"fear\": \"fear\", \"surprise\": \"surprise\", \"disgust\": \"disgust\", \"neutral\": \"neutral\"}; top-1 = img_basic (unrounded argmax; resolves 3-dp ties at ids [24, 256]); keys starting with '_' (_portrait_prob, _margin, _has_face) are diagnostics, not labels, and are dropped"
+  },
+  "coverage": {
+   "describe_then_extract": 1012,
+   "direct_clip": 1012,
+   "emotional_records_both_cover": 607
+  }
+ },
+ "headline": {
+  "n_records_both_readers_cover": 607,
+  "describe_then_extract": {
+   "vsign": {
+    "pct": 64.0,
+    "null_pct": 45.6,
+    "z": 11.118
+   },
+   "family": {
+    "pct": 53.0,
+    "null_pct": 38.8,
+    "z": 10.324
+   },
+   "overlap": {
+    "pct": 50.6,
+    "null_pct": 39.4,
+    "z": 11.604
+   },
+   "va": {
+    "pct": 83.8,
+    "null_pct": 77.3,
+    "z": 12.242
+   }
+  },
+  "direct_clip": {
+   "vsign": {
+    "pct": 31.1,
+    "null_pct": 18.6,
+    "z": 9.924
+   },
+   "family": {
+    "pct": 22.4,
+    "null_pct": 12.2,
+    "z": 11.09
+   },
+   "overlap": {
+    "pct": 26.4,
+    "null_pct": 20.2,
+    "z": 11.15
+   },
+   "va": {
+    "pct": 73.3,
+    "null_pct": 70.1,
+    "z": 10.197
+   }
+  },
+  "family_agreement_difference_pp": 30.6,
+  "family_mcnemar_exact_p_unclustered": 3.351963378745987e-35,
+  "family_cluster_sign_flip_p": 5e-05,
+  "family_clustered_bootstrap_95ci_pp": [
+   25.5,
+   35.6
+  ]
+ },
+ "like_for_like": {
+  "describe_then_extract": {
+   "all_emotional": {
+    "n": 607,
+    "n_sign_defined": 530,
+    "vsign": {
+     "value": 0.6396,
+     "null_mean": 0.4561,
+     "null_sd": 0.0165,
+     "z": 11.118
+    },
+    "family": {
+     "value": 0.5305,
+     "null_mean": 0.3877,
+     "null_sd": 0.0138,
+     "z": 10.324
+    },
+    "overlap": {
+     "value": 0.5056,
+     "null_mean": 0.3944,
+     "null_sd": 0.0096,
+     "z": 11.604
+    },
+    "va": {
+     "value": 0.8379,
+     "null_mean": 0.7732,
+     "null_sd": 0.0053,
+     "z": 12.242
+    }
+   },
+   "face_images": {
+    "n": 402,
+    "n_sign_defined": 360,
+    "vsign": {
+     "value": 0.7389,
+     "null_mean": 0.5346,
+     "null_sd": 0.0197,
+     "z": 10.388
+    },
+    "family": {
+     "value": 0.6194,
+     "null_mean": 0.4581,
+     "null_sd": 0.0157,
+     "z": 10.274
+    },
+    "overlap": {
+     "value": 0.5344,
+     "null_mean": 0.4038,
+     "null_sd": 0.0112,
+     "z": 11.632
+    },
+    "va": {
+     "value": 0.8423,
+     "null_mean": 0.7638,
+     "null_sd": 0.007,
+     "z": 11.197
+    }
+   },
+   "scene_images": {
+    "n": 205,
+    "n_sign_defined": 170,
+    "vsign": {
+     "value": 0.4294,
+     "null_mean": 0.2958,
+     "null_sd": 0.023,
+     "z": 5.812
+    },
+    "family": {
+     "value": 0.3561,
+     "null_mean": 0.2616,
+     "null_sd": 0.0217,
+     "z": 4.352
+    },
+    "overlap": {
+     "value": 0.4489,
+     "null_mean": 0.3814,
+     "null_sd": 0.0139,
+     "z": 4.865
+    },
+    "va": {
+     "value": 0.8293,
+     "null_mean": 0.7908,
+     "null_sd": 0.0064,
+     "z": 5.975
+    }
+   },
+   "positive_prompts": {
+    "n": 402,
+    "n_sign_defined": 402,
+    "vsign": {
+     "value": 0.6493,
+     "null_mean": 0.6493,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "family": {
+     "value": 0.6493,
+     "null_mean": 0.6493,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "overlap": {
+     "value": 0.5741,
+     "null_mean": 0.5637,
+     "null_sd": 0.0046,
+     "z": 2.277
+    },
+    "va": {
+     "value": 0.8663,
+     "null_mean": 0.859,
+     "null_sd": 0.0019,
+     "z": 3.868
+    },
+    "note": "single-sign subset: every prompt shares one sign, so the sign/family nulls are degenerate (z=0 by construction); only VA and overlap are interpretable here"
+   },
+   "negative_prompts": {
+    "n": 128,
+    "n_sign_defined": 128,
+    "vsign": {
+     "value": 0.6094,
+     "null_mean": 0.6094,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "family": {
+     "value": 0.3594,
+     "null_mean": 0.31,
+     "null_sd": 0.023,
+     "z": 2.149
+    },
+    "overlap": {
+     "value": 0.3537,
+     "null_mean": 0.3029,
+     "null_sd": 0.0168,
+     "z": 3.02
+    },
+    "va": {
+     "value": 0.7592,
+     "null_mean": 0.7454,
+     "null_sd": 0.0066,
+     "z": 2.105
+    },
+    "note": "single-sign subset: every prompt shares one sign, so the sign/family nulls are degenerate (z=0 by construction); only VA and overlap are interpretable here"
+   },
+   "non_emotional": {
+    "n": 405,
+    "n_sign_defined": 0,
+    "vsign": {
+     "value": 0.0,
+     "null_mean": 0.0,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "family": {
+     "value": 0.2864,
+     "null_mean": 0.2864,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "overlap": {
+     "value": 0.3162,
+     "null_mean": 0.3162,
+     "null_sd": 0.0035,
+     "z": 0.005
+    },
+    "va": {
+     "value": 0.7662,
+     "null_mean": 0.7656,
+     "null_sd": 0.0016,
+     "z": 0.319
+    }
+   }
+  },
+  "direct_clip": {
+   "all_emotional": {
+    "n": 607,
+    "n_sign_defined": 530,
+    "vsign": {
+     "value": 0.3113,
+     "null_mean": 0.1865,
+     "null_sd": 0.0126,
+     "z": 9.924
+    },
+    "family": {
+     "value": 0.2241,
+     "null_mean": 0.1216,
+     "null_sd": 0.0092,
+     "z": 11.09
+    },
+    "overlap": {
+     "value": 0.2639,
+     "null_mean": 0.2023,
+     "null_sd": 0.0055,
+     "z": 11.15
+    },
+    "va": {
+     "value": 0.7327,
+     "null_mean": 0.7006,
+     "null_sd": 0.0031,
+     "z": 10.197
+    }
+   },
+   "face_images": {
+    "n": 402,
+    "n_sign_defined": 360,
+    "vsign": {
+     "value": 0.3639,
+     "null_mean": 0.2289,
+     "null_sd": 0.0171,
+     "z": 7.905
+    },
+    "family": {
+     "value": 0.2736,
+     "null_mean": 0.1534,
+     "null_sd": 0.0128,
+     "z": 9.415
+    },
+    "overlap": {
+     "value": 0.287,
+     "null_mean": 0.2165,
+     "null_sd": 0.007,
+     "z": 10.078
+    },
+    "va": {
+     "value": 0.7414,
+     "null_mean": 0.7026,
+     "null_sd": 0.0045,
+     "z": 8.554
+    }
+   },
+   "scene_images": {
+    "n": 205,
+    "n_sign_defined": 170,
+    "vsign": {
+     "value": 0.2,
+     "null_mean": 0.1017,
+     "null_sd": 0.0181,
+     "z": 5.416
+    },
+    "family": {
+     "value": 0.1268,
+     "null_mean": 0.0687,
+     "null_sd": 0.0141,
+     "z": 4.117
+    },
+    "overlap": {
+     "value": 0.2185,
+     "null_mean": 0.179,
+     "null_sd": 0.0083,
+     "z": 4.772
+    },
+    "va": {
+     "value": 0.7156,
+     "null_mean": 0.6971,
+     "null_sd": 0.0047,
+     "z": 3.938
+    }
+   },
+   "positive_prompts": {
+    "n": 402,
+    "n_sign_defined": 402,
+    "vsign": {
+     "value": 0.204,
+     "null_mean": 0.204,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "family": {
+     "value": 0.204,
+     "null_mean": 0.204,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "overlap": {
+     "value": 0.2267,
+     "null_mean": 0.2208,
+     "null_sd": 0.0025,
+     "z": 2.333
+    },
+    "va": {
+     "value": 0.6869,
+     "null_mean": 0.6837,
+     "null_sd": 0.0008,
+     "z": 3.731
+    },
+    "note": "single-sign subset: every prompt shares one sign, so the sign/family nulls are degenerate (z=0 by construction); only VA and overlap are interpretable here"
+   },
+   "negative_prompts": {
+    "n": 128,
+    "n_sign_defined": 128,
+    "vsign": {
+     "value": 0.6484,
+     "null_mean": 0.6484,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "family": {
+     "value": 0.3516,
+     "null_mean": 0.2981,
+     "null_sd": 0.024,
+     "z": 2.228
+    },
+    "overlap": {
+     "value": 0.3921,
+     "null_mean": 0.3403,
+     "null_sd": 0.0116,
+     "z": 4.454
+    },
+    "va": {
+     "value": 0.8718,
+     "null_mean": 0.8527,
+     "null_sd": 0.005,
+     "z": 3.801
+    },
+    "note": "single-sign subset: every prompt shares one sign, so the sign/family nulls are degenerate (z=0 by construction); only VA and overlap are interpretable here"
+   },
+   "non_emotional": {
+    "n": 405,
+    "n_sign_defined": 0,
+    "vsign": {
+     "value": 0.0,
+     "null_mean": 0.0,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "family": {
+     "value": 0.4642,
+     "null_mean": 0.4642,
+     "null_sd": 0.0,
+     "z": 0.0
+    },
+    "overlap": {
+     "value": 0.3352,
+     "null_mean": 0.3295,
+     "null_sd": 0.0022,
+     "z": 2.612
+    },
+    "va": {
+     "value": 0.7947,
+     "null_mean": 0.7937,
+     "null_sd": 0.0009,
+     "z": 1.186
+    }
+   }
+  }
+ },
+ "paired_tests": {
+  "family_agreement": {
+   "n": 607,
+   "n_clusters_dedup_key": 452,
+   "n_clusters_with_nonzero_difference": 199,
+   "describe_then_extract_hits": 322,
+   "direct_clip_hits": 136,
+   "describe_then_extract_rate": 0.5305,
+   "direct_clip_rate": 0.2241,
+   "difference_pp": 30.6,
+   "both_hit": 104,
+   "both_miss": 253,
+   "describe_only_hit_b": 218,
+   "direct_clip_only_hit_c": 32,
+   "mcnemar_exact_binomial_p_unclustered": 3.351963378745987e-35,
+   "cluster_sign_flip_p": 5e-05,
+   "cluster_sign_flip_draws": 20000,
+   "clustered_bootstrap_95ci_difference_pp": [
+    25.5,
+    35.6
+   ],
+   "clustered_bootstrap_draws": 10000,
+   "notes": [
+    "hit = prompt-reader top-1 equals image-reader top-1 (family)",
+    "the exact-binomial McNemar treats the discordant records as independent; it is OPTIMISTIC because 155 of these 607 records repeat an earlier prompt (dedup_key), and repeats of one prompt are not independent evidence about the readers",
+    "cluster_sign_flip_p: the McNemar statistic (b - c) under a randomisation that flips the sign of each dedup_key cluster's summed hit-difference as a block (readers exchangeable within a record => the cluster sum is symmetric about 0 under H0); this is the clustered version of the McNemar/sign test; two-sided; Monte-Carlo with seed 7",
+    "clustered bootstrap: dedup_key clusters resampled with replacement, seed 11; CI on the describe-minus-CLIP difference in agreement rate"
+   ]
+  },
+  "valence_sign_agreement": {
+   "n": 530,
+   "n_clusters_dedup_key": 394,
+   "n_clusters_with_nonzero_difference": 180,
+   "describe_then_extract_hits": 339,
+   "direct_clip_hits": 165,
+   "describe_then_extract_rate": 0.6396,
+   "direct_clip_rate": 0.3113,
+   "difference_pp": 32.8,
+   "both_hit": 135,
+   "both_miss": 161,
+   "describe_only_hit_b": 204,
+   "direct_clip_only_hit_c": 30,
+   "mcnemar_exact_binomial_p_unclustered": 5.4636360873977706e-33,
+   "cluster_sign_flip_p": 5e-05,
+   "cluster_sign_flip_draws": 20000,
+   "clustered_bootstrap_95ci_difference_pp": [
+    27.4,
+    38.2
+   ],
+   "clustered_bootstrap_draws": 10000,
+   "notes": [
+    "hit = prompt-reader top-1 equals image-reader top-1 (valence sign; records whose prompt top-1 is surprise are excluded because sign(surprise)=0)",
+    "the exact-binomial McNemar treats the discordant records as independent; it is OPTIMISTIC because 136 of these 530 records repeat an earlier prompt (dedup_key), and repeats of one prompt are not independent evidence about the readers",
+    "cluster_sign_flip_p: the McNemar statistic (b - c) under a randomisation that flips the sign of each dedup_key cluster's summed hit-difference as a block (readers exchangeable within a record => the cluster sum is symmetric about 0 under H0); this is the clustered version of the McNemar/sign test; two-sided; Monte-Carlo with seed 7",
+    "clustered bootstrap: dedup_key clusters resampled with replacement, seed 11; CI on the describe-minus-CLIP difference in agreement rate"
+   ]
+  }
+ },
+ "reader_vs_reader": {
+  "emotional_607": {
+   "n": 607,
+   "top1_agreement": 0.3213,
+   "describe_top1_counts": {
+    "joy": 321,
+    "sadness": 83,
+    "anger": 50,
+    "fear": 2,
+    "surprise": 58,
+    "disgust": 0,
+    "neutral": 93
+   },
+   "direct_clip_top1_counts": {
+    "joy": 84,
+    "sadness": 71,
+    "anger": 12,
+    "fear": 50,
+    "surprise": 36,
+    "disgust": 71,
+    "neutral": 283
+   },
+   "confusion_describe_rows_clip_cols": {
+    "joy": {
+     "joy": 74,
+     "sadness": 20,
+     "anger": 2,
+     "fear": 26,
+     "surprise": 15,
+     "disgust": 24,
+     "neutral": 160
+    },
+    "sadness": {
+     "joy": 0,
+     "sadness": 38,
+     "anger": 2,
+     "fear": 7,
+     "surprise": 3,
+     "disgust": 8,
+     "neutral": 25
+    },
+    "anger": {
+     "joy": 0,
+     "sadness": 9,
+     "anger": 7,
+     "fear": 5,
+     "surprise": 2,
+     "disgust": 20,
+     "neutral": 7
+    },
+    "fear": {
+     "joy": 0,
+     "sadness": 0,
+     "anger": 0,
+     "fear": 1,
+     "surprise": 0,
+     "disgust": 0,
+     "neutral": 1
+    },
+    "surprise": {
+     "joy": 2,
+     "sadness": 2,
+     "anger": 0,
+     "fear": 5,
+     "surprise": 13,
+     "disgust": 8,
+     "neutral": 28
+    },
+    "disgust": {
+     "joy": 0,
+     "sadness": 0,
+     "anger": 0,
+     "fear": 0,
+     "surprise": 0,
+     "disgust": 0,
+     "neutral": 0
+    },
+    "neutral": {
+     "joy": 8,
+     "sadness": 2,
+     "anger": 1,
+     "fear": 6,
+     "surprise": 3,
+     "disgust": 11,
+     "neutral": 62
+    }
+   }
+  },
+  "all_analysed_1012": {
+   "n": 1012,
+   "top1_agreement": 0.3024,
+   "describe_top1_counts": {
+    "joy": 461,
+    "sadness": 141,
+    "anger": 89,
+    "fear": 4,
+    "surprise": 108,
+    "disgust": 0,
+    "neutral": 209
+   },
+   "direct_clip_top1_counts": {
+    "joy": 90,
+    "sadness": 122,
+    "anger": 23,
+    "fear": 92,
+    "surprise": 63,
+    "disgust": 151,
+    "neutral": 471
+   },
+   "confusion_describe_rows_clip_cols": {
+    "joy": {
+     "joy": 77,
+     "sadness": 32,
+     "anger": 3,
+     "fear": 37,
+     "surprise": 27,
+     "disgust": 47,
+     "neutral": 238
+    },
+    "sadness": {
+     "joy": 0,
+     "sadness": 64,
+     "anger": 4,
+     "fear": 14,
+     "surprise": 5,
+     "disgust": 17,
+     "neutral": 37
+    },
+    "anger": {
+     "joy": 0,
+     "sadness": 10,
+     "anger": 13,
+     "fear": 15,
+     "surprise": 8,
+     "disgust": 30,
+     "neutral": 13
+    },
+    "fear": {
+     "joy": 0,
+     "sadness": 0,
+     "anger": 0,
+     "fear": 3,
+     "surprise": 0,
+     "disgust": 0,
+     "neutral": 1
+    },
+    "surprise": {
+     "joy": 4,
+     "sadness": 6,
+     "anger": 1,
+     "fear": 8,
+     "surprise": 15,
+     "disgust": 26,
+     "neutral": 48
+    },
+    "disgust": {
+     "joy": 0,
+     "sadness": 0,
+     "anger": 0,
+     "fear": 0,
+     "surprise": 0,
+     "disgust": 0,
+     "neutral": 0
+    },
+    "neutral": {
+     "joy": 9,
+     "sadness": 10,
+     "anger": 2,
+     "fear": 15,
+     "surprise": 8,
+     "disgust": 31,
+     "neutral": 134
+    }
+   }
+  }
+ },
+ "v1_nli_prompt_side_comparison": {
+  "label": "v1 (NLI prompt side) comparison",
+  "source": "similarity_v2.py (printout preserved in outputs/rerun_s2.log; quoted in outputs/RESULTS_describe_extract.md, outputs/RESULTS_final.md, outputs/report_src/project_dossier.tex and make_figures.py fig2)",
+  "status": "left untouched \u2014 it is NOT superseded as a record of what was published, but it is not like-for-like with analysis_final.py; use like_for_like above when comparing against the main analysis",
+  "n_records": 608,
+  "describe_then_extract": {
+   "family": 0.493,
+   "family_z": 11.2,
+   "overlap": 0.486,
+   "overlap_z": 14.0,
+   "va": 0.837,
+   "va_z": 14.2
+  },
+  "direct_clip": {
+   "family": 0.253,
+   "family_z": 10.2,
+   "overlap": 0.228,
+   "overlap_z": 12.1,
+   "va": 0.742,
+   "va_z": 12.3
+  },
+  "why_not_like_for_like": [
+   "prompt reader = BART-MNLI zero-shot (describe_extract.jsonl 'prompt_emotions'), whereas analysis_final.py uses GoEmotions",
+   "subset = the 608 records the OLD lexicon prompt reader flagged is_emotional (results_clip_v2_baseline.json), not the 607 GoEmotions non-neutral prompts (606 ids in common)",
+   "overlap = similarity_v2.soft_overlap (intersection / mean of the two raw sums), not analysis_final.soft() (each side normalised to 1 first)",
+   "valence-sign agreement was not reported in the v1 comparison table"
+  ]
+ },
+ "reference_check": {
+  "passed": true,
+  "tolerance": "values compared within 0.051 pp / 0.051 z of the reference; needed only because 322/607 = 53.05% family agreement sits on the 1-dp rounding boundary (the brief quotes 53.1%, analysis_final.py prints 53%)",
+  "metrics": [
+   {
+    "subset": "all_emotional",
+    "metric": "vsign",
+    "expected": {
+     "value_pct": 64.0,
+     "null_pct": 45.6,
+     "z": 11.1
+    },
+    "got": {
+     "value_pct": 63.96,
+     "null_pct": 45.61,
+     "z": 11.12
+    },
+    "ok": true
+   },
+   {
+    "subset": "all_emotional",
+    "metric": "family",
+    "expected": {
+     "value_pct": 53.1,
+     "null_pct": 38.8,
+     "z": 10.3
+    },
+    "got": {
+     "value_pct": 53.05,
+     "null_pct": 38.77,
+     "z": 10.32
+    },
+    "ok": true
+   },
+   {
+    "subset": "face_images",
+    "metric": "vsign",
+    "expected": {
+     "value_pct": 73.9,
+     "null_pct": 53.5,
+     "z": null
+    },
+    "got": {
+     "value_pct": 73.89,
+     "null_pct": 53.46,
+     "z": 10.39
+    },
+    "ok": true
+   },
+   {
+    "subset": "scene_images",
+    "metric": "vsign",
+    "expected": {
+     "value_pct": 42.9,
+     "null_pct": 29.6,
+     "z": null
+    },
+    "got": {
+     "value_pct": 42.94,
+     "null_pct": 29.58,
+     "z": 5.81
+    },
+    "ok": true
+   },
+   {
+    "subset": "non_emotional",
+    "metric": "va",
+    "expected": {
+     "value_pct": 76.6,
+     "null_pct": 76.6,
+     "z": null
+    },
+    "got": {
+     "value_pct": 76.62,
+     "null_pct": 76.56,
+     "z": 0.32
+    },
+    "ok": true
+   }
+  ],
+  "counts": {
+   "n_analysed": {
+    "got": 1012,
+    "expected": 1012,
+    "ok": true
+   },
+   "n_emotional": {
+    "got": 607,
+    "expected": 607,
+    "ok": true
+   },
+   "n_non_emotional": {
+    "got": 405,
+    "expected": 405,
+    "ok": true
+   },
+   "n_face": {
+    "got": 591,
+    "expected": 591,
+    "ok": true
+   },
+   "n_scene": {
+    "got": 421,
+    "expected": 421,
+    "ok": true
+   },
+   "n_face_emotional": {
+    "got": 402,
+    "expected": 402,
+    "ok": true
+   },
+   "n_scene_emotional": {
+    "got": 205,
+    "expected": 205,
+    "ok": true
+   },
+   "n_repeat_prompts": {
+    "got": 249,
+    "expected": 249,
+    "ok": true
+   }
+  }
+ },
+ "runtime_s": 18.0
+}

@@ -29,8 +29,16 @@ been run."* That is now out of date — you ran one. Say the real figure aloud; 
 script below.
 
 **Slide 3** says *"23 excluded, 74 retained across twelve themes."* The correct figures from your own
-filtering log are **73 retained across eight themes**. Nobody is likely to raise it; if they do, give
-the right numbers and move on.
+filtering log are **97 screened, 24 excluded, 73 retained across eight themes**. Nobody is likely to raise
+it; if they do, give the right numbers and move on.
+
+## Post-presentation note (9 September)
+
+The results slide said scenes are *"weaker, though still above chance"*. The template ablation run after
+the presentation shows that scene figure was an artefact: the description template asserted a person
+and an expression for drawings with none. Under a people-aware template the scene reading falls to its
+null (valence sign 4.7% vs 3.4%, z +1.6) while the face rows are unchanged. If the viva returns to slide
+8, say: **faces, and only faces, for this reader** — not faces more than scenes.
 
 ## On the title
 
@@ -73,7 +81,7 @@ Four areas are each well established on their own, and this matrix shows where t
 Generating images from text — well established. Evaluating that output — well established, but for
 **objects**: CLIPScore and VQAScore ask whether the picture contains what the prompt named.
 
-Generating images to carry a chosen **emotion** — also well established, and the literature reports
+Generating images towards a chosen **emotion** — also well established, and the literature reports
 colour as the principal carrier of affect.
 
 And then the fourth cell, which is empty. Evaluating the emotion recovered from a generated line
@@ -132,11 +140,11 @@ I report that.
 Three incompatible filename schemes in one folder — a naive loader resolves under a fifth of the
 corpus. Hidden C2PA signing timestamps inside each PNG, which let me identify thirteen images
 generated *before* the festival: developer tests, excluded. And a pre-processing step — eight records
-contained real names, replaced with a placeholder, and I verified that redaction changed no emotion
-label at all.
+contained real names, replaced with a placeholder, and I verified that redaction changed no top-1
+prompt label at all.
 
-That leaves 1,012 analysed: 607 prompts carrying a feeling, 405 not; 591 with a readable face, 421
-scenes.
+That leaves 1,012 analysed: 607 prompts the text reader labels emotional, 405 neutral; 591 the
+describer classifies as a readable face, 421 as scenes.
 
 ---
 
@@ -150,9 +158,9 @@ First, a random-pairing null. Within each subset I shuffle the drawings against 
 hundred times with a fixed seed, and see what chance alone produces. Every figure I report is quoted
 against its own null.
 
-Second, a specificity check. Four hundred and five prompts carry no feeling — "pigs", "mickey mouse".
-On those, valence–arousal similarity returns 76.6% against a null of 76.6%. The pipeline reports
-agreement only where the prompt reader finds an emotion. I should add that on that subset the sign
+Second, a specificity check. Four hundred and five prompts are labelled neutral by the text reader —
+"pigs", "mickey mouse". On those, valence–arousal similarity returns 76.6% against a null of 76.6%.
+The pipeline sits at chance where the prompt reader finds no emotion. I should add that on that subset the sign
 and family measures are degenerate by the subset's own definition, so only the valence–arousal figure
 is informative there.
 
@@ -175,10 +183,10 @@ prompt identity because 249 records repeat an earlier prompt and are therefore n
 *(The footnote on this slide predates that test — take the spoken figure.)*
 
 Three further results. Repeated prompts: given the same words, the image reader recovers the same
-emotion 68.8% of the time against a null of 59.1%. The method comparison favours describe-then-extract,
-49.3% against 25.3% — though the prompt side is held constant with BART-MNLI in that comparison only,
-not the GoEmotions reader used elsewhere. And on distinct prompts, the face result holds while the
-scene result weakens substantially, to 37.3%.
+emotion 68.8% of the time against a null of 59.4% — more consistent than chance, far from fixed. The
+method comparison, like for like, favours describe-then-extract: 53.0% family agreement against 22.4%
+for direct CLIP, a difference of thirty points with a clustered interval of plus 25.5 to plus 35.6.
+And on distinct prompts, the face result holds while the scene result weakens substantially, to 37.3%.
 
 ---
 
@@ -212,8 +220,9 @@ previous slide.
 To close.
 
 Established: prompt-reader and image-reader agreement is well above chance on every metric;
-significantly higher for drawings containing a person; the same prompt does not reliably yield the
-same recovered emotion; and describe-then-extract agrees more than reading emotion directly.
+significantly higher where the describer reports a person; the same prompt does not reliably yield
+the same recovered emotion; and describe-then-extract agrees far more closely with the prompt reader
+than reading emotion directly.
 
 Not established, and I want to say these before you ask. What a *human* perceives — both my readers
 are automatic and they disagree with each other. Anything about colour. And any positive-versus-
@@ -234,7 +243,8 @@ Thank you — I'm happy to take questions.
 ## Slide 11 — Backup
 
 Do not go to this slide unless the demonstration fails. If it does: *"I'll show you the numbers
-instead"* — then walk through record 201 exactly as you would have walked through the live run.
+instead"* — then walk through record 63 ("super tired") exactly as you would have walked through the
+live run; record 201 ("tired but happy") is the second backup.
 
 ---
 

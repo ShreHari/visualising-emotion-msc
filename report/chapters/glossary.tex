@@ -1,0 +1,27 @@
+\chapter*{Glossary}
+\addcontentsline{toc}{chapter}{Glossary}
+
+% Definitions are fixed project vocabulary; keep them as they are and use the same words in the text.
+
+\begin{description}\setlength{\itemsep}{2pt}
+\item[Record] One prompt--drawing pair from the corpus. Records are not linked to individuals; \nTotal\ were processed and \nAnalysed\ analysed.
+\item[Prompt reader] The text model that reads the visitor's words: GoEmotions (RoBERTa fine-tuned on 28 labels), collapsed to seven families.
+\item[Describer] The vision model that answers five factual questions about a drawing (BLIP-VQA). It is never asked for an emotion.
+\item[Image reader] The text model that infers an emotion family from the describer's one-sentence description (BART-MNLI, zero-shot).
+\item[Family] One of seven emotion families: joy, sadness, anger, fear, surprise, disgust, neutral (Ekman's six plus neutral).
+\item[Agreement] The central quantity: how similar the prompt reader's reading of the words is to the image reader's reading of the drawing. It is a property of two machine readers, not a statement about what a person would see.
+\item[Valence sign] $+$ for joy, $-$ for sadness, anger, fear and disgust, $0$ for surprise and neutral. Valence-sign agreement is computed over records whose prompt family has a sign.
+\item[Family agreement] The share of records whose top-1 families coincide.
+\item[Top-3 soft overlap] The overlap of the two readers' top-3 distributions after each is normalised to sum to one.
+\item[Valence--arousal similarity] One minus the normalised distance between the two readings' score-weighted centroids in valence--arousal space. Its floor over the family centroids is 0.412, and randomly paired records already average about \FullNeuVaNull.
+\item[Random-pairing null] The mean and spread of a measure when the image readings are re-paired with the prompts at random (\nullShuffles\ re-pairings, seed \nullSeed). Every reported value is read against it.
+\item[$z$] (observed $-$ null mean) / null standard deviation. An ordering statistic here, not a precise probability: across seeds it moves by about one unit (\ZSeedMin\ to \ZSeedMax\ for the headline).
+\item[Degenerate null] A null with zero spread, which arises when every prompt in a subset shares one label so permutation cannot change the score. No $z$ is reported for it.
+\item[Prompt group / dedup\_key] All records whose prompt text (before redaction, case-folded) is identical. \nDistinct\ groups; \nRepeats\ records repeat an earlier prompt. Every resampling and permutation clusters on it.
+\item[Clustered bootstrap] Resampling prompt groups, not records, with replacement (\DiffDraws\ draws) to obtain 95\% confidence intervals that respect repeated prompts.
+\item[Face-classified / scene-classified] A record is face-classified when the describer reports at least one person \emph{and} its expression answer contains a readable expression word; every other record is scene-classified. The split is the describer's, not a human's.
+\item[Emotional / neutral-labelled prompt] A prompt is emotional when the prompt reader's top-1 family is not neutral (\nEmotional); otherwise it is neutral-labelled (\nNonEmotional). The label is the reader's judgement, never human-checked.
+\item[Specificity check] The expectation that neutral-labelled prompts show no agreement above their null. Only the valence--arousal measure is informative there.
+\item[Copy rate] Where the describer's expression answer names an emotion word, the share of records in which the image reader's top-1 family equals that word's family (\DescCopyStrict\ on the strict definition).
+\item[Consistency] For prompts drawn more than once, the mean share of drawings in a group that the image reader assigns the group's modal family, read against a permutation null.
+\end{description}
