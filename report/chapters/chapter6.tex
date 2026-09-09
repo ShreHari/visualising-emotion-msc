@@ -1,28 +1,26 @@
 \chapter{Conclusions and Further Work}
 \label{ch:conclusion}
 
-% GUIDANCE (chapter target about 800 words). Summarise with acumen: what was asked, what was built,
-% what was found, what it means, in that order — then further work that follows FROM the evaluation,
-% not a wish list.
-
 \section{Conclusions}
 \label{sec:conc}
-% GUIDANCE: Map back to the objectives in Section~\ref{sec:intro-aims}, one sentence each, with the
-% deciding number as a macro (e.g. \FullEmoSignObs\ vs \FullEmoSignNull; \DiffSignPp; \McDiffFamPp;
-% \ConsFam\ vs \ConsFamNull). End with the one-sentence answer to the question in
-% Section~\ref{sec:intro-question}, bounded exactly as Section~\ref{sec:disc-not-claimed} bounds it.
+
+The question was whether the emotion recoverable from a line drawing agrees with the emotion recoverable from the words that produced it. The answer, bounded exactly as Chapter~\ref{ch:discussion} bounds it, is that two automatic readers agree far more often than chance on the \nEmotional{} prompts that carry a readable feeling, that the agreement is carried by drawings in which the describer can read a face, and that for this instrument scenes contribute nothing above chance once an invented expression is removed from their description.
+
+Against the objectives of Section~\ref{sec:intro-aims}: a describe-then-extract image reader was built and run over all \nTotal{} images (objective 1). A four-rung similarity ladder was defined and every rung given a random-pairing null, which turned out to be the most consequential decision in the project, since the loosest rung sits at \FullNeuVaNull{} for random pairs (objective 2). Agreement was measured on the whole corpus and on both splits: \FullEmoSignObs{} valence-sign agreement against \FullEmoSignNull{} on emotional prompts, \FullFaceSignObs{} on face-classified drawings against \FullSceneSignObs{} on scene-classified, and chance on the neutral-labelled control (objective 3). The face/scene difference was tested at \DiffSignPp{} with $p$ = \DiffSignP{}, and the headline results survive the distinct-prompt re-run and a Holm correction while the scene family result does not (objective 4). Like for like, describe-then-extract agrees with the prompt reader on \McDeFam{} of families against \McClipFam{} for direct CLIP (objective 5). The repeated prompts gave a consistency of \ConsFam{} against a null of \ConsFamNull{}, more consistent than chance and far from fixed (objective 6). The audits found that the describer names an expression for drawings with no person, that the reader copies an emotion-naming expression word \DescCopyStrict{} of the time, and that the reading rests on that one word; the error taxonomy placed most confident disagreements at the describer and almost none at the generator; the single-coder sample is drawn and awaits coding (objective 7). The toolkit, its two-layer tests and the demonstrator are released (objective 8).
+
+What the dissertation contributes is not a metric. It is a corpus and a question that nobody had put together, a way of asking the question that gives every value its chance level, a consistency experiment the repeated prompts made possible, and an audited account of an instrument that ends up more modest than its architecture promised. The most useful sentence in it may be the one the ablation forced: the two-stage reader is, for most records, a facial-expression question with a lookup table attached, and a study that wants to know what a drawing shows will need either a person or a describer that can read a scene.
 
 \section{Further work}
 \label{sec:further}
-% GUIDANCE: In priority order, each tied to a limitation or an audit result:
-%   1. A human-rated study of the drawings (the study this pipeline was built to precede), rating the
-%      same ladder so machine and human agreement can be compared directly; \cite{lomas2024improved}
-%      is the design to adapt.
-%   2. A people-aware description template as the default (no expression clause when the describer
-%      reports no people), with the demonstrator kept in parity; the ablation is its evidence.
-%   3. A second describer (a sketch- or drawing-specific model was designed but not executed) and a
-%      test--retest estimate for both readers, so the consistency result can be decomposed.
-%   4. NRC-VAD per-family means in place of hand-set centroids \cite{mohammad2018obtaining}.
-%   5. A richer family scheme (or the 27 categories of \cite{cowen2017self}) so low-arousal positive
-%      states do not fall to neutral.
-%   6. Extending the single-coder check to a second coder with an agreement statistic.
+
+In priority order, each tied to a result above.
+
+\begin{enumerate}\setlength{\itemsep}{2pt}
+\item \textbf{The human-rated study.} The pipeline was built to precede it. Raters would score the same ladder on a stratified sample of drawings, blind to provenance given the labelling effects reported by Ragot, Horton and Millet \cite{ragot2020ai, horton2023bias, millet2023defending}, so that machine and human agreement can be compared rung by rung; Lomas and colleagues' protocol \cite{lomas2024improved} is the design to adapt, and the single-coder check is its pilot.
+\item \textbf{A people-aware description template as the default.} The ablation is its evidence. It should replace the current template in the pipeline and the demonstrator together, so the two stay in parity, and the main table should be re-run under it.
+\item \textbf{An expression-word ablation on the face-classified records.} Strip the emotion word from the expression answer before extraction and measure what remains; this is the experiment that separates ``BLIP-VQA reads drawn faces well'' from ``describe-then-extract is a better architecture''.
+\item \textbf{A scene-capable describer.} A sketch- or drawing-specific model was designed and not executed for want of time; if the human study finds that scene drawings do hold a readable feeling, a describer that reads affect from composition, posture and setting rather than from a face is the main route to measuring it, and it would feed the people-aware template.
+\item \textbf{A second describer and a test--retest estimate for both readers,} so that the consistency result can be decomposed into generator variance and measurement noise.
+\item \textbf{NRC per-family valence--arousal means} in place of the hand-set centroids \cite{mohammad2018obtaining}, and a richer scheme, or the 27 categories of Cowen and Keltner \cite{cowen2017self}, so that low-arousal positive states no longer fall to neutral.
+\item \textbf{A second coder} for the reliability check, with an agreement statistic, so that the human anchor is itself measured.
+\end{enumerate}

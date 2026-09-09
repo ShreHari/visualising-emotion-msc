@@ -1,24 +1,7 @@
 \chapter*{\Large \center Abstract}
 
-% GUIDANCE (about 250 words; write it LAST, after the chapters):
-%   1. One sentence of context: at Festival of the Mind 2024 visitors typed how they felt and a
-%      text-to-image model drew each entry as a monochrome line drawing (\nTotal records,
-%      \nAnalysed analysed).
-%   2. The question: does the emotion a reader recovers from the drawing agree with the emotion a
-%      reader recovers from the words — measured as SIMILARITY on a ladder of four measures, not as
-%      an exact match, and always against a random-pairing null.
-%   3. Method in two sentences: prompt reader (GoEmotions, 28 -> 7 families); image side described
-%      by BLIP-VQA with five factual questions and read by zero-shot NLI; four measures; null and z;
-%      clustered bootstrap CIs and clustered permutation tests because \nRepeats records repeat a prompt.
-%   4. Headline numbers (all macros): emotional prompts valence-sign \FullEmoSignObs\ vs null
-%      \FullEmoSignNull\ ($z$ \FullEmoSignZ); face-classified \FullFaceSignObs\ vs scene-classified
-%      \FullSceneSignObs, difference \DiffSignPp\ (95\% CI \DiffSignCi, $p$ = \DiffSignP);
-%      neutral-labelled prompts at their null (VA \FullNeuVaObs\ vs \FullNeuVaNull); describe-then-
-%      extract vs direct CLIP like for like, family \McDeFam\ vs \McClipFam\ (\McDiffFamPp);
-%      repeated prompts \ConsFam\ vs null \ConsFamNull\ ($z$ \ConsFamZ).
-%   5. The honest turn: the split is the describer's, not a human's; the describer answers an
-%      expression for \DescNoPeopleExpr\ drawings in which it reports no people, and where its answer
-%      names an emotion the image reader copies it \DescCopyStrict\ of the time — so the finding is
-%      about a measurement chain, and a human-rated study is the next step.
-%   6. Close with what is contributed: the corpus-plus-question, the null-referenced similarity
-%      ladder, the audits, and the open demonstrator.
+At the Festival of the Mind in Sheffield in 2024, visitors typed a few words about how they were feeling and a text-to-image model returned a monochrome line drawing of each entry, producing \nTotal{} prompt--drawing records of which \nAnalysed{} are analysed here. This dissertation asks whether the emotion recoverable from the drawing agrees with the emotion recoverable from the words. There is no ground truth, so two automatic readers stand in for the two sides: a fine-tuned RoBERTa model reads the prompt, and a describe-then-extract reader, in which a visual question-answering model answers five factual questions about the drawing and a natural-language-inference model infers an emotion from the resulting sentence, reads the image. Agreement is measured as similarity rather than exact match, on a ladder of four measures from valence--arousal distance to top-1 family, and every value is read against a random-pairing null, because the loosest measure has a floor of 0.41 and randomly paired records already score \FullNeuVaNull{} on it. Intervals and tests cluster on prompt groups, since \nRepeats{} records repeat a prompt.
+
+On the \nEmotional{} prompts the text reader labels emotional, valence-sign agreement is \FullEmoSignObs{} against a null of \FullEmoSignNull{} ($z$ = \FullEmoSignZ{}) and family agreement \FullEmoFamObs{} against \FullEmoFamNull{}; the results survive a distinct-prompt re-run and a Holm correction. Drawings in which the describer reads a face agree far more than drawings of scenes, \FullFaceSignObs{} against \FullSceneSignObs{}, a difference of \DiffSignPp{} (95\% CI \DiffSignCi{}, clustered permutation $p$ = \DiffSignP{}). Prompts the reader labels neutral sit at chance. Scored like for like, describe-then-extract agrees with the prompt reader on \McDeFam{} of families against \McClipFam{} for a direct CLIP reader. When the same words are drawn again, the image reader returns the same family for \ConsFam{} of drawings in a group against \ConsFamNull{} by chance.
+
+The audits qualify these results. The describer names a facial expression for \DescScenePeopleZeroExpr{} of the \DescScenePeopleZero{} scene drawings in which it reports no person; where its expression word names an emotion, the image reader copies it \DescCopyStrict{} of the time; and a template ablation shows that removing that one word removes nearly all of the agreement, while a people-aware description leaves the face results unchanged and brings the scene results down to chance. The findings are therefore about a measurement chain rather than about human perception, and the dissertation ends with the single-coder check and the human-rated study that would convert reader agreement into perceived affect. The contribution is the corpus and question, the null-referenced similarity ladder, the consistency experiment the repeated prompts make possible, and a reproducible, audited toolkit with a live demonstrator.

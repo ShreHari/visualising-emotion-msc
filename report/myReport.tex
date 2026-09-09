@@ -14,16 +14,9 @@
 %   2. emoviz/.venv/bin/python emoviz/make_figures.py    -> ../emoviz/outputs/figures/fig*.pdf
 %   3. pdflatex myReport && bibtex myReport && pdflatex myReport && pdflatex myReport
 % Every statistic in the text is a macro from generated/numbers.tex (e.g. \FullEmoSignObs), so the
-% dissertation cannot drift from the analysis. Never type a result number by hand.
+% document cannot drift from the analysis. Never type a result number by hand.
 %
-% WRITING RULE (supervisor): the student writes the prose. Each section carries a
-% "% GUIDANCE:" block — a content plan naming the macros, tables, figures and citations to use.
-% Delete the guidance block once the section is written.
-%
-% VOCABULARY: the central quantity is *agreement* between the prompt reader and the image reader.
-% Do not write alignment / fidelity / accuracy / matching for it, and do not write that a drawing
-% "conveys" or "carries" an emotion — except when quoting what the project does NOT claim, when
-% describing other people's work in their own terms, and in the registered title.
+% Boxes marked [INSERT ...] are placeholders for photographs or screenshots to be added by hand.
 
 \documentclass[11pt,oneside]{book}
 \usepackage[margin=1.2in]{geometry}
@@ -41,6 +34,9 @@
 
 \graphicspath{{figures/}{../emoviz/outputs/figures/}}
 \input{generated/numbers}
+
+% Visible placeholder for a photograph or screenshot to be added by hand.
+\newcommand{\placeholder}[2]{\begin{center}\fbox{\parbox{0.92\textwidth}{\centering\vspace{1.6cm}\textbf{[INSERT #1]}\\[4pt]{\small #2}\vspace{1.6cm}}}\end{center}}
 
 \begin{document}
 
@@ -106,7 +102,6 @@ All sentences or passages quoted in this report from other people's work have be
 \input{chapters/chapter5.tex}   % Discussion
 \input{chapters/chapter6.tex}   % Conclusions and Further Work
 
-\nocite{*}   % DRAFT ONLY: lists every bibliography entry so the .bib is checked. REMOVE before submission and cite what you use.
 \bibliographystyle{acm}
 \bibliography{mybibliography}
 

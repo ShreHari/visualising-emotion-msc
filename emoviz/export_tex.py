@@ -291,6 +291,30 @@ M("HolmFail", num(H["holm_n_do_not_survive"]), "do not survive")
 M("HolmBonfZ", f"{H['bonferroni_z_for_smallest_rank']:.1f}", "Bonferroni-equivalent z for the smallest rank")
 
 # ----------------------------------------------------------------------------- optional: ablation, human check
+# ablation macros: the cells the prose quotes (per variant x subset x measure: observed, null, z)
+if AB:
+    _VNAME = {"drop_expression": "DropExpression", "drop_action": "DropAction", "drop_posture": "DropPosture",
+              "drop_people": "DropPeople", "drop_scene": "DropScene", "fixed_expression": "FixedExpression",
+              "people_aware": "PeopleAware", "people_aware_no_expression": "PeopleAwareNoExpression",
+              "control_full_template": "Control", "baseline": "Baseline"}
+    for v, vn in _VNAME.items():
+        if v not in AB: continue
+        for sk, sn in (("emotional", "Emo"), ("face", "Face"), ("scene", "Scene")):
+            sub = AB[v].get(sk, {})
+            for mk, mn in (("vsign", "Sign"), ("family", "Fam")):
+                m = sub.get(mk, {})
+                if not m: continue
+                M(f"Abl{vn}{sn}{mn}Obs", pct(m.get("obs")), f"ablation {v}, {sk}, {mk}: observed")
+                M(f"Abl{vn}{sn}{mn}Null", pct(m.get("null")), f"ablation {v}, {sk}, {mk}: null mean")
+                M(f"Abl{vn}{sn}{mn}Z", zf(m.get("z")), f"ablation {v}, {sk}, {mk}: z")
+    _pv = (AB.get("_meta") or {}).get("per_variant", {})
+    if "control_full_template" in _pv:
+        M("AblControlChanged", num(_pv["control_full_template"].get("image_top1_changed_vs_baseline", 0)), "top-1 readings changed by the control re-run")
+    if "drop_expression" in _pv:
+        dist = _pv["drop_expression"].get("image_top1_distribution", {})
+        M("AblDropExpressionSurprise", num(dist.get("surprise", 0)), "drop_expression: records read as surprise")
+        M("AblDropExpressionNeutral", num(dist.get("neutral", 0)), "drop_expression: records read as neutral")
+        M("AblDropExpressionChanged", num(_pv["drop_expression"].get("image_top1_changed_vs_baseline", 0)), "drop_expression: top-1 readings changed vs baseline")
 M("AblationAvailable", "yes" if AB else "no", "ablation summary present")
 M("HumanCheckAvailable", "yes" if HC else "no", "human check scored")
 if HC:

@@ -1,65 +1,59 @@
 \chapter{Introduction}
 \label{ch:intro}
 
-% GUIDANCE (chapter target about 1,500 words):
-% Open with the festival scene, then move to the measurement problem in two paragraphs. Do not open
-% with "In recent years". Cite the T2I lineage once (\cite{ramesh2021zero, ramesh2022hierarchical,
-% betker2023improving}) and the evaluation literature once (\cite{hessel2021clipscore, hu2023tifa,
-% ghosh2023geneval, lin2024evaluating}) to establish that existing metrics score objects, not affect.
-
 \section{Context}
 \label{sec:intro-context}
-% GUIDANCE: The corpus: \nTotal\ prompt--drawing records collected at Festival of the Mind 2024 in
-% Sheffield; visitors were invited to describe how they were feeling, the interface accepted free
-% text, and a model drew each entry as a black-and-white line drawing. Records are not linked to
-% people: \nRepeats\ repeat an earlier prompt, so the number of contributors is unknown and no greater
-% than \nDistinct. State that a substantial minority (\nNonEmotional\ records by the prompt reader)
-% are object or scene requests ("pigs") rather than self-report, and that this is a property of the
-% collection, not a defect of the analysis. Keep it factual; no numbers beyond the macros.
+
+In September 2024 the University of Sheffield ran an installation at the Festival of the Mind in which members of the public were invited to type a few words about how they were feeling. Each entry was sent to a text-to-image model, which returned a black-and-white line drawing, and the drawing was shown back to the visitor. Over eleven festival days the installation produced \nTotal{} prompt--drawing records. That corpus, handed to me with no labels, no metadata and no record of who typed what, is the object of this dissertation.
+
+Two properties of the corpus shaped everything that follows. The first is that the entries are short and personal. The median prompt is four words long, a quarter of them are a single word, and the commonest entries are the plain words people use for their own state: \emph{happy}, \emph{tired}, \emph{excited}. Many combine feelings that a single label cannot hold, such as ``tired but happy'' or ``hopeful, slightly anxious, resigned''. The second is that the drawings are monochrome. The installation appended a line-art style instruction to every prompt, so colour, which the literature identifies as the strongest carrier of emotional meaning in generated images \cite{alvarado2025texttoimage}, is absent from every one of the \nTotal{} images. Whatever feeling a drawing shows, it has to show it through line, posture, faces and composition alone.
+
+The corpus also has a shape that has to be stated plainly at the outset. The interface accepted free text, and a substantial minority of entries are not self-report at all: requests for objects (``pigs''), pop culture, cars, questions addressed to the machine. Records are not linked to individuals. A visitor could submit several times, and \nRepeats{} of the \nAnalysed{} analysed records repeat a prompt that appears earlier in the corpus, so the number of contributors is unknown and can be no larger than \nDistinct{}. These are properties of the collection, not defects in the analysis, and Chapter~\ref{ch:method} explains how each is handled. Figure~\ref{fig:examples} shows six records as they appear to the reader of this dissertation: the visitor's words, redacted of any personal name, and the drawing that came back.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{examples}
+\caption{Six records from the corpus. The caption under each drawing gives the record number, the visitor's words, the image class assigned by the describer (Section~\ref{sec:method-pipeline}), and the emotion family each reader returned. Records 63 and 201 are the two used in the live demonstration; record 21 is a mountain scene for which the describer nevertheless reported a smiling expression, a behaviour examined in Section~\ref{sec:results-describer}.}
+\label{fig:examples}
+\end{figure}
 
 \section{The question}
 \label{sec:intro-question}
-% GUIDANCE: One question, stated once: when a text-to-image model draws what a person wrote about
-% their feeling, does the emotion recoverable from the drawing agree with the emotion recoverable
-% from the words? Then the supervisor's reframing, which is the intellectual centre of the project:
-% SIMILARITY, NOT MATCHING. Emotion labels overlap and blend (\cite{cowen2017self, russell1980circumplex,
-% posner2005circumplex}), so "happy" versus "excited" is a near miss, not an error; the right
-% instrument is a ladder of measures of increasing strictness, each read against what random pairing
-% would give. Introduce the four rungs by name only (valence--arousal similarity, valence sign,
-% family, top-3 overlap) and point to Chapter~\ref{ch:method}.
-% Also say here what the project does NOT claim, in one sentence: nothing in it is a statement about
-% what a person would see in a drawing — agreement is between two machine readers, and the human
-% study is future work.
+
+When a text-to-image model draws what a person wrote about their feeling, does the emotion recoverable from the drawing agree with the emotion recoverable from the words? That is the question, and it is deliberately narrower than it first sounds. There is no ground truth here. Nobody rated the drawings, and the visitor's own words are the only record of what they meant. Two readers therefore stand in for the two sides of the comparison: a text model that reads an emotion from the prompt, and a second reader that reads an emotion from the drawing. What the project measures is the agreement between those two readings, and nothing in it is a statement about what a person would see. The human study that would establish that is the natural next step, and the pipeline built here was designed to precede it.
+
+The intellectual centre of the project is a reframing my supervisor proposed in July, and which the results bear out: similarity, not matching. The obvious way to score an image against a text label is right or wrong, and the obvious way to summarise such scores is an accuracy. Neither survives contact with emotion. People disagree about what a face shows; models are noisy; and the labels themselves overlap and blend. Cowen and Keltner \cite{cowen2017self} found that self-reported experience resolves into more than two dozen categories joined by continuous gradients, and Russell's circumplex \cite{russell1980circumplex, posner2005circumplex} places every one of them on a plane where ``happy'' and ``excited'' sit close together. Treating a drawing read as excited as a total failure for a prompt that said happy throws away exactly the information the corpus is rich in. The right instrument is a ladder of measures of increasing strictness, each read against what random pairing of drawings and words would give. The four rungs, defined in Chapter~\ref{ch:method}, are valence--arousal similarity, valence-sign agreement, emotion-family agreement and top-3 overlap. The random-pairing null turns out to matter as much as the ladder: the loosest measure cannot fall below 0.41 and randomly paired records already score about \FullNeuVaNull{} on it, so a bare percentage reads as a pass when it may be below chance.
 
 \section{Aims and objectives}
 \label{sec:intro-aims}
-% GUIDANCE: One aim, then objectives as a numbered list (the marker maps the Conclusions back to this):
-%   1. Build a pipeline that reads an emotion from a monochrome drawing WITHOUT asking a vision model
-%      for one: describe with factual questions, then extract from the description.
-%   2. Define a similarity ladder and a random-pairing null so that every value has a chance level.
-%   3. Measure agreement on the whole corpus and on the splits the supervisor asked for
-%      (emotional vs neutral-labelled prompts; face vs scene drawings).
-%   4. Test the face/scene difference formally and check robustness to repeated prompts.
-%   5. Compare the describe-then-extract reader with a direct CLIP reader like for like.
-%   6. Use the repeated prompts to measure the stability of the whole prompt-to-reading chain.
-%   7. Audit the instrument: the control set, the describer, an error taxonomy, an ablation of the
-%      description template, and a single-coder reliability check.
-%   8. Release a reproducible toolkit with pinned numeric tests and a live demonstrator.
+
+The aim is to measure, on this corpus and with every value referenced to its own chance level, how far the emotion two automatic readers recover from a visitor's words and from the drawing made of them agree, and to characterise the instrument that does the measuring well enough that its limits are known. The objectives were:
+
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item To build an image reader that recovers an emotion from a monochrome drawing without asking a vision model for one: the vision model is asked factual questions, and a separate text model infers the emotion from the answers.
+\item To define a similarity ladder and a random-pairing null so that every reported value carries its chance level.
+\item To measure agreement over the whole corpus and over the two splits my supervisor asked for: prompts the text reader labels emotional against those it labels neutral, and drawings in which a face can be read against drawings of scenes.
+\item To test the face/scene difference formally and to check that the results survive the repeated prompts in the corpus.
+\item To compare the describe-then-extract reader with a direct CLIP reader like for like, on the same records and against the same prompt reader.
+\item To use the repeated prompts to measure how stable the whole prompt-to-reading chain is when the same words are drawn again.
+\item To audit the instrument: the control set, the describer, an error taxonomy of the strongest disagreements, an ablation of the description template, and a single-coder reliability check.
+\item To release a reproducible toolkit with pinned numeric tests and a live demonstrator.
+\end{enumerate}
 
 \section{Contributions}
 \label{sec:intro-contributions}
-% GUIDANCE: Honest novelty accounting (from RESEARCH_GAP.md): what is new is the OBJECT (unmediated,
-% mixed-affect public self-report rendered as colour-free line art), the QUESTION (end-to-end affect
-% agreement on non-templated input, cf. \cite{lomas2024improved} who use a fixed typology), the
-% NULL-REFERENCED similarity ladder, and the CONSISTENCY experiment that the repeated prompts make
-% possible. What is incremental is the toolkit (existing models recombined). Say so.
-% List the deliverables: the analysis code, \nAnalysed-record result tables, the demonstrator, the
-% test suite, and the audits in Chapter~\ref{ch:results}.
+
+I want to be careful about what is new here, because the toolkit is not. The models are existing ones, recombined: a fine-tuned RoBERTa on the prompt side, a visual question-answering model and a natural-language-inference model on the image side, and the agreement statistics are standard. What is new is the object, the question and the way the question is asked.
+
+The object is a corpus of unmediated, mixed-affect public self-report rendered as colour-free line art. The closest prior study, by Lomas and colleagues \cite{lomas2024improved}, rated emotional alignment on a fixed ten-item typology, each emotion rendered on a person or a robot, and it did so in colour. Nothing comparable exists for real, short, blended entries with colour removed, and the review in Chapter~\ref{ch:lit} was unable to find one within a 73-paper corpus.
+
+The question is end-to-end affect agreement on non-templated input, and the way it is asked is the null-referenced similarity ladder: four measures, each with a measured chance level, clustered intervals that respect the repeated prompts, and a formal test of the one contrast (faces against scenes) the design was built around. The repeated prompts also make a consistency experiment possible that neither the rating studies nor the affective-generation literature perform, because none of them draws the same words more than once.
+
+The audits are a contribution of a different kind. They show, with numbers rather than a caveat, where the instrument is weak: how much of the image reading rests on a single word the describer produces, what the describer does when there is no face to describe, and which of the strongest disagreements are the generator's fault and which are the readers'. The dissertation ends less certain about scene drawings than it began, and I take that to be the right direction for a measurement study to move in.
+
+The deliverables are the analysis code, the \nAnalysed{}-record result tables, a live demonstrator that runs the real pipeline on any record or an uploaded image against the same chance levels, a two-layer test suite in which every headline number is pinned to the file that produces it, and the audits reported in Chapter~\ref{ch:results}. Every statistic in this document is a macro generated from those result files, so the text cannot drift from the analysis.
 
 \section{Overview of the report}
 \label{sec:intro-overview}
-% GUIDANCE: One sentence per chapter. Chapter~\ref{ch:lit} reviews the literature in eight themes and
-% states the gap. Chapter~\ref{ch:method} gives the corpus, pre-processing, pipeline, measures, null,
-% inference and audits. Chapter~\ref{ch:results} reports the results, tables first. Chapter~\ref{ch:discussion}
-% interprets them, says what is not claimed, and relates them to prior work. Chapter~\ref{ch:conclusion}
-% concludes. Appendices give reproducibility and the instruments.
+
+Chapter~\ref{ch:lit} reviews the literature in eight themes, from emotion theory to the perception of AI-generated images, and states the gap. Chapter~\ref{ch:method} describes the corpus, the pre-processing, the pipeline, the four measures, the null, the inference procedures, the analyses and the demonstrator, together with the alternatives that were tried and rejected. Chapter~\ref{ch:results} reports the results, tables and figures first, with interpretation held back. Chapter~\ref{ch:discussion} argues what the results establish, why the describer is the weak link, what is not claimed, and how the findings sit beside other people's work. Chapter~\ref{ch:conclusion} concludes and sets out further work that follows from the evaluation rather than from a wish list. The appendices give the repository layout and run order, and the instruments: the five questions, the template, the hypothesis, the label map, the expression-word list, the redaction procedure and the coding sheet.

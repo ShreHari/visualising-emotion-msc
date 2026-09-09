@@ -1,17 +1,12 @@
 \chapter{Results}
 \label{ch:results}
 
-% GUIDANCE (chapter target about 2,000 words — shorter than the Methodology, per the supervisor).
-% Tables and figures carry the numbers; the prose says what each shows and nothing more. Interpretation
-% belongs in Chapter~\ref{ch:discussion}. Every number is a macro or is in a generated table.
+This chapter reports what the analyses found. Interpretation is held back for Chapter~\ref{ch:discussion}; here the tables and figures carry the numbers and the prose says what each shows. Every value is a macro generated from the result files, every rate is read against its random-pairing null (\nullShuffles{} re-pairings, seed \nullSeed), and every interval is a clustered bootstrap over prompt groups (\DiffDraws{} draws).
 
 \section{Overall agreement}
 \label{sec:results-overall}
-% GUIDANCE: Table~\ref{tab:headline}, top block, and Figure~\ref{fig:zgroup}. On the \nEmotional\
-% emotional prompts every measure sits well above its null: valence sign \FullEmoSignObs\ vs
-% \FullEmoSignNull\ ($z$ \FullEmoSignZ, CI \FullEmoSignCi), family \FullEmoFamObs\ vs \FullEmoFamNull\
-% ($z$ \FullEmoFamZ), overlap \FullEmoOvlpObs\ vs \FullEmoOvlpNull, VA \FullEmoVaObs\ vs \FullEmoVaNull.
-% Say that the valence-sign denominator is \FullEmoNSign\ because surprise-family prompts have no sign.
+
+Table~\ref{tab:headline} gives the four measures on the \nEmotional{} prompts the text reader labels emotional, and Figure~\ref{fig:zgroup} shows the same cells as distances from their nulls. Every measure sits well above chance. Valence-sign agreement is \FullEmoSignObs{} against a null of \FullEmoSignNull{} ($z$ = \FullEmoSignZ{}, 95\% CI \FullEmoSignCi{}); the denominator is \FullEmoNSign{} rather than \FullEmoN{}, because prompts whose top family is surprise have no valence sign. Family agreement is \FullEmoFamObs{} against \FullEmoFamNull{} ($z$ = \FullEmoFamZ{}, CI \FullEmoFamCi{}), top-3 overlap \FullEmoOvlpObs{} against \FullEmoOvlpNull{} ($z$ = \FullEmoOvlpZ{}), and valence--arousal similarity \FullEmoVaObs{} against \FullEmoVaNull{} ($z$ = \FullEmoVaZ{}). The loosest measure has the largest $z$ and the smallest gap in percentage points, which is the floor of Equation~\ref{eq:va} at work: its null is high and tight, so a modest excess over it is many standard deviations.
 
 \input{generated/tab_headline}
 
@@ -24,13 +19,10 @@
 
 \section{Face-classified versus scene-classified drawings}
 \label{sec:results-face-scene}
-% GUIDANCE: Figure~\ref{fig:facescene} and Table~\ref{tab:difference}. Face-classified
-% (\FullFaceN\ records): valence sign \FullFaceSignObs\ vs null \FullFaceSignNull, family
-% \FullFaceFamObs\ vs \FullFaceFamNull. Scene-classified (\FullSceneN): \FullSceneSignObs\ vs
-% \FullSceneSignNull, \FullSceneFamObs\ vs \FullSceneFamNull. Both above their nulls. The difference
-% is \DiffSignPp\ (CI \DiffSignCi) on valence sign and \DiffFamPp\ (CI \DiffFamCi) on family, with
-% clustered permutation $p$ = \DiffSignP. Report the ratio as excess over null, not raw (the nulls
-% differ). VA does not separate the classes (\FullFaceVaObs\ vs \FullSceneVaObs) — say so.
+
+Figure~\ref{fig:facescene} and Table~\ref{tab:difference} split the emotional prompts by the describer's image class. On the \FullFaceN{} face-classified records valence-sign agreement is \FullFaceSignObs{} against a null of \FullFaceSignNull{} ($z$ = \FullFaceSignZ{}, CI \FullFaceSignCi{}) and family agreement \FullFaceFamObs{} against \FullFaceFamNull{} ($z$ = \FullFaceFamZ{}). On the \FullSceneN{} scene-classified records the same measures are \FullSceneSignObs{} against \FullSceneSignNull{} ($z$ = \FullSceneSignZ{}, CI \FullSceneSignCi{}) and \FullSceneFamObs{} against \FullSceneFamNull{} ($z$ = \FullSceneFamZ{}). Both classes clear their nulls in this table; Section~\ref{sec:results-ablation} returns to the scene row.
+
+The two nulls differ, so the contrast is stated as a difference rather than a ratio. Face minus scene is \DiffSignPp{} on valence-sign agreement (CI \DiffSignCi{}) and \DiffFamPp{} on family agreement (CI \DiffFamCi{}), with the clustered permutation test giving $p$ = \DiffSignP{} on both. Valence--arousal similarity does not separate the classes (\FullFaceVaObs{} against \FullSceneVaObs{}); the difference lives in the categorical rungs.
 
 \begin{figure}[htbp]
 \centering
@@ -43,45 +35,34 @@
 
 \section{Robustness to repeated prompts and multiple comparisons}
 \label{sec:results-robustness}
-% GUIDANCE: Table~\ref{tab:distinct} (first occurrence of each prompt, \nDistinct\ records,
-% \nDistinctEmo\ emotional). Overall and face results hold (face sign \DistFaceSignObs, $z$
-% \DistFaceSignZ); the scene result weakens substantially (sign \DistSceneSignObs, $z$ \DistSceneSignZ;
-% family \DistSceneFamObs, $z$ \DistSceneFamZ; $n$ falls to \DistSceneN) and should be read as
-% suggestive. Then Table~\ref{tab:holm}: of \HolmM\ non-degenerate $z$-scores, \HolmSurvive\ survive
-% Holm at family-wise 0.05 and \HolmFail\ do not — list which, and note that every headline survives
-% while the distinct-prompt scene family result does not.
+
+Table~\ref{tab:distinct} recomputes the main table on the first occurrence of each prompt, \nDistinct{} records of which \nDistinctEmo{} are emotional. The overall and face results hold: on the \DistFaceN{} distinct face-classified records valence-sign agreement is \DistFaceSignObs{} ($z$ = \DistFaceSignZ{}) and family agreement \DistFaceFamObs{} ($z$ = \DistFaceFamZ{}). The scene result weakens substantially: valence-sign agreement falls to \DistSceneSignObs{} ($z$ = \DistSceneSignZ{}) and family agreement to \DistSceneFamObs{} ($z$ = \DistSceneFamZ{}) on \DistSceneN{} records.
+
+Table~\ref{tab:holm} applies the Holm--Bonferroni procedure to the \HolmM{} non-degenerate $z$-scores the analysis prints. \HolmSurvive{} survive at family-wise 0.05 and \HolmFail{} do not. Every full-sample cell on the emotional, face and scene subsets survives, as does every distinct-prompt cell on the emotional and face subsets. The cells that fail are the ones expected to sit at chance (the neutral-labelled control on both blocks), the single-valence subsets' valence--arousal and overlap cells, and the distinct-prompt scene family cell ($z$ = \DistSceneFamZ{}), which should be read as suggestive rather than established.
 
 \input{generated/tab_distinct}
 \input{generated/tab_holm}
 
 \section{Specificity check: prompts the text reader labels neutral}
 \label{sec:results-control}
-% GUIDANCE: Table~\ref{tab:control}. On the \CtrlN\ neutral-labelled prompts only VA is informative:
-% \CtrlVaObs\ vs \CtrlVaNull\ ($z$ \CtrlVaZ; clustered \CtrlVaZClustered). Sign and family are
-% degenerate there (family equals its null, \CtrlFamObs, by construction). The audit found
-% \CtrlFlagged\ (\CtrlFlaggedPct) contain a plain affect word (most often \CtrlTopWords) and
-% \CtrlNameOnly\ reduce to the placeholder; on the cleaned control of \CtrlCleanN\ the VA result is
-% unchanged (\CtrlCleanVaObs\ vs \CtrlCleanVaNull, $z$ \CtrlCleanVaZ). State that the VA null here
-% has very small spread (\CtrlVaSd) because the prompt-side points barely vary, so this is a weak
-% check, passed.
+
+On the \CtrlN{} prompts the text reader labels neutral, only the valence--arousal measure has a live null. It sits on it: \CtrlVaObs{} observed against \CtrlVaNull{} expected ($z$ = \CtrlVaZ{} at record level, \CtrlVaZClustered{} against a null clustered on prompt groups). Family agreement equals its null exactly (\CtrlFamObs{}) because every prompt in the subset shares the neutral label, so permutation cannot move it; the same holds for valence sign, whose numerator and denominator are both zero here.
+
+The control audit (Table~\ref{tab:control}) qualifies the set. \CtrlFlagged{} of the \CtrlN{} prompts (\CtrlFlaggedPct{}) contain a plain English affect word from a fixed \CtrlLexicon{}-word lexicon, most often \CtrlTopWords{}; \CtrlNameOnly{} consist of a redacted name alone. On the cleaned control of \CtrlCleanN{} records the result is unchanged: \CtrlCleanVaObs{} against \CtrlCleanVaNull{} ($z$ = \CtrlCleanVaZ{}). The null's spread on this subset is very small (\CtrlVaSd{}) because the prompt-side points barely vary, so observed and expected values are expected to coincide here; the check is passed, and it is a weak one.
 
 \input{generated/tab_control}
 
 \section{Two image readers, like for like}
 \label{sec:results-method}
-% GUIDANCE: Figure~\ref{fig:method}, Table~\ref{tab:method}. Same prompt reader, same \McN\ records,
-% same measures and re-pairings; only the image reader varies. Family \McDeFam\ vs \McClipFam\
-% (\McDiffFamPp, CI \McDiffFamCi; cluster sign-flip $p<0.001$; unclustered McNemar \McMcNemarFamP);
-% valence sign \McDeSign\ vs \McClipSign\ (\McDiffSignPp, CI \McDiffSignCi). Note that $z$ alone
-% would mislead on family (CLIP's null is far lower because it reads \McClipNeutral\ of the images as
-% neutral); the paired tests on the rates are the comparison. The two readers agree with each other on
-% only \McReaderAgree\ of top-1 families. Table~\ref{tab:methodvone} is the earlier v1 comparison,
-% kept as a record; explain in one sentence why it is not comparable.
+
+Figure~\ref{fig:method} and Table~\ref{tab:method} score two image readers against the same prompt reader on the same \McN{} emotional records with the same measures and the same random re-pairings. Describe-then-extract agrees with the prompt reader on \McDeFam{} of families against \McClipFam{} for direct CLIP, a difference of \McDiffFamPp{} (CI \McDiffFamCi{}); the cluster sign-flip test gives $p$ \McClusterFamP{}, and the unclustered exact McNemar test, which treats records as independent and is optimistic, gives $p$ = \McMcNemarFamP{}. On valence sign the figures are \McDeSign{} against \McClipSign{} (\McDiffSignPp{}, CI \McDiffSignCi{}); on overlap \McDeOvlp{} against \McClipOvlp{}; on valence--arousal similarity \McDeVa{} against \McClipVa{}. Of the \McN{} records, \McFamB{} are ones only describe-then-extract agrees on and \McFamC{} ones only direct CLIP agrees on; \McFamBoth{} are agreed by both and \McFamNeither{} by neither.
+
+Two details in the table need saying. Direct CLIP's family $z$ (\McClipFamZ{}) is higher than describe-then-extract's (\McDeFamZ{}) although its rate is far lower, because its null is lower and tighter: it reads \McClipNeutral{} of the \McN{} images as neutral, so it rarely agrees by chance either. The $z$ measures distance from chance, not level of agreement, and the paired tests on the rates are the comparison. And the two image readers agree with each other on only \McReaderAgree{} of top-1 families. Table~\ref{tab:methodvone} reproduces the comparison from the first build (\McVOneN{} records, an entailment reader on the prompt side, a different overlap formula), kept as a record; it is not comparable with the main analysis and its figures are not quoted.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{fig2_method_comparison}
-\caption{Two image readers scored against the same prompt reader on the same \McN\ emotional records, each against its own random-pairing null (dotted).}
+\caption{Two image readers scored against the same prompt reader on the same \McN{} emotional records, each against its own random-pairing null (dotted).}
 \label{fig:method}
 \end{figure}
 
@@ -90,17 +71,13 @@
 
 \section{Consistency across repeated prompts}
 \label{sec:results-consistency}
-% GUIDANCE: Figure~\ref{fig:consistency}, Table~\ref{tab:consistency}. \nGroups\ prompts drawn two or
-% more times (\nGroupRecords\ records; \nPairGroups\ pairs). Same family \ConsFam\ (CI \ConsFamCi) vs
-% null \ConsFamNull\ ($z$ \ConsFamZ, $p$ \ConsFamP); same valence \ConsVal\ vs \ConsValNull\ ($z$
-% \ConsValZ); \ConsFull\ of \nGroups\ groups fully consistent vs \ConsFullNull\ expected ($z$
-% \ConsFullZ). The largest group, "happy" (\ConsHappyN\ drawings): \ConsHappyJoy\ joy, \ConsHappyNeutral\
-% neutral, \ConsHappySurprise\ surprise. Never quote \ConsFam\ without its null.
+
+\nGroups{} prompts were drawn two or more times, covering \nGroupRecords{} records; \nPairGroups{} of the groups are pairs. Figure~\ref{fig:consistency} and Table~\ref{tab:consistency} give the within-group agreement of the image reader. The mean share of drawings in a group that receive the group's modal family is \ConsFam{} (CI over groups \ConsFamCi{}) against a permutation null of \ConsFamNull{} (sd \ConsFamNullSd{}), $z$ = \ConsFamZ{}, permutation $p$ = \ConsFamP{}. The same valence sign is returned for \ConsVal{} of drawings within a group against \ConsValNull{} ($z$ = \ConsValZ{}). \ConsFull{} of the \nGroups{} groups (\ConsFullPct{}) are fully consistent, every drawing receiving one family, against \ConsFullNull{} expected ($z$ = \ConsFullZ{}). The largest group, the word ``happy'' drawn \ConsHappyN{} times, was read as joy \ConsHappyJoy{} times, neutral \ConsHappyNeutral{} times and surprise \ConsHappySurprise{} once.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{fig4_consistency}
-\caption{Repeated prompts: the image reader's top-1 family across the \ConsHappyN\ drawings of ``happy'' (left), and within-group agreement over all \nGroups\ repeated prompts against the permutation null (right).}
+\caption{Repeated prompts: the image reader's top-1 family across the \ConsHappyN{} drawings of ``happy'' (left), and within-group agreement over all \nGroups{} repeated prompts against the permutation null (right).}
 \label{fig:consistency}
 \end{figure}
 
@@ -108,17 +85,15 @@
 
 \section{Per-family agreement}
 \label{sec:results-families}
-% GUIDANCE: Figure~\ref{fig:confusion}, Tables~\ref{tab:confusion}, \ref{tab:kappa}, \ref{tab:families}.
-% Recall by prompt family: joy \RecJoy\ (\RecJoyCi), sadness \RecSadness, anger \RecAnger\ ($n$ =
-% \RecAngerN), fear \RecFear\ ($n$ = \RecFearN), surprise \RecSurprise, disgust $n$ = \RecDisgustN.
-% The image reader never returns disgust and returns fear \famImageFear\ times. Kappa: emotional
-% \KappaEmo\ (\KappaEmoCi, \KappaEmoBand), face \KappaFace\ (\KappaFaceBand), scene \KappaScene\
-% (\KappaSceneBand). Say plainly that the seven-family ladder is in practice joy / sadness / neutral.
+
+Figure~\ref{fig:confusion} and Table~\ref{tab:confusion} cross the prompt reader's family with the image reader's on the \nEmotional{} emotional records; Table~\ref{tab:families} gives the marginals over all \nAnalysed{} analysed records. The prompt side is dominated by joy (\RecJoyN{} of the emotional prompts), with sadness (\RecSadnessN{}) and surprise (\RecSurpriseN{}) next and fear (\RecFearN{}), anger (\RecAngerN{}) and disgust (\RecDisgustN{}) rare. Recall by prompt family, meaning the share of prompts in a family whose drawing the image reader placed in the same family, is \RecJoy{} for joy (CI \RecJoyCi{}), \RecSadness{} for sadness (CI \RecSadnessCi{}), \RecAnger{} for anger on \RecAngerN{} prompts, \RecSurprise{} for surprise (CI \RecSurpriseCi{}), and \RecFear{} for fear on \RecFearN{} prompts. Across all \nAnalysed{} records the image reader never returns disgust and returns fear \famImageFear{} times.
+
+Cohen's kappa for family agreement (Table~\ref{tab:kappa}) is \KappaEmo{} on the emotional prompts (CI \KappaEmoCi{}), \KappaFace{} on the face-classified records and \KappaScene{} on the scene-classified: \KappaEmoBand{}, \KappaFaceBand{} and \KappaSceneBand{} on the Landis--Koch scale. In practice the seven-family ladder is a three-family one, joy, sadness and neutral, with anger a distant fourth; the remaining families are too rare on the prompt side, or never produced on the image side, to support any claim.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{fig6_confusion}
-\caption{Prompt-reader family (rows) against image-reader family (columns) on the \nEmotional\ emotional records; cell = count, shading = row fraction.}
+\caption{Prompt-reader family (rows) against image-reader family (columns) on the \nEmotional{} emotional records; cell = count, shading = row fraction.}
 \label{fig:confusion}
 \end{figure}
 
@@ -128,30 +103,24 @@
 
 \section{The describer}
 \label{sec:results-describer}
-% GUIDANCE: Table~\ref{tab:describer}. The describer answers an expression for \DescNoPeopleExpr\ of
-% the records in which it reports no people; of the \DescSceneN\ scene-classified records
-% \DescScenePeopleZero\ report no people, \DescScenePeopleZeroExpr\ of those still carry an
-% expression word, and \DescSceneSmile\ answer smile, smiling or happy (\DescSceneSmilePct\ of them).
-% Smile bias: \DescSmileFace\ of face-classified records, \DescSmileAll\ of all analysed records —
-% always give the denominator. Copy rate: where the expression answer names an emotion
-% (\DescBareStrictN\ records, \DescBareStrictPct), the image reader returns that word's family
-% \DescCopyStrict\ of the time; on the broad definition \DescCopyBroad\ (\DescCopyBroadPeople\ with a
-% person reported, \DescCopyBroadPeopleZero\ without).
+
+Table~\ref{tab:describer} crosses the describer's people count with the presence of an expression word over all \nAnalysed{} records. The describer answers the expression question for every drawing. It returns an expression word for \DescNoPeopleExpr{} of the records in which it simultaneously reports that no people are present. Of the \DescSceneN{} scene-classified records, \DescScenePeopleZero{} report no people; \DescScenePeopleZeroExpr{} of those still carry an expression word, and \DescSceneSmile{} answer ``smile'', ``smiling'' or ``happy'' (\DescSceneSmilePct{} of the no-people records). The smile rate depends on the denominator and is given with both: \DescSmileFace{} of the \nFaceAll{} face-classified records and \DescSmileAll{} of all \nAnalysed{} analysed records.
+
+The copy rate measures how much the extraction stage adds to the describer's own word. Where the expression answer names an emotion outright (\DescBareStrictN{} records, \DescBareStrictPct{} of the corpus), the image reader's top-1 family equals the family that word implies \DescCopyStrict{} of the time. On the broad definition, which admits facial actions such as ``smile'' and ``crying'', the copy rate is \DescCopyBroad{}: \DescCopyBroadPeople{} where a person is reported and \DescCopyBroadPeopleZero{} where none is, the ``0 people'' token pulling the reading towards neutral.
 
 \input{generated/tab_describer}
 
 \section{Error taxonomy}
 \label{sec:results-taxonomy}
-% GUIDANCE: Figure~\ref{fig:taxonomy}, Table~\ref{tab:taxonomy}. \TaxN\ high-confidence disagreements
-% (\TaxDistinct\ distinct prompts; a census, below the target sample). By stage: describer \TaxDescriber,
-% image reader \TaxReader, prompt side \TaxPrompt, generator \TaxGenerator. Report the two mechanisms
-% the taxonomy exposed: people-count 0 predicts an invented expression; "calm" and low-arousal
-% positive states fall to neutral because the seven-family scheme has nowhere else to put them.
+
+\TaxN{} emotional records satisfy the high-confidence criterion, both readers scoring their top family at 0.8 or above and disagreeing; they cover \TaxDistinct{} distinct prompts, and since the count fell below the intended sample of 40, every one was examined. Figure~\ref{fig:taxonomy} and Table~\ref{tab:taxonomy} give the primary failure mode assigned from the drawing. By stage, \TaxDescriber{} of the \TaxN{} trace to the describer (\TaxA{} where it invented a face or an expression, \TaxB{} where it misread one), \TaxReader{} to the image reader inferring wrongly from a correct description, \TaxPrompt{} to the prompt side (\TaxD{} mixed or ambiguous prompts and \TaxF{} prompt-reader error), and \TaxGenerator{} to the drawing not depicting the prompt.
+
+Two mechanisms stand out. A people count of zero predicts the invented-expression mode: \TaxPeopleZero{} of the \TaxN{} records carry that tag, and seven of the \TaxA{} invented-expression records do. And the joy-to-neutral cell is a single mechanism: prompts such as ``grateful'' and ``calm but tired'' describe low-arousal positive states for which the seven-family scheme has no home, the describer answers ``calm'' or ``smile'', and the reader returns neutral. Visitors also list feelings without connectives (``tired proud happy''), so the automatic tag for mixed prompts, which looked for ``but'' and ``although'', caught none of the eleven mixed-prompt records; a list detector would serve better.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\textwidth]{fig7_error_taxonomy}
-\caption{Primary failure mode of the \TaxN\ high-confidence disagreements, assigned from the drawing.}
+\caption{Primary failure mode of the \TaxN{} high-confidence disagreements, assigned from the drawing.}
 \label{fig:taxonomy}
 \end{figure}
 
@@ -159,30 +128,42 @@
 
 \section{Description-template ablation}
 \label{sec:results-ablation}
-% GUIDANCE: Table~\ref{tab:ablation} (generated when ablate\_nli.py has run; \AblationAvailable).
-% Report, per variant, whether the emotional, face and scene results move, and by how much relative
-% to the baseline row, which must reproduce Section~\ref{sec:results-overall}. The two variants that
-% matter most: drop\_expression and fixed\_expression — they say how much of the face/scene gap is
-% carried by the expression word alone. Add Figure fig8\_ablation once it exists.
+
+Table~\ref{tab:ablation} and Figure~\ref{fig:ablation} give the ladder under each altered template, with only the entailment stage re-run. The control re-run of the unmodified template reproduces the baseline exactly, changing the top-1 reading of \AblControlChanged{} records, so every difference in the table is a template effect and not numerical noise; the baseline row itself reproduces Section~\ref{sec:results-overall}.
+
+Removing the expression sentence removes nearly all of the agreement. On the emotional prompts family agreement falls from \FullEmoFamObs{} to \AblDropExpressionEmoFamObs{} (null \AblDropExpressionEmoFamNull{}, $z$ = \AblDropExpressionEmoFamZ{}) and valence-sign agreement from \FullEmoSignObs{} to \AblDropExpressionEmoSignObs{} (null \AblDropExpressionEmoSignNull{}, $z$ = \AblDropExpressionEmoSignZ{}); on the face-classified records valence-sign agreement falls to \AblDropExpressionFaceSignObs{}. Fixing the expression word to ``unclear'' for every record produces the same collapse (family \AblFixedExpressionEmoFamObs{}, $z$ = \AblFixedExpressionEmoFamZ{}), and the reader's output under both variants falls to surprise or neutral for \AblDropExpressionSurprise{} and \AblDropExpressionNeutral{} of the \nAnalysed{} records respectively. Removing the action, posture or scene clause moves family agreement by one to three points (\AblDropActionEmoFamObs{}, \AblDropPostureEmoFamObs{}, \AblDropSceneEmoFamObs{}). Removing the people count raises rates and nulls together (scene valence-sign \AblDropPeopleSceneSignObs{} against \AblDropPeopleSceneSignNull{}, $z$ = \AblDropPeopleSceneSignZ{}): the ``0 people'' token pulls scene readings towards neutral, and without it the hallucinated smile is read as joy, which most prompts also are.
+
+Under the people-aware template, which describes a drawing as ``A drawing showing \{scene\}.'' wherever the describer reports no people and leaves every other record unchanged, the face rows are identical to the baseline by construction (\AblPeopleAwareFaceSignObs{}, \AblPeopleAwareFaceFamObs{}) and the scene rows fall to their nulls: valence-sign agreement \AblPeopleAwareSceneSignObs{} against \AblPeopleAwareSceneSignNull{} ($z$ = \AblPeopleAwareSceneSignZ{}) and family agreement \AblPeopleAwareSceneFamObs{} against \AblPeopleAwareSceneFamNull{} ($z$ = \AblPeopleAwareSceneFamZ{}). Restoring the action and posture clauses to those records gives \AblPeopleAwareNoExpressionSceneSignObs{} against \AblPeopleAwareNoExpressionSceneSignNull{} ($z$ = \AblPeopleAwareNoExpressionSceneSignZ{}) and \AblPeopleAwareNoExpressionSceneFamObs{} against \AblPeopleAwareNoExpressionSceneFamNull{} ($z$ = \AblPeopleAwareNoExpressionSceneFamZ{}). Over all emotional prompts the people-aware template gives valence-sign agreement of \AblPeopleAwareEmoSignObs{} ($z$ = \AblPeopleAwareEmoSignZ{}) and family agreement of \AblPeopleAwareEmoFamObs{} ($z$ = \AblPeopleAwareEmoFamZ{}).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig8_ablation}
+\caption{Description-template ablation, with only the entailment stage re-run: valence-sign and family agreement by image class under each template, each bar against its own random-pairing null (dotted).}
+\label{fig:ablation}
+\end{figure}
 
 \input{generated/tab_ablation}
 
 \section{Single-coder reliability check}
 \label{sec:results-human}
-% GUIDANCE: Table~\ref{tab:humancheck} (generated once labels.csv is coded and human\_check.py score
-% has run; \HumanCheckAvailable). Report the describer's people-count agreement with the coder, the
-% face rule's precision and recall, what lies behind "smiling" answers, the image reader against the
-% coder's valence, and — the point of the exercise — the face/scene contrast on the CODER's split,
-% which breaks the circularity for this sample. State the single-coder limitation.
+
+The 120-drawing sample has been drawn and laid out on six contact sheets (Figure~\ref{fig:codingsheet}); the coding was not complete at the time of writing, and the table in this section is generated from the scored file once it is. The table reports the describer's people count against the coder's, the face rule's precision and recall against the coder's face judgement, what lies behind the describer's ``smiling'' answers, the image reader's valence sign against the coder's, and the face/scene contrast recomputed on the coder's split rather than the describer's, which is the one estimate in the dissertation that breaks the circularity of Section~\ref{sec:method-pipeline} for the records it covers. It is a single coder, and it is stated as such.
+
+% TODO once labels.csv is coded and `human_check.py score` has run: re-run export_tex.py, then replace this
+% paragraph with the numbers (describer people-count agreement, face-rule precision/recall, smile precision,
+% reader valence agreement with Wilson CIs, and the face/scene contrast on the coder's split).
 
 \input{generated/tab_humancheck}
 
 \section{Summary of findings}
 \label{sec:results-summary}
-% GUIDANCE: Five numbered findings, one sentence each, each with its null, mapped to the objectives
-% in Section~\ref{sec:intro-aims}: (1) agreement on emotional prompts is far above chance;
-% (2) face-classified drawings agree far more than scene-classified, difference tested; (3) neutral-
-% labelled prompts sit at chance on the one informative measure; (4) describe-then-extract agrees
-% more than direct CLIP, like for like and paired; (5) repeated prompts are read consistently more
-% often than chance but far from always. Then one sentence on the audits: the split and much of the
-% agreement run through the describer's expression word.
+
+\begin{enumerate}\setlength{\itemsep}{2pt}
+\item On the \nEmotional{} prompts the text reader labels emotional, the two readers agree far above chance on every rung of the ladder: valence sign \FullEmoSignObs{} against \FullEmoSignNull{}, family \FullEmoFamObs{} against \FullEmoFamNull{}; the result survives clustering, the distinct-prompt re-run and the Holm correction (objectives 2 and 3).
+\item Where the describer reports a readable face the agreement is far higher than where it reports a scene, by \DiffSignPp{} on valence sign (CI \DiffSignCi{}, $p$ = \DiffSignP{}); the scene result weakens on distinct prompts and, under a people-aware description, falls to its null (objectives 3, 4 and 7).
+\item Prompts the text reader labels neutral sit at chance on the one measure that can move there, \CtrlVaObs{} against \CtrlVaNull{}, and remain there when the \CtrlFlagged{} prompts that contain an affect word are removed (objective 3).
+\item Like for like, describe-then-extract agrees with the prompt reader on \McDeFam{} of families against \McClipFam{} for direct CLIP, a difference of \McDiffFamPp{} with $p$ \McClusterFamP{} on the clustered test (objective 5).
+\item When the same words are drawn again, the image reader returns the same family for \ConsFam{} of drawings in a group against \ConsFamNull{} by chance ($z$ = \ConsFamZ{}): more consistent than chance and far from fixed (objective 6).
+\end{enumerate}
+
+The audits qualify all five. The describer names an expression for \DescScenePeopleZeroExpr{} of the \DescScenePeopleZero{} no-people scene records, the image reader copies an emotion-naming expression word \DescCopyStrict{} of the time, and the ablation shows that the reading rests on that word: the split and most of the agreement run through it.

@@ -1,81 +1,78 @@
 \chapter{Discussion}
 \label{ch:discussion}
 
-% GUIDANCE (chapter target about 3,000 words; the "Quality of Evaluation" mark rests here: conclusions
-% with acumen, further work appropriate to the evaluation, relationships with other people's work).
-% Argue; do not re-list results. Every claim is bounded by what Chapter~\ref{ch:results} shows.
-
 \section{What the results establish}
 \label{sec:disc-establish}
-% GUIDANCE: Three things and no more. (i) The emotion two machine readers recover from words and from
-% the drawing made of them agree far more than chance on every rung of the ladder, and the effect
-% survives clustering, the distinct-prompt re-run and Holm. (ii) The agreement is concentrated in
-% drawings the describer reads as containing a face; where it reports a scene, agreement is weak and
-% fragile (does not survive Holm on distinct prompts for family). (iii) The instrument passes its
-% specificity check and the describe-then-extract reader agrees with the prompt reader far more than
-% a direct CLIP reader does, like for like. Frame (iii) carefully: neither reader has ground truth, so
-% this shows the two methods DISAGREE with describe-then-extract closer to the text reader — not that
-% it is more correct.
+
+Three things, and I want to be careful not to claim a fourth.
+
+First, the emotion a text model recovers from a visitor's words and the emotion a second model recovers from the drawing made of those words agree far more often than chance would produce, on every rung of the ladder, and the effect is not an artefact of the things that most often produce artefacts in a corpus like this. It survives clustering on the prompt group, which takes the \nRepeats{} repeated records out of the count of independent evidence; it survives re-running on the first occurrence of every prompt; and it survives a Holm correction across every non-degenerate comparison the analysis prints. The valence-sign result, \FullEmoSignObs{} against \FullEmoSignNull{}, is the one I would defend in any room, because it asks the coarsest question and because its denominator is stated.
+
+Second, the agreement is concentrated in drawings the describer reads as containing a face. Where it reports a scene, the agreement in the main table is weak, it weakens further on distinct prompts, and its family cell does not survive the multiplicity correction. The ablation then removes it: describe those drawings without the person and expression the template inserted, and this reader finds nothing above chance in them. That is a stronger statement than the one the project set out to make, and a different one. The design expected faces to agree more than scenes. What it found is that, for this instrument, faces agree and scenes do not.
+
+Third, the instrument behaves as an instrument should on its checks. Prompts the text reader could not read affect from sit at chance on the one measure with a live null, and stay there when the prompts that plainly contain an affect word are removed. And, scored like for like, the describe-then-extract reader agrees with the prompt reader far more often than a direct CLIP reader does, by \McDiffFamPp{} on family with the clustered test at $p$ \McClusterFamP{}. That last result has to be framed with care. Neither image reader has ground truth. What the comparison shows is that two ways of reading a drawing disagree with each other on most records, and that one of them sits much closer to a third model's reading of the words. It does not show that either reader is more correct, and I have avoided the word throughout.
+
+The fourth thing, the one not claimed, is any statement about what a person sees. Every number in this dissertation is the agreement of two machine readers. The human study that would turn agreement into perception is designed, its sample is drawn, and it is not done.
 
 \section{The describer is the weak link}
 \label{sec:disc-describer}
-% GUIDANCE: Bring together Sections~\ref{sec:results-describer}, \ref{sec:results-taxonomy} and
-% \ref{sec:results-ablation}. The template asserts a person and an expression for every drawing; the
-% describer obliges with "smiling" for \DescSceneSmile\ of \DescScenePeopleZero\ no-people drawings;
-% where its answer names an emotion, the reader copies it \DescCopyStrict\ of the time, so "describe,
-% do not ask" is a weaker separation than it sounds — the advantage over CLIP may lie in BLIP-VQA being
-% a better affective reader of line art rather than in the architecture; the taxonomy puts
-% \TaxDescriber\ of \TaxN\ high-confidence disagreements at the describer and only \TaxGenerator\ at
-% the generator. Then what the ablation says about which answers the reading depends on.
-% Relate to \cite{bhattacharyya2025evaluating} (positive-label bias) and \cite{gao2025eemo}.
+
+The audits were written to find out where the instrument bends, and they all point at the same place. The description template asserts a person and a facial expression for every drawing. The describer obliges: for \DescScenePeopleZero{} scene-classified drawings it reports that nobody is present and, in \DescScenePeopleZeroExpr{} of them, names an expression anyway, ``smile'', ``smiling'' or ``happy'' in \DescSceneSmile{} cases. The image reader then reads that sentence. Where the expression word names an emotion outright, which it does for \DescBareStrictPct{} of the corpus, the reader's top family is the family that word implies \DescCopyStrict{} of the time. The two-stage architecture was meant to keep the vision model away from the emotion judgement; the copy rate says that, for those records, the second stage relays the first.
+
+The ablation says it more directly. Take the expression sentence out and family agreement on the emotional prompts falls from \FullEmoFamObs{} to \AblDropExpressionEmoFamObs{}; fix the expression word to ``unclear'' and it falls to \AblFixedExpressionEmoFamObs{}; take out any other clause and it moves by a point or three. The reading rests on one word. In effect the pipeline asks the describer what the face is doing and maps the answer to a family, with the entailment model as an expensive lookup table. That is a finding about the instrument rather than a failure of the project, and I would rather report it than have it found by an examiner, but it changes how the method comparison should be read: the advantage over direct CLIP may lie in BLIP-VQA being a better reader of drawn faces than CLIP is, not in the describe-then-extract architecture as such. An ablation that stripped emotion words from the expression answer before extraction would separate the two, and is listed as further work.
+
+The error taxonomy closes the loop from the other direction. Of the \TaxN{} disagreements on which both readers were confident, \TaxDescriber{} trace to the describer, \TaxReader{} to the reader, \TaxPrompt{} to the prompt side and only \TaxGenerator{} to the drawing failing to depict the prompt. The generator, in other words, is rarely the reason the two readings differ; the readers are. This sits well with what the perception benchmarks report about vision--language models: a systematic bias towards positive labels \cite{bhattacharyya2025evaluating}, which appears here as a smile rate of \DescSmileFace{} on face-classified records and \DescSmileAll{} corpus-wide, and a confusion of what a subject expresses with what a viewer feels \cite{gao2025eemo}, which the describer's invented expressions are an extreme form of.
 
 \section{Circularity of the face/scene split}
 \label{sec:disc-circularity}
-% GUIDANCE: The split is defined from the same description the image reader reads, and it is driven
-% almost entirely by the people-count answer (\DescScenePeopleZero\ of \DescSceneN). So the face/scene
-% result is a statement about the describer's output, not about faces. It is real (null, clustering,
-% permutation) but entangled with its own definition. The human check on the coder's split is the
-% only way out for the sample it covers; say what it shows if scored, or that it is the immediate next step.
+
+The face/scene split was my supervisor's hypothesis and the design's main contrast, and it needs its own paragraph of honesty. The split is defined from the describer's output: a person reported, and an expression word present. It is driven almost entirely by the people count, since \DescScenePeopleZero{} of the \DescSceneN{} scene-classified records are ones where the describer said nobody was there. The image reader then reads the same description. The contrast between the two classes is therefore a statement about the describer's output, not about faces in drawings, and it is entangled with its own definition. It is real in the sense that matters statistically: it clears its nulls, it survives clustering, and the permutation test puts it at $p$ = \DiffSignP{}. But what it establishes is that when the describer reports a face and an expression, the reader's family tracks the prompt, and when the describer reports no person, the reader has only an invented expression to go on and, once that is removed, nothing. Whether the scene drawings hold a feeling that a person can read is a question this design cannot answer, and the single-coder check, which classifies drawings without reference to the describer, is the only estimate in the project that can. Until it is scored, the right form of words is the one used in Chapter~\ref{ch:results}: faces, and only faces, for this reader.
 
 \section{What is not claimed}
 \label{sec:disc-not-claimed}
-% GUIDANCE: Four explicit non-claims, each with the reason. (1) No positive-versus-negative direction:
-% single-valence subsets have degenerate nulls, and the two image readers point in opposite directions.
-% (2) No statement about what a person would see: agreement is between two machine readers; the
-% registered title's "fidelity" is the question, not a result. (3) No claim about colour: there is no
-% colour condition; \cite{alvarado2025texttoimage} models colour features only and is silent on line.
-% (4) No claim about the generator alone from the consistency result: it bounds the whole chain.
-% Also: fear, disgust and surprise are recovered at very low rates by both readers on small subsets
-% ($n$ = \RecFearN, \RecDisgustN, \RecSurpriseN), and surprise is largely curiosity-mapped prompts, so
-% claims are restricted to overall agreement and the face/scene contrast.
+
+Four non-claims, each with its reason.
+
+No direction between positive and negative feelings. The first build reported that negative feelings survived the drawing and positive ones collapsed; the second build, with a different image reader, reported the reverse. Both were wrong to report anything: within a single-valence subset the valence-sign null is degenerate, so there is nothing to test, and the raw difference on the loosest measure is a base-rate effect of where the families sit on the plane. Two readers that point in opposite directions cannot settle the question between them.
+
+No statement about human perception. The word in the registered title is a question, not a result; the dissertation measures agreement between readers and says so on every page it can.
+
+No claim about colour. The corpus is monochrome throughout and there is no colour condition. The colour literature \cite{alvarado2025texttoimage} explains why a monochrome corpus is a hard case, and that study models colour features only and is silent on line; nothing here can be attributed to the absence of colour rather than to the readers, the taxonomy or class rarity.
+
+No claim about the generator alone from the consistency result. The \ConsFam{} within-group agreement against \ConsFamNull{} bounds the whole chain from prompt to reading. With no reliability estimate for the image reader, an unknown share of the variation is measurement noise, and with generation parameters unrecorded, the rest cannot be attributed to sampling rather than to prompt rewriting.
+
+There is also a restriction rather than a non-claim. Fear (\RecFearN{} prompts), anger (\RecAngerN{}) and disgust (\RecDisgustN{}) are too rare on the prompt side to support a family-level statement, the image reader never returns disgust and returns fear \famImageFear{} times, and the surprise family is largely curiosity-mapped prompts under the standard label grouping. Claims are confined to overall agreement and the face/scene contrast.
 
 \section{Relation to prior work}
 \label{sec:disc-prior}
-% GUIDANCE: Theme by theme, in the order of Chapter~\ref{ch:lit}, one paragraph each: what this
-% project's numbers say next to theirs. Especially: \cite{lomas2024improved} (emotions on people rate
-% higher than on robots — the same direction as face vs scene, on templated prompts with human
-% raters); \cite{cowen2017self} (why near-misses are informative — the overlap and VA rungs);
-% \cite{demszky2020goemotions, yang2023context} (the prompt reader's weakness on this register is a
-% bound on everything downstream); \cite{zhang2025rethinking, lee2023holistic} (why every value is
-% nulled); \cite{bhattacharyya2025evaluating} (positive bias reproduced here as the smile rate);
-% \cite{hessel2021clipscore, lin2024evaluating} (why direct CLIP is the right baseline and why it fails
-% here). Kappa in the "fair" band (\KappaEmoBand) is comparable with inter-annotator figures reported
-% for emotion labelling of text — cite what you compare to.
+
+The closest study is Lomas and colleagues' human rating of emotional alignment for three generators \cite{lomas2024improved}. Their strongest secondary finding was that emotions rendered on a person aligned better than the same emotions rendered on a robot. The present project finds the same direction with machine readers and unmediated prompts, and then, through the ablation, finds that its own version of the effect is carried by a face being reported rather than by a face being drawn. The two results are consistent and neither validates the other, because theirs used human raters and templated prompts and this used machine readers and real ones; the human study that would connect them is the one the pipeline was built to precede.
+
+The reasoning behind the ladder comes from Cowen and Keltner \cite{cowen2017self}: if experience is a set of categories bridged by gradients, near misses carry information. The results support the choice. Valence--arousal similarity and top-3 overlap both sit far above their nulls where family agreement is only \FullEmoFamObs{}, which says that the readers are close far more often than they coincide, and a right-or-wrong score would have called that closeness error.
+
+The prompt reader's weakness on this register is the bound on everything downstream, exactly as the text literature predicts \cite{demszky2020goemotions, yang2023context}. A kappa of \KappaEmo{} on the emotional prompts, in the \KappaEmoBand{} band, is the kind of figure reported between human annotators for fine-grained emotion labelling of text, where GoEmotions' own raters agreed only moderately on many categories; two automatic readers separated by a generator and a drawing were never going to do better than the annotators of the training data did with each other. Carrasco and colleagues \cite{carrasco2024level} report that human agreement with a generator's emotion labels rises sharply once emotions are collapsed to positive and negative; the same pattern appears here in the gap between the valence-sign and family rungs.
+
+The decision to read every value against a null follows Zhang and Wan \cite{zhang2025rethinking} and the holistic evaluation of Lee and colleagues \cite{lee2023holistic}, who show that automatic image--text scores move under trivial perturbations and correlate weakly with people. A score that changes its verdict under a one-pixel shift should not be quoted bare, and neither, this project argues, should a similarity whose floor is 0.41. Direct CLIP is the right baseline for the same reason CLIPScore \cite{hessel2021clipscore} is the field's default, and it fails here for the reason VQAScore's authors give for preferring a question-answering judge \cite{lin2024evaluating}: an embedding trained on captioned photographs has no purchase on a monochrome drawn face. The describer is, in that sense, a VQAScore-style judge pointed at expression rather than at objects, which is also why its expression answer does the work.
+
+Finally, the positive bias the benchmarks find in vision--language models \cite{bhattacharyya2025evaluating} is reproduced here as a smile rate and as invented expressions, and WikiArt Emotions' observation that images with faces yield more consistent emotion judgements \cite{mohammad2018wikiart} is reproduced as the face/scene contrast, with the caveat that the consistency here is a machine's.
 
 \section{Limitations}
 \label{sec:disc-limitations}
-% GUIDANCE: Numbered, each one sentence of consequence. (1) No human anchor except the single-coder
-% check. (2) The emotional/neutral split is the prompt reader's judgement; \CtrlFlaggedPct\ of the
-% control contains an affect word. (3) The face/scene split is circular. (4) The template defect.
-% (5) Seven families collapse low-arousal positive states to neutral. (6) Centroids are hand-set;
-% NRC-VAD means are the documented alternative \cite{mohammad2018obtaining}. (7) $z$ from 300
-% re-pairings is an ordering statistic. (8) Generation parameters unknown. (9) Redaction leaves the
-% drawing and residual text, so re-identification risk is reduced, not removed. (10) One machine,
-% one run: no second describer and no test--retest reliability for the readers.
+
+\begin{enumerate}\setlength{\itemsep}{2pt}
+\item There is no human anchor except the single-coder check, and that check is a single coder. Every result is reader-to-reader agreement.
+\item The emotional/neutral split is the prompt reader's judgement, never human-checked; \CtrlFlaggedPct{} of the control contains an affect word, so the control is ``prompts the reader could not read affect from'' rather than ``prompts with no feeling''.
+\item The face/scene split is circular: defined from the description the image reader reads, and driven by the people count.
+\item The description template asserts a person and an expression for every drawing. Its consequence was measured, not designed away; a people-aware template is the obvious default for any future run.
+\item Seven families have no home for low-arousal positive states, so ``calm'', ``grateful'' and ``at peace'' fall to neutral.
+\item The family centroids are hand-placed; per-family means from the NRC norms \cite{mohammad2018obtaining} would replace a judgement with data.
+\item The $z$-scores come from \nullShuffles{} re-pairings and are ordering statistics; across seeds the headline moves between \ZSeedMin{} and \ZSeedMax{}.
+\item Generation parameters are unknown, so nothing can be regenerated and the consistency result cannot be decomposed.
+\item Redaction leaves the drawing and the residual text in place, so re-identification risk is reduced, not removed.
+\item One machine and one run: there is no second describer and no test--retest estimate for either reader.
+\end{enumerate}
 
 \section{Threats to validity}
 \label{sec:disc-threats}
-% GUIDANCE: Construct (agreement between readers is not affect as perceived), internal (leak from
-% describer to reader; circular split; pseudo-replication — addressed by clustering), external
-% (one generator, one festival, one language mostly, monochrome), statistical (multiple comparisons —
-% addressed by Holm; degenerate nulls — detected). Say which threats the design addressed and which remain.
+
+Construct validity is the governing threat: agreement between two readers is not affect as perceived, and the dissertation does not pretend otherwise. Internal validity is threatened by the leak from describer to reader and by the circular split, both of which are now quantified rather than assumed, and by pseudo-replication from repeated prompts, which the clustered inference addresses. External validity is limited to one generator, one festival, one language for the most part, and monochrome output; nothing here transfers to colour or to another model without being re-measured. Statistical validity is threatened by the number of comparisons, addressed by the Holm procedure, and by degenerate nulls, now detected from the null's own spread. The threats the design addressed are stated with the numbers that address them; the ones it could not address, above all the human anchor, are stated as the first items of further work.

@@ -1,97 +1,90 @@
 \chapter{Literature Review}
 \label{ch:lit}
 
-% GUIDANCE (chapter target about 3,000 words). Source material: RESEARCH PAPERS/ANNOTATED_BIBLIOGRAPHY.md
-% (the eight themes, one annotated entry per paper) and RESEARCH PAPERS/RESEARCH_GAP.md (the synthesis).
-% Every paragraph should end in a sentence that says what the paper means FOR THIS PROJECT.
-% The literature's own word for prompt--image correspondence is "alignment"; use it only when
-% describing their work, and switch to "agreement" whenever you speak about this project.
-
 \section{Scope and method of the review}
 \label{sec:lit-scope}
-% GUIDANCE: 97 papers were screened, 24 excluded (surveys, position pieces, off-target work — reasons
-% logged in FILTERING_LOG.md) and 73 retained under one rule: relevant to the dissertation's path AND
-% evidence-based (empirical study, dataset, benchmark or lexicon), with seminal foundations kept by
-% exception. The retained papers fall into eight themes, which structure the sections below.
+
+The question sits between several literatures that rarely cite one another: emotion psychology, emotion recognition from text, text-to-image generation, the evaluation of generated images, and the perception of emotion in pictures. I searched each of them in turn, following citations outward from the eight papers my supervisor supplied at the start of the project, and read 97 papers in full. Each was scored on two axes, relevance to the dissertation's path and strength of evidence, and retained only if it was both on the path and empirical: a study with an evaluation, or a dataset, benchmark or lexicon that other studies use. Surveys, position pieces and work that was rigorous but off target were excluded, with the reason logged; 24 papers went that way. A handful of seminal foundations that would fail the evidence test on their own terms, Ekman's argument for basic emotions and Russell's circumplex among them, were kept by exception because everything downstream assumes them. The 73 retained papers fall into eight themes, and those themes structure this chapter. Each section ends by saying what the theme means for this project, because the point of the review is not coverage but the decisions it forced.
+
+One note on words. The literature's own term for the correspondence between a prompt and its image is \emph{alignment}, and I use that word when describing other people's work. When I speak about this project I use \emph{agreement}, because what is measured here is the agreement of two readers, and the difference is not cosmetic.
 
 \section{Foundations: emotion theory and taxonomy}
 \label{sec:lit-theory}
-% GUIDANCE (5 papers): \cite{ekman1992argument} (basic emotions — the seven-family scheme used here),
-% \cite{russell1980circumplex, posner2005circumplex} (the circumplex — the valence--arousal measure),
-% \cite{cowen2017self} (27 self-report categories bridged by continuous gradients — the argument for
-% similarity rather than matching), plus the supervisor's line: \cite{jack2012facial, jack2014dynamic,
-% chen2018distinct, chen2018reverse, chen2024cultural} (facial signalling is culturally relative and
-% decomposes into which-emotion and how-intense components). Close: no single canonical structure;
-% a ladder of measures is the honest response.
+
+Two traditions supply the vocabulary. Ekman's argument for a small set of basic emotions with distinct signals \cite{ekman1992argument} gives the discrete scheme that most classifiers inherit: happiness, sadness, anger, fear, surprise, disgust. Russell's circumplex \cite{russell1980circumplex}, elaborated by Posner, Russell and Peterson \cite{posner2005circumplex}, places affect on two continuous axes, valence and arousal, and argues that the neural and developmental evidence fits a dimensional account better than a categorical one. The two are not rivals for this project so much as two rungs of the same ladder: the seven families used here (Ekman's six plus neutral) are the categorical rung, and each family's position on the circumplex supplies the dimensional one.
+
+The evidence that neither scheme is the whole story comes from Cowen and Keltner \cite{cowen2017self}, who collected self-reports to more than two thousand short video clips and found that experience resolves into 27 distinct categories connected by continuous gradients, with the categories explaining more variance than the dimensions but neither sufficient alone. That is the finding behind the similarity framing. If ``excited'' and ``happy'' lie on a gradient rather than in separate boxes, an instrument that scores them as a miss is measuring the scheme rather than the phenomenon.
+
+The supervisor's own line of work sharpens the point for faces in particular. Jack and colleagues showed with reverse correlation that the six basic expressions are not represented the same way by Western and East Asian observers \cite{jack2012facial}, and that dynamic expressions transmit signals in a hierarchy over time, with early cues collapsing six emotions into four and fear and surprise, disgust and anger confusable at the start \cite{jack2014dynamic}. Chen and colleagues found that pain and pleasure have distinct facial signatures within each culture \cite{chen2018distinct}, transferred psychologically valid expressions to social robots and virtual agents by measuring what people actually perceive rather than what a theory says they should \cite{chen2018reverse, chen2020building}, and most recently showed that facial movements encode emotion category and intensity as separable components \cite{chen2024cultural}. Three things follow for a project that reads emotion from drawn faces. There is no canonical drawing of an emotion; near misses between neighbouring categories are expected, not anomalous; and any claim about what a face signals rests, in the end, on human perception, which this project does not measure.
+
+For this project the foundations settle two design choices: a family scheme small enough for two very different readers to share, and a dimensional measure alongside it so that a near miss counts for something.
 
 \section{Emotion from text}
 \label{sec:lit-text}
-% GUIDANCE (10 papers): \cite{demszky2020goemotions} (GoEmotions, the prompt reader; macro-F1 .46 and
-% weakness on rare, implicit labels), \cite{harutyunyan2026fine}, \cite{yang2023context} (first-person
-% self-report is the hardest register), \cite{saravia2018carer}, \cite{buechel2017emobank} (writer vs
-% reader perspective), \cite{mohammad2018obtaining, mohammad2025nrc} (NRC-VAD, the continuous
-% alternative), \cite{tausczik2010psychological}, \cite{zanwar2022improving}, \cite{grootendorst2022bertopic}.
-% Also the method references: \cite{yin2019benchmarking} (zero-shot classification by entailment — the
-% image reader), \cite{lewis2020bart, williams2018broad} (BART, MNLI), \cite{wolf2020transformers}.
-% Close: the corpus's register (short, first-person, mixed) is exactly where these tools are weakest.
+
+Emotion recognition from text is mature on the material it was built for, and demonstrably weakest on the material this corpus contains. GoEmotions \cite{demszky2020goemotions} is the reference resource: 58,000 Reddit comments annotated with 27 fine-grained categories plus neutral, with a grouping of those categories onto Ekman's families proposed by the authors. Its BERT baseline reached a macro-F1 of 0.46, and it did so unevenly, collapsing towards zero on rare, implicit categories. Harutyunyan and Kumar's unified benchmark on the same data \cite{harutyunyan2026fine} confirms the shape of that result across classical, recurrent and transformer models. Yang and colleagues \cite{yang2023context} audited emotion datasets with large language models and found that very short texts are systematically under-specified: the label often depends on context the text does not contain. The register of the present corpus, first-person, a few words long, and frequently mixed, is precisely that case. Liu and colleagues \cite{liu2023emotion} address short texts directly with a multi-label method, and Bhat \cite{bhat2024emotion} reports that short English texts can be classified well with a small transformer, but both work on tweets, which carry more context than ``tired but happy''.
+
+Dimensional resources offer a partial way round the problem. EmoBank \cite{buechel2017emobank} annotates ten thousand sentences with valence, arousal and dominance from both the writer's and the reader's perspective, and shows the two do not coincide, which matters here because a visitor's words are writer-perspective and every reader in this project is, by construction, a reader. The NRC lexicons give word-level valence, arousal and dominance norms for twenty thousand \cite{mohammad2018obtaining} and now fifty-five thousand \cite{mohammad2025nrc} English words, and the earlier crowdsourced word--emotion lexicon \cite{mohammad2013crowdsourcing} maps words onto basic emotions. LIWC \cite{tausczik2010psychological} remains the transparent baseline for psychologists: a validated dictionary of positive, negative, anxious, angry and sad words. Zanwar and colleagues \cite{zanwar2022improving} show that fusing psycholinguistic features with a transformer improves out-of-domain generalisation, which is a live concern for a corpus unlike any training set. Niu and Mower Provost \cite{niu2025contrastive} distil emotion knowledge from a large language model into a compact zero-shot recogniser, and Parkington and colleagues \cite{parkington2025human} compare a large language model against expert human coders on thematic analysis and report both high agreement and a loss of nuance on fine-grained emotional triggers. Topic modelling of the BERTopic kind \cite{grootendorst2022bertopic} was considered for surfacing themes across the corpus and set aside: with a median of four words the documents are too sparse for it.
+
+The method references for the text side are the models themselves. Zero-shot classification by entailment \cite{yin2019benchmarking} turns a label into a hypothesis and asks a natural-language-inference model whether the text entails it; BART \cite{lewis2020bart} fine-tuned on the MultiNLI corpus \cite{williams2018broad} is the standard such model, and it is the image-side reader here. The text-to-text framing of T5 \cite{raffel2020exploring} and its instruction-tuned descendant \cite{chung2022scaling} underlie several of the vision--language models discussed below. All of them are run through the Transformers library \cite{wolf2020transformers}.
+
+For this project the lesson is uncomfortable and has to be built into the design: the prompt reader is the weakest link on the text side, its labels on four-word entries are judgements rather than facts, and every downstream number inherits that uncertainty. The choice of GoEmotions over the alternatives is defended in Chapter~\ref{ch:method}; the decision to treat its neutral label as a group to be analysed rather than a filter to be applied is a direct consequence of this literature.
 
 \section{Datasets, benchmarks and lexicons}
 \label{sec:lit-data}
-% GUIDANCE (13 papers): text-side resources (\cite{mohammad2013crowdsourcing, mohammad2018semeval,
-% muhammad2025semeval}), image-side affect datasets (\cite{yang2023emoset, machajdik2010affective,
-% mohammad2018wikiart, mohamed2022artelingo, achlioptas2021artemis, marchewka2014nencki, kosti2020context}),
-% human-preference sets for T2I (\cite{kirstain2023pick, wu2023human, xu2023imagereward}).
-% Close: every image-affect resource is photographic or painted and coloured; monochrome line art is
-% out of distribution for all of them.
+
+The image-side resources are, without exception, photographic or painted and coloured. EmoSet \cite{yang2023emoset} is the largest, 118,000 images labelled with eight emotions and rich attributes; the affective-image classification of Machajdik and Hanbury \cite{machajdik2010affective} built features from colour, texture and composition and reported a human-agreement baseline; the Nencki Affective Picture System \cite{marchewka2014nencki} supplies photographs with normative valence and arousal ratings; EMOTIC \cite{kosti2020context} annotates people in context with 26 categories and continuous dimensions, and shows that scene context around a person changes the emotion read from them. The art resources are closest in spirit to the present corpus because they pair a picture with a short affective text: ArtEmis \cite{achlioptas2021artemis} collected 439,000 utterances explaining the emotion an artwork evokes, ArtELingo \cite{mohamed2022artelingo} extended it across four languages and found that emotion labels vary with language and culture, and WikiArt Emotions \cite{mohammad2018wikiart} annotated four thousand paintings and reported two findings this project leans on: a title shifts the perceived emotion of an image, and images with faces produce far more consistent emotion judgements than images without.
+
+On the text side, CARER \cite{saravia2018carer} distant-supervised a tweet corpus with eight emotions and is the source of the widely used ``emotion'' dataset; the SemEval affect tasks of 2018 \cite{mohammad2018semeval} and 2025 \cite{muhammad2025semeval} define the shared benchmarks and the intensity-scoring protocol. Human-preference datasets for text-to-image generation, Pick-a-Pic \cite{kirstain2023pick}, Human Preference Score \cite{wu2023human} and ImageReward \cite{xu2023imagereward}, record which of two generated images people prefer and train scorers on the result; none of them asks about emotion.
+
+For this project the consequence is domain shift. Monochrome line art is out of distribution for every visual-affect resource above, so a classifier trained on any of them cannot simply be applied and trusted. That is one of two reasons the image side describes before it extracts, and it is why the direct-CLIP route is the baseline rather than the method.
 
 \section{Text-to-image generative models}
 \label{sec:lit-t2i}
-% GUIDANCE (10 papers): \cite{ramesh2021zero, ramesh2022hierarchical, betker2023improving} (DALL-E
-% line; DALL-E 3 rewrites prompts and is weak on faces and detail), \cite{rombach2022high, podell2023sdxl,
-% saharia2022photorealistic}, \cite{radford2021learning} (CLIP, the baseline reader),
-% \cite{li2022blip, li2023blip} (BLIP, the describer), \cite{raffel2020exploring, chung2022scaling}.
-% Close: the generator renders fluently but wobbles on faces; the festival installation's generation
-% parameters were not recorded.
+
+The drawings were produced by the DALL$\cdot$E family. The first DALL$\cdot$E \cite{ramesh2021zero} generated images from text with a discrete autoregressive model; its successor \cite{ramesh2022hierarchical} conditioned a diffusion decoder on CLIP image embeddings; DALL$\cdot$E~3 \cite{betker2023improving} improved prompt-following by training on synthetic captions and, importantly for this corpus, rewrites the user's prompt before generation. The provenance manifest embedded in every image names the software agent only as ``DALL$\cdot$E'', without a version, and records no seed and no rewritten prompt. The diffusion lineage that the DALL$\cdot$E work sits alongside, latent diffusion \cite{rombach2022high}, SDXL \cite{podell2023sdxl} and Imagen \cite{saharia2022photorealistic}, shares the same documented weaknesses: fine spatial detail, text rendering, and faces.
+
+The vision--language models used as readers here come from the same period. CLIP \cite{radford2021learning} learned an image--text embedding from 400 million captioned photographs and is the standard zero-shot image classifier, which is exactly why my supervisor advised against asking it for an emotion: it is trained on colour photographs and is strong on objects. BLIP \cite{li2022blip} bootstrapped captioning and visual question answering from noisy web data, and its VQA head answers a free-form question about an image; BLIP-2 \cite{li2023blip} connects frozen image encoders to large language models through a lightweight bridge. OpenCLIP \cite{ilharco2021openclip} is the open reimplementation of CLIP used for the baseline.
+
+For this project the generator is a black box whose parameters were never recorded, so nothing can be regenerated and nothing about the model itself can be isolated; the reader models are borrowed instruments, chosen for what they are good at, and the choice of a question-answering describer rather than a classifier follows from Section~\ref{sec:lit-data}.
 
 \section{Image evaluation: metrics and frameworks}
 \label{sec:lit-eval}
-% GUIDANCE (18 papers): compositional/object metrics \cite{hessel2021clipscore, hu2023tifa,
-% cho2024davidsonian, ghosh2023geneval, lin2024evaluating, li2024evaluating, koo2026evaluating},
-% classic captioning metrics \cite{anderson2016spice, vedantam2015cider, heusel2017gans}, holistic and
-% robustness critiques \cite{lee2023holistic, zhang2025rethinking}, VLM-as-judge and prompt studies
-% \cite{chang2023prompt, niu2025contrastive, oppenlaender2024artworks, carrasco2024level,
-% millet2023defending, horton2023bias}. Close: none of these evaluates affect, and their reliability is
-% itself contested — which motivates reading every value against a null rather than trusting a score.
+
+Automatic evaluation of text-to-image output has converged on the question ``did the objects, attributes and relations in the prompt appear in the image?'' CLIPScore \cite{hessel2021clipscore} measures the cosine similarity between CLIP embeddings of the image and the text. TIFA \cite{hu2023tifa} generates questions from the prompt and asks a VQA model to answer them from the image; the Davidsonian Scene Graph \cite{cho2024davidsonian} structures those questions so that dependent ones are only asked when their premises hold; GenEval \cite{ghosh2023geneval} uses an object detector to check counts, colours and positions; VQAScore \cite{lin2024evaluating, li2024evaluating} asks a single yes/no question of a generative vision--language model and reads off the probability of ``yes'', and on the GenAI-Bench human ratings it correlates with people far better than CLIPScore. The Conditional Fr\'echet Distance \cite{koo2026evaluating} scores a model's output distribution against a reference conditioned on the prompt. Behind all of these stand the caption metrics that preceded them, SPICE \cite{anderson2016spice} and CIDEr \cite{vedantam2015cider}, and the distributional FID \cite{heusel2017gans} that scores image quality without reference to the prompt at all.
+
+Two studies say how much to trust any of this. The Holistic Evaluation of Text-to-Image Models \cite{lee2023holistic} found that automatic scores correlate weakly with human judgement on several axes, photorealism and aesthetics among them. Zhang and Wan \cite{zhang2025rethinking} stress-tested CLIPScore, VQAScore and DSGScore and found that the first and third reverse model rankings when the generation seed changes and shift materially under a one-pixel perturbation, with VQAScore more stable but not immune, on a corpus of about a thousand prompts, roughly the size of the present one.
+
+A second group of studies concerns the judge rather than the score. Chang and colleagues \cite{chang2023prompt} document how skilled prompt artists steer models with style keywords, ``line art'' and ``black and white'' among them, and how outputs drift towards a model's average unless steered. Oppenlaender and colleagues \cite{oppenlaender2024artworks} report that pose-driven generation shifts the mood of an image unintentionally and that uncanny artefacts alter its emotional reading. Carrasco and colleagues \cite{carrasco2024level} measured how far human raters agree with the emotion labels a generator was steered by, using Krippendorff's alpha and Cohen's kappa, and found agreement far stronger once emotions were collapsed to positive and negative. Horton, White and Iyengar \cite{horton2023bias} and Millet and colleagues \cite{millet2023defending} show, across ten experiments, that people rate the same work lower when told it was made by a machine, which is a design constraint on any future human study of these drawings. Two benchmarks probe machine judges directly: Bhattacharyya and Wang \cite{bhattacharyya2025evaluating} found vision--language models largely inept at zero-shot recognition of the emotion an image evokes, with a systematic bias towards positive labels and a sensitivity to the order in which labels are offered; Gao and colleagues \cite{gao2025eemo} found that multimodal models handle valence but not arousal or dominance and conflate the emotion a subject expresses with the emotion a viewer feels.
+
+For this project three decisions follow. None of the alignment metrics measures affect, so none is the instrument, though VQAScore's question-asking design is the closest relative of the describer used here. Their instability is the reason every value in this dissertation is read against a null rather than trusted as a score. And the positive bias and expressed-versus-evoked confusion reported for machine judges are exactly the failure modes the audits in Chapter~\ref{ch:results} look for and find.
 
 \section{The intersection: emotion in generated images}
 \label{sec:lit-intersection}
-% GUIDANCE (6 papers): \cite{yang2024emogen, lin2024make, dang2025emoticrafter, mehta2024generating}
-% (target-conditioned affective generation in colour), \cite{alvarado2025texttoimage} (lightness and
-% chroma, not hue, are the principal COLOUR carriers of emotional meaning in T2I output — the study
-% models colour features only and says nothing about shape or line), \cite{lomas2024improved}
-% (the closest prior art: human-rated emotional alignment on a fixed ten-item typology; model is the
-% dominant factor; emotions on people rate higher than on robots).
-% Close: nobody has measured affect agreement on unmediated, mixed-affect self-report rendered without colour.
+
+Work that puts emotion into generated images is target-conditioned and coloured. EmoGen \cite{yang2024emogen} generates images from an emotion category through an emotion space aligned to CLIP and evaluates them with a classifier trained on EmoSet; Make Me Happier \cite{lin2024make} edits an image so that it evokes a target emotion and reports that positive emotions are harder to separate than negative ones and that fine facial detail is a weakness; EmotiCrafter \cite{dang2025emoticrafter} conditions generation on continuous valence--arousal coordinates; Mehta and Buntain \cite{mehta2024generating} measured whether generators drift towards fear regardless of the prompt, using an image-emotion classifier on one side and a text-emotion classifier on the other, a cross-modal design that is the nearest methodological cousin of the present pipeline. Zhou and colleagues \cite{zhou2025analyzing} classify the emotion an image evokes by first turning the image into affective text, which mirrors the describe-then-extract architecture from the recognition side.
+
+Alvarado \cite{alvarado2025texttoimage} used a diffusion model to render emotion words and extracted colour features from the results, finding that lightness and chroma, more than hue, are the principal colour carriers of emotional meaning in text-to-image output. The study models colour features only; it does not test shape or line, and so says nothing either way about whether form alone can carry affect. That silence is the reason a monochrome corpus is interesting rather than a reason to expect any particular result from it.
+
+The closest prior art is Lomas and colleagues \cite{lomas2024improved}, who had 24 raters score 240 images generated by three models from a fixed ten-item emotion typology, each emotion rendered on a person or a robot, on a 0--10 alignment scale. The generating model was the dominant factor, DALL$\cdot$E~3 far ahead of DALL$\cdot$E~2 and Stable Diffusion; alignment varied sharply by emotion; and emotions rendered on people scored higher than on robots. Their prompts were templated and their images coloured. Nobody has measured affect agreement on unmediated, mixed-affect self-report rendered without colour, and the repeated prompts in the present corpus allow a consistency measurement that none of these studies could make, since none drew the same words more than once.
 
 \section{Emotion perception and human judgement}
 \label{sec:lit-perception}
-% GUIDANCE (10 papers): \cite{bhattacharyya2025evaluating} (VLMs are inept at zero-shot evoked-emotion
-% recognition and biased towards positive labels — directly relevant to the describer's smile bias),
-% \cite{gao2025eemo} (MLLMs conflate expressed and evoked emotion), \cite{parkington2025human,
-% zhou2025analyzing, liu2023emotion, yang2018weakly, bhat2024emotion, chen2020building, gao2025eemo}
-% and the supervisor's perception work already cited. Close: expressed versus evoked affect is a
-% distinction this project must keep — the pipeline reads EXPRESSED cues (a drawn expression), and a
-% human study would read evoked affect.
+
+Machine recognition of emotion in images is built on photographs and confounds two constructs. Yang and colleagues \cite{yang2018weakly} trained coupled networks for visual sentiment with weak supervision; EmoSet and the datasets above supply the labels; the benchmarks of Section~\ref{sec:lit-eval} show how fragile the resulting judges are. Underneath sits the distinction that Gao and colleagues \cite{gao2025eemo} formalise and that the supervisor's perception work makes concrete: the emotion a depicted subject expresses is not the emotion a viewer feels, and neither is what a classifier trained on crowd labels returns. The pipeline in this dissertation reads expressed cues, a drawn expression, a posture, an action; a human study would read evoked affect, and the two must not be run together. The reverse-correlation methods of Jack and Chen \cite{jack2012facial, chen2018distinct, chen2020building, chen2024cultural} are the model for how such a study would be done: measure what observers perceive, do not assume it.
+
+For this project the distinction fixes the language. The image reader's output is called a reading, not a perception, and the single-coder check in Chapter~\ref{ch:results} is the first and only point at which a person looks at a drawing.
 
 \section{Context}
 \label{sec:lit-context}
-% GUIDANCE (1 paper): \cite{ragot2020ai} — public perception of AI-generated art, the festival setting.
+
+The setting was a public festival, and the one paper on how the public receives AI-generated art \cite{ragot2020ai}, a CHI study of 565 participants, found that identical artworks are rated lower when merely labelled as machine-made. The drawings in this corpus were shown to their authors as machine-made, and any future human rating of them will have to blind or counterbalance that label.
 
 \section{The gap}
 \label{sec:lit-gap}
-% GUIDANCE: Restate RESEARCH_GAP.md section 3 in your own words, bounded honestly: WITHIN THIS 73-PAPER
-% CORPUS no work measures text-to-image affect agreement for short, unmediated, mixed-affect first-person
-% self-reports rendered as colour-free line art, nor characterises how stable the reading is under
-% identical prompts. Then the four contrasts (vs compositional metrics; vs \cite{lomas2024improved};
-% vs conditional affective generation; vs visual-emotion recognition). End with the two research
-% questions the results answer and the one they explicitly do not (human validity).
+
+The strands converge on an object none of them has studied. Emotion theory says that short self-reports carry blended, graded affect. Text recognition says that this exact register is where classifiers are weakest. Generation says the models will render such prompts fluently but wobble on faces and detail, and that the prompt they actually render may not be the one the visitor typed. Automatic evaluation says the best metrics score objects, not affect, and are themselves unstable. The affect-in-images work says emotion can be generated and recognised, but chiefly through colour and only on photographs and art, with judges that are biased towards positive labels and confuse expressed with evoked emotion.
+
+Within the 73 papers reviewed here, no work measures the agreement between the emotion recoverable from a short, unmediated, mixed-affect first-person self-report and the emotion recoverable from a colour-free line drawing made from it, and none characterises how stable that reading is when identical words are drawn again. The gap is sharp against each neighbour. Against the compositional metrics, a line drawing can pass ``is there a person?'' while showing the wrong feeling entirely. Against Lomas and colleagues, the prompts here are real and blended rather than drawn from a typology, and the drawings have no colour. Against the conditional generators, the emotion here is latent in what somebody typed, not a control knob. Against the visual-emotion recognisers, monochrome line art is out of their distribution and none of them separates expressed from evoked affect for such stimuli.
+
+The chapters that follow therefore answer two questions and decline a third. How far do two automatic readers agree on the emotion of a visitor's words and of the drawing made from them, relative to chance, and how does that agreement depend on whether a face can be read? How stable is the reading when the same words are drawn more than once? And, explicitly not answered here because it needs people rather than models: what would a person see?

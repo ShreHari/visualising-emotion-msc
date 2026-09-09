@@ -488,6 +488,190 @@
 %   \HolmSurvive                survive Holm at family-wise 0.05
 %   \HolmFail                   do not survive
 %   \HolmBonfZ                  Bonferroni-equivalent z for the smallest rank
+%   \AblDropExpressionEmoSignObs ablation drop_expression, emotional, vsign: observed
+%   \AblDropExpressionEmoSignNull ablation drop_expression, emotional, vsign: null mean
+%   \AblDropExpressionEmoSignZ  ablation drop_expression, emotional, vsign: z
+%   \AblDropExpressionEmoFamObs ablation drop_expression, emotional, family: observed
+%   \AblDropExpressionEmoFamNull ablation drop_expression, emotional, family: null mean
+%   \AblDropExpressionEmoFamZ   ablation drop_expression, emotional, family: z
+%   \AblDropExpressionFaceSignObs ablation drop_expression, face, vsign: observed
+%   \AblDropExpressionFaceSignNull ablation drop_expression, face, vsign: null mean
+%   \AblDropExpressionFaceSignZ ablation drop_expression, face, vsign: z
+%   \AblDropExpressionFaceFamObs ablation drop_expression, face, family: observed
+%   \AblDropExpressionFaceFamNull ablation drop_expression, face, family: null mean
+%   \AblDropExpressionFaceFamZ  ablation drop_expression, face, family: z
+%   \AblDropExpressionSceneSignObs ablation drop_expression, scene, vsign: observed
+%   \AblDropExpressionSceneSignNull ablation drop_expression, scene, vsign: null mean
+%   \AblDropExpressionSceneSignZ ablation drop_expression, scene, vsign: z
+%   \AblDropExpressionSceneFamObs ablation drop_expression, scene, family: observed
+%   \AblDropExpressionSceneFamNull ablation drop_expression, scene, family: null mean
+%   \AblDropExpressionSceneFamZ ablation drop_expression, scene, family: z
+%   \AblDropActionEmoSignObs    ablation drop_action, emotional, vsign: observed
+%   \AblDropActionEmoSignNull   ablation drop_action, emotional, vsign: null mean
+%   \AblDropActionEmoSignZ      ablation drop_action, emotional, vsign: z
+%   \AblDropActionEmoFamObs     ablation drop_action, emotional, family: observed
+%   \AblDropActionEmoFamNull    ablation drop_action, emotional, family: null mean
+%   \AblDropActionEmoFamZ       ablation drop_action, emotional, family: z
+%   \AblDropActionFaceSignObs   ablation drop_action, face, vsign: observed
+%   \AblDropActionFaceSignNull  ablation drop_action, face, vsign: null mean
+%   \AblDropActionFaceSignZ     ablation drop_action, face, vsign: z
+%   \AblDropActionFaceFamObs    ablation drop_action, face, family: observed
+%   \AblDropActionFaceFamNull   ablation drop_action, face, family: null mean
+%   \AblDropActionFaceFamZ      ablation drop_action, face, family: z
+%   \AblDropActionSceneSignObs  ablation drop_action, scene, vsign: observed
+%   \AblDropActionSceneSignNull ablation drop_action, scene, vsign: null mean
+%   \AblDropActionSceneSignZ    ablation drop_action, scene, vsign: z
+%   \AblDropActionSceneFamObs   ablation drop_action, scene, family: observed
+%   \AblDropActionSceneFamNull  ablation drop_action, scene, family: null mean
+%   \AblDropActionSceneFamZ     ablation drop_action, scene, family: z
+%   \AblDropPostureEmoSignObs   ablation drop_posture, emotional, vsign: observed
+%   \AblDropPostureEmoSignNull  ablation drop_posture, emotional, vsign: null mean
+%   \AblDropPostureEmoSignZ     ablation drop_posture, emotional, vsign: z
+%   \AblDropPostureEmoFamObs    ablation drop_posture, emotional, family: observed
+%   \AblDropPostureEmoFamNull   ablation drop_posture, emotional, family: null mean
+%   \AblDropPostureEmoFamZ      ablation drop_posture, emotional, family: z
+%   \AblDropPostureFaceSignObs  ablation drop_posture, face, vsign: observed
+%   \AblDropPostureFaceSignNull ablation drop_posture, face, vsign: null mean
+%   \AblDropPostureFaceSignZ    ablation drop_posture, face, vsign: z
+%   \AblDropPostureFaceFamObs   ablation drop_posture, face, family: observed
+%   \AblDropPostureFaceFamNull  ablation drop_posture, face, family: null mean
+%   \AblDropPostureFaceFamZ     ablation drop_posture, face, family: z
+%   \AblDropPostureSceneSignObs ablation drop_posture, scene, vsign: observed
+%   \AblDropPostureSceneSignNull ablation drop_posture, scene, vsign: null mean
+%   \AblDropPostureSceneSignZ   ablation drop_posture, scene, vsign: z
+%   \AblDropPostureSceneFamObs  ablation drop_posture, scene, family: observed
+%   \AblDropPostureSceneFamNull ablation drop_posture, scene, family: null mean
+%   \AblDropPostureSceneFamZ    ablation drop_posture, scene, family: z
+%   \AblDropPeopleEmoSignObs    ablation drop_people, emotional, vsign: observed
+%   \AblDropPeopleEmoSignNull   ablation drop_people, emotional, vsign: null mean
+%   \AblDropPeopleEmoSignZ      ablation drop_people, emotional, vsign: z
+%   \AblDropPeopleEmoFamObs     ablation drop_people, emotional, family: observed
+%   \AblDropPeopleEmoFamNull    ablation drop_people, emotional, family: null mean
+%   \AblDropPeopleEmoFamZ       ablation drop_people, emotional, family: z
+%   \AblDropPeopleFaceSignObs   ablation drop_people, face, vsign: observed
+%   \AblDropPeopleFaceSignNull  ablation drop_people, face, vsign: null mean
+%   \AblDropPeopleFaceSignZ     ablation drop_people, face, vsign: z
+%   \AblDropPeopleFaceFamObs    ablation drop_people, face, family: observed
+%   \AblDropPeopleFaceFamNull   ablation drop_people, face, family: null mean
+%   \AblDropPeopleFaceFamZ      ablation drop_people, face, family: z
+%   \AblDropPeopleSceneSignObs  ablation drop_people, scene, vsign: observed
+%   \AblDropPeopleSceneSignNull ablation drop_people, scene, vsign: null mean
+%   \AblDropPeopleSceneSignZ    ablation drop_people, scene, vsign: z
+%   \AblDropPeopleSceneFamObs   ablation drop_people, scene, family: observed
+%   \AblDropPeopleSceneFamNull  ablation drop_people, scene, family: null mean
+%   \AblDropPeopleSceneFamZ     ablation drop_people, scene, family: z
+%   \AblDropSceneEmoSignObs     ablation drop_scene, emotional, vsign: observed
+%   \AblDropSceneEmoSignNull    ablation drop_scene, emotional, vsign: null mean
+%   \AblDropSceneEmoSignZ       ablation drop_scene, emotional, vsign: z
+%   \AblDropSceneEmoFamObs      ablation drop_scene, emotional, family: observed
+%   \AblDropSceneEmoFamNull     ablation drop_scene, emotional, family: null mean
+%   \AblDropSceneEmoFamZ        ablation drop_scene, emotional, family: z
+%   \AblDropSceneFaceSignObs    ablation drop_scene, face, vsign: observed
+%   \AblDropSceneFaceSignNull   ablation drop_scene, face, vsign: null mean
+%   \AblDropSceneFaceSignZ      ablation drop_scene, face, vsign: z
+%   \AblDropSceneFaceFamObs     ablation drop_scene, face, family: observed
+%   \AblDropSceneFaceFamNull    ablation drop_scene, face, family: null mean
+%   \AblDropSceneFaceFamZ       ablation drop_scene, face, family: z
+%   \AblDropSceneSceneSignObs   ablation drop_scene, scene, vsign: observed
+%   \AblDropSceneSceneSignNull  ablation drop_scene, scene, vsign: null mean
+%   \AblDropSceneSceneSignZ     ablation drop_scene, scene, vsign: z
+%   \AblDropSceneSceneFamObs    ablation drop_scene, scene, family: observed
+%   \AblDropSceneSceneFamNull   ablation drop_scene, scene, family: null mean
+%   \AblDropSceneSceneFamZ      ablation drop_scene, scene, family: z
+%   \AblFixedExpressionEmoSignObs ablation fixed_expression, emotional, vsign: observed
+%   \AblFixedExpressionEmoSignNull ablation fixed_expression, emotional, vsign: null mean
+%   \AblFixedExpressionEmoSignZ ablation fixed_expression, emotional, vsign: z
+%   \AblFixedExpressionEmoFamObs ablation fixed_expression, emotional, family: observed
+%   \AblFixedExpressionEmoFamNull ablation fixed_expression, emotional, family: null mean
+%   \AblFixedExpressionEmoFamZ  ablation fixed_expression, emotional, family: z
+%   \AblFixedExpressionFaceSignObs ablation fixed_expression, face, vsign: observed
+%   \AblFixedExpressionFaceSignNull ablation fixed_expression, face, vsign: null mean
+%   \AblFixedExpressionFaceSignZ ablation fixed_expression, face, vsign: z
+%   \AblFixedExpressionFaceFamObs ablation fixed_expression, face, family: observed
+%   \AblFixedExpressionFaceFamNull ablation fixed_expression, face, family: null mean
+%   \AblFixedExpressionFaceFamZ ablation fixed_expression, face, family: z
+%   \AblFixedExpressionSceneSignObs ablation fixed_expression, scene, vsign: observed
+%   \AblFixedExpressionSceneSignNull ablation fixed_expression, scene, vsign: null mean
+%   \AblFixedExpressionSceneSignZ ablation fixed_expression, scene, vsign: z
+%   \AblFixedExpressionSceneFamObs ablation fixed_expression, scene, family: observed
+%   \AblFixedExpressionSceneFamNull ablation fixed_expression, scene, family: null mean
+%   \AblFixedExpressionSceneFamZ ablation fixed_expression, scene, family: z
+%   \AblPeopleAwareEmoSignObs   ablation people_aware, emotional, vsign: observed
+%   \AblPeopleAwareEmoSignNull  ablation people_aware, emotional, vsign: null mean
+%   \AblPeopleAwareEmoSignZ     ablation people_aware, emotional, vsign: z
+%   \AblPeopleAwareEmoFamObs    ablation people_aware, emotional, family: observed
+%   \AblPeopleAwareEmoFamNull   ablation people_aware, emotional, family: null mean
+%   \AblPeopleAwareEmoFamZ      ablation people_aware, emotional, family: z
+%   \AblPeopleAwareFaceSignObs  ablation people_aware, face, vsign: observed
+%   \AblPeopleAwareFaceSignNull ablation people_aware, face, vsign: null mean
+%   \AblPeopleAwareFaceSignZ    ablation people_aware, face, vsign: z
+%   \AblPeopleAwareFaceFamObs   ablation people_aware, face, family: observed
+%   \AblPeopleAwareFaceFamNull  ablation people_aware, face, family: null mean
+%   \AblPeopleAwareFaceFamZ     ablation people_aware, face, family: z
+%   \AblPeopleAwareSceneSignObs ablation people_aware, scene, vsign: observed
+%   \AblPeopleAwareSceneSignNull ablation people_aware, scene, vsign: null mean
+%   \AblPeopleAwareSceneSignZ   ablation people_aware, scene, vsign: z
+%   \AblPeopleAwareSceneFamObs  ablation people_aware, scene, family: observed
+%   \AblPeopleAwareSceneFamNull ablation people_aware, scene, family: null mean
+%   \AblPeopleAwareSceneFamZ    ablation people_aware, scene, family: z
+%   \AblPeopleAwareNoExpressionEmoSignObs ablation people_aware_no_expression, emotional, vsign: observed
+%   \AblPeopleAwareNoExpressionEmoSignNull ablation people_aware_no_expression, emotional, vsign: null mean
+%   \AblPeopleAwareNoExpressionEmoSignZ ablation people_aware_no_expression, emotional, vsign: z
+%   \AblPeopleAwareNoExpressionEmoFamObs ablation people_aware_no_expression, emotional, family: observed
+%   \AblPeopleAwareNoExpressionEmoFamNull ablation people_aware_no_expression, emotional, family: null mean
+%   \AblPeopleAwareNoExpressionEmoFamZ ablation people_aware_no_expression, emotional, family: z
+%   \AblPeopleAwareNoExpressionFaceSignObs ablation people_aware_no_expression, face, vsign: observed
+%   \AblPeopleAwareNoExpressionFaceSignNull ablation people_aware_no_expression, face, vsign: null mean
+%   \AblPeopleAwareNoExpressionFaceSignZ ablation people_aware_no_expression, face, vsign: z
+%   \AblPeopleAwareNoExpressionFaceFamObs ablation people_aware_no_expression, face, family: observed
+%   \AblPeopleAwareNoExpressionFaceFamNull ablation people_aware_no_expression, face, family: null mean
+%   \AblPeopleAwareNoExpressionFaceFamZ ablation people_aware_no_expression, face, family: z
+%   \AblPeopleAwareNoExpressionSceneSignObs ablation people_aware_no_expression, scene, vsign: observed
+%   \AblPeopleAwareNoExpressionSceneSignNull ablation people_aware_no_expression, scene, vsign: null mean
+%   \AblPeopleAwareNoExpressionSceneSignZ ablation people_aware_no_expression, scene, vsign: z
+%   \AblPeopleAwareNoExpressionSceneFamObs ablation people_aware_no_expression, scene, family: observed
+%   \AblPeopleAwareNoExpressionSceneFamNull ablation people_aware_no_expression, scene, family: null mean
+%   \AblPeopleAwareNoExpressionSceneFamZ ablation people_aware_no_expression, scene, family: z
+%   \AblControlEmoSignObs       ablation control_full_template, emotional, vsign: observed
+%   \AblControlEmoSignNull      ablation control_full_template, emotional, vsign: null mean
+%   \AblControlEmoSignZ         ablation control_full_template, emotional, vsign: z
+%   \AblControlEmoFamObs        ablation control_full_template, emotional, family: observed
+%   \AblControlEmoFamNull       ablation control_full_template, emotional, family: null mean
+%   \AblControlEmoFamZ          ablation control_full_template, emotional, family: z
+%   \AblControlFaceSignObs      ablation control_full_template, face, vsign: observed
+%   \AblControlFaceSignNull     ablation control_full_template, face, vsign: null mean
+%   \AblControlFaceSignZ        ablation control_full_template, face, vsign: z
+%   \AblControlFaceFamObs       ablation control_full_template, face, family: observed
+%   \AblControlFaceFamNull      ablation control_full_template, face, family: null mean
+%   \AblControlFaceFamZ         ablation control_full_template, face, family: z
+%   \AblControlSceneSignObs     ablation control_full_template, scene, vsign: observed
+%   \AblControlSceneSignNull    ablation control_full_template, scene, vsign: null mean
+%   \AblControlSceneSignZ       ablation control_full_template, scene, vsign: z
+%   \AblControlSceneFamObs      ablation control_full_template, scene, family: observed
+%   \AblControlSceneFamNull     ablation control_full_template, scene, family: null mean
+%   \AblControlSceneFamZ        ablation control_full_template, scene, family: z
+%   \AblBaselineEmoSignObs      ablation baseline, emotional, vsign: observed
+%   \AblBaselineEmoSignNull     ablation baseline, emotional, vsign: null mean
+%   \AblBaselineEmoSignZ        ablation baseline, emotional, vsign: z
+%   \AblBaselineEmoFamObs       ablation baseline, emotional, family: observed
+%   \AblBaselineEmoFamNull      ablation baseline, emotional, family: null mean
+%   \AblBaselineEmoFamZ         ablation baseline, emotional, family: z
+%   \AblBaselineFaceSignObs     ablation baseline, face, vsign: observed
+%   \AblBaselineFaceSignNull    ablation baseline, face, vsign: null mean
+%   \AblBaselineFaceSignZ       ablation baseline, face, vsign: z
+%   \AblBaselineFaceFamObs      ablation baseline, face, family: observed
+%   \AblBaselineFaceFamNull     ablation baseline, face, family: null mean
+%   \AblBaselineFaceFamZ        ablation baseline, face, family: z
+%   \AblBaselineSceneSignObs    ablation baseline, scene, vsign: observed
+%   \AblBaselineSceneSignNull   ablation baseline, scene, vsign: null mean
+%   \AblBaselineSceneSignZ      ablation baseline, scene, vsign: z
+%   \AblBaselineSceneFamObs     ablation baseline, scene, family: observed
+%   \AblBaselineSceneFamNull    ablation baseline, scene, family: null mean
+%   \AblBaselineSceneFamZ       ablation baseline, scene, family: z
+%   \AblControlChanged          top-1 readings changed by the control re-run
+%   \AblDropExpressionSurprise  drop_expression: records read as surprise
+%   \AblDropExpressionNeutral   drop_expression: records read as neutral
+%   \AblDropExpressionChanged   drop_expression: top-1 readings changed vs baseline
 %   \AblationAvailable          ablation summary present
 %   \HumanCheckAvailable        human check scored
 
@@ -978,5 +1162,189 @@
 \newcommand{\HolmSurvive}{26}
 \newcommand{\HolmFail}{10}
 \newcommand{\HolmBonfZ}{3.2}
+\newcommand{\AblDropExpressionEmoSignObs}{15.3\%}
+\newcommand{\AblDropExpressionEmoSignNull}{11.4\%}
+\newcommand{\AblDropExpressionEmoSignZ}{+5.1}
+\newcommand{\AblDropExpressionEmoFamObs}{20.3\%}
+\newcommand{\AblDropExpressionEmoFamNull}{16.6\%}
+\newcommand{\AblDropExpressionEmoFamZ}{+3.8}
+\newcommand{\AblDropExpressionFaceSignObs}{18.9\%}
+\newcommand{\AblDropExpressionFaceSignNull}{14.7\%}
+\newcommand{\AblDropExpressionFaceSignZ}{+3.8}
+\newcommand{\AblDropExpressionFaceFamObs}{25.9\%}
+\newcommand{\AblDropExpressionFaceFamNull}{20.5\%}
+\newcommand{\AblDropExpressionFaceFamZ}{+3.8}
+\newcommand{\AblDropExpressionSceneSignObs}{7.6\%}
+\newcommand{\AblDropExpressionSceneSignNull}{4.7\%}
+\newcommand{\AblDropExpressionSceneSignZ}{+2.7}
+\newcommand{\AblDropExpressionSceneFamObs}{9.3\%}
+\newcommand{\AblDropExpressionSceneFamNull}{6.4\%}
+\newcommand{\AblDropExpressionSceneFamZ}{+2.2}
+\newcommand{\AblDropActionEmoSignObs}{61.9\%}
+\newcommand{\AblDropActionEmoSignNull}{43.9\%}
+\newcommand{\AblDropActionEmoSignZ}{+11.0}
+\newcommand{\AblDropActionEmoFamObs}{50.6\%}
+\newcommand{\AblDropActionEmoFamNull}{36.7\%}
+\newcommand{\AblDropActionEmoFamZ}{+10.3}
+\newcommand{\AblDropActionFaceSignObs}{72.5\%}
+\newcommand{\AblDropActionFaceSignNull}{52.2\%}
+\newcommand{\AblDropActionFaceSignZ}{+10.4}
+\newcommand{\AblDropActionFaceFamObs}{60.7\%}
+\newcommand{\AblDropActionFaceFamNull}{44.5\%}
+\newcommand{\AblDropActionFaceFamZ}{+10.4}
+\newcommand{\AblDropActionSceneSignObs}{39.4\%}
+\newcommand{\AblDropActionSceneSignNull}{26.8\%}
+\newcommand{\AblDropActionSceneSignZ}{+5.6}
+\newcommand{\AblDropActionSceneFamObs}{30.7\%}
+\newcommand{\AblDropActionSceneFamNull}{21.9\%}
+\newcommand{\AblDropActionSceneFamZ}{+4.6}
+\newcommand{\AblDropPostureEmoSignObs}{62.3\%}
+\newcommand{\AblDropPostureEmoSignNull}{44.5\%}
+\newcommand{\AblDropPostureEmoSignZ}{+10.7}
+\newcommand{\AblDropPostureEmoFamObs}{51.4\%}
+\newcommand{\AblDropPostureEmoFamNull}{37.9\%}
+\newcommand{\AblDropPostureEmoFamZ}{+9.7}
+\newcommand{\AblDropPostureFaceSignObs}{73.1\%}
+\newcommand{\AblDropPostureFaceSignNull}{53.1\%}
+\newcommand{\AblDropPostureFaceSignZ}{+10.0}
+\newcommand{\AblDropPostureFaceFamObs}{61.4\%}
+\newcommand{\AblDropPostureFaceFamNull}{45.6\%}
+\newcommand{\AblDropPostureFaceFamZ}{+10.1}
+\newcommand{\AblDropPostureSceneSignObs}{39.4\%}
+\newcommand{\AblDropPostureSceneSignNull}{26.8\%}
+\newcommand{\AblDropPostureSceneSignZ}{+5.6}
+\newcommand{\AblDropPostureSceneFamObs}{31.7\%}
+\newcommand{\AblDropPostureSceneFamNull}{24.0\%}
+\newcommand{\AblDropPostureSceneFamZ}{+3.6}
+\newcommand{\AblDropPeopleEmoSignObs}{68.5\%}
+\newcommand{\AblDropPeopleEmoSignNull}{50.7\%}
+\newcommand{\AblDropPeopleEmoSignZ}{+10.8}
+\newcommand{\AblDropPeopleEmoFamObs}{57.8\%}
+\newcommand{\AblDropPeopleEmoFamNull}{43.7\%}
+\newcommand{\AblDropPeopleEmoFamZ}{+9.9}
+\newcommand{\AblDropPeopleFaceSignObs}{70.8\%}
+\newcommand{\AblDropPeopleFaceSignNull}{50.7\%}
+\newcommand{\AblDropPeopleFaceSignZ}{+10.4}
+\newcommand{\AblDropPeopleFaceFamObs}{59.7\%}
+\newcommand{\AblDropPeopleFaceFamNull}{43.6\%}
+\newcommand{\AblDropPeopleFaceFamZ}{+10.3}
+\newcommand{\AblDropPeopleSceneSignObs}{63.5\%}
+\newcommand{\AblDropPeopleSceneSignNull}{50.9\%}
+\newcommand{\AblDropPeopleSceneSignZ}{+5.0}
+\newcommand{\AblDropPeopleSceneFamObs}{54.1\%}
+\newcommand{\AblDropPeopleSceneFamNull}{44.5\%}
+\newcommand{\AblDropPeopleSceneFamZ}{+3.8}
+\newcommand{\AblDropSceneEmoSignObs}{64.2\%}
+\newcommand{\AblDropSceneEmoSignNull}{46.0\%}
+\newcommand{\AblDropSceneEmoSignZ}{+10.7}
+\newcommand{\AblDropSceneEmoFamObs}{53.4\%}
+\newcommand{\AblDropSceneEmoFamNull}{39.2\%}
+\newcommand{\AblDropSceneEmoFamZ}{+9.8}
+\newcommand{\AblDropSceneFaceSignObs}{74.4\%}
+\newcommand{\AblDropSceneFaceSignNull}{53.8\%}
+\newcommand{\AblDropSceneFaceSignZ}{+10.4}
+\newcommand{\AblDropSceneFaceFamObs}{62.4\%}
+\newcommand{\AblDropSceneFaceFamNull}{46.1\%}
+\newcommand{\AblDropSceneFaceFamZ}{+10.1}
+\newcommand{\AblDropSceneSceneSignObs}{42.4\%}
+\newcommand{\AblDropSceneSceneSignNull}{29.9\%}
+\newcommand{\AblDropSceneSceneSignZ}{+5.6}
+\newcommand{\AblDropSceneSceneFamObs}{35.6\%}
+\newcommand{\AblDropSceneSceneFamNull}{26.8\%}
+\newcommand{\AblDropSceneSceneFamZ}{+3.9}
+\newcommand{\AblFixedExpressionEmoSignObs}{15.1\%}
+\newcommand{\AblFixedExpressionEmoSignNull}{10.8\%}
+\newcommand{\AblFixedExpressionEmoSignZ}{+5.9}
+\newcommand{\AblFixedExpressionEmoFamObs}{21.3\%}
+\newcommand{\AblFixedExpressionEmoFamNull}{17.5\%}
+\newcommand{\AblFixedExpressionEmoFamZ}{+3.9}
+\newcommand{\AblFixedExpressionFaceSignObs}{17.5\%}
+\newcommand{\AblFixedExpressionFaceSignNull}{12.8\%}
+\newcommand{\AblFixedExpressionFaceSignZ}{+4.4}
+\newcommand{\AblFixedExpressionFaceFamObs}{25.1\%}
+\newcommand{\AblFixedExpressionFaceFamNull}{19.7\%}
+\newcommand{\AblFixedExpressionFaceFamZ}{+4.0}
+\newcommand{\AblFixedExpressionSceneSignObs}{10.0\%}
+\newcommand{\AblFixedExpressionSceneSignNull}{6.6\%}
+\newcommand{\AblFixedExpressionSceneSignZ}{+2.8}
+\newcommand{\AblFixedExpressionSceneFamObs}{13.7\%}
+\newcommand{\AblFixedExpressionSceneFamNull}{11.2\%}
+\newcommand{\AblFixedExpressionSceneFamZ}{+1.5}
+\newcommand{\AblPeopleAwareEmoSignObs}{51.7\%}
+\newcommand{\AblPeopleAwareEmoSignNull}{36.9\%}
+\newcommand{\AblPeopleAwareEmoSignZ}{+10.1}
+\newcommand{\AblPeopleAwareEmoFamObs}{47.1\%}
+\newcommand{\AblPeopleAwareEmoFamNull}{34.5\%}
+\newcommand{\AblPeopleAwareEmoFamZ}{+8.8}
+\newcommand{\AblPeopleAwareFaceSignObs}{73.9\%}
+\newcommand{\AblPeopleAwareFaceSignNull}{53.5\%}
+\newcommand{\AblPeopleAwareFaceSignZ}{+10.4}
+\newcommand{\AblPeopleAwareFaceFamObs}{61.9\%}
+\newcommand{\AblPeopleAwareFaceFamNull}{45.8\%}
+\newcommand{\AblPeopleAwareFaceFamZ}{+10.3}
+\newcommand{\AblPeopleAwareSceneSignObs}{4.7\%}
+\newcommand{\AblPeopleAwareSceneSignNull}{3.4\%}
+\newcommand{\AblPeopleAwareSceneSignZ}{+1.6}
+\newcommand{\AblPeopleAwareSceneFamObs}{18.0\%}
+\newcommand{\AblPeopleAwareSceneFamNull}{17.3\%}
+\newcommand{\AblPeopleAwareSceneFamZ}{+0.6}
+\newcommand{\AblPeopleAwareNoExpressionEmoSignObs}{55.3\%}
+\newcommand{\AblPeopleAwareNoExpressionEmoSignNull}{39.5\%}
+\newcommand{\AblPeopleAwareNoExpressionEmoSignZ}{+10.5}
+\newcommand{\AblPeopleAwareNoExpressionEmoFamObs}{48.1\%}
+\newcommand{\AblPeopleAwareNoExpressionEmoFamNull}{35.0\%}
+\newcommand{\AblPeopleAwareNoExpressionEmoFamZ}{+9.6}
+\newcommand{\AblPeopleAwareNoExpressionFaceSignObs}{73.9\%}
+\newcommand{\AblPeopleAwareNoExpressionFaceSignNull}{53.5\%}
+\newcommand{\AblPeopleAwareNoExpressionFaceSignZ}{+10.4}
+\newcommand{\AblPeopleAwareNoExpressionFaceFamObs}{61.9\%}
+\newcommand{\AblPeopleAwareNoExpressionFaceFamNull}{45.8\%}
+\newcommand{\AblPeopleAwareNoExpressionFaceFamZ}{+10.3}
+\newcommand{\AblPeopleAwareNoExpressionSceneSignObs}{15.9\%}
+\newcommand{\AblPeopleAwareNoExpressionSceneSignNull}{11.6\%}
+\newcommand{\AblPeopleAwareNoExpressionSceneSignZ}{+2.7}
+\newcommand{\AblPeopleAwareNoExpressionSceneFamObs}{21.0\%}
+\newcommand{\AblPeopleAwareNoExpressionSceneFamNull}{16.8\%}
+\newcommand{\AblPeopleAwareNoExpressionSceneFamZ}{+2.2}
+\newcommand{\AblControlEmoSignObs}{64.0\%}
+\newcommand{\AblControlEmoSignNull}{45.6\%}
+\newcommand{\AblControlEmoSignZ}{+11.1}
+\newcommand{\AblControlEmoFamObs}{53.0\%}
+\newcommand{\AblControlEmoFamNull}{38.8\%}
+\newcommand{\AblControlEmoFamZ}{+10.3}
+\newcommand{\AblControlFaceSignObs}{73.9\%}
+\newcommand{\AblControlFaceSignNull}{53.5\%}
+\newcommand{\AblControlFaceSignZ}{+10.4}
+\newcommand{\AblControlFaceFamObs}{61.9\%}
+\newcommand{\AblControlFaceFamNull}{45.8\%}
+\newcommand{\AblControlFaceFamZ}{+10.3}
+\newcommand{\AblControlSceneSignObs}{42.9\%}
+\newcommand{\AblControlSceneSignNull}{29.6\%}
+\newcommand{\AblControlSceneSignZ}{+5.8}
+\newcommand{\AblControlSceneFamObs}{35.6\%}
+\newcommand{\AblControlSceneFamNull}{26.2\%}
+\newcommand{\AblControlSceneFamZ}{+4.4}
+\newcommand{\AblBaselineEmoSignObs}{64.0\%}
+\newcommand{\AblBaselineEmoSignNull}{45.6\%}
+\newcommand{\AblBaselineEmoSignZ}{+11.1}
+\newcommand{\AblBaselineEmoFamObs}{53.0\%}
+\newcommand{\AblBaselineEmoFamNull}{38.8\%}
+\newcommand{\AblBaselineEmoFamZ}{+10.3}
+\newcommand{\AblBaselineFaceSignObs}{73.9\%}
+\newcommand{\AblBaselineFaceSignNull}{53.5\%}
+\newcommand{\AblBaselineFaceSignZ}{+10.4}
+\newcommand{\AblBaselineFaceFamObs}{61.9\%}
+\newcommand{\AblBaselineFaceFamNull}{45.8\%}
+\newcommand{\AblBaselineFaceFamZ}{+10.3}
+\newcommand{\AblBaselineSceneSignObs}{42.9\%}
+\newcommand{\AblBaselineSceneSignNull}{29.6\%}
+\newcommand{\AblBaselineSceneSignZ}{+5.8}
+\newcommand{\AblBaselineSceneFamObs}{35.6\%}
+\newcommand{\AblBaselineSceneFamNull}{26.2\%}
+\newcommand{\AblBaselineSceneFamZ}{+4.4}
+\newcommand{\AblControlChanged}{0}
+\newcommand{\AblDropExpressionSurprise}{514}
+\newcommand{\AblDropExpressionNeutral}{368}
+\newcommand{\AblDropExpressionChanged}{671}
 \newcommand{\AblationAvailable}{yes}
 \newcommand{\HumanCheckAvailable}{no}
