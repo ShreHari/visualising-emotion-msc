@@ -11,7 +11,7 @@ At the Festival of the Mind 2024 (Sheffield), visitors typed how they felt and D
 
 ## 2. Deadline and what is left
 
-**Submission: Wednesday 16 September 2026, 15:00.** Check the hand-in route on Blackboard / COM Projects.
+**Submission: Wednesday 23 September 2026** (extended from 16 September; confirm the time, the original deadline was 15:00). Check the hand-in route on Blackboard / COM Projects.
 
 | # | Task | How |
 |---|---|---|
