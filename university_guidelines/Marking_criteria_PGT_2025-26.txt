@@ -1,0 +1,97 @@
+COM Projects
+Dashboard
+Shre Hari Prem Anandh
+Sign out
+Home
+Projects
+PGT Projects 2025-2026
+This curriculum is currently open for changes, meaning that all aspects can be changed. Once the curriculum has been locked, only the dates for each stage can be changed. Locking the curriculum is irreversible.
+Links
+Cohort
+Programme
+PGT 2025/26
+Advanced Computer Science
+PGT 2025/26
+Computer Science with Speech and Language Processing
+PGT 2025/26
+Cybersecurity and Artificial Intelligence
+PGT 2025/26
+Data Comms
+PGT 2025/26
+Artificial Intelligence
+Stages
+Final Dissertation
+Original submission
+Hand in at 15:00 on Wed, 16 Sep 2026.
+Feedback posted at 15:00 on Mon, 19 Oct 2026.
+No marks post date.
+Students will
+not
+be shown marks.
+Student Performance
+Supervisor only.
+Covers the engagement of the student with the project, attendance at and preparation for project meetings, and the extent to which they require close supervision.
+No grade boundary information.
+Quality of Products
+Covers the results of the work, whether these be software or hardware systems, models of systems, mathematical theorems and conjectures, etc. Judgments will be made on the basis of the complexity or difficulty of the task and the degree of success achieved.
+No grade boundary information.
+Quality of Processes
+Covers the processes involved in the development of the project work and can include the initial analysis of the problem with its theoretical foundations. It will also cover design and testing processes. The use of the literature, and of available tools and methodologies will also be assessed here.
+0 - 39
+Some attempt, but unfocussed with high content of irrelevant material. Some material may be incorrect. Major omissions and/or major errors.
+40 - 49
+Analysis and requirements are rather general. Design, implementation and testing are unclear in places or miss important points or are incomplete.
+50 - 59
+Analysis and requirements are adequate. Evaluation and testing is covered. Implementation and testing cover general points.
+60 - 69
+Analysis is generally good and project requirements are clear. Decent attempt at addressing issues of testing and evaluation. Implementation and testing covers the main points, but may not be particularly thorough.
+70 - 100
+Analysis of problem area is in-depth and requirements of project are clear. Project evaluation is addressed with insight and testing is properly covered. Implementation and testing is thorough and pertinent points are discussed.
+Amount of Work Completed
+Somewhat self-descriptive. This category includes (i) the background learning the student had to undertake which is distinct from the final products that were produced or the processes that were undertaken in producing the products, and (ii) the amount of work done in relation to what could be reasonably expected to be done on the particular project, given its level of difficulty and the time available.
+No grade boundary information.
+Writing Quality and Professional Standard
+The readability of the dissertation and the precision of its language will be judged here, along with the overall presentation: sensible notation, diagrams, layout, headings, references, etc.
+0 - 39
+Some attempt, but unfocussed with high content of irrelevant material. Some material may be incorrect. Poorly organised with major omissions and/or major errors. Inadequate style and/or grammar.
+40 - 49
+Subdivided into chapters and sections, but not particularly logical in flow of material within chapters. Introduction chapter is unclear. Review, analysis and requirements show an incomplete understanding of subject. Poorly focussed with either irrelevant material or a failure to appreciate important points. Some material may be incorrect. Results and discussion generally show poor focus and lack of depth. Poor or little use of diagrams/tables/maths. Style and grammar poor.
+50 - 59
+Logical structure with sensible subdivision into chapters and sections. Introduction chapter is generally ok. Review is competent but generally exhibits a basic understanding of the subject. Largely focussed on topic. Largely factually correct, but may contain some irrelevant material or miss some important points. Design lacks depth. Results and discussion are generally competent but do not demonstrate real depth in thinking. Some use of diagrams/maths/tables, but may be poorly organised. Clearly written overall, but may be ambiguous in places and show lapses of grammar.
+60 - 69
+Well-organised with a sensible subdivision of material into chapters and sections. Decent introduction that generally makes the project aims clear. Review shows some evidence of research. Good understanding of subject. Predominantly focussed on topic. Largely factually accurate. May contain some irrelevant material. Design generally shows clarity. Main results are presented, although some irrelevant material may be included. Discussion shows some critical abilities. Diagrams/maths/tables should be relevant and clearly presented. Predominantly unambiguous and grammatically correct English.
+70 - 79
+Sensible subdivision of material into chapters and sections to produce a coherent and well-balanced report. Good introduction chapter that puts the case for the project and its aims. Review is well researched. Thorough understanding of subject. Focussed on topic. Factually correct. Addresses issues critically. Design is precise, methodical and shows some flair. Results are presented in a logical order with perceptive and critical discussion and evaluation. Diagrams/maths/tables should be relevant and clearly presented. Unambiguous and grammatically correct English. Perfection is not essential. Some originality or innovation.
+80 - 89
+Satisfies all described under 70-79, and has some originality, and with further work could be of publishable quality.
+90 - 100
+Indicates that the work satisfies all described under 70-80, and is also original and of publishable quality.
+Project Presentation Sessions
+Second marker only.
+The content of the presentation, as well as the ability of the student to explain their project and answer questions should be assessed here.
+No grade boundary information.
+Quality of Evaluation
+Concerns an evaluation of the project in terms of how well the objectives were satisfied, the possible further directions of study and the relationships with other people's work.
+0 - 39
+Some attempt, but unfocussed with high content of irrelevant material. Some material may be incorrect. Major omissions and/or major errors.
+40 - 49
+Conclusions generally show poor focus and lack of depth.
+50 - 59
+Conclusions may ramble in parts. Further work is perhaps over general or not particularly insightful.
+60 - 69
+Conclusions are competently covered. Further work is perhaps a little over general.
+70 - 100
+Conclusions are correct and show ability to summarise with acumen. Discussion of further work is appropriate to the evaluation of work done.
+General feedback
+0 - 49
+Subdivided into chapters and sections, but not particularly logical in flow of material within chapters. Introduction chapter is unclear. Review, analysis and requirements show an incomplete understanding of subject. Poorly focussed with either irrelevant material or a failure to appreciate important points. Some material may be incorrect. Analysis and requirements are rather general. Design, implementation and testing are unclear in places or miss important points or are incomplete. Results, discussion and conclusions generally show poor focus and lack of depth. Poor or little use of diagrams/tables/maths. Style and grammar poor.
+50 - 59
+Logical structure with sensible subdivision into chapters and sections. Introduction chapter is generally ok. Review is competent but generally exhibits a basic understanding of the subject. Largely focussed on topic. Largely factually correct, but may contain some irrelevant material or miss some important points. Analysis and requirements are adequate. Evaluation and testing is covered. Design lacks depth. Implementation and testing cover general points. Results and discussion are generally competent but do not demonstrate real depth in thinking. Further work is perhaps over general or not particularly insightful. Conclusions may ramble in parts. Some use of diagrams/maths/tables, but may be poorly organised. Clearly written overall, but may be ambiguous in places and show lapses of grammar.
+60 - 69
+Well-organised with a sensible subdivision of material into chapters and sections. Decent introduction that generally makes the project aims clear. Review shows some evidence of research. Good understanding of subject. Predominantly focussed on topic. Largely factually accurate. May contain some irrelevant material. Analysis is generally good and project requirements are clear. Decent attempt at addressing issues of testing and evaluation. Design generally shows clarity. Implementation and testing covers the main points, but may not be particularly thorough. Main results are presented, although some irrelevant material may be included. Discussion shows some critical abilities. Further work is perhaps a little over general. Conclusions are competently covered. Diagrams/maths/tables should be relevant and clearly presented. Predominantly unambiguous and grammatically correct English.
+70 - 79
+Sensible subdivision of material into chapters and sections to produce a coherent and well-balanced report. Good introduction chapter that puts the case for the project and its aims. Review is well researched. Thorough understanding of subject. Focussed on topic. Factually correct. Addresses issues critically. Analysis of problem area is in-depth and requirements of project are clear. Project evaluation is addressed with insight and testing is properly covered. Design is precise, methodical and shows some flair. Implementation and testing is thorough and pertinent points are discussed. Results are presented in a logical order with perceptive and critical discussion and evaluation. Discussion of further work is appropriate to the evaluation of work done. Conclusions are correct and show ability to summarise with acumen. Diagrams/maths/tables should be relevant and clearly presented. Unambiguous and grammatically correct English. Perfection is not essential. Some originality or innovation.
+80 - 89
+Satisfies all described under 70-80 below, and has some originality, and with further work could be of publishable quality.
+90 - 100
+Indicates that the work satisfies all described under 70-80 below, and is also original and of publishable quality.

@@ -178,7 +178,7 @@ comparison (NLI prompt side, 608 records; superseded by step 6 but kept as a rec
 | `outputs/RESULTS_describe_extract.md` | Method build log (incl. rejected approaches) |
 | `outputs/describe_extract.jsonl` | Per-record pipeline output (all 1,025) |
 | `outputs/results_clip_v2_baseline.json` | Frozen direct-CLIP baseline for the comparison |
-| `outputs/archive/` | Superseded dashboards/write-ups (banners inside; do not cite) |
+| `../project_notes/archive/` | Superseded dashboards, v1-era outputs and old run logs (moved out of the code; do not cite) |
 | `run.py`, `validate.py`, `similarity_v1.py`, `valence_rq1.py` | v1 baseline era (superseded; banners inside) |
 | `PIPELINE_DESIGN.md` | Design-space record (options considered; AS-BUILT banner) |
 

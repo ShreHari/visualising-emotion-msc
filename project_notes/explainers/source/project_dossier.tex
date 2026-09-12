@@ -96,7 +96,7 @@ made about the effect of removing colour. Every finding applies within this mono
 
 \section{The dataset, and what it took to use it}
 
-\begin{center}\includegraphics[width=0.95\textwidth]{../figures/fig5_dataset.pdf}\end{center}
+\begin{center}\includegraphics[width=0.95\textwidth]{../../../emoviz/outputs/figures/fig5_dataset.pdf}\end{center}
 
 1,025 prompt--drawing records. Median prompt length is about four words. Visitors were invited to
 describe how they were feeling but the interface accepted free text, so a substantial minority of
@@ -235,7 +235,7 @@ against its own null. A result counts only insofar as it beats chance.
 
 \subsection{A specificity check}
 
-\begin{center}\includegraphics[width=0.78\textwidth]{../figures/fig3_z_by_prompt_group.pdf}\end{center}
+\begin{center}\includegraphics[width=0.78\textwidth]{../../../emoviz/outputs/figures/fig3_z_by_prompt_group.pdf}\end{center}
 
 405 of the 1{,}012 prompts are labelled neutral by the text reader --- \say{pigs}, \say{mickey mouse},
 \say{disney characters}. If the method were finding agreement where the prompt side has no readable
@@ -303,7 +303,7 @@ valence--arousal score is always shown against its measured chance line.
 
 \subsection{Agreement is real, and much stronger where the describer reports a face}
 
-\begin{center}\includegraphics[width=0.9\textwidth]{../figures/fig1_face_vs_scene.pdf}\end{center}
+\begin{center}\includegraphics[width=0.9\textwidth]{../../../emoviz/outputs/figures/fig1_face_vs_scene.pdf}\end{center}
 
 \begin{center}
 \begin{tabular}{@{}lccc@{}}
@@ -332,7 +332,7 @@ scene-classified drawings give nothing above chance for this reader.
 
 \subsection{The same words do not reliably give the same reading}
 
-\begin{center}\includegraphics[width=0.92\textwidth]{../figures/fig4_consistency.pdf}\end{center}
+\begin{center}\includegraphics[width=0.92\textwidth]{../../../emoviz/outputs/figures/fig4_consistency.pdf}\end{center}
 
 87 prompts were drawn between 2 and 42 times each, covering 336 records. Given \emph{identical}
 words, the image reader returns the same family for \textbf{68.8\%} of the drawings within a group,
@@ -345,7 +345,7 @@ estimate of its own. A single drawing is one sample, not a fixed answer.
 
 \subsection{The method matters: describe-then-extract agrees far more closely}
 
-\begin{center}\includegraphics[width=0.88\textwidth]{../figures/fig2_method_comparison.pdf}\end{center}
+\begin{center}\includegraphics[width=0.88\textwidth]{../../../emoviz/outputs/figures/fig2_method_comparison.pdf}\end{center}
 
 Like for like --- same GoEmotions prompt reader, same 607 emotional records, same measures, only the
 image reader varied: describe-then-extract reaches \textbf{53.0\%} emotion-family agreement against
@@ -359,7 +359,7 @@ the historical v1 record.)
 
 \subsection{Where the readers disagree}
 
-\begin{center}\includegraphics[width=0.8\textwidth]{../figures/fig6_confusion.pdf}\end{center}
+\begin{center}\includegraphics[width=0.8\textwidth]{../../../emoviz/outputs/figures/fig6_confusion.pdf}\end{center}
 
 Three families are too rare on the prompt side to support family-level claims (fear $n=16$, anger
 $n=12$, disgust $n=1$), and the image reader never returns disgust and returns fear four times across
@@ -370,7 +370,7 @@ side (ambiguous or mixed feelings), and 2 to a drawing that does not depict its 
 
 \subsection{What the reading rests on: the template ablation}
 
-\begin{center}\includegraphics[width=0.95\textwidth]{../figures/fig8_ablation.pdf}\end{center}
+\begin{center}\includegraphics[width=0.95\textwidth]{../../../emoviz/outputs/figures/fig8_ablation.pdf}\end{center}
 
 Each record's five cached describer answers were re-composed under an altered description template
 and only the NLI stage re-run (\texttt{ablate\_nli.py}); a control re-run of the unmodified template

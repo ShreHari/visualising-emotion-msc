@@ -77,7 +77,7 @@ value to the result file that produces it.
 
 % ---------------- dataset ----------------
 \section{The dataset --- and how every record is used}
-\begin{center}\includegraphics[width=0.98\textwidth]{../figures/fig5_dataset.pdf}\end{center}
+\begin{center}\includegraphics[width=0.98\textwidth]{../../../emoviz/outputs/figures/fig5_dataset.pdf}\end{center}
 
 1{,}025 text--image pairs from Festival of the Mind 2024 (Sheffield): visitors typed how they felt;
 DALL·E drew each entry as monochrome line art. Median prompt length is 4 words; mixed feelings
@@ -141,7 +141,7 @@ Florence-2 describer & Incompatible with transformers 5.14 (\texttt{forced\_bos\
 \section{Findings}
 
 \subsection{Finding 1 --- agreement is much higher where the describer reports a face}
-\begin{center}\includegraphics[width=0.9\textwidth]{../figures/fig1_face_vs_scene.pdf}\end{center}
+\begin{center}\includegraphics[width=0.9\textwidth]{../../../emoviz/outputs/figures/fig1_face_vs_scene.pdf}\end{center}
 Face-classified drawings (n=402) agree with the prompt reader on valence sign 73.9\% ($z\!=\!+10.4$;
 95\% CI [68.3, 79.2]) vs 42.9\% for scene-classified (n=205, $z\!=\!+5.8$; [33.1, 51.1]); family
 agreement 61.9\% vs 35.6\%. The difference is $+30.9$\,pp [$+22.6$, $+40.6$] (family $+26.3$\,pp
@@ -154,7 +154,7 @@ with the measure. Finding 5 makes this concrete: under a people-aware template t
 to their null, so the contrast is faces, and only faces, for this reader.
 
 \subsection{Finding 2 --- the specificity check passes}
-\begin{center}\includegraphics[width=0.72\textwidth]{../figures/fig3_z_by_prompt_group.pdf}\end{center}
+\begin{center}\includegraphics[width=0.72\textwidth]{../../../emoviz/outputs/figures/fig3_z_by_prompt_group.pdf}\end{center}
 Emotional prompts sit at $z\!\approx\!+12$ on valence--arousal; prompts the text reader labels
 neutral (``pigs'', ``mickey mouse'') sit at $z\!=\!+0.3$ --- indistinguishable from chance. Only the
 valence--arousal measure is informative on that subset (sign and family are degenerate by
@@ -162,7 +162,7 @@ construction); 68 of the 405 contain a plain affect word and two are a name alon
 335 give $z\!=\!+0.04$.
 
 \subsection{Finding 3 --- the same words do not reliably give the same reading}
-\begin{center}\includegraphics[width=0.98\textwidth]{../figures/fig4_consistency.pdf}\end{center}
+\begin{center}\includegraphics[width=0.98\textwidth]{../../../emoviz/outputs/figures/fig4_consistency.pdf}\end{center}
 Given an \emph{identical} prompt, the image reader returns the same family for 68.8\% of drawings
 within a group against a permutation null of 59.4\% ($z\!=\!+4.5$; valence 74.5\% vs 63.7\%); 28
 of 87 groups are fully consistent against 14.5 by chance (these pool corpus-wide repeats --- same text
@@ -171,7 +171,7 @@ bounds the whole prompt$\rightarrow$image$\rightarrow$reader chain). Half the gr
 (floor 50\%). ``happy'' \(\times\)42 produced 34 joy, 7 neutral, 1 surprise.
 
 \subsection{Finding 4 --- describe-then-extract agrees far more closely}
-\begin{center}\includegraphics[width=0.9\textwidth]{../figures/fig2_method_comparison.pdf}\end{center}
+\begin{center}\includegraphics[width=0.9\textwidth]{../../../emoviz/outputs/figures/fig2_method_comparison.pdf}\end{center}
 Like for like (same GoEmotions prompt reader, same 607 emotional records, same measures),
 describe$\rightarrow$extract reaches 53.0\% family agreement against 22.4\% for direct CLIP
 ($+30.6$\,pp [$+25.5$, $+35.6$], cluster-level $p < 0.0001$), 64.0\% vs 31.1\% on valence sign and
@@ -181,7 +181,7 @@ reader has ground truth: this ranks two image readers against a third model's la
 label-space audit) is the historical v1 record.
 
 \subsection{Finding 5 --- the reading rests on one word (template ablation)}
-\begin{center}\includegraphics[width=0.98\textwidth]{../figures/fig8_ablation.pdf}\end{center}
+\begin{center}\includegraphics[width=0.98\textwidth]{../../../emoviz/outputs/figures/fig8_ablation.pdf}\end{center}
 Each record's five cached describer answers were re-composed under an altered template and only the
 NLI stage re-run (\texttt{ablate\_nli.py}; a control re-run of the unmodified template reproduces
 every baseline number exactly). Removing the expression sentence collapses all-emotional family
