@@ -674,6 +674,21 @@
 %   \AblDropExpressionChanged   drop_expression: top-1 readings changed vs baseline
 %   \AblationAvailable          ablation summary present
 %   \HumanCheckAvailable        human check scored
+%   \HcN                        drawings coded
+%   \HcPeopleAcc                describer people-count accuracy vs coder
+%   \HcFaceAcc                  face-rule accuracy vs coder
+%   \HcFacePrec                 face-rule precision
+%   \HcFaceRec                  face-rule recall
+%   \HcSmileN                   'smiling' answers in the sample
+%   \HcSmileTrue                of which a readable positive face
+%   \HcSmileNoPerson            of which no person drawn
+%   \HcReaderSign               image reader vs coder, valence sign
+%   \HcReaderFam                image reader vs coder, family
+%   \HcReaderKappa              its kappa
+%   \HcPromptFace               prompt reader vs coder valence, coder says readable face
+%   \HcPromptScene              prompt reader vs coder valence, no readable face
+%   \HcPromptDiffPp             difference
+%   \HcPromptDiffZ              two-proportion z
 
 \newcommand{\nTotal}{1,025}
 \newcommand{\nPretest}{13}
@@ -1347,4 +1362,19 @@
 \newcommand{\AblDropExpressionNeutral}{368}
 \newcommand{\AblDropExpressionChanged}{671}
 \newcommand{\AblationAvailable}{yes}
-\newcommand{\HumanCheckAvailable}{no}
+\newcommand{\HumanCheckAvailable}{yes}
+\newcommand{\HcN}{120}
+\newcommand{\HcPeopleAcc}{87.5\% [80.4, 92.3]}
+\newcommand{\HcFaceAcc}{62.5\% [53.6, 70.6]}
+\newcommand{\HcFacePrec}{42.2\% [30.9, 54.4]}
+\newcommand{\HcFaceRec}{77.1\% [61.0, 87.9]}
+\newcommand{\HcSmileN}{77}
+\newcommand{\HcSmileTrue}{18.2\% [11.2, 28.2]}
+\newcommand{\HcSmileNoPerson}{50.6\% [39.7, 61.5]}
+\newcommand{\HcReaderSign}{71.0\% [58.7, 80.8]}
+\newcommand{\HcReaderFam}{40.8\% [32.5, 49.8]}
+\newcommand{\HcReaderKappa}{0.21}
+\newcommand{\HcPromptFace}{100.0\% [84.5, 100.0]}
+\newcommand{\HcPromptScene}{86.4\% [66.7, 95.3]}
+\newcommand{\HcPromptDiffPp}{+13.6~pp}
+\newcommand{\HcPromptDiffZ}{+1.8}

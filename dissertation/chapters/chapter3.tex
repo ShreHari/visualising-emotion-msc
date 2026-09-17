@@ -44,7 +44,6 @@ Records are not people. Among the \nAnalysed{} analysed records, \nRepeats{} are
 \label{fig:dataset}
 \end{figure}
 
-\placeholderfigure{fig:installation}{A photograph of the installation at the Festival of the Mind, Sheffield, September 2024.}{Optional. If no photograph is available, delete this placeholder line; nothing else refers to the label. If one is, credit the source in the caption.}
 
 \section{Data pre-processing}
 \label{sec:method-preprocessing}
@@ -79,7 +78,7 @@ Running the prompt reader again on the redacted text moved every family probabil
 
 \subsection{Prompt reader}
 
-The prompt reader is RoBERTa fine-tuned on GoEmotions \cite{demszky2020goemotions}, the \texttt{SamLowe/roberta-base-go\_emotions} checkpoint, roughly 125 million parameters. Its output is 28 probabilities, one per category. These are added up into the seven families the GoEmotions authors proposed (Appendix~\ref{app:instruments}), the seven sums are rescaled so that they add to one, and the top three are kept as the prompt reading. A prompt counts as emotional whenever its top family is anything other than neutral, which makes \nEmotional{} of the \nAnalysed{} analysed prompts emotional and \nNonEmotional{} neutral-labelled. Nobody checked those labels. They are the reader's opinion, so the neutral-labelled prompts are kept as a group of their own and audited (Section~\ref{sec:method-analyses}).
+The prompt reader is RoBERTa fine-tuned on GoEmotions \cite{demszky2020goemotions}, the \texttt{SamLowe/\allowbreak roberta-base-go\_emotions} checkpoint, roughly 125 million parameters. Its output is 28 probabilities, one per category. These are added up into the seven families the GoEmotions authors proposed (Appendix~\ref{app:instruments}), the seven sums are rescaled so that they add to one, and the top three are kept as the prompt reading. A prompt counts as emotional whenever its top family is anything other than neutral, which makes \nEmotional{} of the \nAnalysed{} analysed prompts emotional and \nNonEmotional{} neutral-labelled. Nobody checked those labels. They are the reader's opinion, so the neutral-labelled prompts are kept as a group of their own and audited (Section~\ref{sec:method-analyses}).
 
 GoEmotions was the third thing I tried on this side. My first pipeline used a hand-built lexicon, transparent but unable to represent ``calm but tired'' except by letting one word win, and the prompts are full of blends like that. I then put the same NLI model on both sides. On short prompts it over-read surprise. Roughly a third of the corpus was labelled surprise in that run, the hypothesis wording misfiring on two-word inputs. GoEmotions has no such artefact. It was trained on Reddit comments written in the first person, as close to a festival entry as training data gets, and swapping it in left every headline result where it was.
 
@@ -212,7 +211,12 @@ The list below follows the order of Chapter~\ref{ch:results}. Each analysis is o
 
 The pipeline also runs as a local Flask application, \texttt{app.py} with one page in \texttt{web/index.html}, on port 5050. It applies the real models to any analysed record or an uploaded image and shows the five answers, the sentence built from them, both readings, and the four measures against the null the analysis used, computed when the server starts from the result files. Three choices in the interface come straight from the methodology. The axis for valence--arousal similarity begins at 0.412, its floor, and the middle half of the random pairings is shaded across it, so a below-chance value sits visibly under the band. The verdict puts valence sign and family first and gives the loosest measure only as a percentile among the random pairings. A degenerate chance level is named as degenerate, with no number. The page stores nothing that is typed or uploaded, the request log is switched off, and it was never used to collect data.
 
-\placeholderfigure{fig:demo}{The demonstrator after running record 63, ``super tired'': the drawing, the five answers, the two readings and the verdict against the chance band.}{Run \texttt{bash emoviz/run\_interface.sh}, choose record 63, press Compare, screenshot the result panel and save it as \texttt{figures/demo\_screenshot.png}.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{demo_screenshot}
+\caption{The demonstrator's verdict after running record 63, ``super tired'', through the live models. Valence sign and family are reported first, each beside the chance level for that measure, and the third row gives the top-3 overlap. Valence--arousal similarity is not scored as a check but placed on its own axis on the right: the axis starts at its floor of 41, the shaded bracket is the middle half of the random pairings, the dashed mark is their mean and the solid mark is this record.}
+\label{fig:demo}
+\end{figure}
 
 \section{Reproducibility and testing}
 \label{sec:method-repro}

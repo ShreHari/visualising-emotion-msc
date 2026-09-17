@@ -42,6 +42,11 @@ All scripts are run with \texttt{emoviz/.venv/bin/python} from the \texttt{emovi
 \section{Environment}
 Python 3.12 with PyTorch 2.13 and Transformers 5.14, on an Apple-silicon laptop with 16~GB of memory; the models run on the Metal backend in half precision. The models are \texttt{SamLowe/roberta-base-go\_emotions} (about 125 million parameters), \texttt{Salesforce/blip-vqa-base} (about 385 million), \texttt{facebook/bart-large-mnli} (about 407 million) and OpenCLIP ViT-B/32 with LAION-2B weights for the comparison reader. The first run downloads about 3.5~GB of weights. The pipeline processed all \nTotal\ images without an unhandled error, which is a statement about robustness and not about correctness; the per-record time was between about one and twelve seconds, slowing when memory was short. Every random process is seeded (the analysis seed is \nullSeed).
 
-\placeholderfigure{fig:testsuite}{The automated self-test after a full run: the smoke suite followed by the pinned numeric checks (\texttt{bash emoviz/test.sh}).}{Terminal screenshot. Run \texttt{bash emoviz/test.sh} from the project folder, wait for the final summary lines, and capture the terminal window. Save as \texttt{figures/test\_suite.png} and replace this box with an \texttt{\textbackslash includegraphics} figure.}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\textwidth]{test_suite}
+\caption{The automated self-test after a full run (\texttt{bash emoviz/test.sh}): the environment and data checks, every analysis script run to a clean exit, the pinned numeric regression, the live pipeline over three fresh images, the redaction audit, and the figures rebuilt from the result files.}
+\label{fig:testsuite}
+\end{figure}
 
 \end{sloppypar}

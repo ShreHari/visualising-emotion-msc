@@ -1,11 +1,11 @@
 {
  "script": "inference.py",
- "generated": "2026-09-12T15:31:08",
+ "generated": "2026-09-17T21:14:15",
  "seed": 7,
  "bootstrap_draws": 10000,
  "permutation_draws": 1000,
  "null_shuffles": 300,
- "runtime_s": 17.8,
+ "runtime_s": 13.8,
  "quantity": "agreement between the prompt reader (GoEmotions on the self-report) and the image reader (zero-shot NLI on the BLIP-VQA description) \u2014 nothing here is a statement about what a person would see",
  "clustering": "every resample and permutation clusters on dedup_key (prompt identity): 249 of the 1,012 analysed records repeat an earlier prompt",
  "data": {

@@ -21,7 +21,7 @@
 % FIGURES_TO_ADD.md for the list and the instructions.
 
 \documentclass[11pt,oneside]{book}
-\usepackage[margin=1.2in]{geometry}
+\usepackage[a4paper,margin=1.2in]{geometry}
 \usepackage{setspace}
 \usepackage[toc,page]{appendix}
 \usepackage[none]{hyphenat} % turn hyphenation off by default (template setting)
@@ -40,7 +40,22 @@
 \usepackage{url}
 \usepackage[hidelinks]{hyperref}
 
+% Running head centred at the top of every page, per the School's format guidance
+% ("Each page should have a relevant header, centred at the top", e.g. "Chapter 3. Methodology").
+% \chaptername resolves to "Chapter" in the main matter and "Appendix" inside the appendices.
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter. #1}{}}
+% chapter-opening pages: no rule or running head, page number still centred at the foot
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+
 \emergencystretch 2em          % fewer overfull lines with hyphenation switched off
+\setlength{\tabcolsep}{3.5pt}  % tighter column padding so the wide generated tables fit the A4 block
 \captionsetup{font=small,labelfont=bf,width=0.92\textwidth}
 \setlist{itemsep=2pt,topsep=3pt}
 
@@ -92,7 +107,7 @@ September 2026
 
 All sentences or passages quoted in this report from other people's work have been specifically acknowledged by clear cross-referencing to author, work and page(s). Any illustrations that are not the work of the author of this report have been used with the explicit permission of the originator and are specifically acknowledged. I understand that failure to do this amounts to plagiarism and will be considered grounds for failure in this project and the degree examination as a whole.\\[1cm]
 
-\noindent Name:\\[1mm]
+\noindent Name: Shre Hari Prem Anandh\\[1mm]
 \rule[1em]{25em}{0.5pt}
 
 \noindent Signature:\\[1mm]
@@ -102,11 +117,10 @@ All sentences or passages quoted in this report from other people's work have be
 \rule[1em]{25em}{0.5pt}
 
 % -------------------------------------------------------------------
-% Abstract, glossary
+% Abstract  (the glossary is Appendix D, per the School's format guidance)
 % -------------------------------------------------------------------
 
 \input{chapters/abstract.tex}
-\input{chapters/glossary.tex}
 
 % -------------------------------------------------------------------
 % TOC etc
@@ -131,9 +145,12 @@ All sentences or passages quoted in this report from other people's work have be
 \bibliography{mybibliography}
 
 \begin{appendices}
+% inside the appendices the running head reads "Appendix A. ..." rather than "Chapter A. ..."
+\renewcommand{\chaptermark}[1]{\markboth{\appendixname\ \thechapter. #1}{}}
 \input{chapters/appendixA.tex}  % Reproducibility
 \input{chapters/appendixB.tex}  % Instruments
 \input{chapters/appendixC.tex}  % Supervision record
+\input{chapters/glossary.tex}   % Glossary (Appendix D)
 \end{appendices}
 
 \end{document}
