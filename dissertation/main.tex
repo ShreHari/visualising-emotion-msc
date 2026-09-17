@@ -1,0 +1,139 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COM Dissertation Project Template
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Based on template originally developed by
+% Prof. Roger K. Moore
+% University of Sheffield
+% 22 March 2017
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Updated 22 October 2025 (Mark Stevenson)
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% HOW THIS DOCUMENT IS BUILT (Overleaf: upload the whole dissertation/ folder as a zip, set
+% main.tex as the main document, compiler pdfLaTeX; it compiles with the default settings)
+%
+%   Locally:  pdflatex main && bibtex main && pdflatex main && pdflatex main
+%   Refresh the numbers and tables after any analysis change:  bash sync_generated.sh
+%
+% Every statistic in the text is a macro from generated/numbers.tex (for example \FullEmoSignObs{})
+% so the prose cannot drift from the analysis. No result number is typed by hand.
+% Boxes produced by \placeholderfigure are the images still to be added by hand; see
+% FIGURES_TO_ADD.md for the list and the instructions.
+
+\documentclass[11pt,oneside]{book}
+\usepackage[margin=1.2in]{geometry}
+\usepackage{setspace}
+\usepackage[toc,page]{appendix}
+\usepackage[none]{hyphenat} % turn hyphenation off by default (template setting)
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,calc,fit}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[most]{tcolorbox}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+
+\emergencystretch 2em          % fewer overfull lines with hyphenation switched off
+\captionsetup{font=small,labelfont=bf,width=0.92\textwidth}
+\setlist{itemsep=2pt,topsep=3pt}
+
+\graphicspath{{figures/}}
+\input{generated/numbers}
+
+% A visible box for an image the student still has to add. Arguments: label, caption, instructions.
+% Replace the whole \placeholderfigure line with a normal figure once the image exists, e.g.
+%   \begin{figure}[htbp]\centering\includegraphics[width=0.9\textwidth]{demo_screenshot}
+%   \caption{...}\label{fig:demo}\end{figure}
+\newcommand{\placeholderfigure}[3]{%
+\begin{figure}[htbp]
+\centering
+\begin{tcolorbox}[enhanced,width=0.92\textwidth,height=5.2cm,valign=center,halign=center,
+  colback=black!3,colframe=white,boxrule=0pt,arc=2pt,borderline={0.9pt}{0pt}{black!50,dashed}]
+\textbf{[ADD IMAGE HERE]}\\[5pt]
+\small #3
+\end{tcolorbox}
+\caption{#2}
+\label{#1}
+\end{figure}}
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+\begin{center}
+\includegraphics[width=5cm]{images/UOSLogo_Portrait_Violet_RGB.png}\\[2cm]
+\linespread{1.2}\huge {\bfseries Visualising Emotion: A Similarity-Based Analysis of Emotional Fidelity in Text-to-Image Generation}\\[2cm]
+\linespread{1}
+{\Large Shre Hari Prem Anandh}\\[1cm]
+{\large \emph{Supervisor:} Dr Chaona Chen}\\[1cm]
+\large \emph{A report submitted in fulfilment of the requirements}\\ \emph{for the degree of} MSc in Artificial Intelligence\\[0.3cm]
+\textit{in the}\\[0.3cm]
+School of Computer Science\\[2cm]
+September 2026
+\end{center}
+\end{titlepage}
+
+% -------------------------------------------------------------------
+% Declaration
+% -------------------------------------------------------------------
+
+\newpage
+\chapter*{\Large Declaration}
+
+\setstretch{1.1}
+
+All sentences or passages quoted in this report from other people's work have been specifically acknowledged by clear cross-referencing to author, work and page(s). Any illustrations that are not the work of the author of this report have been used with the explicit permission of the originator and are specifically acknowledged. I understand that failure to do this amounts to plagiarism and will be considered grounds for failure in this project and the degree examination as a whole.\\[1cm]
+
+\noindent Name:\\[1mm]
+\rule[1em]{25em}{0.5pt}
+
+\noindent Signature:\\[1mm]
+\rule[1em]{25em}{0.5pt}
+
+\noindent Date:\\[1mm]
+\rule[1em]{25em}{0.5pt}
+
+% -------------------------------------------------------------------
+% Abstract, glossary
+% -------------------------------------------------------------------
+
+\input{chapters/abstract.tex}
+\input{chapters/glossary.tex}
+
+% -------------------------------------------------------------------
+% TOC etc
+% -------------------------------------------------------------------
+
+\tableofcontents
+\listoffigures
+\listoftables
+
+\setstretch{1.1}
+
+\mainmatter
+
+\input{chapters/chapter1.tex}   % Introduction
+\input{chapters/chapter2.tex}   % Literature Review
+\input{chapters/chapter3.tex}   % Methodology
+\input{chapters/chapter4.tex}   % Results
+\input{chapters/chapter5.tex}   % Discussion
+\input{chapters/chapter6.tex}   % Conclusions and Further Work
+
+\bibliographystyle{acm}
+\bibliography{mybibliography}
+
+\begin{appendices}
+\input{chapters/appendixA.tex}  % Reproducibility
+\input{chapters/appendixB.tex}  % Instruments
+\input{chapters/appendixC.tex}  % Supervision record
+\end{appendices}
+
+\end{document}

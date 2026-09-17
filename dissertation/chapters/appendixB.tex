@@ -1,0 +1,83 @@
+\chapter{Instruments}
+\label{app:instruments}
+
+This appendix gives the fixed strings and tables the pipeline runs on, so that any number in the dissertation can be traced to the exact question, template or mapping that produced it.
+
+\section{The five describer questions}
+The describer is asked these questions in this order, and each answer is stored per record:
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item \emph{What is the facial expression?} (\texttt{expression})
+\item \emph{What is the person doing?} (\texttt{action})
+\item \emph{What is the body posture?} (\texttt{posture})
+\item \emph{How many people are there?} (\texttt{people})
+\item \emph{What is in the picture?} (\texttt{scene})
+\end{enumerate}
+None of the questions contains the word ``emotion''.
+
+\section{The description template}
+The five answers are put into one sentence:
+\begin{quote}\ttfamily
+A drawing of \{people\} showing \{scene\}. The person is \{action\}, \{posture\}. The facial expression is \{expression\}.
+\end{quote}
+The template is applied to every record, including those where \texttt{people} is ``0'' or ``none''. The ablation variants in Section~\ref{sec:results-ablation} drop one clause at a time, fix \texttt{expression} to ``unclear'', or (the people-aware variants) reduce the sentence to ``A drawing showing \{scene\}.'' wherever no person was reported.
+
+\section{The image reader's hypothesis}
+The image reader scores each family by entailment against the hypothesis
+\begin{quote}\ttfamily
+This scene conveys \{family\}.
+\end{quote}
+for the seven families in turn, and the three highest entailment scores are kept.
+
+\section{GoEmotions categories to families}
+\begin{description}\setlength{\itemsep}{1pt}
+\item[joy] admiration, amusement, approval, caring, desire, excitement, gratitude, joy, love, optimism, pride, relief
+\item[sadness] disappointment, embarrassment, grief, remorse, sadness
+\item[anger] anger, annoyance, disapproval
+\item[fear] fear, nervousness
+\item[surprise] surprise, realization, confusion, curiosity
+\item[disgust] disgust
+\item[neutral] neutral
+\end{description}
+A family's score is the sum of its members' probabilities, and the seven sums are normalised to a distribution. The grouping is the one proposed by the GoEmotions authors.
+
+\section{Family centroids on the circumplex}
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+Family & Valence & Arousal \\
+\midrule
+joy & $+0.80$ & $0.60$ \\
+sadness & $-0.75$ & $0.30$ \\
+anger & $-0.70$ & $0.80$ \\
+fear & $-0.65$ & $0.75$ \\
+surprise & $+0.30$ & $0.80$ \\
+disgust & $-0.70$ & $0.60$ \\
+neutral & $0.00$ & $0.30$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+The centroids were set by hand from the usual placement of the basic emotions on the circumplex. The smallest value of Equation~\ref{eq:va} over these seven points is $0.412$ (joy against sadness).
+
+\section{Readable expression words}
+A record is face-classified when the describer reports at least one person and its expression answer contains, as a whole token, one of:
+\begin{quote}
+smile, smiling, happy, sad, angry, serious, surprised, surprise, calm, excited, crying, laughing, frowning, scared, shocked, worried, concentration, concentrating, grin, grinning, neutral, confused, determined, pensive, sleepy, sleeping.
+\end{quote}
+The people count is parsed from digits or number words (none, one, two, \ldots, several, many, crowd, group, lots). A non-empty answer that is neither is taken to mean at least one person is present.
+
+\section{Name redaction procedure}
+\begin{enumerate}\setlength{\itemsep}{1pt}
+\item \textbf{Detect.} Candidates come from three detectors: a given-name gazetteer (7,944 names), mid-sentence capitalised tokens that are absent from a 236,000-word English dictionary, and naming phrases such as ``called X'' and ``my friend X''. Recall matters more than precision here because most prompts are typed in lower case.
+\item \textbf{Review.} Every candidate has a recorded decision (redact or keep) with a reason, and each redaction is tied to the record it was reviewed in. The audit fails if any candidate has no decision or if a redaction entry no longer matches anything.
+\item \textbf{Apply.} At load time, per record, the token is replaced by \texttt{[name]}; consecutive placeholders collapse to one. The files on disk are never changed. Words about illness, grief and places are kept.
+\end{enumerate}
+
+\section{Single-coder check: coding instructions}
+The coder works from numbered contact sheets that show only the drawings and fills four columns per drawing:
+\begin{description}\setlength{\itemsep}{1pt}
+\item[person] y / n: is at least one person or face drawn?
+\item[face] y / n: is there a face whose expression can be read? (n if there is no person)
+\item[valence] $+$ / $-$ / 0: the feeling the drawing gives, positive, negative or neither
+\item[family] joy / sadness / anger / fear / surprise / disgust / neutral
+\end{description}
+The sample is fixed by seed: 120 drawings, made up of 40 face-classified records, 40 scene-classified records with no people reported, and every record whose people answer was vague or a bare word, topped up equally from the first two strata. The prompt, the description and the model readings are not shown during coding.

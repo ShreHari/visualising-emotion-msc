@@ -95,3 +95,7 @@ Similarity not matching is the novel contribution · describe the image then ext
 - `project_notes/viva_preparation/` — A-to-Z explainer, viva question bank, mock viva, revision sheet.
 - `project_notes/explainers/PROJECT_EXPLAINED.pdf` — plain-English account of the whole project.
 - `university_guidelines/Marking_criteria_PGT_2025-26.txt` — the marking bands.
+
+## 12-13 September 2026: the rewrite
+
+The dissertation now lives in `dissertation/`, a self-contained Overleaf project (`main.tex`). `report/` is the superseded 9 September draft, kept for reference only. Read `dissertation/README.md` and `dissertation/FIGURES_TO_ADD.md` first; the writing contract and the checkers are in `dissertation/build_notes/`. It builds to 83 pages with no errors, and the abstract and chapters come to about 16,850 words.
