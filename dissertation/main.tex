@@ -21,9 +21,11 @@
 % FIGURES_TO_ADD.md for the list and the instructions.
 
 \documentclass[11pt,oneside]{book}
-\usepackage[a4paper,margin=1.2in]{geometry}
+% Sheffield COM spec: allow for left-edge binding -- 37 mm left, 25 mm right.
+\usepackage[a4paper,left=37mm,right=25mm,top=30mm,bottom=30mm]{geometry}
 \usepackage{setspace}
 \usepackage[toc,page]{appendix}
+\usepackage[T1]{fontenc}       % proper braces in typewriter text, correct accented names in the bibliography
 \usepackage[none]{hyphenat} % turn hyphenation off by default (template setting)
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb}
@@ -51,8 +53,9 @@
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\chaptermark}[1]{\markboth{\chaptername\ \thechapter. #1}{}}
-% chapter-opening pages: no rule or running head, page number still centred at the foot
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+% chapter-opening pages carry the same centred running head, so every page has one
+\fancypagestyle{plain}{\fancyhf{}\fancyhead[C]{\small\nouppercase{\leftmark}}%
+  \fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.4pt}}
 
 \emergencystretch 2em          % fewer overfull lines with hyphenation switched off
 \setlength{\tabcolsep}{3.5pt}  % tighter column padding so the wide generated tables fit the A4 block
