@@ -56,6 +56,11 @@
 % chapter-opening pages carry the same centred running head, so every page has one
 \fancypagestyle{plain}{\fancyhf{}\fancyhead[C]{\small\nouppercase{\leftmark}}%
   \fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0.4pt}}
+% the appendix package clears the running head on its "Appendices" divider page; name it instead
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\@chap@pppage}{\markboth{}{}}{\markboth{\appendixpagename}{\appendixpagename}}{}{}
+\makeatother
 
 \emergencystretch 2em          % fewer overfull lines with hyphenation switched off
 \setlength{\tabcolsep}{3.5pt}  % tighter column padding so the wide generated tables fit the A4 block
@@ -105,6 +110,7 @@ September 2026
 
 \newpage
 \chapter*{\Large Declaration}
+\markboth{Declaration}{Declaration}
 
 \setstretch{1.1}
 
@@ -113,10 +119,11 @@ All sentences or passages quoted in this report from other people's work have be
 \noindent Name: Shre Hari Prem Anandh\\[1mm]
 \rule[1em]{25em}{0.5pt}
 
-\noindent Signature:\\[1mm]
+% the signature image is kept out of the repository; without it this line builds blank
+\noindent Signature: \IfFileExists{images/signature.png}{\raisebox{-0.35\height}{\includegraphics[height=1.1cm]{images/signature.png}}}{}\\[1mm]
 \rule[1em]{25em}{0.5pt}
 
-\noindent Date:\\[1mm]
+\noindent Date: 21 September 2026\\[1mm]
 \rule[1em]{25em}{0.5pt}
 
 % -------------------------------------------------------------------

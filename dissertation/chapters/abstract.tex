@@ -1,4 +1,5 @@
 \chapter*{\Large \center Abstract}
+\markboth{Abstract}{Abstract}
 
 Visitors to Sheffield's Festival of the Mind typed how they felt and a text-to-image installation answered each entry with a monochrome line drawing. That left \nTotal{} unlabelled prompt--drawing records, of which \nAnalysed{} are analysed here. Nobody rated the drawings, so there is no ground truth. The question asked instead is whether one model's reading of a drawing agrees with another model's reading of its prompt. The prompt reader is RoBERTa fine-tuned on GoEmotions. The image reader is describe-then-extract, where BLIP-VQA is asked five factual questions and BART-MNLI reads an emotion family from the resulting description. On the supervisor's advice the readings are scored on a four-rung similarity ladder, from valence--arousal similarity to family agreement, and never matched label to label. Because valence--arousal similarity cannot fall below 0.412, with random pairs averaging \FullNeuVaNull{}, every score is reported beside its random-pairing null, and because \nRepeats{} records repeat a prompt, the intervals and tests are clustered on prompt groups.
 

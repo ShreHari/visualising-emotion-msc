@@ -1,9 +1,17 @@
 # Handoff — Visualising Emotion (MSc AI dissertation)
 
-Read this first in a new session. State of the project on **18 September 2026**.
+Read this first in a new session. State of the project on **21 September 2026**.
 
-**Submission: Wednesday 23 September 2026.** Five days left. Confirm the exact time and hand-in
-route on Blackboard / COM Projects; the original deadline was 15:00 before the extension.
+**SUBMITTED on Monday 21 September 2026**, before the extended deadline (15:00, Wednesday
+23 September). Route "as is": Submission Link A (Turnitin, the dissertation PDF), Link C (the
+submission form, 18:14) and Link D (the code zip, 18:16); Links B1/B2 were not needed. Blackboard
+tags the submissions "(Late)" because it still shows the original 16 September due date; the
+extension removes the penalty.
+
+**Submission proof** (receipts, the exact files submitted, screenshots, and a README with SHA-256
+checksums) is in `~/Desktop/COM6912_Submission_Proof/`, outside the repository on purpose because
+it holds personal correspondence. On 21 September the one item still to add was the Link A
+Turnitin digital receipt.
 
 ---
 
@@ -26,19 +34,25 @@ with clustered bootstrap CIs and clustered permutation tests because 249 records
 
 ---
 
-## 2. THE DISSERTATION IS FINISHED
+## 2. THE DISSERTATION IS FINISHED AND SUBMITTED
 
 `dissertation/main.pdf` — **81 pages, A4, 0 errors, 0 undefined references, 0 placeholders,
 0 TODOs.** All eight objectives met. It builds clean from scratch.
 
-### The only things left, and both are the student's to do by hand
+### The signature is kept out of the repository
 
-| # | Task | Where |
-|---|---|---|
-| 1 | **Sign the Declaration** | `main.tex`, the `Signature:` rule. The name is already filled in |
-| 2 | **Fill the date** | `main.tex`, the `Date:` rule. Student asked for this to be left blank |
+The Declaration is dated 21 September 2026 and was signed for submission. LaTeX places the
+signature from `dissertation/images/signature.png`, which is git-ignored, and `main.tex` leaves the
+line blank when that file is absent. **The committed `main.pdf` is unsigned on purpose**; its text is
+identical to the submitted PDF. The signed PDF that was submitted is
+`PremAnandh_ShreHari_COM6912_Dissertation.pdf` (SHA-256 `2c45fddd…`), kept at the repo root
+(git-ignored) and in the proof folder. A local rebuild with the signature file present makes a
+signed `main.pdf` again: **do not commit that one.**
 
-That is genuinely everything. Do not go looking for more work unless the student asks.
+Never sign with macOS Preview. Re-saving through Preview garbled the PDF text layer at the ff/fi/ffl
+ligatures ("di#erence", "She!eld"), which Turnitin would flag as replaced characters.
+
+Nothing is left to do. Do not go looking for more work unless the student asks.
 
 ### Do not re-do these — they are done and verified
 
@@ -48,6 +62,10 @@ That is genuinely everything. Do not go looking for more work unless the student
 - Formatting brought to the School spec (see §5)
 - First person converted: 107 → 1 (the Declaration boilerplate, which must stay)
 - Similarity check: **11%**, 0 missing citations, nothing above 3% from one source
+- Final audit, 21 September: every citation re-read against its source; four mis-stated claims
+  (references [39], [47], [65], [90]) and one overstatement (Alvarado, on colour) corrected in seven
+  sentences. Running heads added to the Declaration, Abstract and Appendices pages, Table 4.6
+  padding fixed, Figures 3.6 and A.1 referenced in the text
 
 ---
 
@@ -62,12 +80,18 @@ That is genuinely everything. Do not go looking for more work unless the student
 | `university_guidelines/` | Marking criteria, project spec, template, lectures |
 | `project_notes/` | `meetings/`, `presentation/`, `viva_preparation/`, `explainers/`, `literature/`, `drafts/`, `archive/` |
 
-`dissertation copy/`, `dissertation copy.zip` and `dissertation_overleaf.zip` are untracked
-duplicates/build artefacts. The Overleaf upload zip is regenerated on demand (§4).
+Local-only files at the repo root, all git-ignored: the two files as submitted
+(`PremAnandh_ShreHari_COM6912_Dissertation.pdf`, signed, and `PremAnandh_ShreHari_COM6912_Code.zip`),
+`LinkC_title_and_abstract.txt` (the title and abstract entered in Link C), a copy of university
+correspondence, and the duplicates `dissertation copy/`, `dissertation copy.zip` and
+`dissertation_overleaf.zip` (the Overleaf zip holds the signature). The Overleaf upload zip is
+regenerated on demand (§4).
 
 GitHub: `github.com/ShreHari/visualising-emotion-msc` — **must stay private until after results.**
 Never commit `02AI_drawing_data/`, `emoviz/private/` (redaction decision table, names real people),
-`*.prename` / `*.nodedup` backups, or the literature PDFs. `.gitignore` covers all of these.
+`*.prename` / `*.nodedup` backups, the literature PDFs, the signature image, a signed `main.pdf`, or
+the local-only files above. `.gitignore` covers all of these except a signed `main.pdf`, which is a
+tracked file and has to be checked by hand.
 
 ---
 
@@ -93,7 +117,8 @@ cd dissertation && zip -rq ../dissertation_overleaf.zip . -x '.DS_Store' '*/.DS_
 ```
 
 Zip the **contents**, not the folder, so `main.tex` lands at the zip root. Overleaf: New Project →
-Upload Project → compiler pdfLaTeX → defaults.
+Upload Project → compiler pdfLaTeX → defaults. The zip picks up `images/signature.png` when it is
+present, so keep it private.
 
 > **Known environment quirk:** `grep -c` silently returns nothing in this shell. It once reported
 > exit 1 for a string on line 1 of a file, which produced two wrong status reports. **Count things

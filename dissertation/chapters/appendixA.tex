@@ -35,7 +35,7 @@ This appendix lists what is in the code folder, the order in which the scripts r
 \item \texttt{data\_audit\_consistency.py}, \texttt{audits.py}, \texttt{error\_taxonomy.py} and \texttt{ablate\_nli.py} (the ablation takes about half an hour because it re-runs the entailment model).
 \item \texttt{human\_check.py sample}, then code \texttt{outputs/human\_check/labels.csv} from the sheets, then \texttt{human\_check.py score}.
 \item \texttt{make\_figures.py} and \texttt{export\_tex.py}, then build this document with \texttt{pdflatex}, \texttt{bibtex}, and \texttt{pdflatex} twice more.
-\item \texttt{bash emoviz/test.sh} runs everything above that is fast, plus \texttt{test\_numeric.py}.
+\item \texttt{bash emoviz/test.sh} runs everything above that is fast, plus \texttt{test\_numeric.py} (Figure~\ref{fig:testsuite}).
 \end{enumerate}
 All scripts are run with \texttt{emoviz/.venv/bin/python} from the \texttt{emoviz/} directory. The dataset folder sits next to \texttt{emoviz/} and is never copied or uploaded.
 

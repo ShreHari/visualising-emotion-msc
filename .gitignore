@@ -44,3 +44,17 @@ emoviz/outputs/app.log
 emoviz/outputs/human_check/sheet_*.png
 .DS_Store
 **/~$*
+
+# the student's signature image: keep it out of the repository
+dissertation/images/signature.png
+
+# local only, never committed: the files as submitted (the PDF is signed), the Link C text,
+# university correspondence, the Overleaf exports (they hold the signature) and a chat export
+/PremAnandh_ShreHari_COM6912_*
+/LinkC_title_and_abstract.txt
+/University of Sheffield Mail*
+/dissertation copy/
+/dissertation copy.zip
+/dissertation_overleaf*.zip
+emoviz/2026-09-12-190329-local-command-caveatcaveat-the-messages-below.txt
+emoviz/outputs/human_check/labels.csv.bak
